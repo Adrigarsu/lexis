@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Inicio (móvil, oscuro) · Lexis</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Noto+Sans+SC:wght@400;500&amp;family=Noto+Serif+SC:wght@400;500&amp;display=swap">
+<style>
+body{margin:0}
+a{color:#0E7C6B}a:hover{color:#0A5C50}
+</style>
+<link rel="stylesheet" href="../assets/lexis.css">
+<script src="../assets/dc-runtime.js"></script>
+</head>
+<body style="margin:0">
+<div id="dc-root"></div>
+<template id="dc-template">
+<div class="lx" data-theme="{{ tema }}" style="width: 390px; height: 844px; box-sizing: border-box; background: var(--paper); color: var(--ink); display: flex; flex-direction: column; overflow: hidden">
+  <header style="display: flex; align-items: flex-end; justify-content: space-between; padding: var(--space-6) var(--space-5) var(--space-2)">
+    <div style="display: flex; flex-direction: column; gap: 2px">
+      <span style="font: 500 13px/18px var(--font-sans); color: var(--ink-2)">Lunes, 9 de noviembre</span>
+      <h1 style="margin: 0; font: 700 28px/34px var(--font-sans); letter-spacing: -0.01em">Hoy</h1>
+    </div>
+    <span class="lx-save"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17.5 19H7a5 5 0 1 1 1.6-9.7A6 6 0 0 1 20 11a4 4 0 0 1-2.5 8z"/><path d="m9 14 2 2 4-4"/></svg>Guardado en la nube</span>
+  </header>
+
+  <main style="flex: 1; overflow: hidden; padding: var(--space-3) var(--space-5); display: flex; flex-direction: column; gap: var(--space-4)">
+    <a class="lx-card lx-card--hero" href="C-Ficha.dc.html" style="position: relative; overflow: hidden; min-height: 132px; justify-content: flex-end; gap: var(--space-1)">
+      <span lang="zh-Hans" aria-hidden="true" style="position: absolute; right: -6px; top: -18px; font: 400 128px/1 var(--font-kai); color: var(--on-jade); opacity: 0.16">学</span>
+      <span style="font: 700 22px/28px var(--font-sans)">Estudiar hoy</span>
+      <span class="lx-card__meta">[18] repasos · [5] nuevas · unos [15] min</span>
+      <span style="position: absolute; right: var(--space-5); bottom: var(--space-5); display: flex"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+    </a>
+
+    <section style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-3)">
+      <div class="lx-card">
+        <span class="lx-card__eyebrow">Racha</span>
+        <div style="display: flex; align-items: center; gap: var(--space-2)">
+          <span aria-hidden="true" style="width: 28px; height: 28px; border-radius: var(--radius-sm); background: var(--seal); color: var(--paper); display: grid; place-items: center; font: 400 17px/1 var(--font-kai)">日</span>
+          <span style="font: 700 22px/28px var(--font-sans)">[12] días</span>
+        </div>
+        <span class="lx-card__meta" style="font-size: 13px">[1] de 2 descansos usados</span>
+      </div>
+      <div class="lx-card">
+        <span class="lx-card__eyebrow">Esta semana</span>
+        <span style="font: 700 22px/28px var(--font-sans)">[74] min</span>
+        <span class="lx-card__meta" style="font-size: 13px">Meta: [105] min</span>
+      </div>
+    </section>
+
+    <section class="lx-card" style="gap: var(--space-3)">
+      <div style="display: flex; justify-content: space-between; align-items: baseline">
+        <h2 class="lx-card__title" style="font-size: 16px">HSK 1</h2>
+        <span class="lx-card__meta" style="font-size: 13px">[64] / 300 palabras</span>
+      </div>
+      <div class="lx-progress"><div class="lx-progress__head"><span>Significado</span><b>38 %</b></div><div class="lx-progress__track"><div class="lx-progress__fill" style="width: 38%"></div></div></div>
+      <div class="lx-progress"><div class="lx-progress__head"><span>Escritura</span><b>14 %</b></div><div class="lx-progress__track"><div class="lx-progress__fill" style="width: 14%"></div></div></div>
+      <div class="lx-progress"><div class="lx-progress__head"><span>Pronunciación</span><b>18 %</b></div><div class="lx-progress__track"><div class="lx-progress__fill" style="width: 18%"></div></div></div>
+    </section>
+
+    <section class="lx-card" style="flex-direction: row; align-items: center; gap: var(--space-3)">
+      <div style="flex: 1; display: flex; flex-direction: column; gap: var(--space-1)">
+        <span class="lx-card__eyebrow">Lectura recomendada · conoces el [91] %</span>
+        <div style="display: flex; align-items: baseline; gap: var(--space-2); flex-wrap: wrap">
+          <ruby class="lx-hz" lang="zh-Hans" style="font-size: 22px; line-height: 1.9"><span class="t4">在</span><rt class="t4" style="font-size: 11px">zài</rt><span class="t1">商</span><rt class="t1" style="font-size: 11px">shāng</rt><span class="t4">店</span><rt class="t4" style="font-size: 11px">diàn</rt></ruby>
+          <span style="font: 500 15px/20px var(--font-sans)">En la tienda</span>
+        </div>
+      </div>
+      <a class="lx-btn lx-btn--secondary" href="C-Lectura.dc.html" style="min-height: 44px; padding: 0 var(--space-4); font-size: 15px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path d="M19 19v2H6"/></svg>Leer</a>
+    </section>
+  </main>
+
+  <nav class="lx-tabbar" aria-label="Navegación principal">
+    <a href="C-Inicio.dc.html" aria-current="page"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11 12 4l9 7v9h-6v-6H9v6H3z"/></svg>Hoy</a>
+    <a href="C-Practicar.dc.html"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M8 9h8M8 13h5"/></svg>Practicar</a>
+    <a href="C-Progreso.dc.html"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg>Progreso</a>
+    <a href="C-Perfil.dc.html"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>Perfil</a>
+  </nav>
+</div>
+</template>
+<script type="text/x-dc" data-props='{"tema":{"editor":"enum","options":["claro","oscuro"],"default":"oscuro","section":"Tema"},"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return { tema: this.props.tema ?? 'oscuro' };
+  }
+}
+</script>
+</body>
+</html>

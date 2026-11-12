@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="es">
+<head>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500&family=Noto+Serif+SC:wght@400;500&display=swap">
+<link rel="stylesheet" href="../../pantallas/assets/lexis.css">
+<meta charset="utf-8">
+<title>Barra de progreso</title>
+<style>
+body{margin:0;background:var(--paper)}
+.stage{padding:var(--space-6);display:flex;flex-direction:column;gap:var(--space-5)}
+.row{display:flex;flex-wrap:wrap;gap:var(--space-3);align-items:center}
+.cap{font:500 12px/16px var(--font-sans);color:var(--ink-2);margin:0 0 var(--space-2)}
+.col{display:flex;flex-direction:column;gap:var(--space-2);min-width:220px;flex:1}
+</style>
+</head>
+<body>
+<div class="lx stage">
+<div style="max-width:420px;display:flex;flex-direction:column;gap:var(--space-4)">
+<div class="lx-progress"><div class="lx-progress__head"><span>Significado</span><b>[38] %</b></div><div class="lx-progress__track" role="progressbar" aria-label="Significado" aria-valuenow="38" aria-valuemin="0" aria-valuemax="100"><div class="lx-progress__fill" style="width:38%"></div></div></div>
+<div class="lx-progress"><div class="lx-progress__head"><span>Escritura</span><b>[14] %</b></div><div class="lx-progress__track" role="progressbar" aria-label="Escritura" aria-valuenow="14" aria-valuemin="0" aria-valuemax="100"><div class="lx-progress__fill" style="width:14%"></div></div></div>
+<div class="lx-progress lx-progress--thin"><div class="lx-progress__head"><span>[7] de [23] · unos [11] min restantes</span></div><div class="lx-progress__track" role="progressbar" aria-label="Progreso de la sesión" aria-valuenow="7" aria-valuemin="0" aria-valuemax="23"><div class="lx-progress__fill" style="width:30%"></div></div></div>
+</div>
+</div>
+</body>
+</html>

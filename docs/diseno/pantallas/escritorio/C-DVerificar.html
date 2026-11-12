@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Verificar email (escritorio) · Lexis</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Noto+Sans+SC:wght@400;500&amp;family=Noto+Serif+SC:wght@400;500;900&amp;display=swap">
+<style>
+body{margin:0}
+a{color:var(--jade)}a:hover{color:var(--ink)}
+[role="status"] a{color:var(--ink)}
+input:focus-visible,button:focus-visible,a:focus-visible{outline:2px solid #18181b;outline-offset:2px}
+</style>
+<link rel="stylesheet" href="../assets/lexis.css">
+<script src="../assets/dc-runtime.js"></script>
+</head>
+<body style="margin:0">
+<div id="dc-root"></div>
+<template id="dc-template">
+<div class="lx" data-theme="{{ tema }}" style="min-height: 860px; box-sizing: border-box; background: var(--surface-sunken); font-family: var(--font-sans); color: var(--ink); display: flex; flex-direction: column; align-items: center; padding: 32px 24px">
+  <header style="width: 100%; max-width: 1040px; display: flex; align-items: center; min-height: 44px"><span style="display: inline-flex; align-items: center; gap: 8px; font-size: 18px; font-weight: 700"><span aria-hidden="true" style="width: 26px; height: 26px; flex: none; box-sizing: border-box; display: grid; place-items: center; border: 2.5px solid var(--jade); border-radius: 4px; color: var(--jade); font: 900 15px/1 'Noto Serif SC', serif">词</span>Lexis</span></header>
+  <main style="width: 100%; max-width: 440px; margin: 32px 0; padding: 32px; box-sizing: border-box; background: var(--surface); border: 1px solid var(--line); border-radius: 16px; display: flex; flex-direction: column; gap: 24px">
+    <div style="display: flex; flex-direction: column; gap: 8px; text-align: center">
+      <h1 style="margin: 0; font-size: 26px; font-weight: 700">Verifica tu email</h1>
+      <p style="margin: 0; font-size: 15px; color: var(--ink-2)">Escribe el código de 6 cifras que hemos enviado a</p>
+    </div>
+    <sc-if value="{{ viewing }}" hint-placeholder-val="{{ true }}">
+      <div style="display: flex; align-items: center; justify-content: center; gap: 10px; flex-wrap: wrap">
+        <strong style="font-size: 15px">[tu email]</strong>
+        <button onClick="{{ edit }}" style="min-height: 36px; padding: 0 10px; border: 0; background: transparent; font: inherit; font-size: 14px; text-decoration: underline; color: var(--ink)">¿No es tu email? Corregir</button>
+      </div>
+    </sc-if>
+    <sc-if value="{{ editing }}" hint-placeholder-val="{{ false }}">
+      <div style="display: flex; gap: 8px">
+        <label style="flex: 1; display: flex; flex-direction: column; gap: 6px; font-size: 13px; font-weight: 600">Email correcto<input type="email" value="[tu email]" style="width: 100%; box-sizing: border-box; min-height: 52px; padding: 0 14px; border: 1px solid var(--line-strong); border-radius: 10px; font: inherit; font-size: 16px; color: var(--ink); background: var(--surface)"></label>
+        <button onClick="{{ save }}" style="align-self: flex-end; min-height: 52px; padding: 0 14px; border: 1px solid var(--line-strong); border-radius: 10px; background: var(--surface); font: inherit; font-size: 14px; font-weight: 600; color: var(--ink)">Enviar código</button>
+      </div>
+    </sc-if>
+    <fieldset style="margin: 0; padding: 0; border: 0; display: flex; flex-direction: column; gap: 10px">
+      <legend style="position: absolute; width: 1px; height: 1px; overflow: hidden">Código de verificación</legend>
+      <div style="display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 8px"><input inputmode="numeric" maxlength="1" aria-label="Cifra 1" value="4" style="width: 100%; min-width: 0; height: 56px; box-sizing: border-box; border: 1px solid var(--line-strong); border-radius: 10px; text-align: center; font: inherit; font-size: 24px; font-weight: 600; color: var(--ink); background: var(--surface)"><input inputmode="numeric" maxlength="1" aria-label="Cifra 2" value="8" style="width: 100%; min-width: 0; height: 56px; box-sizing: border-box; border: 1px solid var(--line-strong); border-radius: 10px; text-align: center; font: inherit; font-size: 24px; font-weight: 600; color: var(--ink); background: var(--surface)"><input inputmode="numeric" maxlength="1" aria-label="Cifra 3" value="2" style="width: 100%; min-width: 0; height: 56px; box-sizing: border-box; border: 1px solid var(--line-strong); border-radius: 10px; text-align: center; font: inherit; font-size: 24px; font-weight: 600; color: var(--ink); background: var(--surface)"><input inputmode="numeric" maxlength="1" aria-label="Cifra 4" value="" style="width: 100%; min-width: 0; height: 56px; box-sizing: border-box; border: 1px solid var(--line-strong); border-radius: 10px; text-align: center; font: inherit; font-size: 24px; font-weight: 600; color: var(--ink); background: var(--surface)"><input inputmode="numeric" maxlength="1" aria-label="Cifra 5" value="" style="width: 100%; min-width: 0; height: 56px; box-sizing: border-box; border: 1px solid var(--line-strong); border-radius: 10px; text-align: center; font: inherit; font-size: 24px; font-weight: 600; color: var(--ink); background: var(--surface)"><input inputmode="numeric" maxlength="1" aria-label="Cifra 6" value="" style="width: 100%; min-width: 0; height: 56px; box-sizing: border-box; border: 1px solid var(--line-strong); border-radius: 10px; text-align: center; font: inherit; font-size: 24px; font-weight: 600; color: var(--ink); background: var(--surface)"></div>
+      <span style="text-align: center; font-size: 13px; color: var(--ink-2)">Caduca en 10 minutos · 5 intentos</span>
+    </fieldset>
+    <a href="C-DMetas.dc.html" style="min-height: 52px; display: flex; align-items: center; justify-content: center; border-radius: 10px; background: var(--jade); color: var(--on-jade); text-decoration: none; font-size: 16px; font-weight: 600">Verificar</a>
+    <button disabled style="min-height: 48px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); font: inherit; font-size: 15px; color: var(--ink-2)">Reenviar código en [60] s</button>
+  </main>
+</div>
+</template>
+<script type="text/x-dc" data-props='{"tema":{"editor":"enum","options":["claro","oscuro"],"default":"claro","section":"Tema"},"$preview":{"width":1280,"height":860}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { editing: false };
+  }
+  renderVals() {
+    const __tema = this.props.tema ?? 'claro';
+    const e = this.state.editing;
+    return { tema: __tema, 
+      viewing: !e,
+      editing: e,
+      edit: () => this.setState({ editing: true }),
+      save: () => this.setState({ editing: false })
+    };
+  }
+}
+</script>
+</body>
+</html>

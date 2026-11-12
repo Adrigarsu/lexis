@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Admin: editar palabra · Lexis</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Noto+Sans+SC:wght@400;500&amp;family=Noto+Serif+SC:wght@400;500;900&amp;display=swap">
+<style>
+body{margin:0}
+a{color:var(--jade)}a:hover{color:var(--ink)}
+[role="status"] a{color:var(--ink)}
+</style>
+<link rel="stylesheet" href="../assets/lexis.css">
+<script src="../assets/dc-runtime.js"></script>
+</head>
+<body style="margin:0">
+<div id="dc-root"></div>
+<template id="dc-template">
+<div class="lx" data-theme="{{ tema }}" style="position: relative; min-height: 860px; box-sizing: border-box; background: var(--surface-sunken); font-family: var(--font-sans); color: var(--ink); display: flex">
+  <nav aria-label="Administración" style="width: 248px; flex: none; box-sizing: border-box; padding: 20px 12px; border-right: 1px solid var(--line); background: var(--surface); display: flex; flex-direction: column; gap: 2px">
+    <div style="padding: 0 12px 16px; display: flex; flex-direction: column; gap: 2px">
+      <span style="display: inline-flex; align-items: center; gap: 8px; font-size: 18px; font-weight: 700"><span aria-hidden="true" style="width: 26px; height: 26px; flex: none; box-sizing: border-box; display: grid; place-items: center; border: 2.5px solid var(--jade); border-radius: 4px; color: var(--jade); font: 900 15px/1 'Noto Serif SC', serif">词</span>Lexis</span>
+      <span style="font-size: 12px; font-weight: 600; color: var(--ink-2)">Administración</span>
+    </div>
+    <a href="C-AResumen.dc.html" style="min-height: 40px; display: flex; align-items: center; gap: 10px; padding: 0 12px; border-radius: 8px; text-decoration: none; font-size: 14px; color: var(--ink-2)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 11 12 4l9 7v9h-6v-6H9v6H3z"/></svg>Resumen</a><span style="padding: 16px 12px 6px; font-size: 11px; font-weight: 600; letter-spacing: 0.06em; color: var(--ink-2)">CONTENIDO</span><a href="C-APalabras.dc.html" aria-current="page" style="min-height: 40px; display: flex; align-items: center; gap: 10px; padding: 0 12px; border-radius: 8px; text-decoration: none; font-size: 14px; background: var(--surface-sunken); font-weight: 600; color: var(--ink)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 7h12v13H4zM8 4h12v13"/></svg>Palabras<span style="margin-left: auto; font-size: 12px; color: var(--ink-2)">[88] sin significado</span></a><a href="C-ACaracteres.dc.html" style="min-height: 40px; display: flex; align-items: center; gap: 10px; padding: 0 12px; border-radius: 8px; text-decoration: none; font-size: 14px; color: var(--ink-2)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 20h4L19 9l-4-4L4 16z"/></svg>Caracteres y radicales</a><a href="C-AGramatica.dc.html" style="min-height: 40px; display: flex; align-items: center; gap: 10px; padding: 0 12px; border-radius: 8px; text-decoration: none; font-size: 14px; color: var(--ink-2)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 3h8v8H3zM13 13h8v8h-8z"/></svg>Gramática</a><a href="C-ALectura.dc.html" style="min-height: 40px; display: flex; align-items: center; gap: 10px; padding: 0 12px; border-radius: 8px; text-decoration: none; font-size: 14px; color: var(--ink-2)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2zM4 5v14"/></svg>Lecturas</a><a href="C-APalabras.dc.html" style="min-height: 40px; display: flex; align-items: center; gap: 10px; padding: 0 12px; border-radius: 8px; text-decoration: none; font-size: 14px; color: var(--ink-2)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h10"/></svg>Niveles y cursos</a><a href="C-AImportar.dc.html" style="min-height: 40px; display: flex; align-items: center; gap: 10px; padding: 0 12px; border-radius: 8px; text-decoration: none; font-size: 14px; color: var(--ink-2)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M4 21h16"/></svg>Importar</a><span style="padding: 16px 12px 6px; font-size: 11px; font-weight: 600; letter-spacing: 0.06em; color: var(--ink-2)">COMUNIDAD</span><a href="C-AReportes.dc.html" style="min-height: 40px; display: flex; align-items: center; gap: 10px; padding: 0 12px; border-radius: 8px; text-decoration: none; font-size: 14px; color: var(--ink-2)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 21V4h11l-1 4 4 0v9H6"/></svg>Reportes de errores<span style="margin-left: auto; font-size: 12px; color: var(--ink-2)">[4]</span></a><a href="C-AUsuarios.dc.html" style="min-height: 40px; display: flex; align-items: center; gap: 10px; padding: 0 12px; border-radius: 8px; text-decoration: none; font-size: 14px; color: var(--ink-2)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 8a3 3 0 1 0 0-.1M3 20a6 6 0 0 1 12 0M17 11a3 3 0 1 0 0-.1M15 20h6"/></svg>Usuarios</a><span style="padding: 16px 12px 6px; font-size: 11px; font-weight: 600; letter-spacing: 0.06em; color: var(--ink-2)">SISTEMA</span><a href="C-AAuditoria.dc.html" style="min-height: 40px; display: flex; align-items: center; gap: 10px; padding: 0 12px; border-radius: 8px; text-decoration: none; font-size: 14px; color: var(--ink-2)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 7v5l3 3M3 12a9 9 0 1 0 3-6.7M3 4v4h4"/></svg>Registro de cambios</a>
+    <a href="C-DInicio.dc.html" style="margin-top: auto; min-height: 40px; display: flex; align-items: center; gap: 10px; padding: 0 12px; border: 1px solid var(--line); border-radius: 8px; text-decoration: none; font-size: 14px; color: var(--ink); background: var(--surface)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg>Volver a la app</a>
+  </nav>
+  <main style="flex: 1; min-width: 0; box-sizing: border-box; padding: 28px 36px; display: flex; flex-direction: column; gap: 20px">
+    <header style="display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap">
+      <div style="display: flex; flex-direction: column; gap: 4px"><a href="C-APalabras.dc.html" style="font-size: 14px">‹ Palabras</a><h1 style="margin: 0; font-size: 26px; font-weight: 700">Editar palabra</h1></div>
+      <div style="display: flex; gap: 8px; flex-wrap: wrap"><a href="C-APalabras.dc.html" style="min-height: 40px; padding: 0 14px; border: 1px solid var(--line-strong); border-radius: 8px; background: var(--surface); color: var(--ink); font: inherit; font-size: 14px; font-weight: 600; display: inline-flex; align-items: center; justify-content: center; gap: 6px; text-decoration: none">Cancelar</a><button style="min-height: 40px; padding: 0 14px; border: 1px solid var(--line-strong); border-radius: 8px; background: var(--surface); color: var(--ink); font: inherit; font-size: 14px; font-weight: 600; display: inline-flex; align-items: center; justify-content: center; gap: 6px; text-decoration: none">Guardar borrador</button><button onClick="{{ publish }}" style="min-height: 40px; padding: 0 16px; border: 1px solid var(--jade); border-radius: 8px; background: var(--jade); color: var(--on-jade); font: inherit; font-size: 14px; font-weight: 600; display: inline-flex; align-items: center; justify-content: center; gap: 6px; text-decoration: none">Publicar</button></div>
+    </header>
+    <sc-if value="{{ published }}" hint-placeholder-val="{{ false }}"><p role="status" style="margin: 0; padding: 12px 14px; border: 2px solid var(--ink); border-radius: 10px; font-size: 14px; font-weight: 600; background: var(--surface)">Publicada. Los usuarios la verán en su próxima sincronización. El cambio queda en el registro.</p></sc-if>
+    <div style="display: flex; gap: 20px; align-items: flex-start; flex-wrap: wrap">
+      <div style="flex: 2 1 520px; display: flex; flex-direction: column; gap: 16px">
+        <section aria-labelledby="e-base" style="padding: 18px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); display: flex; flex-direction: column; gap: 12px">
+          <h2 id="e-base" style="margin: 0; font-size: 16px; font-weight: 700">Datos básicos</h2>
+          <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px">
+            <label style="display: flex; flex-direction: column; gap: 4px; font-size: 13px; font-weight: 600">Caracteres<input value="行" lang="zh-Hans" style="min-height: 40px; box-sizing: border-box; padding: 0 12px; border: 1px solid var(--line-strong); border-radius: 8px; font: inherit; font-size: 14px; background: var(--surface); color: var(--ink); font-family: var(--font-kai); font-size: 18px"></label>
+            <label style="display: flex; flex-direction: column; gap: 4px; font-size: 13px; font-weight: 600">Pinyin<input value="xing2" style="min-height: 40px; box-sizing: border-box; padding: 0 12px; border: 1px solid var(--line-strong); border-radius: 8px; font: inherit; font-size: 14px; background: var(--surface); color: var(--ink)"><span style="font-size: 12px; color: var(--ink-2)">Escribe con números: se ve como «xíng»</span></label>
+            <label style="display: flex; flex-direction: column; gap: 4px; font-size: 13px; font-weight: 600">Nivel<select style="min-height: 40px; box-sizing: border-box; padding: 0 12px; border: 1px solid var(--line-strong); border-radius: 8px; font: inherit; font-size: 14px; background: var(--surface); color: var(--ink)"><option>HSK 1</option></select></label>
+          </div>
+          <label style="display: flex; flex-direction: column; gap: 4px; font-size: 13px; font-weight: 600">Tipo de palabra<select style="min-height: 40px; box-sizing: border-box; padding: 0 12px; border: 1px solid var(--line-strong); border-radius: 8px; font: inherit; font-size: 14px; background: var(--surface); color: var(--ink)"><option>Verbo / adjetivo</option></select></label>
+        </section>
+        <section aria-labelledby="e-senses" style="padding: 18px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); display: flex; flex-direction: column; gap: 12px">
+          <div style="display: flex; justify-content: space-between; align-items: center"><h2 id="e-senses" style="margin: 0; font-size: 16px; font-weight: 700">Significados en español</h2><span style="font-size: 13px; color: var(--ink-2)">El primero es el que se enseña solo</span></div>
+          <ol style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 8px">
+            <sc-for list="{{ senses }}" as="x" hint-placeholder-count="2">
+              <li style="display: flex; gap: 8px; align-items: center"><span style="width: 20px; font-weight: 600">{{ x.n }}</span><input aria-label="Significado {{ x.n }}" value="{{ x.text }}" style="min-height: 40px; box-sizing: border-box; padding: 0 12px; border: 1px solid var(--line-strong); border-radius: 8px; font: inherit; font-size: 14px; background: var(--surface); color: var(--ink); flex: 1"><button onClick="{{ x.remove }}" style="min-height: 40px; padding: 0 14px; border: 1px solid var(--line-strong); border-radius: 8px; background: var(--surface); color: var(--ink); font: inherit; font-size: 14px; font-weight: 600; display: inline-flex; align-items: center; justify-content: center; gap: 6px; text-decoration: none">Quitar</button></li>
+            </sc-for>
+          </ol>
+          <button onClick="{{ addSense }}" style="min-height: 40px; padding: 0 14px; border: 1px solid var(--line-strong); border-radius: 8px; background: var(--surface); color: var(--ink); font: inherit; font-size: 14px; font-weight: 600; display: inline-flex; align-items: center; justify-content: center; gap: 6px; text-decoration: none; align-self: flex-start">Añadir significado</button>
+        </section>
+        <section aria-labelledby="e-read" style="padding: 18px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); display: flex; flex-direction: column; gap: 12px">
+          <h2 id="e-read" style="margin: 0; font-size: 16px; font-weight: 700">Otras lecturas</h2>
+          <div style="display: grid; grid-template-columns: 120px 1fr 1fr; gap: 12px; align-items: end">
+            <label style="display: flex; flex-direction: column; gap: 4px; font-size: 13px; font-weight: 600">Pinyin<input value="hang2" style="min-height: 40px; box-sizing: border-box; padding: 0 12px; border: 1px solid var(--line-strong); border-radius: 8px; font: inherit; font-size: 14px; background: var(--surface); color: var(--ink)"></label>
+            <label style="display: flex; flex-direction: column; gap: 4px; font-size: 13px; font-weight: 600">Significado<input value="fila; banco (en 银行)" style="min-height: 40px; box-sizing: border-box; padding: 0 12px; border: 1px solid var(--line-strong); border-radius: 8px; font: inherit; font-size: 14px; background: var(--surface); color: var(--ink)"></label>
+            <label style="display: flex; flex-direction: column; gap: 4px; font-size: 13px; font-weight: 600">Palabras donde aparece<input value="银行" lang="zh-Hans" style="min-height: 40px; box-sizing: border-box; padding: 0 12px; border: 1px solid var(--line-strong); border-radius: 8px; font: inherit; font-size: 14px; background: var(--surface); color: var(--ink); font-family: var(--font-kai)"><span style="font-size: 12px; color: var(--ink-2)">Allí la tarjeta avisará: «aquí se lee háng»</span></label>
+          </div>
+        </section>
+        <section aria-labelledby="e-ex" style="padding: 18px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); display: flex; flex-direction: column; gap: 12px">
+          <h2 id="e-ex" style="margin: 0; font-size: 16px; font-weight: 700">Ejemplo</h2>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px">
+            <label style="display: flex; flex-direction: column; gap: 4px; font-size: 13px; font-weight: 600">Frase en chino<input value="你行吗？" lang="zh-Hans" style="min-height: 40px; box-sizing: border-box; padding: 0 12px; border: 1px solid var(--line-strong); border-radius: 8px; font: inherit; font-size: 14px; background: var(--surface); color: var(--ink); font-family: var(--font-kai)"><span style="font-size: 12px; color: var(--ink-2)">El pinyin se genera solo; revísalo abajo</span></label>
+            <label style="display: flex; flex-direction: column; gap: 4px; font-size: 13px; font-weight: 600">Traducción<input value="¿Puedes? / ¿Vale?" style="min-height: 40px; box-sizing: border-box; padding: 0 12px; border: 1px solid var(--line-strong); border-radius: 8px; font: inherit; font-size: 14px; background: var(--surface); color: var(--ink)"></label>
+          </div>
+          <p role="alert" style="margin: 0; padding: 10px 12px; border: 1px dashed var(--ink); border-radius: 8px; font-size: 13px; background: var(--surface)">Aviso: el ejemplo solo debe usar palabras del mismo nivel o anteriores. Todas son de HSK 1.</p>
+        </section>
+        <section aria-labelledby="e-audio" style="padding: 18px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); display: flex; flex-direction: column; gap: 12px">
+          <h2 id="e-audio" style="margin: 0; font-size: 16px; font-weight: 700">Audio</h2>
+          <div role="radiogroup" aria-label="Origen del audio" style="display: flex; gap: 16px; flex-wrap: wrap; font-size: 14px">
+            <label style="display: flex; align-items: center; gap: 6px; min-height: 40px"><input type="radio" name="aud" checked style="width: 18px; height: 18px">audio-cmn (grabación, CC BY-SA)</label>
+            <label style="display: flex; align-items: center; gap: 6px; min-height: 40px"><input type="radio" name="aud" style="width: 18px; height: 18px">Subir archivo</label>
+            <label style="display: flex; align-items: center; gap: 6px; min-height: 40px"><input type="radio" name="aud" style="width: 18px; height: 18px">Voz del navegador</label>
+          </div>
+          <button style="min-height: 40px; padding: 0 14px; border: 1px solid var(--line-strong); border-radius: 8px; background: var(--surface); color: var(--ink); font: inherit; font-size: 14px; font-weight: 600; display: inline-flex; align-items: center; justify-content: center; gap: 6px; text-decoration: none; align-self: flex-start">Escuchar</button>
+        </section>
+      </div>
+      <aside aria-labelledby="e-prev" style="flex: 1 1 280px; position: sticky; top: 20px; padding: 18px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); display: flex; flex-direction: column; gap: 12px">
+        <h2 id="e-prev" style="margin: 0; font-size: 16px; font-weight: 700">Vista previa de la tarjeta</h2>
+        <div style="padding: 20px; border: 1px solid var(--line); border-radius: 10px; display: flex; flex-direction: column; align-items: center; gap: 6px; background: var(--surface)">
+          <ruby lang="zh-Hans" style="ruby-position: under; font-family: var(--font-kai); font-size: 64px; line-height: 1.7">行<rt style="font-family: var(--font-sans); font-size: 18px; color: var(--ink-2)">xíng</rt></ruby>
+          <span style="font-size: 18px; font-weight: 600">ir; poder, valer</span>
+        </div>
+        <span style="font-size: 13px; color: var(--ink-2)">Estado: <sc-if value="{{ draft }}" hint-placeholder-val="{{ true }}">borrador</sc-if><sc-if value="{{ published }}" hint-placeholder-val="{{ false }}">publicada</sc-if> · última edición de adri, hoy 02:10</span>
+        <a href="C-AAuditoria.dc.html" style="font-size: 14px">Ver historial de esta palabra</a>
+      </aside>
+    </div>
+  </main>
+</div>
+</template>
+<script type="text/x-dc" data-props='{"tema":{"editor":"enum","options":["claro","oscuro"],"default":"claro","section":"Tema"},"$preview":{"width":1280,"height":860}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { senses: ['ir', 'poder, valer'], pub: false };
+  }
+  renderVals() {
+    const __tema = this.props.tema ?? 'claro';
+    const s = this.state;
+    return { tema: __tema, 
+      ok: true,
+      senses: s.senses.map((t, i) => ({ n: String(i + 1), text: t, remove: () => this.setState({ senses: s.senses.filter((_, j) => j !== i) }) })),
+      addSense: () => this.setState({ senses: [...s.senses, ''] }),
+      published: s.pub,
+      draft: !s.pub,
+      publish: () => this.setState({ pub: true })
+    };
+  }
+}
+</script>
+</body>
+</html>

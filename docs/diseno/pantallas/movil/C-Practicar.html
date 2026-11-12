@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Practicar (móvil) · Lexis</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Noto+Sans+SC:wght@400;500&amp;family=Noto+Serif+SC:wght@400;500&amp;display=swap">
+<style>
+body{margin:0}
+a{color:var(--jade)}a:hover{color:var(--ink)}
+[role="status"] a{color:var(--ink)}
+</style>
+<link rel="stylesheet" href="../assets/lexis.css">
+<script src="../assets/dc-runtime.js"></script>
+</head>
+<body style="margin:0">
+<div id="dc-root"></div>
+<template id="dc-template">
+<div class="lx" data-theme="{{ tema }}" style="width: 390px; height: 844px; box-sizing: border-box; background: var(--paper); font-family: var(--font-sans); color: var(--ink); display: flex; flex-direction: column">
+  <header style="padding: 20px 20px 8px; display: flex; flex-direction: column; gap: 2px">
+    <h1 style="margin: 0; font-size: 24px; font-weight: 700">Practicar</h1>
+    <span style="font-size: 13px; color: var(--ink-2)">Practica lo que quieras. También cuenta para tus repasos.</span>
+  </header>
+
+  <main style="flex: 1; overflow-y: auto; padding: 12px 20px 16px; display: flex; flex-direction: column; gap: 16px">
+    <a href="C-Tarjeta.dc.html" style="display: flex; align-items: center; gap: 12px; padding: 16px; border-radius: 10px; background: var(--jade); color: var(--on-jade); text-decoration: none">
+      <span style="flex: 1; display: flex; flex-direction: column; gap: 2px"><span style="font-size: 16px; font-weight: 600">Palabras difíciles</span><span style="font-size: 13px; color: var(--on-jade)">Las [12] que más fallas</span></span>
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg>
+    </a>
+
+    <div style="border: 1px solid var(--line); border-radius: 10px; display: flex; flex-direction: column; overflow: hidden; background: var(--surface)">
+      <sc-for list="{{ modules }}" as="m" hint-placeholder-count="6">
+        <a href="{{ m.href }}" style="min-height: 64px; display: flex; align-items: center; gap: 14px; padding: 8px 16px; border-bottom: {{ m.border }}; text-decoration: none; color: var(--ink)">
+          <span aria-hidden="true" style="width: 40px; height: 40px; flex: none; border-radius: 10px; background: var(--surface-sunken); display: flex; align-items: center; justify-content: center; color: var(--ink-2)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="{{ m.d }}"/></svg></span>
+          <span style="flex: 1; display: flex; flex-direction: column; gap: 2px"><span style="font-size: 15px; font-weight: 500">{{ m.label }}</span><span style="font-size: 12px; color: var(--ink-2)">{{ m.info }}</span></span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="2" aria-hidden="true" style="stroke: var(--ink-2)"><path d="m9 6 6 6-6 6"/></svg>
+        </a>
+      </sc-for>
+    </div>
+
+    <a href="C-TablaPinyin.dc.html" style="align-self: flex-start; min-height: 44px; display: flex; align-items: center; font-size: 14px">Tabla de pinyin</a>
+  </main>
+
+  <nav aria-label="Navegación principal" style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-top: 1px solid var(--line); padding: 8px 8px 24px">
+    <a href="C-Inicio.dc.html" style="min-height: 44px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; text-decoration: none; font-size: 11px; color: var(--ink-2)"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 11 12 4l9 7v9h-6v-6H9v6H3z"/></svg>Hoy</a>
+    <a href="C-Practicar.dc.html" aria-current="page" style="min-height: 44px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; text-decoration: none; font-size: 11px; font-weight: 600; color: var(--ink)"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M8 9h8M8 13h5"/></svg>Practicar</a>
+    <a href="C-Progreso.dc.html" style="min-height: 44px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; text-decoration: none; font-size: 11px; color: var(--ink-2)"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg>Progreso</a>
+    <a href="C-Perfil.dc.html" style="min-height: 44px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; text-decoration: none; font-size: 11px; color: var(--ink-2)"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>Perfil</a>
+  </nav>
+</div>
+</template>
+<script type="text/x-dc" data-props='{"tema":{"editor":"enum","options":["claro","oscuro"],"default":"claro","section":"Tema"},"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const __tema = this.props.tema ?? 'claro';
+    const list = [
+      { label: 'Tarjetas', info: '[18] para repasar · significado', href: 'C-Tarjeta.dc.html', d: 'M4 7h12v13H4zM8 4h12v13' },
+      { label: 'Escritura', info: '[6] caracteres para repasar', href: 'C-Escritura.dc.html', d: 'M4 20h4L19 9l-4-4L4 16z' },
+      { label: 'Tonos', info: 'Insiste en el [3.er] tono', href: 'C-Tonos.dc.html', d: 'M2 12c3-6 5-6 8 0s5 6 8 0 3-3 4-2' },
+      { label: 'Gramática', info: '[2] puntos para repasar · [1] nuevo', href: 'C-Gramatica.dc.html', d: 'M3 3h8v8H3zM13 13h8v8h-8zM13 7h8M7 13v8' },
+      { label: 'Lecturas', info: 'Recomendada: 在商店 · [91] %', href: 'C-Lecturas.dc.html', d: 'M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2zM4 5v14' },
+      { label: 'Mis listas', info: '[3] listas · [24] palabras', href: 'C-Listas.dc.html', d: 'M9 6h11M9 12h11M9 18h11M4 6h1M4 12h1M4 18h1' }
+    ];
+    return { tema: __tema, 
+      modules: list.map((m, i) => ({ ...m, border: i === list.length - 1 ? '0' : '1px solid var(--line)' }))
+    };
+  }
+}
+</script>
+</body>
+</html>

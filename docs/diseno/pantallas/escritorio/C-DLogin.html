@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Iniciar sesión (escritorio) · Lexis</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Noto+Sans+SC:wght@400;500&amp;family=Noto+Serif+SC:wght@400;500;900&amp;display=swap">
+<style>
+body{margin:0}
+a{color:var(--jade)}a:hover{color:var(--ink)}
+[role="status"] a{color:var(--ink)}
+input:focus-visible,button:focus-visible,a:focus-visible{outline:2px solid #18181b;outline-offset:2px}
+</style>
+<link rel="stylesheet" href="../assets/lexis.css">
+<script src="../assets/dc-runtime.js"></script>
+</head>
+<body style="margin:0">
+<div id="dc-root"></div>
+<template id="dc-template">
+<div class="lx" data-theme="{{ tema }}" style="position: relative; min-height: 860px; box-sizing: border-box; background: var(--paper); color: var(--ink); font-family: var(--font-sans); display: flex; align-items: center; justify-content: center; padding: 48px 24px; background: var(--surface-sunken)"><div style="width: 100%; max-width: 440px; box-sizing: border-box; padding: 24px 8px 32px; border: 1px solid var(--line); border-radius: 16px; background: var(--paper); display: flex; flex-direction: column"><header style="display: flex; align-items: center; justify-content: center; min-height: 44px"><span style="display: inline-flex; align-items: center; gap: 8px; font-size: 18px; font-weight: 700"><span aria-hidden="true" style="width: 26px; height: 26px; flex: none; box-sizing: border-box; display: grid; place-items: center; border: 2.5px solid var(--jade); border-radius: 4px; color: var(--jade); font: 900 15px/1 'Noto Serif SC', serif">词</span>Lexis</span></header><main style="flex: 1; display: flex; flex-direction: column; gap: 32px; padding-top: 24px">
+    <h1 style="margin: 0; font-size: 28px; font-weight: 700">Iniciar sesión</h1>
+    <form style="display: flex; flex-direction: column; gap: 24px">
+      <label style="display: flex; flex-direction: column; gap: 8px; font-size: 14px; font-weight: 600">Email<input type="email" autocomplete="email" style="width: 100%; box-sizing: border-box; min-height: 52px; padding: 0 14px; border: 1px solid var(--line-strong); border-radius: 10px; font: inherit; font-size: 16px; color: var(--ink); background: var(--surface)"></label>
+      <div style="display: flex; flex-direction: column; gap: 8px">
+        <label style="display: flex; flex-direction: column; gap: 8px; font-size: 14px; font-weight: 600">Contraseña<input type="password" autocomplete="current-password" style="width: 100%; box-sizing: border-box; min-height: 52px; padding: 0 14px; border: 1px solid var(--line-strong); border-radius: 10px; font: inherit; font-size: 16px; color: var(--ink); background: var(--surface)"></label>
+        <a href="C-DRecuperar.dc.html" style="align-self: flex-end; min-height: 32px; display: flex; align-items: center; font-size: 14px">¿Has olvidado tu contraseña?</a>
+      </div>
+      <p role="alert" style="margin: 0; padding: 12px 14px; border: 1px solid var(--line-strong); border-radius: 10px; font-size: 14px; color: var(--ink); background: var(--surface)">Email o contraseña incorrectos.</p>
+      <a href="C-DInicio.dc.html" style="min-height: 52px; display: flex; align-items: center; justify-content: center; border-radius: 10px; background: var(--jade); color: var(--on-jade); text-decoration: none; font-size: 16px; font-weight: 600; margin-top: 8px">Iniciar sesión</a>
+    </form>
+    <span style="margin-top: auto; text-align: center; font-size: 14px; color: var(--ink-2)">¿No tienes cuenta? <a href="C-DRegistro.dc.html" style="font-weight: 600">Crear cuenta</a></span>
+  </main></div></div>
+</template>
+<script type="text/x-dc" data-props='{"tema":{"editor":"enum","options":["claro","oscuro"],"default":"claro","section":"Tema"},"$preview":{"width":1280,"height":860}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const __tema = this.props.tema ?? 'claro';
+    return { tema: __tema, };
+  }
+}
+</script>
+</body>
+</html>

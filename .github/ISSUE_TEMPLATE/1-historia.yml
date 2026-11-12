@@ -1,0 +1,58 @@
+name: Historia de usuario
+description: Una historia ya escrita en docs/producto/historias (una issue por historia).
+title: "HU-xx · "
+labels: ["tipo:historia"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Copia la historia tal como está en `docs/producto/historias/`. Si la historia cambia, se cambia allí en la misma PR.
+  - type: input
+    id: historia
+    attributes:
+      label: Historia
+      description: ID y archivo de la historia.
+      placeholder: "HU-12 · docs/producto/historias/EP-02-tarjetas-y-repeticion-espaciada.md"
+    validations:
+      required: true
+  - type: textarea
+    id: descripcion
+    attributes:
+      label: Como… quiero… para…
+    validations:
+      required: true
+  - type: textarea
+    id: criterios
+    attributes:
+      label: Criterios de aceptación
+      description: Uno por línea, en formato Dado / Cuando / Entonces. Cada uno será al menos una prueba.
+      value: |
+        - [ ] Dado … cuando … entonces …
+    validations:
+      required: true
+  - type: input
+    id: requisitos
+    attributes:
+      label: Requisitos, decisiones y ADR
+      placeholder: "RF-14, RF-15 · D-45 · ADR-004"
+    validations:
+      required: true
+  - type: textarea
+    id: pantallas
+    attributes:
+      label: Pantallas
+      description: Archivos de docs/diseno/pantallas que muestran esta historia. Si falta alguna, dilo.
+      placeholder: "docs/diseno/pantallas/movil/C-Tarjeta.png"
+  - type: dropdown
+    id: prioridad
+    attributes:
+      label: Prioridad (MoSCoW)
+      options: [Must, Should, Could]
+    validations:
+      required: true
+  - type: textarea
+    id: dependencias
+    attributes:
+      label: Depende de
+      description: Issues que tienen que estar cerradas antes. Márcalas también como «blocked by» en GitHub.
+      placeholder: "#12"

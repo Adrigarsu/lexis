@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tarjeta de pronunciación (móvil) · Lexis</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Noto+Sans+SC:wght@400;500&amp;family=Noto+Serif+SC:wght@400;500&amp;display=swap">
+<style>
+body{margin:0}
+a{color:var(--jade)}a:hover{color:var(--ink)}
+[role="status"] a{color:var(--ink)}
+</style>
+<link rel="stylesheet" href="../assets/lexis.css">
+<script src="../assets/dc-runtime.js"></script>
+</head>
+<body style="margin:0">
+<div id="dc-root"></div>
+<template id="dc-template">
+<div class="lx" data-theme="{{ tema }}" style="position: relative; width: 390px; height: 844px; overflow: hidden; box-sizing: border-box; background: var(--paper); font-family: var(--font-sans); color: var(--ink); display: flex; flex-direction: column">
+  <header style="display: flex; align-items: center; gap: 12px; padding: 16px 16px 8px">
+    <a href="C-Inicio.dc.html" aria-label="Salir de la sesión" style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; border-radius: 22px; color: var(--ink-2)"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></a>
+    <div style="flex: 1; display: flex; flex-direction: column; gap: 6px">
+      <span style="font-size: 12px; color: var(--ink-2)">[9] de [23] · unos [9] min restantes</span>
+      <div style="height: 6px; border-radius: 3px; background: var(--surface-sunken)"><div style="width: 40%; height: 6px; border-radius: 3px; background: var(--jade-bright)"></div></div>
+    </div>
+    <button aria-label="Ajustes de estudio" aria-haspopup="dialog" style="width: 44px; height: 44px; border: 1px solid var(--line); border-radius: 22px; background: var(--surface); color: var(--ink-2); display: flex; align-items: center; justify-content: center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 6h10M18 6h2M4 12h4M12 12h8M4 18h12M20 18h0"/><circle cx="16" cy="6" r="2"/><circle cx="10" cy="12" r="2"/><circle cx="18" cy="18" r="2"/></svg></button>
+  </header>
+  <main style="flex: 1; padding: 8px 20px; display: flex; flex-direction: column; gap: 16px">
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 6px; padding-top: 8px">
+      <span style="font-size: 12px; font-weight: 600; letter-spacing: 0.04em; color: var(--ink-2)">PRONUNCIACIÓN</span>
+      <span lang="zh-Hans" style="font-family: var(--font-kai); font-size: 64px; line-height: 1.1">你好</span>
+      <span style="font-size: 14px; color: var(--ink-2)">hola</span>
+    </div>
+
+    <div role="tablist" aria-label="Cómo respondes" style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); padding: 4px; border-radius: 10px; background: var(--surface-sunken)">
+      <sc-for list="{{ modes }}" as="m" hint-placeholder-count="3">
+        <button role="tab" aria-selected="{{ m.sel }}" onClick="{{ m.pick }}" style="min-height: 44px; border: 0; border-radius: 9px; background: {{ m.bg }}; font: inherit; font-size: 14px; font-weight: {{ m.fw }}; color: var(--ink)">{{ m.label }}</button>
+      </sc-for>
+    </div>
+
+    <sc-if value="{{ isWrite }}" hint-placeholder-val="{{ true }}">
+      <div role="tabpanel" style="display: flex; flex-direction: column; gap: 8px">
+        <label style="display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 500">Escribe el pinyin con el número de tono<input type="text" value="ni3 hao3" autocomplete="off" autocapitalize="off" spellcheck="false" style="min-height: 52px; box-sizing: border-box; padding: 0 14px; border: 1px solid var(--line-strong); border-radius: 10px; font: inherit; font-size: 20px; font-weight: 400; background: var(--surface)"></label>
+        <span style="font-size: 12px; color: var(--ink-2)">1 a 4 para los tonos y 5 para el neutro. Se corrige sílaba a sílaba.</span>
+      </div>
+    </sc-if>
+    <sc-if value="{{ isChoice }}" hint-placeholder-val="{{ false }}">
+      <div role="tabpanel" style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px">
+        <button style="min-height: 52px; border: 1px solid var(--line-strong); border-radius: 10px; background: var(--surface); font: inherit; font-size: 17px; color: var(--ink)">nǐ hǎo</button>
+        <button style="min-height: 52px; border: 1px solid var(--line-strong); border-radius: 10px; background: var(--surface); font: inherit; font-size: 17px; color: var(--ink)">ní hào</button>
+        <button style="min-height: 52px; border: 1px solid var(--line-strong); border-radius: 10px; background: var(--surface); font: inherit; font-size: 17px; color: var(--ink)">nì hǎo</button>
+        <button style="min-height: 52px; border: 1px solid var(--line-strong); border-radius: 10px; background: var(--surface); font: inherit; font-size: 17px; color: var(--ink)">nǐ háo</button>
+      </div>
+    </sc-if>
+    <sc-if value="{{ isSpeakOk }}" hint-placeholder-val="{{ false }}">
+      <div role="tabpanel" style="display: flex; flex-direction: column; align-items: center; gap: 10px">
+        <button aria-label="Pulsa y di la palabra" style="width: 96px; height: 96px; border: 2px solid var(--ink); border-radius: 48px; background: var(--surface); color: var(--ink); display: flex; align-items: center; justify-content: center"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></button>
+        <span style="font-size: 13px; color: var(--ink-2)">Pulsa y di la palabra. Después comparas tu voz con el modelo.</span>
+        <button style="min-height: 44px; border: 0; background: transparent; font: inherit; font-size: 14px; font-weight: 600; color: var(--ink); text-decoration: underline">Ahora no puedo hablar</button>
+      </div>
+    </sc-if>
+    <sc-if value="{{ isSpeakNo }}" hint-placeholder-val="{{ false }}">
+      <div role="tabpanel" style="display: flex; gap: 10px; padding: 14px; border: 1px dashed var(--line-strong); border-radius: 10px; font-size: 13px; color: var(--ink-2); background: var(--surface)">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" style="flex: none"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg>
+        <span>Hablar no está disponible en la app instalada en iPhone. Para usarlo, abre Lexis en Safari. Mientras, responde escribiendo o con opciones.</span>
+      </div>
+    </sc-if>
+  </main>
+  <footer style="padding: 12px 20px 28px; display: flex; flex-direction: column; gap: 10px">
+    <button style="min-height: 52px; display: flex; align-items: center; justify-content: center; border: 0; border-radius: 10px; background: var(--jade); color: var(--on-jade); text-decoration: none; font: inherit; font-size: 16px; font-weight: 600">Comprobar</button>
+    <button style="min-height: 44px; border: 0; background: transparent; font: inherit; font-size: 14px; color: var(--ink-2); display: flex; align-items: center; justify-content: center; gap: 6px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M11 5 6 9H2v6h4l5 4zM15.5 8.5a5 5 0 0 1 0 7"/></svg>Escuchar la respuesta (cuenta como Otra vez)</button>
+  </footer>
+</div>
+</template>
+<script type="text/x-dc" data-props='{"tema":{"editor":"enum","options":["claro","oscuro"],"default":"claro","section":"Tema"},"hablarDisponible":{"editor":"boolean","default":true},"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { mode: 'write' };
+  }
+  renderVals() {
+    const __tema = this.props.tema ?? 'claro';
+    const mode = this.state.mode;
+    const ok = this.props.hablarDisponible ?? true;
+    const list = [
+      { id: 'write', label: 'Escribir' },
+      { id: 'choice', label: 'Opciones' },
+      { id: 'speak', label: 'Hablar' }
+    ];
+    return { tema: __tema, 
+      modes: list.map((m) => ({
+        ...m,
+        sel: m.id === mode ? 'true' : 'false',
+        bg: m.id === mode ? 'var(--on-jade)' : 'transparent',
+        fw: m.id === mode ? '600' : '400',
+        pick: () => this.setState({ mode: m.id })
+      })),
+      isWrite: mode === 'write',
+      isChoice: mode === 'choice',
+      isSpeakOk: mode === 'speak' && ok,
+      isSpeakNo: mode === 'speak' && !ok
+    };
+  }
+}
+</script>
+</body>
+</html>

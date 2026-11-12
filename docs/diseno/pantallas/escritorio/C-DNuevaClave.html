@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contraseña nueva (escritorio) · Lexis</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Noto+Sans+SC:wght@400;500&amp;family=Noto+Serif+SC:wght@400;500;900&amp;display=swap">
+<style>
+body{margin:0}
+a{color:var(--jade)}a:hover{color:var(--ink)}
+[role="status"] a{color:var(--ink)}
+</style>
+<link rel="stylesheet" href="../assets/lexis.css">
+<script src="../assets/dc-runtime.js"></script>
+</head>
+<body style="margin:0">
+<div id="dc-root"></div>
+<template id="dc-template">
+<div class="lx" data-theme="{{ tema }}" style="position: relative; min-height: 860px; box-sizing: border-box; background: var(--paper); color: var(--ink); font-family: var(--font-sans); display: flex; align-items: center; justify-content: center; padding: 48px 24px; background: var(--surface-sunken)"><div style="width: 100%; max-width: 440px; box-sizing: border-box; padding: 24px 8px 32px; border: 1px solid var(--line); border-radius: 16px; background: var(--paper); display: flex; flex-direction: column"><header style="display: flex; align-items: center; justify-content: center; min-height: 44px"><span style="display: inline-flex; align-items: center; gap: 8px; font-size: 18px; font-weight: 700"><span aria-hidden="true" style="width: 26px; height: 26px; flex: none; box-sizing: border-box; display: grid; place-items: center; border: 2.5px solid var(--jade); border-radius: 4px; color: var(--jade); font: 900 15px/1 'Noto Serif SC', serif">词</span>Lexis</span></header><main style="flex: 1; display: flex; flex-direction: column; gap: 18px">
+    <div style="display: flex; flex-direction: column; gap: 6px">
+      <h1 style="margin: 0; font-size: 24px; font-weight: 700">Contraseña nueva</h1>
+      <p style="margin: 0; font-size: 15px; color: var(--ink-2)">Para [tu@email.com]</p>
+    </div>
+    <label style="display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 500">Contraseña nueva<input type="password" autocomplete="new-password" minlength="12" aria-describedby="req" style="min-height: 48px; box-sizing: border-box; padding: 0 12px; border: 1px solid var(--line-strong); border-radius: 10px; font: inherit; font-size: 15px; font-weight: 400; background: var(--surface)"><span id="req" style="font-size: 12px; font-weight: 400; color: var(--ink-2)">12 caracteres como mínimo</span></label>
+    <label style="display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 500">Repítela<input type="password" autocomplete="new-password" style="min-height: 48px; box-sizing: border-box; padding: 0 12px; border: 1px solid var(--line-strong); border-radius: 10px; font: inherit; font-size: 15px; font-weight: 400; background: var(--surface)"></label>
+    <a href="C-DLogin.dc.html" style="min-height: 52px; display: flex; align-items: center; justify-content: center; border: 0; border-radius: 10px; background: var(--jade); color: var(--on-jade); text-decoration: none; font: inherit; font-size: 16px; font-weight: 600">Guardar e iniciar sesión</a>
+    <p style="margin: 0; font-size: 13px; color: var(--ink-2)">Al guardarla se cierra la sesión en tus otros dispositivos. Si el enlace ha caducado, pide otro desde «¿Has olvidado tu contraseña?».</p>
+  </main></div></div>
+</template>
+<script type="text/x-dc" data-props='{"tema":{"editor":"enum","options":["claro","oscuro"],"default":"claro","section":"Tema"},"$preview":{"width":1280,"height":860}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const __tema = this.props.tema ?? 'claro';
+    return { tema: __tema, };
+  }
+}
+</script>
+</body>
+</html>

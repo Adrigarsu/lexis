@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lectura (móvil) · Lexis</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Noto+Sans+SC:wght@400;500&amp;family=Noto+Serif+SC:wght@400;500&amp;display=swap">
+<style>
+body{margin:0}
+a{color:var(--jade)}a:hover{color:var(--ink)}
+[role="status"] a{color:var(--ink)}
+</style>
+<link rel="stylesheet" href="../assets/lexis.css">
+<script src="../assets/dc-runtime.js"></script>
+</head>
+<body style="margin:0">
+<div id="dc-root"></div>
+<template id="dc-template">
+<div class="lx" data-theme="{{ tema }}" style="position: relative; width: 390px; height: 844px; overflow: hidden; box-sizing: border-box; background: var(--paper); font-family: var(--font-sans); color: var(--ink); display: flex; flex-direction: column">
+  <header style="display: flex; align-items: center; gap: 8px; padding: 16px 16px 8px">
+    <a href="C-Lecturas.dc.html" aria-label="Volver a Lecturas" style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; border-radius: 22px; color: var(--ink-2)"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M15 6l-6 6 6 6"></path></svg></a>
+    <div style="flex: 1; display: flex; flex-direction: column"><span style="font-size: 17px; font-weight: 700">En la tienda</span><span style="font-size: 12px; color: var(--ink-2)">[95] % de palabras conocidas · [1] nueva</span></div>
+    <button aria-label="Ajustes de estudio" aria-haspopup="dialog" onClick="{{ openSheet }}" style="width: 44px; height: 44px; border: 1px solid var(--line); border-radius: 22px; background: var(--surface); color: var(--ink-2); display: flex; align-items: center; justify-content: center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 6h10M18 6h2M4 12h4M12 12h8M4 18h12M20 18h0"></path><circle cx="16" cy="6" r="2"></circle><circle cx="10" cy="12" r="2"></circle><circle cx="18" cy="18" r="2"></circle></svg></button>
+  </header>
+  <main style="flex: 1; padding: 8px 20px; display: flex; flex-direction: column; gap: 14px; overflow: auto">
+    <div style="display: flex; flex-direction: column"><ruby lang="zh-Hans" style="ruby-position: under; font-family: var(--font-kai); font-size: 26px; line-height: 1.8"><span style="color: {{ hc4 }}">在</span><rt style="font-family: var(--font-sans); font-size: 12px; color: {{ pc4 }}; opacity: {{ pinyinOpacity }}; visibility: {{ rtVis }}">zài</rt><span style="color: {{ hc1 }}">商</span><rt style="font-family: var(--font-sans); font-size: 12px; color: {{ pc1 }}; opacity: {{ pinyinOpacity }}; visibility: {{ rtVis }}">shāng</rt><span style="color: {{ hc4 }}">店</span><rt style="font-family: var(--font-sans); font-size: 12px; color: {{ pc4 }}; opacity: {{ pinyinOpacity }}; visibility: {{ rtVis }}">diàn</rt></ruby></div>
+    <div style="display: flex; gap: 8px">
+      <button aria-pressed="{{ transPressed }}" onClick="{{ toggleTrans }}" style="min-height: 44px; padding: 0 16px; border: 1px solid var(--line-strong); border-radius: 10px; background: var(--surface); font: inherit; font-size: 14px; font-weight: 600; color: var(--ink); display: flex; align-items: center; justify-content: center; gap: 6px; text-decoration: none; min-height: 40px; font-size: 13px">{{ transLabel }}</button>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 10px">
+        <p style="margin: 0; display: flex; flex-direction: column; gap: 2px"><span style="display: flex; flex-wrap: wrap; align-items: flex-end"><span style="padding: 0 2px"><ruby lang="zh-Hans" style="ruby-position: under; font-family: var(--font-kai); font-size: 24px; line-height: 2.1"><span style="color: {{ hc3 }}">我</span><rt style="font-family: var(--font-sans); font-size: 11px; color: {{ pc3 }}; opacity: {{ pinyinOpacity }}; visibility: {{ rtVis }}">wǒ</rt></ruby></span><span style="padding: 0 2px"><ruby lang="zh-Hans" style="ruby-position: under; font-family: var(--font-kai); font-size: 24px; line-height: 2.1"><span style="color: {{ hc4 }}">去</span><rt style="font-family: var(--font-sans); font-size: 11px; color: {{ pc4 }}; opacity: {{ pinyinOpacity }}; visibility: {{ rtVis }}">qù</rt></ruby></span><span style="padding: 0 2px"><ruby lang="zh-Hans" style="ruby-position: under; font-family: var(--font-kai); font-size: 24px; line-height: 2.1"><span style="color: {{ hc1 }}">商</span><rt style="font-family: var(--font-sans); font-size: 11px; color: {{ pc1 }}; opacity: {{ pinyinOpacity }}; visibility: {{ rtVis }}">shāng</rt><span style="color: {{ hc4 }}">店</span><rt style="font-family: var(--font-sans); font-size: 11px; color: {{ pc4 }}; opacity: {{ pinyinOpacity }}; visibility: {{ rtVis }}">diàn</rt></ruby></span><span style="padding: 0 2px"><ruby lang="zh-Hans" style="ruby-position: under; font-family: var(--font-kai); font-size: 24px; line-height: 2.1"><span style="color: {{ hc3 }}">买</span><rt style="font-family: var(--font-sans); font-size: 11px; color: {{ pc3 }}; opacity: {{ pinyinOpacity }}; visibility: {{ rtVis }}">mǎi</rt></ruby></span><span style="padding: 0 2px"><ruby lang="zh-Hans" style="ruby-position: under; font-family: var(--font-kai); font-size: 24px; line-height: 2.1"><span style="color: {{ hc1 }}">东</span><rt style="font-family: var(--font-sans); font-size: 11px; color: {{ pc1 }}; opacity: {{ pinyinOpacity }}; visibility: {{ rtVis }}">dōng</rt><span style="color: {{ hc5 }}">西</span><rt style="font-family: var(--font-sans); font-size: 11px; color: {{ pc5 }}; opacity: {{ pinyinOpacity }}; visibility: {{ rtVis }}">xi</rt></ruby></span><span lang="zh-Hans" style="font-family: var(--font-kai); font-size: 24px">。</span></span>
+          <sc-if value="{{ showTrans }}" hint-placeholder-val="{{ false }}"><span style="font-size: 14px; color: var(--ink-2)">Voy a la tienda a comprar cosas.</span></sc-if></p>
+        <p style="margin: 0; display: flex; flex-direction: column; gap: 2px"><span style="display: flex; flex-wrap: wrap; align-items: flex-end"><span style="padding: 0 2px"><ruby lang="zh-Hans" style="ruby-position: under; font-family: var(--font-kai); font-size: 24px; line-height: 2.1"><span style="color: {{ hc1 }}">商</span><rt style="font-family: var(--font-sans); font-size: 11px; color: {{ pc1 }}; opacity: {{ pinyinOpacity }}; visibility: {{ rtVis }}">shāng</rt><span style="color: {{ hc4 }}">店</span><rt style="font-family: var(--font-sans); font-size: 11px; color: {{ pc4 }}; opacity: {{ pinyinOpacity }}; visibility: {{ rtVis }}">diàn</rt></ruby></span><span style="padding: 0 2px"><ruby lang="zh-Hans" style="ruby-position: under; font-family: var(--font-kai); font-size: 24px; line-height: 2.1"><span style="color: {{ hc5 }}">里</span><rt style="font-family: var(--font-sans); font-size: 11px; color: {{ pc5 }}; opacity: {{ pinyinOpacity }}; visibility: {{ rtVis }}">li</rt></ruby></span><span style="padding: 0 2px"><ruby lang="zh-Hans" style="ruby-position: under; font-family: var(--font-kai); font-size: 24px; line-height: 2.1"><span style="color: {{ hc3 }}">有</span><rt style="font-family: var(--font-sans); font-size: 11px; color: {{ pc3 }}; opacity: {{ pinyinOpacity }}; visibility: {{ rtVis }}">yǒu</rt></ruby></span><span style="padding: 0 2px"><ruby lang="zh-Hans" style="ruby-position: under; font-family: var(--font-kai); font-size: 24px; line-height: 2.1"><span style="color: {{ hc3 }}">很</span><rt style="font-family: var(--font-sans); font-size: 11px; color: {{ pc3 }}; opacity: {{ pinyinOpacity }}; visibility: {{ rtVis }}">hěn</rt></ruby></span><span style="padding: 0 2px"><ruby lang="zh-Hans" style="ruby-position: under; font-family: var(--font-kai); font-size: 24px; line-height: 2.1"><span style="color: {{ hc1 }}">多</span><rt style="font-family: var(--font-sans); font-size: 11px; color: {{ pc1 }}; opacity: {{ pinyinOpacity }}; visibility: {{ rtVis }}">duō</rt></ruby></span><span style="padding: 0 2px"><ruby lang="zh-Hans" style="ruby-position: under; font-family: var(--font-kai); font-size: 24px; line-height: 2.1"><span style="color: {{ hc3 }}">水</span><rt style="font-family: var(--font-sans); font-size: 11px; color: {{ pc3 }}; opacity: {{ pinyinOpacity }}; visibility: {{ rtVis }}">shuǐ</rt><span style="color: {{ hc3 }}">果</span><rt style="font-family: var(--font-sans); font-size: 11px; color: {{ pc3 }}; opacity: {{ pinyinOpacity }}; visibility: {{ rtVis }}">guǒ</rt></ruby></span><span lang="zh-Hans" style="font-family: var(--font-kai); font-size: 24px">。</span></span>
+          <sc-if value="{{ showTrans }}" hint-placeholder-val="{{ false }}"><span style="font-size: 14px; color: var(--ink-2)">En la tienda hay mucha fruta.</span></sc-if></p>
+        <p style="margin: 0; display: flex; flex-direction: column; gap: 2px"><span style="display: flex; flex-wrap: wrap; align-items: flex-end"><span style="padding: 0 2px"><ruby lang="zh-Hans" style="ruby-position: under; font-family: var(--font-kai); font-size: 24px; line-height: 2.1"><span style="color: {{ hc3 }}">我</span><rt style="font-family: var(--font-sans); font-size: 11px; color: {{ pc3 }}; opacity: {{ pinyinOpacity }}; visibility: {{ rtVis }}">wǒ</rt></ruby></span><span style="padding: 0 2px"><ruby lang="zh-Hans" style="ruby-position: under; font-family: var(--font-kai); font-size: 24px; line-height: 2.1"><span style="color: {{ hc3 }}">想</span><rt style="font-family: var(--font-sans); font-size: 11px; color: {{ pc3 }}; opacity: {{ pinyinOpacity }}; visibility: {{ rtVis }}">xiǎng</rt></ruby></span><span style="padding: 0 2px"><ruby lang="zh-Hans" style="ruby-position: under; font-family: var(--font-kai); font-size: 24px; line-height: 2.1"><span style="color: {{ hc3 }}">买</span><rt style="font-family: var(--font-sans); font-size: 11px; color: {{ pc3 }}; opacity: {{ pinyinOpacity }}; visibility: {{ rtVis }}">mǎi</rt></ruby></span><button aria-label="Palabra nueva: 苹果, ver significado" onClick="{{ openWord }}" style="padding: 0 2px; border: 0; border-bottom: 2px dashed var(--ink); background: {{ newBg }}; font: inherit; color: inherit; cursor: pointer"><ruby lang="zh-Hans" style="ruby-position: under; font-family: var(--font-kai); font-size: 24px; line-height: 2.1"><span style="color: {{ hc2 }}">苹</span><rt style="font-family: var(--font-sans); font-size: 11px; color: {{ pc2 }}; opacity: {{ pinyinOpacity }}; visibility: {{ rtVis }}">píng</rt><span style="color: {{ hc3 }}">果</span><rt style="font-family: var(--font-sans); font-size: 11px; color: {{ pc3 }}; opacity: {{ pinyinOpacity }}; visibility: {{ rtVis }}">guǒ</rt></ruby></button><span lang="zh-Hans" style="font-family: var(--font-kai); font-size: 24px">。</span></span>
+          <sc-if value="{{ showTrans }}" hint-placeholder-val="{{ false }}"><span style="font-size: 14px; color: var(--ink-2)">Quiero comprar manzanas.</span></sc-if></p>
+        <p style="margin: 0; display: flex; flex-direction: column; gap: 2px"><span style="display: flex; flex-wrap: wrap; align-items: flex-end"><button aria-label="Palabra nueva: 苹果, ver significado" onClick="{{ openWord }}" style="padding: 0 2px; border: 0; border-bottom: 2px dashed var(--ink); background: {{ newBg }}; font: inherit; color: inherit; cursor: pointer"><ruby lang="zh-Hans" style="ruby-position: under; font-family: var(--font-kai); font-size: 24px; line-height: 2.1"><span style="color: {{ hc2 }}">苹</span><rt style="font-family: var(--font-sans); font-size: 11px; color: {{ pc2 }}; opacity: {{ pinyinOpacity }}; visibility: {{ rtVis }}">píng</rt><span style="color: {{ hc3 }}">果</span><rt style="font-family: var(--font-sans); font-size: 11px; color: {{ pc3 }}; opacity: {{ pinyinOpacity }}; visibility: {{ rtVis }}">guǒ</rt></ruby></button><span style="padding: 0 2px"><ruby lang="zh-Hans" style="ruby-position: under; font-family: var(--font-kai); font-size: 24px; line-height: 2.1"><span style="color: {{ hc1 }}">多</span><rt style="font-family: var(--font-sans); font-size: 11px; color: {{ pc1 }}; opacity: {{ pinyinOpacity }}; visibility: {{ rtVis }}">duō</rt><span style="color: {{ hc5 }}">少</span><rt style="font-family: var(--font-sans); font-size: 11px; color: {{ pc5 }}; opacity: {{ pinyinOpacity }}; visibility: {{ rtVis }}">shao</rt></ruby></span><span style="padding: 0 2px"><ruby lang="zh-Hans" style="ruby-position: under; font-family: var(--font-kai); font-size: 24px; line-height: 2.1"><span style="color: {{ hc2 }}">钱</span><rt style="font-family: var(--font-sans); font-size: 11px; color: {{ pc2 }}; opacity: {{ pinyinOpacity }}; visibility: {{ rtVis }}">qián</rt></ruby></span><span lang="zh-Hans" style="font-family: var(--font-kai); font-size: 24px">？</span></span>
+          <sc-if value="{{ showTrans }}" hint-placeholder-val="{{ false }}"><span style="font-size: 14px; color: var(--ink-2)">¿Cuánto cuestan las manzanas?</span></sc-if></p>
+        <p style="margin: 0; display: flex; flex-direction: column; gap: 2px"><span style="display: flex; flex-wrap: wrap; align-items: flex-end"><span lang="zh-Hans" style="font-family: var(--font-kai); font-size: 24px">“</span><span style="padding: 0 2px"><ruby lang="zh-Hans" style="ruby-position: under; font-family: var(--font-kai); font-size: 24px; line-height: 2.1"><span style="color: {{ hc2 }}">十</span><rt style="font-family: var(--font-sans); font-size: 11px; color: {{ pc2 }}; opacity: {{ pinyinOpacity }}; visibility: {{ rtVis }}">shí</rt></ruby></span><span style="padding: 0 2px"><ruby lang="zh-Hans" style="ruby-position: under; font-family: var(--font-kai); font-size: 24px; line-height: 2.1"><span style="color: {{ hc4 }}">块</span><rt style="font-family: var(--font-sans); font-size: 11px; color: {{ pc4 }}; opacity: {{ pinyinOpacity }}; visibility: {{ rtVis }}">kuài</rt></ruby></span><span style="padding: 0 2px"><ruby lang="zh-Hans" style="ruby-position: under; font-family: var(--font-kai); font-size: 24px; line-height: 2.1"><span style="color: {{ hc2 }}">钱</span><rt style="font-family: var(--font-sans); font-size: 11px; color: {{ pc2 }}; opacity: {{ pinyinOpacity }}; visibility: {{ rtVis }}">qián</rt></ruby></span><span lang="zh-Hans" style="font-family: var(--font-kai); font-size: 24px">。”</span></span>
+          <sc-if value="{{ showTrans }}" hint-placeholder-val="{{ false }}"><span style="font-size: 14px; color: var(--ink-2)">«Diez yuanes.»</span></sc-if></p>
+    </div>
+    <span style="font-size: 12px; color: var(--ink-2)">Toca una palabra para ver su significado.</span>
+  </main>
+  <footer style="padding: 8px 20px 28px"><a href="C-LecturaPreguntas.dc.html" style="min-height: 52px; display: flex; align-items: center; justify-content: center; border-radius: 10px; background: var(--jade); color: var(--on-jade); text-decoration: none; font-size: 16px; font-weight: 600">He terminado: preguntas</a></footer>
+  <sc-if value="{{ wordOpen }}" hint-placeholder-val="{{ true }}">
+    <section role="dialog" aria-label="Significado de 苹果" style="position: absolute; left: 0; right: 0; bottom: 0; box-sizing: border-box; padding: 20px 20px 32px; background: var(--surface); border-top: 1px solid var(--line); border-radius: 16px 16px 0 0; box-shadow: 0 -8px 24px var(--scrim); display: flex; flex-direction: column; gap: 14px">
+        <div style="display: flex; align-items: flex-start; justify-content: space-between; gap: 12px">
+          <div style="display: flex; flex-direction: column; gap: 2px">
+            <span style="font-size: 12px; font-weight: 600; letter-spacing: 0.04em; color: var(--ink-2)">PALABRA NUEVA · HSK 1</span>
+            <ruby lang="zh-Hans" style="ruby-position: under; font-family: var(--font-kai); font-size: 40px; line-height: 1.6"><span style="color: {{ hc2 }}">苹</span><rt style="font-family: var(--font-sans); font-size: 15px; color: {{ pc2 }}; opacity: {{ pinyinOpacity }}; visibility: {{ rtVis }}">píng</rt><span style="color: {{ hc3 }}">果</span><rt style="font-family: var(--font-sans); font-size: 15px; color: {{ pc3 }}; opacity: {{ pinyinOpacity }}; visibility: {{ rtVis }}">guǒ</rt></ruby>
+            <span style="font-size: 18px; font-weight: 600">manzana</span>
+          </div>
+          <button aria-label="Cerrar" onClick="{{ closeWord }}" style="width: 40px; height: 40px; border: 0; border-radius: 8px; background: transparent; color: var(--ink-2); display: flex; align-items: center; justify-content: center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"></path></svg></button>
+        </div>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap">
+          <button style="min-height: 44px; padding: 0 16px; border: 1px solid var(--line-strong); border-radius: 10px; background: var(--surface); font: inherit; font-size: 14px; font-weight: 600; color: var(--ink); display: flex; align-items: center; justify-content: center; gap: 6px; text-decoration: none"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9zM16 9a4 4 0 0 1 0 6"></path></svg>Escuchar</button>
+          <sc-if value="{{ notAdded }}" hint-placeholder-val="{{ true }}"><button onClick="{{ add }}" style="min-height: 44px; padding: 0 16px; border: 1px solid var(--line-strong); border-radius: 10px; background: var(--surface); font: inherit; font-size: 14px; font-weight: 600; color: var(--ink); display: flex; align-items: center; justify-content: center; gap: 6px; text-decoration: none; background: var(--jade); color: var(--on-jade); border-color: var(--jade)">Añadir a mis tarjetas</button></sc-if>
+          <sc-if value="{{ added }}" hint-placeholder-val="{{ false }}"><span role="status" style="min-height: 44px; display: flex; align-items: center; font-size: 14px; font-weight: 600">Añadida: saldrá como palabra nueva</span></sc-if>
+        </div>
+    </section>
+  </sc-if>
+  <sc-if value="{{ sheetOpen }}" hint-placeholder-val="{{ false }}">
+    <button aria-label="Cerrar ajustes de estudio" onClick="{{ closeSheet }}" style="position: absolute; inset: 0; border: 0; background: var(--scrim)"></button>
+    <section role="dialog" aria-label="Ajustes de estudio" style="position: absolute; left: 0; right: 0; bottom: 0; box-sizing: border-box; padding: 20px 20px 32px; background: var(--surface); border-radius: 16px 16px 0 0; display: flex; flex-direction: column; gap: 18px">
+      <div style="display: flex; align-items: center; justify-content: space-between">
+        <h2 style="margin: 0; font-size: 18px; font-weight: 700">Ajustes de estudio</h2>
+        <button onClick="{{ closeSheet }}" style="min-height: 44px; padding: 0 12px; border: 0; background: transparent; font: inherit; font-size: 14px; font-weight: 600; color: var(--ink)">Listo</button>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 8px">
+        <span id="m-size-label" style="font-size: 14px; font-weight: 600">1 · Tamaño de los caracteres</span>
+        <div role="group" aria-labelledby="m-size-label" style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px">
+          <sc-for list="{{ sizes }}" as="s" hint-placeholder-count="3">
+            <button aria-pressed="{{ s.pressed }}" onClick="{{ s.pick }}" style="min-height: 44px; border: 1px solid var(--line-strong); border-radius: 8px; font: inherit; font-size: 14px; {{ s.style }}; background: var(--surface)">{{ s.label }}</button>
+          </sc-for>
+        </div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 8px">
+        <span id="m-pinyin-label" style="font-size: 14px; font-weight: 600">2 · Pinyin</span>
+        <div role="group" aria-labelledby="m-pinyin-label" style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px">
+          <sc-for list="{{ modes }}" as="m" hint-placeholder-count="3">
+            <button aria-pressed="{{ m.pressed }}" onClick="{{ m.pick }}" style="min-height: 44px; border: 1px solid var(--line-strong); border-radius: 8px; font: inherit; font-size: 14px; {{ m.style }}; background: var(--surface)">{{ m.label }}</button>
+          </sc-for>
+        </div>
+        <sc-if value="{{ showSlider }}" hint-placeholder-val="{{ true }}">
+          <label for="m-opacity" style="display: flex; justify-content: space-between; font-size: 13px; color: var(--ink-2)">Opacidad <span>{{ opacity }} %</span></label>
+          <input id="m-opacity" type="range" min="10" max="90" step="10" value="{{ opacity }}" onChange="{{ setOpacity }}" style="width: 100%; height: 36px">
+        </sc-if>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 8px">
+        <span id="m-color-label" style="font-size: 14px; font-weight: 600">3 · Colores según el tono</span>
+        <div role="group" aria-labelledby="m-color-label" style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px">
+          <sc-for list="{{ colorModes }}" as="c" hint-placeholder-count="3">
+            <button aria-pressed="{{ c.pressed }}" onClick="{{ c.pick }}" style="min-height: 44px; border: 1px solid var(--line-strong); border-radius: 8px; font: inherit; font-size: 13px; {{ c.style }}; background: var(--surface)">{{ c.label }}</button>
+          </sc-for>
+        </div>
+        <sc-if value="{{ colorsOn }}" hint-placeholder-val="{{ true }}">
+          <div aria-label="Leyenda de colores por tono" style="display: flex; flex-wrap: wrap; gap: 10px; font-size: 12px; color: var(--ink-2)">
+            <span style="display: flex; align-items: center; gap: 4px"><span aria-hidden="true" style="width: 10px; height: 10px; border-radius: 5px; background: var(--tone-1)"></span>1.º ā</span>
+            <span style="display: flex; align-items: center; gap: 4px"><span aria-hidden="true" style="width: 10px; height: 10px; border-radius: 5px; background: var(--tone-2)"></span>2.º á</span>
+            <span style="display: flex; align-items: center; gap: 4px"><span aria-hidden="true" style="width: 10px; height: 10px; border-radius: 5px; background: var(--tone-3)"></span>3.º ǎ</span>
+            <span style="display: flex; align-items: center; gap: 4px"><span aria-hidden="true" style="width: 10px; height: 10px; border-radius: 5px; background: var(--tone-4)"></span>4.º à</span>
+            <span style="display: flex; align-items: center; gap: 4px"><span aria-hidden="true" style="width: 10px; height: 10px; border-radius: 5px; background: var(--jade-bright)"></span>neutro</span>
+          </div>
+        </sc-if>
+      </div>
+      <label style="min-height: 44px; display: flex; align-items: center; justify-content: space-between; font-size: 14px; font-weight: 600">4 · Audio automático al girar <input type="checkbox" checked="{{ autoAudio }}" onChange="{{ toggleAudio }}" style="width: 22px; height: 22px"></label>
+
+      <span style="font-size: 12px; color: var(--ink-2)">Se guarda para todas tus sesiones. Más opciones en Perfil › Ajustes.</span>
+    </section>
+  </sc-if>
+</div>
+</template>
+<script type="text/x-dc" data-props='{"tema":{"editor":"enum","options":["claro","oscuro"],"default":"claro","section":"Tema"},"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { sheet: false, mode: 'atenuado', opacity: 40, size: 'M', color: 'pinyin', autoAudio: false, word: true, trans: false, added: false };
+  }
+  renderVals() {
+    const __tema = this.props.tema ?? 'claro';
+    const s = this.state;
+    const on = 'background: var(--jade-tint); color: var(--ink); border-color: var(--jade); font-weight: 600';
+    const off = 'background: var(--surface); color: var(--ink)';
+    const group = (key, list) => list.map(([id, label]) => ({
+      label, pressed: String(s[key] === id), style: s[key] === id ? on : off, pick: () => this.setState({ [key]: id })
+    }));
+    const TONE = { 1: 'var(--tone-1)', 2: 'var(--tone-2)', 3: 'var(--tone-3)', 4: 'var(--tone-4)', 5: 'var(--tone-5)' };
+    const pc = (t) => (s.color === 'no' ? 'var(--ink-2)' : TONE[t]);
+    const hc = (t) => (s.color === 'ambos' ? TONE[t] : 'var(--ink)');
+    return { tema: __tema, 
+      sheetOpen: s.sheet,
+      openSheet: () => this.setState({ sheet: true }),
+      closeSheet: () => this.setState({ sheet: false }),
+      sizes: group('size', [['S', 'Pequeño'], ['M', 'Normal'], ['L', 'Grande']]),
+      modes: group('mode', [['mostrar', 'Mostrar'], ['atenuado', 'Atenuado'], ['ocultar', 'Ocultar']]),
+      colorModes: group('color', [['no', 'Sin color'], ['pinyin', 'Pinyin'], ['ambos', 'Pinyin y caracteres']]),
+      opacity: s.opacity,
+      setOpacity: (e) => this.setState({ opacity: Number(e.target.value) }),
+      showSlider: s.mode === 'atenuado',
+      pinyinHidden: s.mode === 'ocultar',
+      rtVis: s.mode === 'ocultar' ? 'hidden' : 'visible',
+      pinyinOpacity: s.mode === 'mostrar' ? 1 : s.opacity / 100,
+      charSize: s.size === 'S' ? 60 : s.size === 'L' ? 104 : 80,
+      colorsOn: s.color !== 'no',
+      pc1: pc(1), pc2: pc(2), pc3: pc(3), pc4: pc(4), pc5: pc(5),
+      hc1: hc(1), hc2: hc(2), hc3: hc(3), hc4: hc(4), hc5: hc(5),
+      autoAudio: s.autoAudio,
+      toggleAudio: () => this.setState({ autoAudio: !s.autoAudio }),
+      wordOpen: s.word,
+      openWord: () => this.setState({ word: true }),
+      closeWord: () => this.setState({ word: false }),
+      newBg: s.word ? 'var(--on-jade)' : 'transparent',
+      showTrans: s.trans,
+      transLabel: s.trans ? 'Ocultar traducción' : 'Ver traducción',
+      transPressed: String(s.trans),
+      toggleTrans: () => this.setState({ trans: !s.trans }),
+      added: s.added,
+      notAdded: !s.added,
+      add: () => this.setState({ added: true })
+    };
+  }
+}
+</script>
+</body>
+</html>

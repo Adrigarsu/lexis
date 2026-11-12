@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Crear cuenta (escritorio) · Lexis</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Noto+Sans+SC:wght@400;500&amp;family=Noto+Serif+SC:wght@400;500;900&amp;display=swap">
+<style>
+body{margin:0}
+a{color:var(--jade)}a:hover{color:var(--ink)}
+[role="status"] a{color:var(--ink)}
+input:focus-visible,button:focus-visible,a:focus-visible{outline:2px solid #18181b;outline-offset:2px}
+</style>
+<link rel="stylesheet" href="../assets/lexis.css">
+<script src="../assets/dc-runtime.js"></script>
+</head>
+<body style="margin:0">
+<div id="dc-root"></div>
+<template id="dc-template">
+<div class="lx" data-theme="{{ tema }}" style="min-height: 860px; box-sizing: border-box; background: var(--surface-sunken); font-family: var(--font-sans); color: var(--ink); display: flex; flex-direction: column; align-items: center; padding: 32px 24px">
+  <header style="width: 100%; max-width: 1040px; display: flex; align-items: center; min-height: 44px"><span style="display: inline-flex; align-items: center; gap: 8px; font-size: 18px; font-weight: 700"><span aria-hidden="true" style="width: 26px; height: 26px; flex: none; box-sizing: border-box; display: grid; place-items: center; border: 2.5px solid var(--jade); border-radius: 4px; color: var(--jade); font: 900 15px/1 'Noto Serif SC', serif">词</span>Lexis</span></header>
+  <main style="width: 100%; max-width: 440px; margin: 32px 0; padding: 32px; box-sizing: border-box; background: var(--surface); border: 1px solid var(--line); border-radius: 16px; display: flex; flex-direction: column; gap: 20px">
+      <h1 style="margin: 0; font-size: 26px; font-weight: 700">Crear cuenta</h1>
+      <form style="display: flex; flex-direction: column; gap: 22px">
+        <label style="display: flex; flex-direction: column; gap: 8px; font-size: 14px; font-weight: 600">Nombre de usuario<input type="text" autocomplete="username" placeholder="adri" style="width: 100%; box-sizing: border-box; min-height: 52px; padding: 0 14px; border: 1px solid var(--line-strong); border-radius: 10px; font: inherit; font-size: 16px; color: var(--ink); background: var(--surface)"></label>
+        <label style="display: flex; flex-direction: column; gap: 8px; font-size: 14px; font-weight: 600">Email<input type="email" autocomplete="email" placeholder="tu@email.com" style="width: 100%; box-sizing: border-box; min-height: 52px; padding: 0 14px; border: 1px solid var(--line-strong); border-radius: 10px; font: inherit; font-size: 16px; color: var(--ink); background: var(--surface)"></label>
+        <label style="display: flex; flex-direction: column; gap: 8px; font-size: 14px; font-weight: 600">Contraseña
+          <span style="display: flex; gap: 8px"><input type="password" autocomplete="new-password" aria-describedby="pwd-help" style="width: 100%; box-sizing: border-box; min-height: 52px; padding: 0 14px; border: 1px solid var(--line-strong); border-radius: 10px; font: inherit; font-size: 16px; color: var(--ink); background: var(--surface); flex: 1"><button type="button" style="min-width: 72px; border: 1px solid var(--line-strong); border-radius: 10px; background: var(--surface); font: inherit; font-size: 13px; color: var(--ink)">Mostrar</button></span>
+          <span id="pwd-help" style="font-size: 12px; font-weight: 400; color: var(--ink-2)">Mínimo 12 caracteres</span>
+        </label>
+        <div role="img" aria-label="Verificación CAPTCHA" style="height: 64px; border: 1px dashed var(--line-strong); border-radius: 10px; background: var(--surface-sunken); display: flex; align-items: center; justify-content: center; font-size: 12px; color: var(--ink-2)">CAPTCHA</div><label style="display: flex; align-items: center; gap: 10px; min-height: 44px; font-size: 14px"><input type="checkbox" style="width: 22px; height: 22px">Tengo 14 años o más</label>
+        <label style="display: flex; align-items: center; gap: 10px; min-height: 44px; font-size: 14px"><input type="checkbox" style="width: 22px; height: 22px"><span>Acepto la <a href="C-DRegistro.dc.html">política de privacidad</a></span></label>
+        
+        <a href="C-DVerificar.dc.html" style="min-height: 52px; display: flex; align-items: center; justify-content: center; border-radius: 10px; background: var(--jade); color: var(--on-jade); text-decoration: none; font-size: 16px; font-weight: 600">Crear cuenta</a>
+      </form>
+      <span style="text-align: center; font-size: 14px; color: var(--ink-2)">¿Ya tienes cuenta? <a href="C-DRegistro.dc.html" style="font-weight: 600">Inicia sesión</a></span>
+  </main>
+</div>
+</template>
+<script type="text/x-dc" data-props='{"tema":{"editor":"enum","options":["claro","oscuro"],"default":"claro","section":"Tema"},"$preview":{"width":1280,"height":860}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const __tema = this.props.tema ?? 'claro';
+    return { tema: __tema, };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+name: Bug
+description: Algo no funciona como dice la documentación.
+title: "Bug: "
+labels: ["tipo:bug"]
+body:
+  - type: textarea
+    id: que-pasa
+    attributes:
+      label: Qué pasa
+    validations:
+      required: true
+  - type: textarea
+    id: esperado
+    attributes:
+      label: Qué debería pasar
+      description: Con la historia, requisito o decisión que lo define, si existe.
+      placeholder: "Según HU-12, …"
+    validations:
+      required: true
+  - type: textarea
+    id: pasos
+    attributes:
+      label: Pasos para reproducirlo
+      value: |
+        1.
+        2.
+        3.
+    validations:
+      required: true
+  - type: input
+    id: entorno
+    attributes:
+      label: Dispositivo y navegador
+      placeholder: "iPhone, Safari 19 · app instalada"
+  - type: dropdown
+    id: gravedad
+    attributes:
+      label: Gravedad
+      options:
+        - Bloquea el estudio o pierde datos
+        - Molesta, pero hay forma de seguir
+        - Detalle visual o de texto
+    validations:
+      required: true
+  - type: textarea
+    id: pistas
+    attributes:
+      label: Pistas
+      description: Errores de la consola o de Sentry, capturas. Sin datos personales.
+  - type: markdown
+    attributes:
+      value: |
+        El arreglo empieza por una prueba que reproduce el bug y falla (TDD).

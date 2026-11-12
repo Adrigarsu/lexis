@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="es">
+<head>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500&family=Noto+Serif+SC:wght@400;500&display=swap">
+<link rel="stylesheet" href="../../pantallas/assets/lexis.css">
+<meta charset="utf-8">
+<title>Campo de texto</title>
+<style>
+body{margin:0;background:var(--paper)}
+.stage{padding:var(--space-6);display:flex;flex-direction:column;gap:var(--space-5)}
+.row{display:flex;flex-wrap:wrap;gap:var(--space-3);align-items:center}
+.cap{font:500 12px/16px var(--font-sans);color:var(--ink-2);margin:0 0 var(--space-2)}
+.col{display:flex;flex-direction:column;gap:var(--space-2);min-width:220px;flex:1}
+</style>
+</head>
+<body>
+<div class="lx stage">
+<div class="row" style="align-items:flex-start">
+<label class="lx-field col"><span class="lx-field__label">Email</span><input class="lx-input" type="email" autocomplete="email" value="tu@email.com"><span class="lx-field__help">Te enviaremos un código de 6 cifras.</span></label>
+<label class="lx-field col"><span class="lx-field__label">Pinyin</span><input class="lx-input" type="text" placeholder="ni3 hao3"><span class="lx-field__help">Con marcas (hǎo) o con números (hao3).</span></label>
+</div>
+<div class="row" style="align-items:flex-start">
+<div class="lx-field col"><label class="lx-field__label" for="pw">Contraseña</label><input class="lx-input" id="pw" type="password" value="corta" aria-invalid="true" aria-describedby="pw-err"><span class="lx-field__error" id="pw-err"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg>Tiene que tener al menos 12 caracteres.</span></div>
+<label class="lx-field col"><span class="lx-field__label">Nombre de usuario</span><input class="lx-input" type="text" value="adri" disabled><span class="lx-field__help">Se cambia desde Cuenta.</span></label>
+</div>
+</div>
+</body>
+</html>

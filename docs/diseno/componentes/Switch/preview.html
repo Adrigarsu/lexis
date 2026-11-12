@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="es">
+<head>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500&family=Noto+Serif+SC:wght@400;500&display=swap">
+<link rel="stylesheet" href="../../pantallas/assets/lexis.css">
+<meta charset="utf-8">
+<title>Interruptor</title>
+<style>
+body{margin:0;background:var(--paper)}
+.stage{padding:var(--space-6);display:flex;flex-direction:column;gap:var(--space-5)}
+.row{display:flex;flex-wrap:wrap;gap:var(--space-3);align-items:center}
+.cap{font:500 12px/16px var(--font-sans);color:var(--ink-2);margin:0 0 var(--space-2)}
+.col{display:flex;flex-direction:column;gap:var(--space-2);min-width:220px;flex:1}
+</style>
+</head>
+<body>
+<div class="lx stage">
+<div style="max-width:420px;display:flex;flex-direction:column">
+<label class="lx-switch"><span class="lx-switch__text"><span class="lx-switch__title">Colores según el tono</span><span class="lx-switch__desc">Siempre con la marca del tono: ā á ǎ à a</span></span><input type="checkbox" role="switch" checked></label>
+<label class="lx-switch"><span class="lx-switch__text"><span class="lx-switch__title">Valoración automática</span><span class="lx-switch__desc">Si está apagada, valoras tú.</span></span><input type="checkbox" role="switch"></label>
+<label class="lx-switch"><span class="lx-switch__text"><span class="lx-switch__title">Reconocimiento de voz</span><span class="lx-switch__desc">No disponible en la app instalada en iPhone.</span></span><input type="checkbox" role="switch" disabled></label>
+</div>
+</div>
+</body>
+</html>

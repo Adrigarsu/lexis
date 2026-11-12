@@ -1,0 +1,30 @@
+name: Tarea técnica
+description: Trabajo sin historia de usuario (configuración, herramientas, CI, refactorización, skills).
+title: "Tarea: "
+labels: ["tipo:tarea"]
+body:
+  - type: textarea
+    id: objetivo
+    attributes:
+      label: Objetivo
+      description: Qué tiene que quedar hecho y por qué.
+    validations:
+      required: true
+  - type: textarea
+    id: criterios
+    attributes:
+      label: Criterios de hecho
+      value: |
+        - [ ]
+    validations:
+      required: true
+  - type: input
+    id: referencias
+    attributes:
+      label: Decisiones y ADR relacionados
+      placeholder: "D-138 · ADR-019"
+  - type: textarea
+    id: dependencias
+    attributes:
+      label: Depende de
+      placeholder: "#3"

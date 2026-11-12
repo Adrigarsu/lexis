@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mis listas (móvil) · Lexis</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Noto+Sans+SC:wght@400;500&amp;family=Noto+Serif+SC:wght@400;500&amp;display=swap">
+<style>
+body{margin:0}
+a{color:var(--jade)}a:hover{color:var(--ink)}
+[role="status"] a{color:var(--ink)}
+</style>
+<link rel="stylesheet" href="../assets/lexis.css">
+<script src="../assets/dc-runtime.js"></script>
+</head>
+<body style="margin:0">
+<div id="dc-root"></div>
+<template id="dc-template">
+<div class="lx" data-theme="{{ tema }}" style="position: relative; width: 390px; height: 844px; box-sizing: border-box; background: var(--paper); font-family: var(--font-sans); color: var(--ink); display: flex; flex-direction: column">
+  <header style="display: flex; align-items: center; gap: 8px; padding: 16px 12px 8px">
+    <a href="C-Practicar.dc.html" aria-label="Volver a Practicar" style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; border-radius: 8px; color: var(--ink)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m15 6-6 6 6 6"/></svg></a>
+    <h1 style="flex: 1; margin: 0; font-size: 20px; font-weight: 700">Mis listas</h1>
+    <button onClick="{{ openNew }}" style="min-height: 44px; display: flex; align-items: center; gap: 6px; padding: 0 14px; border: 1px solid var(--line-strong); border-radius: 10px; background: var(--surface); font: inherit; font-size: 14px; font-weight: 600; color: var(--ink)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>Nueva lista</button>
+  </header>
+
+  <main style="flex: 1; overflow-y: auto; padding: 8px 20px 16px; display: flex; flex-direction: column; gap: 16px">
+    <a href="C-Importar.dc.html" style="min-height: 44px; display: flex; align-items: center; gap: 6px; padding: 0 14px; border: 1px solid var(--line-strong); border-radius: 10px; background: var(--surface); font: inherit; font-size: 14px; font-weight: 600; color: var(--ink); text-decoration: none; justify-content: center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15V3M7 8l5-5 5 5M4 21h16"/></svg>Importar caracteres o palabras</a>
+    <div style="display: flex; flex-direction: column; gap: 10px">
+      <sc-for list="{{ lists }}" as="l" hint-placeholder-count="3">
+        <a href="C-Lista.dc.html" style="display: flex; flex-direction: column; gap: 10px; padding: 16px; border: 1px solid var(--line); border-radius: 10px; text-decoration: none; color: var(--ink); background: var(--surface)">
+          <span style="display: flex; align-items: baseline; gap: 8px"><span style="flex: 1; font-size: 16px; font-weight: 600">{{ l.name }}</span><span style="font-size: 13px; color: var(--ink-2)">{{ l.count }} palabras</span></span>
+          <span style="display: flex; align-items: center; gap: 10px"><span style="flex: 1; height: 8px; border-radius: 4px; background: var(--surface-sunken)"><span style="display: block; width: {{ l.pct }}; height: 8px; border-radius: 4px; background: var(--jade-bright)"></span></span><span style="font-size: 12px; color: var(--ink-2)">{{ l.pct }} dominado</span></span>
+          <span style="font-size: 12px; color: var(--ink-2)">{{ l.due }}</span>
+        </a>
+      </sc-for>
+    </div>
+
+    <div style="display: flex; align-items: center; gap: 12px; padding: 14px 16px; border: 1px dashed var(--line-strong); border-radius: 10px; background: var(--surface)">
+      <span style="flex: 1; display: flex; flex-direction: column; gap: 2px"><span style="font-size: 15px; font-weight: 500">Tarjetas propias</span><span style="font-size: 12px; color: var(--ink-2)">[7] palabras creadas por ti, fuera del HSK</span></span>
+      <a href="C-TarjetaNueva.dc.html" style="min-height: 44px; display: flex; align-items: center; padding: 0 12px; font-size: 14px; font-weight: 600">Crear</a>
+    </div>
+  </main>
+
+  <nav aria-label="Navegación principal" style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-top: 1px solid var(--line); padding: 8px 8px 24px">
+    <a href="C-Inicio.dc.html" style="min-height: 44px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; text-decoration: none; font-size: 11px; color: var(--ink-2)"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 11 12 4l9 7v9h-6v-6H9v6H3z"/></svg>Hoy</a>
+    <a href="C-Practicar.dc.html" aria-current="page" style="min-height: 44px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; text-decoration: none; font-size: 11px; font-weight: 600; color: var(--ink)"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M8 9h8M8 13h5"/></svg>Practicar</a>
+    <a href="C-Progreso.dc.html" style="min-height: 44px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; text-decoration: none; font-size: 11px; color: var(--ink-2)"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg>Progreso</a>
+    <a href="C-Perfil.dc.html" style="min-height: 44px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; text-decoration: none; font-size: 11px; color: var(--ink-2)"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>Perfil</a>
+  </nav>
+
+  <sc-if value="{{ newOpen }}" hint-placeholder-val="{{ false }}">
+    <div style="position: absolute; inset: 0; background: var(--scrim); display: flex; align-items: flex-end">
+      <div role="dialog" aria-modal="true" aria-labelledby="nueva-lista" style="width: 100%; box-sizing: border-box; padding: 24px 20px 32px; border-radius: 16px 16px 0 0; background: var(--surface); display: flex; flex-direction: column; gap: 16px">
+        <h2 id="nueva-lista" style="margin: 0; font-size: 18px; font-weight: 700">Nueva lista</h2>
+        <label style="display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 500">Nombre<input type="text" style="min-height: 44px; box-sizing: border-box; padding: 0 12px; border: 1px solid var(--line-strong); border-radius: 8px; font: inherit; font-weight: 400; background: var(--surface)"></label>
+        <span style="font-size: 12px; color: var(--ink-2)">Después podrás añadir palabras del HSK o crear las tuyas.</span>
+        <div style="display: flex; gap: 10px">
+          <button onClick="{{ closeNew }}" style="flex: 1; min-height: 48px; border: 1px solid var(--line-strong); border-radius: 10px; background: var(--surface); font: inherit; font-size: 15px; font-weight: 600; color: var(--ink)">Cancelar</button>
+          <a href="C-Lista.dc.html" style="flex: 1; min-height: 48px; display: flex; align-items: center; justify-content: center; border-radius: 10px; background: var(--jade); text-decoration: none; font-size: 15px; font-weight: 600; color: var(--on-jade)">Crear lista</a>
+        </div>
+      </div>
+    </div>
+  </sc-if>
+</div>
+</template>
+<script type="text/x-dc" data-props='{"tema":{"editor":"enum","options":["claro","oscuro"],"default":"claro","section":"Tema"},"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { open: false };
+  }
+  renderVals() {
+    const __tema = this.props.tema ?? 'claro';
+    return { tema: __tema, 
+      newOpen: this.state.open,
+      openNew: () => this.setState({ open: true }),
+      closeNew: () => this.setState({ open: false }),
+      lists: [
+        { name: '[Clase del lunes]', count: '[12]', pct: '40%', due: '[5] para repasar hoy' },
+        { name: '[Comida]', count: '[8]', pct: '75%', due: 'Nada que repasar hoy' },
+        { name: '[Viaje a Pekín]', count: '[4]', pct: '0%', due: '[4] palabras nuevas' }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

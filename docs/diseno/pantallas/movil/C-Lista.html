@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lista (móvil) · Lexis</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Noto+Sans+SC:wght@400;500&amp;family=Noto+Serif+SC:wght@400;500&amp;display=swap">
+<style>
+body{margin:0}
+a{color:var(--jade)}a:hover{color:var(--ink)}
+[role="status"] a{color:var(--ink)}
+</style>
+<link rel="stylesheet" href="../assets/lexis.css">
+<script src="../assets/dc-runtime.js"></script>
+</head>
+<body style="margin:0">
+<div id="dc-root"></div>
+<template id="dc-template">
+<div class="lx" data-theme="{{ tema }}" style="width: 390px; height: 844px; box-sizing: border-box; background: var(--paper); font-family: var(--font-sans); color: var(--ink); display: flex; flex-direction: column">
+  <header style="display: flex; align-items: center; gap: 8px; padding: 16px 12px 8px">
+    <a href="C-Listas.dc.html" aria-label="Volver a Mis listas" style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; border-radius: 8px; color: var(--ink)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m15 6-6 6 6 6"/></svg></a>
+    <h1 style="flex: 1; margin: 0; font-size: 20px; font-weight: 700">[Clase del lunes]</h1>
+    <button aria-label="Más opciones de la lista: renombrar o borrar" style="width: 44px; height: 44px; border: 0; background: transparent; color: var(--ink); display: flex; align-items: center; justify-content: center"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/></svg></button>
+  </header>
+
+  <main style="flex: 1; overflow-y: auto; padding: 8px 20px 16px; display: flex; flex-direction: column; gap: 16px">
+    <a href="C-Tarjeta.dc.html" style="min-height: 52px; display: flex; align-items: center; justify-content: center; gap: 8px; border-radius: 10px; background: var(--jade); color: var(--on-jade); text-decoration: none; font-size: 16px; font-weight: 600">Practicar esta lista</a>
+    <span style="font-size: 13px; color: var(--ink-2); text-align: center">[12] palabras · [5] para repasar · [40] % dominado</span>
+
+    <section style="display: flex; flex-direction: column; gap: 10px">
+      <h2 style="margin: 0; font-size: 15px; font-weight: 600">Añadir palabras</h2>
+      <label style="display: flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 12px; border: 1px solid var(--line-strong); border-radius: 10px; background: var(--surface)">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2" aria-hidden="true" style="stroke: var(--ink-2)"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        <input type="search" aria-label="Buscar por caracteres, pinyin o significado" value="chī" style="flex: 1; min-width: 0; border: 0; font: inherit; font-size: 15px; background: transparent">
+      </label>
+      <div style="border: 1px solid var(--line); border-radius: 10px; display: flex; flex-direction: column; overflow: hidden; background: var(--surface)">
+        <div style="min-height: 56px; display: flex; align-items: center; gap: 12px; padding: 6px 8px 6px 16px; border-bottom: 1px solid var(--line)">
+          <span style="flex: 1; display: flex; align-items: center; gap: 10px"><ruby lang="zh-Hans" style="ruby-position: under; font-family: var(--font-kai); font-size: 18px">吃<rt style="font-family: var(--font-sans); font-size: 11px; color: var(--ink-2)">chī</rt></ruby><span style="font-size: 14px">comer</span><span style="font-size: 11px; color: var(--ink-2)">HSK 1</span></span>
+          <span style="font-size: 13px; color: var(--ink-2); padding: 0 8px">Ya está</span>
+        </div>
+        <div style="min-height: 56px; display: flex; align-items: center; gap: 12px; padding: 6px 8px 6px 16px">
+          <span style="flex: 1; display: flex; align-items: center; gap: 10px"><ruby lang="zh-Hans" style="ruby-position: under; font-family: var(--font-kai); font-size: 18px">吃<rt style="font-family: var(--font-sans); font-size: 11px; color: var(--ink-2)">chī</rt>饭<rt style="font-family: var(--font-sans); font-size: 11px; color: var(--ink-2)">fàn</rt></ruby><span style="font-size: 14px">comer, comida</span><span style="font-size: 11px; color: var(--ink-2)">HSK 1</span></span>
+          <button aria-label="Añadir 吃饭 a la lista" style="width: 44px; height: 44px; border: 1px solid var(--line-strong); border-radius: 10px; background: var(--surface); color: var(--ink); display: flex; align-items: center; justify-content: center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></button>
+        </div>
+      </div>
+      <a href="C-TarjetaNueva.dc.html" style="align-self: flex-start; min-height: 44px; display: flex; align-items: center; gap: 6px; font-size: 14px; font-weight: 600">¿No está? Crear tarjeta propia</a>
+    </section>
+
+    <section style="display: flex; flex-direction: column; gap: 10px">
+      <h2 style="margin: 0; font-size: 15px; font-weight: 600">En la lista</h2>
+      <div style="border: 1px solid var(--line); border-radius: 10px; display: flex; flex-direction: column; overflow: hidden; background: var(--surface)">
+        <sc-for list="{{ words }}" as="w" hint-placeholder-count="4">
+          <div style="min-height: 56px; display: flex; align-items: center; gap: 12px; padding: 6px 8px 6px 16px; border-bottom: {{ w.border }}">
+            <span style="flex: 1; display: flex; align-items: center; gap: 10px"><span lang="zh-Hans" style="font-family: var(--font-kai); font-size: 18px">{{ w.hz }}</span><span style="font-size: 13px; color: var(--ink-2)">{{ w.py }}</span><span style="font-size: 14px">{{ w.es }}</span></span>
+            <span style="font-size: 11px; color: var(--ink-2)">{{ w.tag }}</span>
+            <button aria-label="Quitar {{ w.hz }} de la lista" style="width: 44px; height: 44px; border: 0; background: transparent; color: var(--ink-2); display: flex; align-items: center; justify-content: center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+          </div>
+        </sc-for>
+      </div>
+      <span style="font-size: 12px; color: var(--ink-2)">Quitar una palabra de la lista no borra su progreso.</span>
+    </section>
+  </main>
+
+  <nav aria-label="Navegación principal" style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-top: 1px solid var(--line); padding: 8px 8px 24px">
+    <a href="C-Inicio.dc.html" style="min-height: 44px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; text-decoration: none; font-size: 11px; color: var(--ink-2)"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 11 12 4l9 7v9h-6v-6H9v6H3z"/></svg>Hoy</a>
+    <a href="C-Practicar.dc.html" aria-current="page" style="min-height: 44px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; text-decoration: none; font-size: 11px; font-weight: 600; color: var(--ink)"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M8 9h8M8 13h5"/></svg>Practicar</a>
+    <a href="C-Progreso.dc.html" style="min-height: 44px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; text-decoration: none; font-size: 11px; color: var(--ink-2)"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg>Progreso</a>
+    <a href="C-Perfil.dc.html" style="min-height: 44px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; text-decoration: none; font-size: 11px; color: var(--ink-2)"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>Perfil</a>
+  </nav>
+</div>
+</template>
+<script type="text/x-dc" data-props='{"tema":{"editor":"enum","options":["claro","oscuro"],"default":"claro","section":"Tema"},"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const __tema = this.props.tema ?? 'claro';
+    const list = [
+      { hz: '吃', py: 'chī', es: 'comer', tag: 'HSK 1' },
+      { hz: '老师', py: 'lǎoshī', es: 'profesor', tag: 'HSK 1' },
+      { hz: '作业', py: 'zuòyè', es: 'deberes', tag: 'Propia' },
+      { hz: '黑板', py: 'hēibǎn', es: 'pizarra', tag: 'Propia' }
+    ];
+    return { tema: __tema,  words: list.map((w, i) => ({ ...w, border: i === list.length - 1 ? '0' : '1px solid var(--line)' })) };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+name: Funcionalidad nueva
+description: Algo que todavía no está en los requisitos ni en las historias.
+title: "Nueva: "
+labels: ["tipo:historia"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Antes de programarla hay que añadir su RF, su historia y, si hace falta, una decisión en `docs/`. La skill `crear-issue` lo propone.
+  - type: textarea
+    id: problema
+    attributes:
+      label: Qué problema resuelve
+      description: Para quién y por qué hace falta.
+    validations:
+      required: true
+  - type: textarea
+    id: propuesta
+    attributes:
+      label: Propuesta
+      description: Qué debería poder hacer el usuario. Si hay opciones, indícalas con la recomendada.
+    validations:
+      required: true
+  - type: textarea
+    id: historia
+    attributes:
+      label: Historia propuesta
+      description: Como… quiero… para…, con criterios Dado / Cuando / Entonces.
+  - type: textarea
+    id: docs
+    attributes:
+      label: Cambios en la documentación
+      description: RF, HU, decisión o ADR nuevos o modificados.
+      placeholder: "RF-90 nuevo · HU-74 en EP-02 · D-140"
+  - type: textarea
+    id: diseno
+    attributes:
+      label: Diseño
+      description: Pantallas existentes que cambia, o pantallas nuevas que hay que diseñar.
+  - type: dropdown
+    id: prioridad
+    attributes:
+      label: Prioridad (MoSCoW)
+      options: [Must, Should, Could, "Won't (por ahora)"]
+    validations:
+      required: true

@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Crear tarjeta propia (móvil) · Lexis</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Noto+Sans+SC:wght@400;500&amp;family=Noto+Serif+SC:wght@400;500&amp;display=swap">
+<style>
+body{margin:0}
+a{color:var(--jade)}a:hover{color:var(--ink)}
+[role="status"] a{color:var(--ink)}
+</style>
+<link rel="stylesheet" href="../assets/lexis.css">
+<script src="../assets/dc-runtime.js"></script>
+</head>
+<body style="margin:0">
+<div id="dc-root"></div>
+<template id="dc-template">
+<div class="lx" data-theme="{{ tema }}" style="width: 390px; height: 844px; box-sizing: border-box; background: var(--paper); font-family: var(--font-sans); color: var(--ink); display: flex; flex-direction: column">
+  <header style="display: flex; align-items: center; gap: 8px; padding: 16px 12px 8px">
+    <a href="C-Lista.dc.html" aria-label="Cancelar y volver a la lista" style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; border-radius: 8px; color: var(--ink)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></a>
+    <h1 style="margin: 0; font-size: 20px; font-weight: 700">Tarjeta propia</h1>
+  </header>
+
+  <main style="flex: 1; overflow-y: auto; padding: 8px 20px 16px; display: flex; flex-direction: column; gap: 18px">
+    <label style="display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 500">Caracteres<input type="text" lang="zh-Hans" value="黑板" style="min-height: 52px; box-sizing: border-box; padding: 0 12px; border: 1px solid var(--line-strong); border-radius: 8px; font-family: var(--font-kai); font-size: 24px; background: var(--surface)"></label>
+
+    <div style="display: flex; gap: 10px; padding: 12px 14px; border-radius: 10px; background: var(--surface-sunken); font-size: 13px; color: var(--ink-2)">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" style="flex: none"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg>
+      <span>Está en el diccionario: te proponemos el pinyin y el significado. Revísalos antes de guardar.</span>
+    </div>
+
+    <label style="display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 500">Pinyin<input type="text" value="hēibǎn" style="min-height: 44px; box-sizing: border-box; padding: 0 12px; border: 1px solid var(--line-strong); border-radius: 8px; font: inherit; font-weight: 400; background: var(--surface)"><span style="font-size: 12px; font-weight: 400; color: var(--ink-2)">Con marcas (hēi) o con números (hei1).</span></label>
+    <label style="display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 500">Significado<input type="text" value="pizarra" style="min-height: 44px; box-sizing: border-box; padding: 0 12px; border: 1px solid var(--line-strong); border-radius: 8px; font: inherit; font-weight: 400; background: var(--surface)"><span style="font-size: 12px; font-weight: 400; color: var(--ink-2)">Referencia (CC-CEDICT, en inglés): blackboard</span></label>
+    <label style="display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 500">Notas (opcional)<textarea rows="3" style="box-sizing: border-box; padding: 10px 12px; border: 1px solid var(--line-strong); border-radius: 8px; font: inherit; font-weight: 400; resize: vertical; background: var(--surface)"></textarea></label>
+    <label style="display: flex; align-items: center; gap: 12px; font-size: 14px; font-weight: 500"><span style="flex: 1">Lista</span><select style="min-height: 44px; padding: 0 10px; border: 1px solid var(--line-strong); border-radius: 8px; background: var(--surface); font: inherit; font-weight: 400"><option selected>[Clase del lunes]</option><option>[Comida]</option><option>Ninguna</option></select></label>
+    <span style="font-size: 12px; color: var(--ink-2)">Entra en tus palabras nuevas con las mismas prácticas que las del HSK.</span>
+  </main>
+
+  <div style="padding: 12px 20px 32px; border-top: 1px solid var(--line)">
+    <a href="C-Lista.dc.html" style="min-height: 52px; display: flex; align-items: center; justify-content: center; border-radius: 10px; background: var(--jade); color: var(--on-jade); text-decoration: none; font-size: 16px; font-weight: 600">Guardar tarjeta</a>
+  </div>
+</div>
+</template>
+<script type="text/x-dc" data-props='{"tema":{"editor":"enum","options":["claro","oscuro"],"default":"claro","section":"Tema"},"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const __tema = this.props.tema ?? 'claro';
+    return { tema: __tema, };
+  }
+}
+</script>
+</body>
+</html>

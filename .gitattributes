@@ -1,0 +1,13 @@
+# Todos los archivos de texto se guardan con saltos de línea LF,
+# también en Windows, para que los diffs y el CI no cambien líneas de más.
+* text=auto eol=lf
+
+# Scripts que tienen que funcionar en Git Bash y en Linux
+*.sh text eol=lf
+.githooks/* text eol=lf
+
+# Binarios
+*.png binary
+*.jpg binary
+*.woff2 binary
+*.ico binary

@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Añadir mi texto (móvil) · Lexis</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Noto+Sans+SC:wght@400;500&amp;family=Noto+Serif+SC:wght@400;500;900&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+<link rel="stylesheet" href="../assets/lexis.css">
+<script src="../assets/dc-runtime.js"></script>
+</head>
+<body style="margin:0">
+<div id="dc-root"></div>
+<template id="dc-template">
+<div class="lx {{ fontClass }}" data-theme="{{ tema }}" style="position: relative; width: 390px; height: 844px; box-sizing: border-box; overflow: hidden; background: var(--paper); color: var(--ink); display: flex; flex-direction: column">
+  <header style="display: flex; align-items: center; gap: var(--space-2); padding: var(--space-4) var(--space-4) var(--space-2)">
+    <a class="lx-btn lx-btn--icon" href="C-Lecturas.dc.html" aria-label="Volver a Lecturas"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></a>
+    <h1 style="margin: 0; font: 700 20px/26px var(--font-sans)">Mi texto</h1>
+  </header>
+  <main style="flex: 1; min-height: 0; overflow: auto; padding: var(--space-2) var(--space-5); display: flex; flex-direction: column; gap: var(--space-4)">
+    <label style="display: flex; flex-direction: column; gap: 6px; font: 600 13px/18px var(--font-sans)">Título<input value="[Mi diario del jueves]" style="min-height: 44px; box-sizing: border-box; padding: 0 12px; border: 1px solid var(--line-strong); border-radius: 8px; font: inherit; font-weight: 400; font-size: 15px; background: var(--surface); color: var(--ink)"></label>
+      <label style="display: flex; flex-direction: column; gap: 6px; font: 600 13px/18px var(--font-sans)">Texto en chino<textarea lang="zh-Hans" rows="5" style="min-height: 44px; box-sizing: border-box; padding: 0 12px; border: 1px solid var(--line-strong); border-radius: 8px; font: inherit; font-weight: 400; font-size: 15px; background: var(--surface); color: var(--ink); padding: 10px 12px; font-family: var(--font-kai); font-size: 20px; line-height: 1.6; resize: vertical">今天我和朋友坐出租车去饭店。我们吃了很多菜，也喝了茶。</textarea></label>
+      <span style="align-self: flex-end; font: 400 13px/18px var(--font-sans); color: var(--ink-2)">27 / 2.000 caracteres</span>
+    <section aria-labelledby="pv" style="padding: 16px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); display: flex; flex-direction: column; gap: 10px">
+        <h2 id="pv" style="margin: 0; font: 700 15px/20px var(--font-sans)">Antes de guardar</h2>
+        <div class="lx-progress"><div class="lx-progress__head"><span>Conoces el [86] % de las palabras</span></div><div class="lx-progress__track" role="progressbar" aria-label="Palabras conocidas" aria-valuenow="86" aria-valuemin="0" aria-valuemax="100"><div class="lx-progress__fill" style="width: 86%"></div></div></div>
+        <span style="font: 400 14px/20px var(--font-sans)">[2] palabras nuevas irán subrayadas: <span lang="zh-Hans" style="font-family: var(--font-kai)">饭店</span>, <span lang="zh-Hans" style="font-family: var(--font-kai)">菜</span>. Tócalas al leer para añadirlas a tus tarjetas.</span>
+        <span style="font: 400 13px/18px var(--font-sans); color: var(--ink-2)">Sin preguntas de comprensión: es tu texto.</span>
+      </section>
+    <p style="margin: 0; padding: 12px 14px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface-sunken); font: 400 14px/20px var(--font-sans); color: var(--ink-2)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 11h12v9H6zM9 11V8a3 3 0 0 1 6 0v3"/></svg> Solo tú ves tus textos; nunca se publican ni se comparten.</p>
+  </main>
+  <footer style="padding: var(--space-3) var(--space-5) var(--space-8); border-top: 1px solid var(--line); background: var(--paper)">
+    <a class="lx-btn lx-btn--primary lx-btn--block" href="C-Lectura.dc.html">Guardar y leer</a>
+  </footer>
+</div>
+</template>
+<script type="text/x-dc" data-props='{"tema": {"editor": "enum", "options": ["claro", "oscuro"], "default": "claro", "section": "Tema"}, "letra": {"editor": "enum", "options": ["Kai", "Sans", "Song"], "default": "Kai", "section": "Tema"}, "$preview": {"width": 390, "height": 844}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const letra = this.props.letra ?? 'Kai';
+    return {
+      tema: this.props.tema ?? 'claro',
+      fontClass: letra === 'Sans' ? 'lx-font-hei' : letra === 'Song' ? 'lx-font-song' : ''
+    };
+  }
+}
+</script>
+</body>
+</html>

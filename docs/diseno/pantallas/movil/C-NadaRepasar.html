@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nada que repasar (móvil) · Lexis</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Noto+Sans+SC:wght@400;500&amp;family=Noto+Serif+SC:wght@400;500&amp;display=swap">
+<style>
+body{margin:0}
+a{color:var(--jade)}a:hover{color:var(--ink)}
+[role="status"] a{color:var(--ink)}
+</style>
+<link rel="stylesheet" href="../assets/lexis.css">
+<script src="../assets/dc-runtime.js"></script>
+</head>
+<body style="margin:0">
+<div id="dc-root"></div>
+<template id="dc-template">
+<div class="lx" data-theme="{{ tema }}" style="position: relative; width: 390px; height: 844px; overflow: hidden; box-sizing: border-box; background: var(--paper); font-family: var(--font-sans); color: var(--ink); display: flex; flex-direction: column">
+  <header style="display: flex; align-items: center; gap: 8px; padding: 16px 12px 8px">
+    <a href="C-Practicar.dc.html" aria-label="Volver a Practicar" style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; border-radius: 8px; color: var(--ink)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m15 6-6 6 6 6"/></svg></a>
+    <h1 style="margin: 0; font-size: 20px; font-weight: 700">Tarjetas</h1>
+  </header>
+  <main style="flex: 1; padding: 8px 24px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px; text-align: center">
+    <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke-width="1.5" aria-hidden="true" style="stroke: var(--ink-2)"><rect x="4" y="7" width="12" height="13" rx="1"/><path d="M8 4h12v13"/><path d="m7 13 2 2 4-4"/></svg>
+    <h2 style="margin: 0; font-size: 20px; font-weight: 700">No hay nada que repasar</h2>
+    <p style="margin: 0; font-size: 15px; color: var(--ink-2)">Has repasado todo lo pendiente. El próximo repaso llega [mañana a las 9:00].</p>
+    <div style="width: 100%; display: flex; flex-direction: column; gap: 10px; margin-top: 8px">
+      <a href="C-Ficha.dc.html" style="min-height: 52px; display: flex; align-items: center; justify-content: center; border: 0; border-radius: 10px; background: var(--jade); color: var(--on-jade); text-decoration: none; font: inherit; font-size: 16px; font-weight: 600">Aprender [5] palabras nuevas</a>
+      <a href="C-Tarjeta.dc.html" style="min-height: 48px; display: flex; align-items: center; justify-content: center; border: 1px solid var(--line-strong); border-radius: 10px; background: var(--surface); color: var(--ink); text-decoration: none; font: inherit; font-size: 15px; font-weight: 600">Practicar palabras difíciles</a>
+    </div>
+    <span style="font-size: 12px; color: var(--ink-2)">Practicar ahora no adelanta tus repasos.</span>
+  </main>
+  <nav aria-label="Navegación principal" style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-top: 1px solid var(--line); padding: 8px 8px 24px">
+    <a href="C-Inicio.dc.html" style="min-height: 44px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; text-decoration: none; font-size: 11px; color: var(--ink-2)"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 11 12 4l9 7v9h-6v-6H9v6H3z"/></svg>Hoy</a>
+    <a href="C-Practicar.dc.html" aria-current="page" style="min-height: 44px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; text-decoration: none; font-size: 11px; font-weight: 600; color: var(--ink)"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M8 9h8M8 13h5"/></svg>Practicar</a>
+    <a href="C-Progreso.dc.html" style="min-height: 44px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; text-decoration: none; font-size: 11px; color: var(--ink-2)"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg>Progreso</a>
+    <a href="C-Perfil.dc.html" style="min-height: 44px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; text-decoration: none; font-size: 11px; color: var(--ink-2)"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>Perfil</a>
+  </nav>
+</div>
+</template>
+<script type="text/x-dc" data-props='{"tema":{"editor":"enum","options":["claro","oscuro"],"default":"claro","section":"Tema"},"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const __tema = this.props.tema ?? 'claro';
+    return { tema: __tema, };
+  }
+}
+</script>
+</body>
+</html>

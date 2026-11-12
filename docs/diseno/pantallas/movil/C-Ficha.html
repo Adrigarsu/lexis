@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ficha de palabra nueva (móvil) · Lexis</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Noto+Sans+SC:wght@400;500&amp;family=Noto+Serif+SC:wght@400;500&amp;display=swap">
+<style>
+body{margin:0}
+a{color:#0E7C6B}a:hover{color:#0A5C50}
+</style>
+<link rel="stylesheet" href="../assets/lexis.css">
+<script src="../assets/dc-runtime.js"></script>
+</head>
+<body style="margin:0">
+<div id="dc-root"></div>
+<template id="dc-template">
+<div class="lx {{ toneClass }} {{ fontClass }}" data-theme="{{ tema }}" style="position: relative; width: 390px; height: 844px; box-sizing: border-box; overflow: hidden; background: var(--paper); color: var(--ink); display: flex; flex-direction: column; --lx-pinyin-opacity: {{ pinyinOpacity }}">
+  <header style="display: flex; align-items: center; gap: var(--space-3); padding: var(--space-4) var(--space-4) var(--space-2)">
+    <a class="lx-btn lx-btn--icon" href="C-Inicio.dc.html" aria-label="Salir de la sesión"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></a>
+    <div class="lx-progress lx-progress--thin" style="flex: 1">
+      <div class="lx-progress__head"><span>Palabra nueva · [2] de [5]</span></div>
+      <div class="lx-progress__track" role="progressbar" aria-label="Progreso de la sesión" aria-valuenow="22" aria-valuemin="0" aria-valuemax="100"><div class="lx-progress__fill" style="width: 22%"></div></div>
+    </div>
+    <button class="lx-btn lx-btn--icon" aria-label="Ajustes de estudio" aria-haspopup="dialog" onClick="{{ openSheet }}" style="border-color: var(--line-strong)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h10M18 6h2M4 12h4M12 12h8M4 18h12"/><circle cx="16" cy="6" r="2"/><circle cx="10" cy="12" r="2"/><circle cx="18" cy="18" r="2"/></svg></button>
+  </header>
+  <main style="flex: 1; min-height: 0; padding: var(--space-2) var(--space-5); display: flex; flex-direction: column; gap: var(--space-4)">
+    <section class="lx-study" aria-label="Palabra nueva" style="padding: var(--space-5) var(--space-5) var(--space-4); gap: var(--space-2)">
+      <span class="lx-study__kind">Palabra nueva</span>
+      <ruby class="lx-hz" lang="zh-Hans" style="font-size: {{ heroSize }}px; line-height: 1.1"><span class="t3">你</span><rt class="t3" style="font-size: 20px; font-weight: 600; visibility: {{ rtVis }}">nǐ</rt><span class="t3">好</span><rt class="t3" style="font-size: 20px; font-weight: 600; visibility: {{ rtVis }}">hǎo</rt></ruby>
+      <sc-if value="{{ pinyinHidden }}" hint-placeholder-val="{{ false }}">
+        <span class="lx-study__note">Pinyin oculto · mantén pulsado para verlo</span>
+      </sc-if>
+      <span style="font: 600 22px/28px var(--font-sans)">hola</span>
+      <div style="display: flex; gap: var(--space-2)"><span class="lx-chip">expresión</span><span class="lx-chip">HSK 1</span></div>
+      <span class="lx-study__note">Dos terceros tonos seguidos: se pronuncia <b style="color: var(--ink)">ní hǎo</b>.</span>
+      <div class="lx-study__audio">
+        <button class="lx-btn lx-btn--audio" aria-label="Escuchar"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H2v6h4l5 4zM15.5 8.5a5 5 0 0 1 0 7"/></svg></button>
+        <button class="lx-btn lx-btn--secondary" style="min-height: 44px; padding: 0 var(--space-4); font-size: 14px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H2v6h4l5 4z"/><path d="M16 9.5h5M16 14.5h5"/></svg>Más lento</button>
+      </div>
+    </section>
+
+    <section style="display: flex; flex-direction: column; gap: var(--space-2)">
+      <h2 class="lx-list__heading" style="margin: 0">Trazos</h2>
+      <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-3)">
+        <button class="lx-card" aria-label="Ver la animación de los 7 trazos de 你" style="flex-direction: row; align-items: center; gap: var(--space-3); padding: var(--space-3); cursor: pointer; font: inherit; color: inherit; text-align: left"><span class="lx-tianzige" aria-hidden="true" style="width: 64px; flex: none; display: block"><svg viewBox="0 0 300 300"><path class="guide" d="M150 0V300M0 150H300" style="stroke-dasharray: 8 8"/></svg><svg viewBox="0 0 1024 1024"><g transform="translate(0 900) scale(1 -1)" style="fill: var(--ink)"><path d="M 272 567 Q 306 613 342 669 Q 370 718 395 743 Q 405 753 400 769 Q 396 782 365 808 Q 337 827 316 828 Q 297 827 305 802 Q 318 769 306 741 Q 267 647 207 560 Q 150 476 72 385 Q 60 375 58 367 Q 54 355 70 358 Q 82 359 109 384 Q 155 421 213 493 Q 226 509 241 527 L 272 567 Z"/><path d="M 241 527 Q 262 506 258 375 Q 258 374 258 370 Q 254 253 221 135 Q 215 114 224 80 Q 236 44 248 32 Q 267 16 279 44 Q 294 86 294 134 Q 303 420 314 485 Q 321 515 295 543 Q 289 549 272 567 C 251 589 227 553 241 527 Z"/><path d="M 521 560 Q 561 621 602 708 Q 620 751 638 773 Q 645 786 639 799 Q 633 811 602 830 Q 572 846 554 843 Q 535 839 546 817 Q 561 795 552 757 Q 513 619 407 448 Q 398 436 397 430 Q 394 418 409 423 Q 439 432 503 532 L 521 560 Z"/><path d="M 503 532 Q 527 510 555 520 Q 795 608 782 549 Q 783 543 743 468 Q 736 458 741 453 Q 745 447 756 459 Q 852 532 894 549 Q 904 552 905 561 Q 906 574 876 592 Q 852 605 828 621 Q 800 637 783 630 Q 686 590 521 560 C 492 555 479 550 503 532 Z"/><path d="M 568 72 Q 531 81 494 91 Q 482 94 483 86 Q 484 79 494 71 Q 569 7 596 -33 Q 611 -49 626 -36 Q 659 -3 661 82 Q 655 149 655 345 Q 656 382 667 407 Q 676 426 659 439 Q 634 461 604 470 Q 585 477 577 469 Q 571 462 582 447 Q 619 384 603 127 Q 597 82 589 74 Q 582 67 568 72 Z"/><path d="M 444 320 Q 419 262 385 208 Q 364 180 381 144 Q 388 128 409 139 Q 460 181 468 264 Q 472 295 467 319 Q 463 328 456 328 Q 449 327 444 320 Z"/><path d="M 738 307 Q 789 249 847 168 Q 860 146 876 139 Q 885 138 893 146 Q 908 159 900 204 Q 891 264 743 338 Q 734 345 731 332 Q 728 319 738 307 Z"/></g></svg></span><span style="display: flex; flex-direction: column; gap: 2px"><span style="font: 600 15px/20px var(--font-sans)">7 trazos</span><span class="lx-card__meta" style="font-size: 13px">Ver animación</span></span></button>
+        <button class="lx-card" aria-label="Ver la animación de los 6 trazos de 好" style="flex-direction: row; align-items: center; gap: var(--space-3); padding: var(--space-3); cursor: pointer; font: inherit; color: inherit; text-align: left"><span class="lx-tianzige" aria-hidden="true" style="width: 64px; flex: none; display: block"><svg viewBox="0 0 300 300"><path class="guide" d="M150 0V300M0 150H300" style="stroke-dasharray: 8 8"/></svg><svg viewBox="0 0 1024 1024"><g transform="translate(0 900) scale(1 -1)" style="fill: var(--ink)"><path d="M 330 202 Q 361 175 399 134 Q 415 119 424 118 Q 433 118 439 128 Q 446 138 442 170 Q 435 206 361 247 L 319 270 Q 292 286 258 304 Q 237 314 240 335 Q 261 393 281 453 L 293 492 Q 317 568 337 644 Q 347 690 366 715 Q 379 737 373 750 Q 360 769 313 797 Q 294 810 276 801 Q 263 794 273 778 Q 303 733 247 486 L 236 442 Q 218 373 195 336 Q 185 314 206 296 Q 254 268 294 233 L 330 202 Z"/><path d="M 294 233 Q 287 226 281 217 Q 250 180 196 143 Q 183 134 165 124 Q 149 114 133 104 Q 120 95 131 92 Q 212 86 327 199 Q 328 200 330 202 L 361 247 Q 406 322 421 385 Q 449 488 463 510 Q 473 526 458 537 Q 416 576 387 569 Q 374 565 378 550 Q 387 531 387 507 L 385 481 Q 384 469 382 455 Q 375 376 319 270 L 294 233 Z"/><path d="M 387 507 Q 341 501 293 492 L 247 486 Q 183 479 115 468 Q 94 465 61 471 Q 48 471 45 462 Q 41 450 49 441 Q 68 422 96 400 Q 106 396 118 402 Q 190 436 236 442 L 281 453 Q 320 463 362 474 Q 372 478 385 481 C 414 489 417 511 387 507 Z"/><path d="M 671 521 Q 788 635 822 648 Q 843 655 835 672 Q 831 688 760 725 Q 739 735 716 725 Q 661 703 575 676 Q 553 669 498 669 Q 473 669 482 648 Q 491 635 511 623 Q 544 605 578 627 Q 597 636 691 676 Q 706 682 719 673 Q 732 664 726 649 Q 693 595 655 531 C 640 505 649 500 671 521 Z"/><path d="M 717 430 Q 702 497 671 521 L 655 531 Q 648 535 640 538 Q 618 547 608 540 Q 595 533 608 519 Q 645 491 653 444 Q 656 434 659 421 L 668 384 Q 701 204 658 103 Q 643 76 607 83 Q 576 89 548 94 Q 536 97 542 85 Q 546 78 564 65 Q 604 31 618 5 Q 628 -14 645 -11 Q 660 -10 687 17 Q 775 107 726 391 L 717 430 Z"/><path d="M 726 391 Q 783 397 947 397 Q 966 398 971 406 Q 977 416 960 430 Q 909 467 848 454 Q 793 445 717 430 L 659 421 Q 562 409 452 393 Q 431 392 447 375 Q 460 362 478 357 Q 497 351 514 356 Q 586 375 668 384 L 726 391 Z"/></g></svg></span><span style="display: flex; flex-direction: column; gap: 2px"><span style="font: 600 15px/20px var(--font-sans)">6 trazos</span><span class="lx-card__meta" style="font-size: 13px">Ver animación</span></span></button>
+      </div>
+    </section>
+
+    <section style="display: flex; flex-direction: column; gap: var(--space-2)">
+      <h2 class="lx-list__heading" style="margin: 0">Componentes</h2>
+      <ul class="lx-list">
+        <li class="lx-row" style="min-height: 48px; padding: var(--space-2) var(--space-4)"><span lang="zh-Hans" style="font: 400 24px/1 var(--font-kai)">你</span><span class="lx-row__text"><span class="lx-row__title"><span lang="zh-Hans" style="font-family: var(--font-kai)">亻</span> persona + <span lang="zh-Hans" style="font-family: var(--font-kai)">尔</span> tú (antiguo)</span></span></li>
+        <li class="lx-row" style="min-height: 48px; padding: var(--space-2) var(--space-4)"><span lang="zh-Hans" style="font: 400 24px/1 var(--font-kai)">好</span><span class="lx-row__text"><span class="lx-row__title"><span lang="zh-Hans" style="font-family: var(--font-kai)">女</span> mujer + <span lang="zh-Hans" style="font-family: var(--font-kai)">子</span> niño</span></span></li>
+      </ul>
+    </section>
+
+    <section style="display: flex; flex-direction: column; gap: var(--space-2)">
+      <h2 class="lx-list__heading" style="margin: 0">Ejemplo</h2>
+      <div style="padding: var(--space-1) var(--space-3) var(--space-2); background: var(--surface-sunken); border-radius: var(--radius-md); display: flex; flex-direction: column">
+        <ruby class="lx-hz lx-hz--read" lang="zh-Hans"><span class="t3">你</span><rt class="t3" style="visibility: {{ rtVis }}">nǐ</rt><span class="t3">好</span><rt class="t3" style="visibility: {{ rtVis }}">hǎo</rt>，<span class="t3">老</span><rt class="t3" style="visibility: {{ rtVis }}">lǎo</rt><span class="t1">师</span><rt class="t1" style="visibility: {{ rtVis }}">shī</rt>！</ruby>
+        <span style="font: 400 14px/20px var(--font-sans)">¡Hola, profesor!</span>
+      </div>
+    </section>
+  </main>
+  <footer style="padding: var(--space-3) var(--space-5) var(--space-8)">
+    <a class="lx-btn lx-btn--primary lx-btn--block" href="C-Tarjeta.dc.html">Entendido, a practicar</a>
+  </footer>
+  <sc-if value="{{ sheetOpen }}" hint-placeholder-val="{{ false }}">
+    <button class="lx-scrim" aria-label="Cerrar ajustes de estudio" onClick="{{ closeSheet }}" style="position: absolute; inset: 0; border: 0"></button>
+    <section class="lx-sheet" role="dialog" aria-modal="true" aria-labelledby="sheet-title" style="position: absolute; left: 0; right: 0; bottom: 0; display: flex; flex-direction: column; gap: var(--space-5); padding-bottom: var(--space-8)">
+      <span class="lx-sheet__grip" aria-hidden="true"></span>
+      <div class="lx-sheet__head">
+        <h2 class="lx-sheet__title" id="sheet-title">Ajustes de estudio</h2>
+        <button class="lx-btn lx-btn--text" onClick="{{ closeSheet }}" style="min-height: 44px">Listo</button>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: var(--space-2)">
+        <span id="s-size" class="lx-field__label">Tamaño de los caracteres</span>
+        <div class="lx-segmented" role="group" aria-labelledby="s-size" style="display: grid">
+          <sc-for list="{{ sizes }}" as="o" hint-placeholder-count="3"><button aria-pressed="{{ o.pressed }}" onClick="{{ o.pick }}">{{ o.label }}</button></sc-for>
+        </div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: var(--space-2)">
+        <span id="s-pinyin" class="lx-field__label">Pinyin</span>
+        <div class="lx-segmented" role="group" aria-labelledby="s-pinyin" style="display: grid">
+          <sc-for list="{{ modes }}" as="o" hint-placeholder-count="3"><button aria-pressed="{{ o.pressed }}" onClick="{{ o.pick }}">{{ o.label }}</button></sc-for>
+        </div>
+        <sc-if value="{{ showSlider }}" hint-placeholder-val="{{ true }}">
+          <label for="s-opacity" style="display: flex; justify-content: space-between; font: 400 14px/20px var(--font-sans); color: var(--ink-2)">Opacidad <span>{{ opacity }} %</span></label>
+          <input id="s-opacity" type="range" min="10" max="90" step="10" value="{{ opacity }}" onChange="{{ setOpacity }}" style="width: 100%; height: 32px; accent-color: var(--jade-bright)">
+        </sc-if>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: var(--space-2)">
+        <span id="s-color" class="lx-field__label">Colores según el tono</span>
+        <div class="lx-segmented" role="group" aria-labelledby="s-color" style="display: grid">
+          <sc-for list="{{ colorModes }}" as="o" hint-placeholder-count="3"><button aria-pressed="{{ o.pressed }}" onClick="{{ o.pick }}" style="padding: 0 var(--space-2)">{{ o.label }}</button></sc-for>
+        </div>
+        <sc-if value="{{ colorsOn }}" hint-placeholder-val="{{ true }}">
+          <div role="list" aria-label="Leyenda de colores por tono" style="display: flex; flex-wrap: wrap; gap: var(--space-2)">
+            <span role="listitem" class="lx-chip lx-chip--tone lx-chip--t1">1.º ā</span>
+            <span role="listitem" class="lx-chip lx-chip--tone lx-chip--t2">2.º á</span>
+            <span role="listitem" class="lx-chip lx-chip--tone lx-chip--t3">3.º ǎ</span>
+            <span role="listitem" class="lx-chip lx-chip--tone lx-chip--t4">4.º à</span>
+            <span role="listitem" class="lx-chip lx-chip--tone lx-chip--t5">neutro a</span>
+          </div>
+        </sc-if>
+      </div>
+      <label class="lx-switch">
+        <span class="lx-switch__text"><span class="lx-switch__title">Audio automático al girar</span></span>
+        <input type="checkbox" role="switch" checked="{{ autoAudio }}" onChange="{{ toggleAudio }}">
+      </label>
+      <span style="font: 400 13px/18px var(--font-sans); color: var(--ink-2)">Se guarda para todas tus sesiones. Más opciones en Perfil › Ajustes.</span>
+    </section>
+  </sc-if>
+</div>
+</template>
+<script type="text/x-dc" data-props='{"tema":{"editor":"enum","options":["claro","oscuro"],"default":"claro","section":"Tema"},"letra":{"editor":"enum","options":["Kai","Sans","Song"],"default":"Kai","section":"Tema"},"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { sheet: false, mode: 'mostrar', opacity: 40, size: 'M', color: 'pinyin', autoAudio: false };
+  }
+  renderVals() {
+    const s = this.state;
+    const group = (key, list) => list.map(([id, label]) => ({
+      label, pressed: String(s[key] === id), pick: () => this.setState({ [key]: id })
+    }));
+    const letra = this.props.letra ?? 'Kai';
+    return {
+      tema: this.props.tema ?? 'claro',
+      fontClass: letra === 'Sans' ? 'lx-font-hei' : letra === 'Song' ? 'lx-font-song' : '',
+      toneClass: s.color === 'no' ? 'lx-tones-off' : s.color === 'ambos' ? 'lx-tones-all' : '',
+      sheetOpen: s.sheet,
+      openSheet: () => this.setState({ sheet: true }),
+      closeSheet: () => this.setState({ sheet: false }),
+      sizes: group('size', [['S', 'Pequeño'], ['M', 'Normal'], ['L', 'Grande']]),
+      modes: group('mode', [['mostrar', 'Mostrar'], ['atenuado', 'Atenuado'], ['ocultar', 'Ocultar']]),
+      colorModes: group('color', [['no', 'Sin color'], ['pinyin', 'Pinyin'], ['ambos', 'Ambos']]),
+      opacity: s.opacity,
+      setOpacity: (e) => this.setState({ opacity: Number(e.target.value) }),
+      showSlider: s.mode === 'atenuado',
+      pinyinHidden: s.mode === 'ocultar',
+      rtVis: s.mode === 'ocultar' ? 'hidden' : 'visible',
+      pinyinOpacity: s.mode === 'atenuado' ? s.opacity / 100 : 1,
+      heroSize: s.size === 'S' ? 56 : s.size === 'L' ? 88 : 72,
+      colorsOn: s.color !== 'no',
+      autoAudio: s.autoAudio,
+      toggleAudio: () => this.setState({ autoAudio: !s.autoAudio })
+    };
+  }
+}
+</script>
+</body>
+</html>

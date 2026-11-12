@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Inicio con el día completado (escritorio) · Lexis</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Noto+Sans+SC:wght@400;500&amp;family=Noto+Serif+SC:wght@400;500&amp;display=swap">
+<style>
+body{margin:0}
+a{color:var(--jade)}a:hover{color:var(--ink)}
+[role="status"] a{color:var(--ink)}
+</style>
+<link rel="stylesheet" href="../assets/lexis.css">
+<script src="../assets/dc-runtime.js"></script>
+</head>
+<body style="margin:0">
+<div id="dc-root"></div>
+<template id="dc-template">
+<div class="lx" data-theme="{{ tema }}" style="position: relative; min-height: 860px; box-sizing: border-box; background: var(--paper); font-family: var(--font-sans); color: var(--ink); display: flex">
+  <nav aria-label="Navegación principal" style="width: 248px; flex: none; box-sizing: border-box; padding: 20px 12px; border-right: 1px solid var(--line); display: flex; flex-direction: column; gap: 2px">
+    <div style="display: flex; align-items: center; padding: 0 4px 16px 12px"><span style="display: inline-flex; align-items: center; gap: 8px; font-size: 18px; font-weight: 700"><span aria-hidden="true" style="width: 26px; height: 26px; flex: none; box-sizing: border-box; display: grid; place-items: center; border: 2.5px solid var(--jade); border-radius: 4px; color: var(--jade); font: 900 15px/1 'Noto Serif SC', serif">词</span>Lexis</span></div>
+    <a href="C-DInicio.dc.html" style="min-height: 40px; display: flex; align-items: center; gap: 10px; padding: 0 12px; border-radius: 8px; background: transparent; text-decoration: none; font-size: 14px; font-weight: 400; color: var(--ink-2)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 11 12 4l9 7v9h-6v-6H9v6H3z"/></svg>Hoy</a>
+    <span style="padding: 16px 12px 6px; font-size: 11px; font-weight: 600; letter-spacing: 0.06em; color: var(--ink-2)">PRACTICAR</span>
+    <a href="C-DTarjeta.dc.html" style="min-height: 40px; display: flex; align-items: center; gap: 10px; padding: 0 12px; border-radius: 8px; background: transparent; text-decoration: none; font-size: 14px; font-weight: 400; color: var(--ink)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 7h12v13H4zM8 4h12v13"/></svg>Tarjetas</a><a href="C-DEscritura.dc.html" style="min-height: 40px; display: flex; align-items: center; gap: 10px; padding: 0 12px; border-radius: 8px; background: transparent; text-decoration: none; font-size: 14px; font-weight: 400; color: var(--ink)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 20h4L19 9l-4-4L4 16z"/></svg>Escritura</a><a href="C-DTonos.dc.html" style="min-height: 40px; display: flex; align-items: center; gap: 10px; padding: 0 12px; border-radius: 8px; background: transparent; text-decoration: none; font-size: 14px; font-weight: 400; color: var(--ink)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 12c3-6 5-6 8 0s5 6 8 0 3-3 4-2"/></svg>Tonos</a><a href="C-DGramatica.dc.html" style="min-height: 40px; display: flex; align-items: center; gap: 10px; padding: 0 12px; border-radius: 8px; background: transparent; text-decoration: none; font-size: 14px; font-weight: 400; color: var(--ink)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 3h8v8H3zM13 13h8v8h-8zM13 7h8M7 13v8"/></svg>Gramática</a><a href="C-DLecturas.dc.html" style="min-height: 40px; display: flex; align-items: center; gap: 10px; padding: 0 12px; border-radius: 8px; background: transparent; text-decoration: none; font-size: 14px; font-weight: 400; color: var(--ink)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2zM4 5v14"/></svg>Lecturas</a><a href="C-DListas.dc.html" style="min-height: 40px; display: flex; align-items: center; gap: 10px; padding: 0 12px; border-radius: 8px; background: transparent; text-decoration: none; font-size: 14px; font-weight: 400; color: var(--ink)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 6h11M9 12h11M9 18h11M4 6h1M4 12h1M4 18h1"/></svg>Mis listas</a>
+    <div style="height: 1px; background: var(--surface-sunken); margin: 12px 4px"></div>
+    <a href="C-DProgreso.dc.html" style="min-height: 40px; display: flex; align-items: center; gap: 10px; padding: 0 12px; border-radius: 8px; background: transparent; text-decoration: none; font-size: 14px; font-weight: 400; color: var(--ink-2)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg>Progreso</a>
+    <a href="C-DPerfil.dc.html" aria-label="Perfil de adri: cuenta y ajustes" style="margin-top: auto; min-height: 56px; display: flex; align-items: center; gap: 10px; padding: 8px 12px; border: 1px solid var(--line); border-radius: 10px; text-decoration: none; color: var(--ink); background: var(--surface)"><span aria-hidden="true" style="width: 36px; height: 36px; flex: none; border-radius: 18px; border: 1px solid var(--line); display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 600; color: var(--ink-2)">A</span><span style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 14px; font-weight: 600">adri</span><span style="font-size: 12px; color: var(--ink-2)">Perfil y ajustes</span></span></a>
+  </nav>
+  <main style="flex: 1; min-width: 0; box-sizing: border-box; padding: 28px 40px; display: flex; flex-direction: column; gap: 20px">
+    <div style="width: 100%; max-width: 640px; margin: 0 auto; display: flex; flex-direction: column; gap: 8px"><header style="display: flex; align-items: center; justify-content: space-between; padding: 20px 20px 8px">
+    <div style="display: flex; flex-direction: column; gap: 2px">
+      <span style="font-size: 13px; color: var(--ink-2)">Lunes, 9 de noviembre</span>
+      <h1 style="margin: 0; font-size: 24px; font-weight: 700">Hoy</h1>
+    </div>
+    <span style="font-size: 12px; color: var(--ink-2); display: flex; align-items: center; gap: 4px"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2" aria-hidden="true" style="stroke: var(--ink-2)"><path d="M17.5 19H7a5 5 0 1 1 1.6-9.7A6 6 0 0 1 20 11a4 4 0 0 1-2.5 8z"/><path d="m9 14 2 2 4-4"/></svg>Guardado en la nube</span>
+  </header><main style="flex: 1; overflow: hidden; padding: 12px 20px; display: flex; flex-direction: column; gap: 16px">
+    <section role="status" style="padding: 20px; border: 2px solid var(--ink); border-radius: 10px; display: flex; flex-direction: column; gap: 8px; background: var(--surface)">
+      <span style="display: flex; align-items: center; gap: 8px; font-size: 20px; font-weight: 700"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Día completado</span>
+      <span style="font-size: 14px; color: var(--ink-2)">[16] min · [18] repasos · [5] palabras nuevas. Tu racha sube a [13] días.</span>
+      <span style="font-size: 13px; color: var(--ink-2)">Mañana te esperan unos [14] repasos.</span>
+    </section>
+    <section style="display: flex; gap: 12px">
+      <div style="flex: 1; padding: 16px; border: 1px solid var(--line); border-radius: 10px; display: flex; flex-direction: column; gap: 4px; background: var(--surface)"><span style="font-size: 12px; color: var(--ink-2)">Racha</span><span style="font-size: 22px; font-weight: 700">[13] días</span><span style="font-size: 12px; color: var(--ink-2)">[1] de 2 descansos usados</span></div>
+      <div style="flex: 1; padding: 16px; border: 1px solid var(--line); border-radius: 10px; display: flex; flex-direction: column; gap: 4px; background: var(--surface)"><span style="font-size: 12px; color: var(--ink-2)">Esta semana</span><span style="font-size: 22px; font-weight: 700">[90] min</span><span style="font-size: 12px; color: var(--ink-2)">Meta: [105] min</span></div>
+    </section>
+    <section style="display: flex; flex-direction: column; gap: 8px">
+      <h2 style="margin: 0; font-size: 15px; font-weight: 600">¿Quieres seguir?</h2>
+      <a href="C-DTarjeta.dc.html" style="min-height: 48px; display: flex; align-items: center; justify-content: center; border: 1px solid var(--line-strong); border-radius: 10px; background: var(--surface); color: var(--ink); text-decoration: none; font: inherit; font-size: 15px; font-weight: 600">Practicar palabras difíciles</a>
+      <a href="C-DLecturas.dc.html" style="min-height: 48px; display: flex; align-items: center; justify-content: center; border: 1px solid var(--line-strong); border-radius: 10px; background: var(--surface); color: var(--ink); text-decoration: none; font: inherit; font-size: 15px; font-weight: 600">Leer la lectura recomendada</a>
+      <a href="C-DFicha.dc.html" style="min-height: 48px; display: flex; align-items: center; justify-content: center; border: 1px solid var(--line-strong); border-radius: 10px; background: var(--surface); color: var(--ink); text-decoration: none; font: inherit; font-size: 15px; font-weight: 600">Aprender [3] palabras más</a>
+    </section>
+  </main></div>
+  </main>
+</div>
+</template>
+<script type="text/x-dc" data-props='{"tema":{"editor":"enum","options":["claro","oscuro"],"default":"claro","section":"Tema"},"$preview":{"width":1280,"height":860}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const __tema = this.props.tema ?? 'claro';
+    return { tema: __tema, };
+  }
+}
+</script>
+</body>
+</html>

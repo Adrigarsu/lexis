@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Perfil y ajustes (escritorio) · Lexis</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Noto+Sans+SC:wght@400;500&amp;family=Noto+Serif+SC:wght@400;500;900&amp;display=swap">
+<style>
+body{margin:0}
+a{color:var(--jade)}a:hover{color:var(--ink)}
+[role="status"] a{color:var(--ink)}
+</style>
+<link rel="stylesheet" href="../assets/lexis.css">
+<script src="../assets/dc-runtime.js"></script>
+</head>
+<body style="margin:0">
+<div id="dc-root"></div>
+<template id="dc-template">
+<div class="lx" data-theme="{{ tema }}" style="min-height: 1900px; box-sizing: border-box; background: var(--paper); font-family: var(--font-sans); color: var(--ink); display: flex; flex-wrap: wrap">
+
+  <sc-if value="{{ expanded }}" hint-placeholder-val="{{ true }}">
+    <nav aria-label="Navegación principal" style="flex: 1 1 220px; max-width: 248px; box-sizing: border-box; padding: 20px 12px; border-right: 1px solid var(--line); display: flex; flex-direction: column; gap: 2px">
+      <div style="display: flex; align-items: center; justify-content: space-between; padding: 0 4px 16px 12px">
+        <span style="display: inline-flex; align-items: center; gap: 8px; font-size: 18px; font-weight: 700"><span aria-hidden="true" style="width: 26px; height: 26px; flex: none; box-sizing: border-box; display: grid; place-items: center; border: 2.5px solid var(--jade); border-radius: 4px; color: var(--jade); font: 900 15px/1 'Noto Serif SC', serif">词</span>Lexis</span>
+        <button aria-label="Ocultar menú" aria-expanded="true" onClick="{{ toggle }}" style="width: 40px; height: 40px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); color: var(--ink-2); display: flex; align-items: center; justify-content: center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M11 17l-5-5 5-5M18 17l-5-5 5-5"/></svg></button>
+      </div>
+      <a href="C-DInicio.dc.html" style="min-height: 40px; display: flex; align-items: center; gap: 10px; padding: 0 12px; border-radius: 8px; text-decoration: none; font-size: 14px; color: var(--ink-2)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 11 12 4l9 7v9h-6v-6H9v6H3z"/></svg>Hoy</a>
+      <span style="padding: 16px 12px 6px; font-size: 11px; font-weight: 600; letter-spacing: 0.06em; color: var(--ink-2)">PRACTICAR</span>
+      <sc-for list="{{ practice }}" as="it" hint-placeholder-count="6">
+        <a href="C-DInicio.dc.html" style="min-height: 40px; display: flex; align-items: center; gap: 10px; padding: 0 12px; border-radius: 8px; text-decoration: none; font-size: 14px; color: var(--ink-2)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="{{ it.d }}"/></svg>{{ it.label }}</a>
+      </sc-for>
+      <div style="height: 1px; background: var(--surface-sunken); margin: 12px 4px"></div>
+      <a href="C-DProgreso.dc.html" style="min-height: 40px; display: flex; align-items: center; gap: 10px; padding: 0 12px; border-radius: 8px; text-decoration: none; font-size: 14px; color: var(--ink-2)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg>Progreso</a>
+      <a href="C-DPerfil.dc.html" aria-current="page" aria-label="Perfil de adri: cuenta y ajustes" style="margin-top: auto; min-height: 56px; display: flex; align-items: center; gap: 10px; padding: 8px 12px; border: 1px solid var(--line-strong); border-radius: 10px; background: var(--surface-sunken); text-decoration: none; color: var(--ink)">
+        <span aria-hidden="true" style="width: 36px; height: 36px; flex: none; border-radius: 18px; border: 1px solid var(--line); background: var(--surface); display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 600; color: var(--ink-2)">A</span>
+        <span style="display: flex; flex-direction: column; gap: 2px; min-width: 0">
+          <span style="font-size: 14px; font-weight: 600">adri</span>
+          <span style="font-size: 12px; color: var(--ink-2)">Perfil y ajustes</span>
+        </span>
+      </a>
+    </nav>
+  </sc-if>
+
+  <sc-if value="{{ collapsed }}" hint-placeholder-val="{{ false }}">
+    <nav aria-label="Navegación principal" style="width: 64px; flex: none; box-sizing: border-box; padding: 20px 10px; border-right: 1px solid var(--line); display: flex; flex-direction: column; align-items: center; gap: 4px">
+      <button aria-label="Mostrar menú" aria-expanded="false" onClick="{{ toggle }}" style="width: 44px; height: 44px; margin-bottom: 12px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); color: var(--ink-2); display: flex; align-items: center; justify-content: center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M13 17l5-5-5-5M6 17l5-5-5-5"/></svg></button>
+      <a href="C-DInicio.dc.html" aria-label="Hoy" style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; border-radius: 8px; color: var(--ink-2)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 11 12 4l9 7v9h-6v-6H9v6H3z"/></svg></a>
+      <div style="width: 28px; height: 1px; background: var(--surface-sunken); margin: 8px 0"></div>
+      <sc-for list="{{ practice }}" as="it" hint-placeholder-count="6">
+        <a href="C-DInicio.dc.html" aria-label="{{ it.label }}" title="{{ it.label }}" style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; border-radius: 8px; color: var(--ink-2)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="{{ it.d }}"/></svg></a>
+      </sc-for>
+      <div style="width: 28px; height: 1px; background: var(--surface-sunken); margin: 8px 0"></div>
+      <a href="C-DProgreso.dc.html" aria-label="Progreso" title="Progreso" style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; border-radius: 8px; color: var(--ink-2)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></a>
+      <a href="C-DPerfil.dc.html" aria-current="page" aria-label="Perfil y ajustes" title="Perfil y ajustes" style="margin-top: auto; width: 44px; height: 44px; border-radius: 22px; border: 2px solid var(--ink); background: var(--surface-sunken); display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 14px; font-weight: 600; color: var(--ink)">A</a>
+    </nav>
+  </sc-if>
+
+  <main style="flex: 999 1 560px; min-width: 0; box-sizing: border-box; padding: 32px 40px 64px">
+    <div style="max-width: 1040px; display: flex; flex-wrap: wrap; gap: 40px; align-items: flex-start">
+
+      <nav aria-label="Secciones de ajustes" style="flex: 1 1 180px; max-width: 200px; display: flex; flex-direction: column; gap: 2px">
+        <h1 style="margin: 0 0 16px 12px; font-size: 28px; font-weight: 700">Perfil</h1>
+        <a href="#metas" style="min-height: 40px; display: flex; align-items: center; padding: 0 12px; border-radius: 8px; text-decoration: none; font-size: 14px; color: var(--ink-2)">Metas</a>
+        <a href="#estudio" style="min-height: 40px; display: flex; align-items: center; padding: 0 12px; border-radius: 8px; text-decoration: none; font-size: 14px; color: var(--ink-2)">Ajustes de estudio</a>
+        <a href="#recordatorios" style="min-height: 40px; display: flex; align-items: center; padding: 0 12px; border-radius: 8px; text-decoration: none; font-size: 14px; color: var(--ink-2)">Recordatorios</a>
+        <a href="#apariencia" style="min-height: 40px; display: flex; align-items: center; padding: 0 12px; border-radius: 8px; text-decoration: none; font-size: 14px; color: var(--ink-2)">Apariencia</a>
+        <a href="#app" style="min-height: 40px; display: flex; align-items: center; padding: 0 12px; border-radius: 8px; text-decoration: none; font-size: 14px; color: var(--ink-2)">Contenido y app</a>
+        <a href="C-DCuenta.dc.html" style="min-height: 40px; display: flex; align-items: center; padding: 0 12px; border-radius: 8px; text-decoration: none; font-size: 14px; color: var(--ink-2)">Cuenta y privacidad</a>
+      </nav>
+
+      <div style="flex: 999 1 480px; min-width: 0; max-width: 720px; display: flex; flex-direction: column; gap: 32px">
+        <section aria-label="Tu perfil" style="display: flex; align-items: center; gap: 16px; padding: 20px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface)">
+          <span aria-hidden="true" style="width: 64px; height: 64px; flex: none; border-radius: 32px; border: 1px solid var(--line); background: var(--surface-sunken); display: flex; align-items: center; justify-content: center; font-size: 24px; font-weight: 600; color: var(--ink-2)">A</span>
+          <div style="flex: 1; display: flex; flex-direction: column; gap: 4px">
+            <span style="font-size: 20px; font-weight: 600">adri</span>
+            <span style="font-size: 14px; color: var(--ink-2)">Racha: [12] días · Mejor racha: [21] días · Desde [noviembre de 2026]</span>
+          </div>
+          <span style="font-size: 13px; color: var(--ink-2); display: flex; align-items: center; gap: 4px"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2" aria-hidden="true" style="stroke: var(--ink-2)"><path d="M17.5 19H7a5 5 0 1 1 1.6-9.7A6 6 0 0 1 20 11a4 4 0 0 1-2.5 8z"/><path d="m9 14 2 2 4-4"/></svg>Guardado en la nube</span>
+        </section>
+
+        <section id="metas" style="display: flex; flex-direction: column; gap: 10px">
+      <div style="display: flex; flex-direction: column; gap: 2px"><h2 style="margin: 0; font-size: 18px; font-weight: 600">Metas</h2><span style="font-size: 13px; color: var(--ink-2)">Se aplican desde la siguiente sesión.</span></div>
+      <div style="border: 1px solid var(--line); border-radius: 10px; display: flex; flex-direction: column; overflow: hidden; background: var(--surface)">
+        <div style="display: flex; align-items: center; gap: 12px; padding: 12px 16px; border-bottom: 1px solid var(--line)">
+          <span style="flex: 1; display: flex; flex-direction: column; gap: 2px"><span id="d-min" style="font-size: 14px; font-weight: 500">Minutos al día</span></span>
+          <div role="group" aria-labelledby="d-min" style="flex: none; display: flex; align-items: center; border: 1px solid var(--line-strong); border-radius: 10px; background: var(--surface)">
+            <button aria-label="Menos minutos" disabled="{{ mins.atMin }}" onClick="{{ mins.dec }}" style="width: 44px; height: 44px; border: 0; background: transparent; color: var(--ink); display: flex; align-items: center; justify-content: center; border-right: 1px solid var(--line)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14"/></svg></button>
+            <output aria-live="polite" style="min-width: 64px; text-align: center; font-size: 15px; font-weight: 600">{{ mins.value }} min</output>
+            <button aria-label="Más minutos" disabled="{{ mins.atMax }}" onClick="{{ mins.inc }}" style="width: 44px; height: 44px; border: 0; background: transparent; color: var(--ink); display: flex; align-items: center; justify-content: center; border-left: 1px solid var(--line)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></button>
+          </div>
+        </div>
+        <div style="display: flex; align-items: center; gap: 12px; padding: 12px 16px; border-bottom: 1px solid var(--line)">
+          <span style="flex: 1; display: flex; flex-direction: column; gap: 2px"><span id="d-nuevas" style="font-size: 14px; font-weight: 500">Palabras nuevas al día</span></span>
+          <div role="group" aria-labelledby="d-nuevas" style="flex: none; display: flex; align-items: center; border: 1px solid var(--line-strong); border-radius: 10px; background: var(--surface)">
+            <button aria-label="Menos palabras nuevas" disabled="{{ words.atMin }}" onClick="{{ words.dec }}" style="width: 44px; height: 44px; border: 0; background: transparent; color: var(--ink); display: flex; align-items: center; justify-content: center; border-right: 1px solid var(--line)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14"/></svg></button>
+            <output aria-live="polite" style="min-width: 64px; text-align: center; font-size: 15px; font-weight: 600">{{ words.value }}</output>
+            <button aria-label="Más palabras nuevas" disabled="{{ words.atMax }}" onClick="{{ words.inc }}" style="width: 44px; height: 44px; border: 0; background: transparent; color: var(--ink); display: flex; align-items: center; justify-content: center; border-left: 1px solid var(--line)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></button>
+          </div>
+        </div>
+        <div style="display: flex; align-items: center; gap: 12px; padding: 12px 16px">
+          <span style="flex: 1; display: flex; flex-direction: column; gap: 2px"><span id="d-desc" style="font-size: 14px; font-weight: 500">Días de descanso por semana</span><span style="font-size: 12px; color: var(--ink-2)">No rompen la racha</span></span>
+          <div role="group" aria-labelledby="d-desc" style="flex: none; display: flex; align-items: center; border: 1px solid var(--line-strong); border-radius: 10px; background: var(--surface)">
+            <button aria-label="Menos días de descanso" disabled="{{ rest.atMin }}" onClick="{{ rest.dec }}" style="width: 44px; height: 44px; border: 0; background: transparent; color: var(--ink); display: flex; align-items: center; justify-content: center; border-right: 1px solid var(--line)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14"/></svg></button>
+            <output aria-live="polite" style="min-width: 64px; text-align: center; font-size: 15px; font-weight: 600">{{ rest.value }}</output>
+            <button aria-label="Más días de descanso" disabled="{{ rest.atMax }}" onClick="{{ rest.inc }}" style="width: 44px; height: 44px; border: 0; background: transparent; color: var(--ink); display: flex; align-items: center; justify-content: center; border-left: 1px solid var(--line)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+        <div style="height: 1px; background: var(--surface-sunken)"></div>
+
+        <section id="estudio" style="display: flex; flex-direction: column; gap: 10px">
+      <div style="display: flex; flex-direction: column; gap: 2px"><h2 style="margin: 0; font-size: 18px; font-weight: 600">Ajustes de estudio por defecto</h2><span style="font-size: 13px; color: var(--ink-2)">Se usan al empezar cada sesión. En cada tarjeta puedes cambiarlos con «Ajustes de estudio».</span></div>
+      <div style="border: 1px solid var(--line); border-radius: 10px; display: flex; flex-direction: column; overflow: hidden; background: var(--surface)">
+        <fieldset style="margin: 0; padding: 12px 16px 14px; border: 0; border-bottom: 1px solid var(--line); display: flex; flex-direction: column; gap: 8px">
+          <legend style="float: left; padding: 0 0 8px; font-size: 14px; font-weight: 500">Tamaño de los caracteres</legend>
+          <div style="clear: both; display: flex; gap: 8px">
+            <label style="min-height: 44px; display: flex; align-items: center; justify-content: center; gap: 6px; padding: 0 16px; border: 1px solid var(--line-strong); border-radius: 8px; font-size: 14px; background: var(--surface)"><input type="radio" name="tamd">Pequeño</label>
+            <label style="min-height: 44px; display: flex; align-items: center; justify-content: center; gap: 6px; padding: 0 16px; border: 2px solid var(--ink); border-radius: 8px; font-size: 14px; font-weight: 600; background: var(--surface)"><input type="radio" name="tamd" checked>Medio</label>
+            <label style="min-height: 44px; display: flex; align-items: center; justify-content: center; gap: 6px; padding: 0 16px; border: 1px solid var(--line-strong); border-radius: 8px; font-size: 14px; background: var(--surface)"><input type="radio" name="tamd">Grande</label>
+          </div>
+        </fieldset>
+        <label style="display: flex; align-items: center; gap: 12px; padding: 12px 16px; border-bottom: 1px solid var(--line)"><span style="flex: 1; display: flex; flex-direction: column; gap: 2px"><span style="font-size: 14px; font-weight: 500">Fuente de los caracteres</span><span style="font-size: 12px; color: var(--ink-2)">Kai se parece a la escritura a mano</span></span><select style="min-height: 40px; padding: 0 8px; border: 1px solid var(--line-strong); border-radius: 8px; background: var(--surface); font: inherit; font-size: 14px"><option selected>Kai 楷体</option><option>Sans 黑体</option><option>Song 宋体</option></select></label>
+        <label style="display: flex; align-items: center; gap: 12px; padding: 12px 16px; border-bottom: 1px solid var(--line)"><span style="flex: 1; font-size: 14px; font-weight: 500">Mostrar pinyin</span><input type="checkbox" role="switch" checked style="width: 44px; height: 24px; flex: none; accent-color: var(--ink)"></label>
+        <div style="display: flex; align-items: center; gap: 16px; padding: 12px 16px; border-bottom: 1px solid var(--line)">
+          <label style="flex: 1; display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 500">Opacidad del pinyin: [100] %<input type="range" min="10" max="100" step="10" value="100" style="width: 100%; accent-color: var(--ink)"></label>
+          <span style="flex: none; display: flex; flex-direction: column; align-items: center; gap: 2px"><span style="font-size: 20px"><ruby lang="zh-Hans" style="ruby-position: under; font-family: var(--font-kai)">你<rt style="font-family: var(--font-sans); font-size: 11px; color: var(--ink-2)">nǐ</rt>好<rt style="font-family: var(--font-sans); font-size: 11px; color: var(--ink-2)">hǎo</rt></ruby></span><span style="font-size: 11px; color: var(--ink-2)">Vista previa</span></span>
+        </div>
+        <label style="display: flex; align-items: center; gap: 12px; padding: 12px 16px; border-bottom: 1px solid var(--line)"><span style="flex: 1; display: flex; flex-direction: column; gap: 2px"><span style="font-size: 14px; font-weight: 500">Colores según el tono</span><span style="font-size: 12px; color: var(--ink-2)">Siempre con la marca del tono: ā á ǎ à a</span></span><input type="checkbox" role="switch" checked style="width: 44px; height: 24px; flex: none; accent-color: var(--ink)"></label>
+        <label style="display: flex; align-items: center; gap: 12px; padding: 12px 16px"><span style="flex: 1; font-size: 14px; font-weight: 500">Audio automático</span><input type="checkbox" role="switch" checked style="width: 44px; height: 24px; flex: none; accent-color: var(--ink)"></label>
+      </div>
+    </section>
+
+        <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px">
+          <section style="display: flex; flex-direction: column; gap: 10px">
+      <div style="display: flex; flex-direction: column; gap: 2px"><h2 style="margin: 0; font-size: 15px; font-weight: 600">Escritura</h2></div>
+      <div style="border: 1px solid var(--line); border-radius: 10px; display: flex; flex-direction: column; overflow: hidden; background: var(--surface)">
+        <label style="display: flex; align-items: center; gap: 12px; padding: 12px 16px; border-bottom: 1px solid var(--line)"><span style="flex: 1; font-size: 14px; font-weight: 500">Guía</span><select style="min-height: 40px; padding: 0 8px; border: 1px solid var(--line-strong); border-radius: 8px; background: var(--surface); font: inherit; font-size: 14px"><option>Sin guía</option><option selected>Contorno completo</option><option>Siguiente trazo</option></select></label>
+        <label style="display: flex; align-items: center; gap: 12px; padding: 12px 16px; border-bottom: 1px solid var(--line)"><span style="flex: 1; display: flex; flex-direction: column; gap: 2px"><span style="font-size: 14px; font-weight: 500">Escribir en azul bolígrafo</span><span style="font-size: 12px; color: var(--ink-2)">Tus trazos en azul en vez de en tinta</span></span><input type="checkbox" role="switch" checked style="width: 44px; height: 24px; flex: none; accent-color: var(--ink)"></label>
+        <label style="display: flex; align-items: center; gap: 12px; padding: 12px 16px"><span style="flex: 1; display: flex; flex-direction: column; gap: 2px"><span style="font-size: 14px; font-weight: 500">Valoración automática</span><span style="font-size: 12px; color: var(--ink-2)">Por fallos y pistas. Si está apagada, valoras tú.</span></span><input type="checkbox" role="switch" style="width: 44px; height: 24px; flex: none; accent-color: var(--ink)"></label>
+      </div>
+    </section>
+          <section style="display: flex; flex-direction: column; gap: 10px">
+      <div style="display: flex; flex-direction: column; gap: 2px"><h2 style="margin: 0; font-size: 15px; font-weight: 600">Pronunciación y tonos</h2></div>
+      <div style="border: 1px solid var(--line); border-radius: 10px; display: flex; flex-direction: column; overflow: hidden; background: var(--surface)">
+        <label style="display: flex; align-items: center; gap: 12px; padding: 12px 16px; border-bottom: 1px solid var(--line)"><span style="flex: 1; font-size: 14px; font-weight: 500">Responder por defecto</span><select style="min-height: 40px; padding: 0 8px; border: 1px solid var(--line-strong); border-radius: 8px; background: var(--surface); font: inherit; font-size: 14px"><option>Escribir pinyin</option><option selected>Elegir opción</option><option>Hablar</option></select></label>
+        <label style="display: flex; align-items: center; gap: 12px; padding: 12px 16px; border-bottom: 1px solid var(--line)"><span style="flex: 1; display: flex; flex-direction: column; gap: 2px"><span style="font-size: 14px; font-weight: 500">Valoración automática</span><span style="font-size: 12px; color: var(--ink-2)">Según tus aciertos y si el reconocimiento de voz te entiende. Si está apagada, valoras tú.</span></span><input type="checkbox" role="switch" style="width: 44px; height: 24px; flex: none; accent-color: var(--ink)"></label>
+        <label style="display: flex; align-items: center; gap: 12px; padding: 12px 16px"><span style="flex: 1; display: flex; flex-direction: column; gap: 2px"><span style="font-size: 14px; font-weight: 500">Calentamiento de tonos</span><span style="font-size: 12px; color: var(--ink-2)">1 a 2 min antes de «Estudiar hoy»</span></span><input type="checkbox" role="switch" checked style="width: 44px; height: 24px; flex: none; accent-color: var(--ink)"></label>
+      </div>
+    </section>
+        </div>
+
+        <div style="height: 1px; background: var(--surface-sunken)"></div>
+
+        <section id="recordatorios" style="display: flex; flex-direction: column; gap: 14px">
+          <div style="display: flex; flex-direction: column; gap: 4px"><h2 style="margin: 0; font-size: 18px; font-weight: 600">Recordatorios</h2><span style="font-size: 13px; color: var(--ink-2)">Notificaciones permitidas en este navegador · Como máximo 2 al día · Hora de [Madrid], según tu dispositivo</span></div>
+          <div style="border: 1px solid var(--line); border-radius: 10px; background: var(--surface)">
+            <sc-for list="{{ kinds }}" as="k" hint-placeholder-count="4">
+              <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 16px; padding: 14px 16px; border-bottom: 1px solid var(--line)">
+                <label style="flex: 1 1 260px; display: flex; align-items: center; gap: 12px">
+                  <input type="checkbox" role="switch" checked="{{ k.on }}" style="width: 44px; height: 24px; accent-color: var(--ink)">
+                  <span style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 15px; font-weight: 500">{{ k.name }}</span><span style="font-size: 12px; color: var(--ink-2)">{{ k.desc }}</span></span>
+                </label>
+                <sc-if value="{{ k.weekly }}" hint-placeholder-val="{{ false }}">
+                  <label style="display: flex; align-items: center; gap: 6px; font-size: 13px; color: var(--ink-2)">Día<select style="min-height: 40px; padding: 0 8px; border: 1px solid var(--line-strong); border-radius: 8px; background: var(--surface); font: inherit; font-size: 14px"><option>Domingo</option><option>Lunes</option></select></label>
+                </sc-if>
+                <label style="display: flex; align-items: center; gap: 6px; font-size: 13px; color: var(--ink-2)">Hora<input type="time" value="{{ k.time }}" style="min-height: 40px; box-sizing: border-box; padding: 0 8px; border: 1px solid var(--line-strong); border-radius: 8px; font: inherit; font-size: 14px; background: var(--surface)"></label>
+              </div>
+            </sc-for>
+          </div>
+        </section>
+
+        <div style="height: 1px; background: var(--surface-sunken)"></div>
+
+        <section id="apariencia" style="display: flex; flex-direction: column; gap: 14px">
+          <h2 style="margin: 0; font-size: 18px; font-weight: 600">Apariencia</h2>
+          <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px">
+            <label style="display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 500">Tema<select style="min-height: 44px; padding: 0 10px; border: 1px solid var(--line-strong); border-radius: 8px; background: var(--surface); font: inherit; font-weight: 400"><option>Como el sistema</option><option>Claro</option><option>Oscuro</option></select></label>
+            <label style="display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 500">Tamaño de letra<select style="min-height: 44px; padding: 0 10px; border: 1px solid var(--line-strong); border-radius: 8px; background: var(--surface); font: inherit; font-weight: 400"><option>100 %</option><option>125 %</option><option>150 %</option><option>175 %</option><option>200 %</option></select></label>
+          </div>
+        </section>
+
+        <div style="height: 1px; background: var(--surface-sunken)"></div>
+
+        <section id="app" style="display: flex; flex-direction: column; gap: 14px">
+          <h2 style="margin: 0; font-size: 18px; font-weight: 600">Contenido y app</h2>
+          <label style="display: flex; align-items: center; gap: 12px; padding: 14px 16px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface)">
+            <span style="flex: 1; display: flex; flex-direction: column; gap: 2px"><span style="font-size: 15px; font-weight: 500">Caracteres extra</span><span style="font-size: 12px; color: var(--ink-2)">[50] radicales y [200] caracteres frecuentes fuera del HSK 1, con las tres prácticas. Si lo apagas, se guarda su progreso.</span></span>
+            <input type="checkbox" role="switch" style="width: 44px; height: 24px; accent-color: var(--ink)">
+          </label>
+          <div style="display: flex; align-items: center; gap: 12px; padding: 14px 16px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface)">
+            <span style="flex: 1; display: flex; flex-direction: column; gap: 2px"><span style="font-size: 15px; font-weight: 500">Instalar la app</span><span style="font-size: 12px; color: var(--ink-2)">Ábrela como una app y recibe los recordatorios.</span></span>
+            <button style="min-height: 44px; padding: 0 16px; border: 1px solid var(--line-strong); border-radius: 10px; background: var(--surface); font: inherit; font-size: 14px; font-weight: 600; color: var(--ink)">Instalar</button>
+          </div>
+          <div style="display: flex; flex-wrap: wrap; gap: 12px; align-items: center">
+            <a href="C-DPerfil.dc.html" style="min-height: 44px; display: flex; align-items: center; padding: 0 4px; font-size: 14px">Política de privacidad</a>
+            <span style="flex: 1"></span>
+            <a href="C-DRegistro.dc.html" style="min-height: 44px; display: flex; align-items: center; padding: 0 18px; border: 1px solid var(--line-strong); border-radius: 10px; text-decoration: none; font-size: 14px; font-weight: 600; color: var(--ink); background: var(--surface)">Cerrar sesión</a>
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
+</div>
+</template>
+<script type="text/x-dc" data-props='{"tema":{"editor":"enum","options":["claro","oscuro"],"default":"claro","section":"Tema"},"$preview":{"width":1280,"height":1900}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { open: true, mins: 15, words: 5, rest: 2 };
+  }
+
+  stepper(key, min, max, step) {
+    const value = this.state[key];
+    return {
+      value: value,
+      atMin: value <= min,
+      atMax: value >= max,
+      dec: () => this.setState({ [key]: Math.max(min, value - step) }),
+      inc: () => this.setState({ [key]: Math.min(max, value + step) })
+    };
+  }
+  renderVals() {
+    const __tema = this.props.tema ?? 'claro';
+    const open = this.state.open;
+    return { tema: __tema, 
+      expanded: open,
+      collapsed: !open,
+      toggle: () => this.setState({ open: !open }),
+      mins: this.stepper('mins', 5, 120, 5),
+      words: this.stepper('words', 0, 30, 1),
+      rest: this.stepper('rest', 0, 3, 1),
+      practice: [
+        { label: 'Tarjetas', d: 'M4 7h12v13H4zM8 4h12v13' },
+        { label: 'Escritura', d: 'M4 20h4L19 9l-4-4L4 16z' },
+        { label: 'Tonos', d: 'M2 12c3-6 5-6 8 0s5 6 8 0 3-3 4-2' },
+        { label: 'Gramática', d: 'M3 3h8v8H3zM13 13h8v8h-8zM13 7h8M7 13v8' },
+        { label: 'Lecturas', d: 'M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2zM4 5v14' },
+        { label: 'Mis listas', d: 'M9 6h11M9 12h11M9 18h11M4 6h1M4 12h1M4 18h1' }
+      ],
+      kinds: [
+        { name: 'Recordatorio diario', desc: 'Si aún no has estudiado hoy', time: '20:00', on: true, weekly: false },
+        { name: 'Racha en riesgo', desc: 'Por la noche, si vas a perder la racha', time: '22:00', on: true, weekly: false },
+        { name: 'Resumen semanal', desc: 'Palabras aprendidas, tiempo y racha', time: '19:00', on: true, weekly: true },
+        { name: 'Repasos acumulados', desc: 'Tras 3 o más días sin entrar; cada vez más espaciados', time: '12:00', on: false, weekly: false }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

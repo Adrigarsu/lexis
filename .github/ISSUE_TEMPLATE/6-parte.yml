@@ -1,0 +1,27 @@
+name: Parte de una issue (sub-issue)
+description: Una de las PR en que se divide una issue grande. Normalmente la crea la skill empezar-issue.
+title: "HU-xx · parte n/N: "
+labels: ["tipo:tarea"]
+body:
+  - type: input
+    id: madre
+    attributes:
+      label: Issue madre
+      placeholder: "#12"
+    validations:
+      required: true
+  - type: textarea
+    id: alcance
+    attributes:
+      label: Qué cubre esta parte
+      description: Criterios de aceptación de la madre que quedan cubiertos y archivos que toca.
+    validations:
+      required: true
+  - type: textarea
+    id: fuera
+    attributes:
+      label: Qué queda para otras partes
+  - type: markdown
+    attributes:
+      value: |
+        Rama `tipo/HU-xx-n-descripcion`. La PR lleva `Closes #<esta>` y `Part of #<madre>`, y deja `main` funcionando.

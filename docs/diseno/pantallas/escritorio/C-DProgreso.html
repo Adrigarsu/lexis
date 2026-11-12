@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Progreso (escritorio) · Lexis</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Noto+Sans+SC:wght@400;500&amp;family=Noto+Serif+SC:wght@400;500;900&amp;display=swap">
+<style>
+body{margin:0}
+a{color:var(--jade)}a:hover{color:var(--ink)}
+[role="status"] a{color:var(--ink)}
+</style>
+<link rel="stylesheet" href="../assets/lexis.css">
+<script src="../assets/dc-runtime.js"></script>
+</head>
+<body style="margin:0">
+<div id="dc-root"></div>
+<template id="dc-template">
+<div class="lx" data-theme="{{ tema }}" style="min-height: 860px; box-sizing: border-box; background: var(--paper); font-family: var(--font-sans); color: var(--ink); display: flex; flex-wrap: wrap">
+
+  <sc-if value="{{ expanded }}" hint-placeholder-val="{{ true }}">
+    <nav aria-label="Navegación principal" style="flex: 1 1 220px; max-width: 248px; box-sizing: border-box; padding: 20px 12px; border-right: 1px solid var(--line); display: flex; flex-direction: column; gap: 2px">
+      <div style="display: flex; align-items: center; justify-content: space-between; padding: 0 4px 16px 12px">
+        <span style="display: inline-flex; align-items: center; gap: 8px; font-size: 18px; font-weight: 700"><span aria-hidden="true" style="width: 26px; height: 26px; flex: none; box-sizing: border-box; display: grid; place-items: center; border: 2.5px solid var(--jade); border-radius: 4px; color: var(--jade); font: 900 15px/1 'Noto Serif SC', serif">词</span>Lexis</span>
+        <button aria-label="Ocultar menú" aria-expanded="true" onClick="{{ toggle }}" style="width: 40px; height: 40px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); color: var(--ink-2); display: flex; align-items: center; justify-content: center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M11 17l-5-5 5-5M18 17l-5-5 5-5"/></svg></button>
+      </div>
+      <a href="C-DInicio.dc.html" style="min-height: 40px; display: flex; align-items: center; gap: 10px; padding: 0 12px; border-radius: 8px; text-decoration: none; font-size: 14px; color: var(--ink-2)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 11 12 4l9 7v9h-6v-6H9v6H3z"/></svg>Hoy</a>
+      <span style="padding: 16px 12px 6px; font-size: 11px; font-weight: 600; letter-spacing: 0.06em; color: var(--ink-2)">PRACTICAR</span>
+      <sc-for list="{{ practice }}" as="it" hint-placeholder-count="6">
+        <a href="{{ it.href }}" aria-current="{{ it.cur }}" style="min-height: 40px; display: flex; align-items: center; gap: 10px; padding: 0 12px; border-radius: 8px; text-decoration: none; font-size: 14px; color: var(--ink); {{ it.bg }}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="{{ it.d }}"/></svg>{{ it.label }}</a>
+      </sc-for>
+      <div style="height: 1px; background: var(--surface-sunken); margin: 12px 4px"></div>
+      <a href="C-DProgreso.dc.html" aria-current="page" style="min-height: 40px; display: flex; align-items: center; gap: 10px; padding: 0 12px; border-radius: 8px; text-decoration: none; font-size: 14px; color: var(--ink); background: var(--surface-sunken); font-weight: 600"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg>Progreso</a>
+      <a href="C-DInicio.dc.html" aria-label="Perfil de adri: cuenta y ajustes" style="margin-top: auto; min-height: 56px; display: flex; align-items: center; gap: 10px; padding: 8px 12px; border: 1px solid var(--line); border-radius: 10px; text-decoration: none; color: var(--ink); background: var(--surface)">
+        <span aria-hidden="true" style="width: 36px; height: 36px; flex: none; border-radius: 18px; border: 1px solid var(--line); background: var(--surface-sunken); display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 600; color: var(--ink-2)">A</span>
+        <span style="display: flex; flex-direction: column; gap: 2px; min-width: 0">
+          <span style="font-size: 14px; font-weight: 600">adri</span>
+          <span style="font-size: 12px; color: var(--ink-2)">Perfil y ajustes</span>
+        </span>
+      </a>
+    </nav>
+  </sc-if>
+
+  <sc-if value="{{ collapsed }}" hint-placeholder-val="{{ false }}">
+    <nav aria-label="Navegación principal" style="width: 64px; flex: none; box-sizing: border-box; padding: 20px 10px; border-right: 1px solid var(--line); display: flex; flex-direction: column; align-items: center; gap: 4px">
+      <button aria-label="Mostrar menú" aria-expanded="false" onClick="{{ toggle }}" style="width: 44px; height: 44px; margin-bottom: 12px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); color: var(--ink-2); display: flex; align-items: center; justify-content: center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M13 17l5-5-5-5M6 17l5-5-5-5"/></svg></button>
+      <a href="C-DInicio.dc.html" aria-label="Hoy" style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; border-radius: 8px; color: var(--ink-2)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 11 12 4l9 7v9h-6v-6H9v6H3z"/></svg></a>
+      <div style="width: 28px; height: 1px; background: var(--surface-sunken); margin: 8px 0"></div>
+      <sc-for list="{{ practice }}" as="it" hint-placeholder-count="6">
+        <a href="{{ it.href }}" aria-current="{{ it.cur }}" aria-label="{{ it.label }}" title="{{ it.label }}" style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; border-radius: 8px; color: var(--ink-2); {{ it.bg }}"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="{{ it.d }}"/></svg></a>
+      </sc-for>
+      <div style="width: 28px; height: 1px; background: var(--surface-sunken); margin: 8px 0"></div>
+      <a href="C-DProgreso.dc.html" aria-current="page" aria-label="Progreso" title="Progreso" style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; border-radius: 8px; color: var(--ink); background: var(--surface-sunken)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></a>
+      <a href="C-DInicio.dc.html" aria-label="Perfil y ajustes" title="Perfil y ajustes" style="margin-top: auto; width: 44px; height: 44px; border-radius: 22px; border: 1px solid var(--line); background: var(--surface-sunken); display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 14px; font-weight: 600; color: var(--ink-2)">A</a>
+    </nav>
+  </sc-if>
+
+  <main style="flex: 999 1 560px; min-width: 0; box-sizing: border-box; padding: 32px 40px; background: var(--surface-sunken); display: flex; flex-direction: column; gap: 24px">
+    <div style="max-width: 1080px; width: 100%; display: flex; flex-direction: column; gap: 16px">
+      <h1 style="margin: 0; font-size: 28px; font-weight: 700">Progreso</h1>
+      <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 16px; align-items: start">
+      <section aria-labelledby="p-streak" style="padding: 16px; border: 1px solid var(--line); border-radius: 10px; display: flex; flex-direction: column; gap: 12px; background: var(--surface)">
+        <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 12px; flex-wrap: wrap">
+          <h2 id="p-streak" style="margin: 0; font-size: 16px; font-weight: 700">Racha</h2>
+          <span style="font-size: 13px; color: var(--ink-2)">Mejor racha: [20] días</span>
+        </div>
+        <span style="font-size: 28px; font-weight: 700">[8] días seguidos</span>
+        <span style="font-size: 13px; color: var(--ink-2)">Los días de descanso no rompen la racha. Te quedan [1] de [2] esta semana.</span>
+        <div role="grid" aria-label="Noviembre de 2026" style="display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 4px"><span role="columnheader" style="font-size: 11px; color: var(--ink-2); text-align: center">L</span><span role="columnheader" style="font-size: 11px; color: var(--ink-2); text-align: center">M</span><span role="columnheader" style="font-size: 11px; color: var(--ink-2); text-align: center">X</span><span role="columnheader" style="font-size: 11px; color: var(--ink-2); text-align: center">J</span><span role="columnheader" style="font-size: 11px; color: var(--ink-2); text-align: center">V</span><span role="columnheader" style="font-size: 11px; color: var(--ink-2); text-align: center">S</span><span role="columnheader" style="font-size: 11px; color: var(--ink-2); text-align: center">D</span><span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span><span role="gridcell" aria-label="1 de noviembre: descanso" style="aspect-ratio: 1; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 12px; background: var(--surface); color: var(--ink-2); border: 1px dashed var(--line-strong)">1</span><span role="gridcell" aria-label="2 de noviembre: estudiado" style="aspect-ratio: 1; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 12px; background: var(--jade); color: var(--on-jade); border: 1px solid var(--jade)">2</span><span role="gridcell" aria-label="3 de noviembre: estudiado" style="aspect-ratio: 1; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 12px; background: var(--jade); color: var(--on-jade); border: 1px solid var(--jade)">3</span><span role="gridcell" aria-label="4 de noviembre: sin estudiar" style="aspect-ratio: 1; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 12px; background: var(--surface); color: var(--ink-2); border: 1px solid var(--line); text-decoration: line-through">4</span><span role="gridcell" aria-label="5 de noviembre: estudiado" style="aspect-ratio: 1; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 12px; background: var(--jade); color: var(--on-jade); border: 1px solid var(--jade)">5</span><span role="gridcell" aria-label="6 de noviembre: estudiado" style="aspect-ratio: 1; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 12px; background: var(--jade); color: var(--on-jade); border: 1px solid var(--jade)">6</span><span role="gridcell" aria-label="7 de noviembre: estudiado" style="aspect-ratio: 1; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 12px; background: var(--jade); color: var(--on-jade); border: 1px solid var(--jade)">7</span><span role="gridcell" aria-label="8 de noviembre: descanso" style="aspect-ratio: 1; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 12px; background: var(--surface); color: var(--ink-2); border: 1px dashed var(--line-strong)">8</span><span role="gridcell" aria-label="9 de noviembre: estudiado" style="aspect-ratio: 1; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 12px; background: var(--jade); color: var(--on-jade); border: 1px solid var(--jade)">9</span><span role="gridcell" aria-label="10 de noviembre" style="aspect-ratio: 1; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 12px; background: var(--surface-sunken); color: var(--ink-2); border: 1px solid var(--line)">10</span><span role="gridcell" aria-label="11 de noviembre" style="aspect-ratio: 1; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 12px; background: var(--surface-sunken); color: var(--ink-2); border: 1px solid var(--line)">11</span><span role="gridcell" aria-label="12 de noviembre" style="aspect-ratio: 1; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 12px; background: var(--surface-sunken); color: var(--ink-2); border: 1px solid var(--line)">12</span><span role="gridcell" aria-label="13 de noviembre" style="aspect-ratio: 1; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 12px; background: var(--surface-sunken); color: var(--ink-2); border: 1px solid var(--line)">13</span><span role="gridcell" aria-label="14 de noviembre" style="aspect-ratio: 1; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 12px; background: var(--surface-sunken); color: var(--ink-2); border: 1px solid var(--line)">14</span><span role="gridcell" aria-label="15 de noviembre" style="aspect-ratio: 1; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 12px; background: var(--surface-sunken); color: var(--ink-2); border: 1px solid var(--line)">15</span><span role="gridcell" aria-label="16 de noviembre" style="aspect-ratio: 1; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 12px; background: var(--surface-sunken); color: var(--ink-2); border: 1px solid var(--line)">16</span><span role="gridcell" aria-label="17 de noviembre" style="aspect-ratio: 1; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 12px; background: var(--surface-sunken); color: var(--ink-2); border: 1px solid var(--line)">17</span><span role="gridcell" aria-label="18 de noviembre" style="aspect-ratio: 1; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 12px; background: var(--surface-sunken); color: var(--ink-2); border: 1px solid var(--line)">18</span><span role="gridcell" aria-label="19 de noviembre" style="aspect-ratio: 1; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 12px; background: var(--surface-sunken); color: var(--ink-2); border: 1px solid var(--line)">19</span><span role="gridcell" aria-label="20 de noviembre" style="aspect-ratio: 1; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 12px; background: var(--surface-sunken); color: var(--ink-2); border: 1px solid var(--line)">20</span><span role="gridcell" aria-label="21 de noviembre" style="aspect-ratio: 1; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 12px; background: var(--surface-sunken); color: var(--ink-2); border: 1px solid var(--line)">21</span><span role="gridcell" aria-label="22 de noviembre" style="aspect-ratio: 1; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 12px; background: var(--surface-sunken); color: var(--ink-2); border: 1px solid var(--line)">22</span><span role="gridcell" aria-label="23 de noviembre" style="aspect-ratio: 1; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 12px; background: var(--surface-sunken); color: var(--ink-2); border: 1px solid var(--line)">23</span><span role="gridcell" aria-label="24 de noviembre" style="aspect-ratio: 1; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 12px; background: var(--surface-sunken); color: var(--ink-2); border: 1px solid var(--line)">24</span><span role="gridcell" aria-label="25 de noviembre" style="aspect-ratio: 1; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 12px; background: var(--surface-sunken); color: var(--ink-2); border: 1px solid var(--line)">25</span><span role="gridcell" aria-label="26 de noviembre" style="aspect-ratio: 1; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 12px; background: var(--surface-sunken); color: var(--ink-2); border: 1px solid var(--line)">26</span><span role="gridcell" aria-label="27 de noviembre" style="aspect-ratio: 1; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 12px; background: var(--surface-sunken); color: var(--ink-2); border: 1px solid var(--line)">27</span><span role="gridcell" aria-label="28 de noviembre" style="aspect-ratio: 1; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 12px; background: var(--surface-sunken); color: var(--ink-2); border: 1px solid var(--line)">28</span><span role="gridcell" aria-label="29 de noviembre" style="aspect-ratio: 1; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 12px; background: var(--surface-sunken); color: var(--ink-2); border: 1px solid var(--line)">29</span><span role="gridcell" aria-label="30 de noviembre" style="aspect-ratio: 1; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 12px; background: var(--surface-sunken); color: var(--ink-2); border: 1px solid var(--line)">30</span></div>
+        <div style="display: flex; gap: 14px; flex-wrap: wrap; font-size: 12px; color: var(--ink-2)">
+          <span style="display: flex; align-items: center; gap: 4px"><span aria-hidden="true" style="width: 12px; height: 12px; border-radius: 3px; background: var(--jade)"></span>Estudiado</span>
+          <span style="display: flex; align-items: center; gap: 4px"><span aria-hidden="true" style="width: 12px; height: 12px; border-radius: 3px; border: 1px dashed var(--line-strong); background: var(--surface)"></span>Descanso</span>
+          <span style="display: flex; align-items: center; gap: 4px"><span aria-hidden="true" style="width: 12px; height: 12px; border-radius: 3px; border: 1px solid var(--line); background: var(--surface)"></span>Sin estudiar (tachado)</span>
+        </div>
+      </section>
+      <section aria-labelledby="p-hsk" style="padding: 16px; border: 1px solid var(--line); border-radius: 10px; display: flex; flex-direction: column; gap: 12px; background: var(--surface)">
+        <h2 id="p-hsk" style="margin: 0; font-size: 16px; font-weight: 700">HSK 1</h2>
+        <div style="display: flex; flex-direction: column; gap: 6px">
+          <span style="font-size: 28px; font-weight: 700">[86] de [300] palabras dominadas</span>
+          <div aria-hidden="true" style="display: flex; height: 12px; border-radius: 6px; overflow: hidden; background: var(--surface-sunken)"><span style="width: 29%; background: var(--jade)"></span><span style="width: 18%; background: var(--line-strong)"></span></div>
+          <span style="font-size: 13px; color: var(--ink-2)">[86] dominadas · [54] aprendiendo · [160] sin empezar</span>
+        </div>
+        <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 10px">
+          <li style="display: flex; flex-direction: column; gap: 4px">
+            <span style="display: flex; justify-content: space-between; font-size: 14px"><span>Significado · palabras</span><span style="font-weight: 600">[86] de [300]</span></span>
+            <span style="display: flex"><span aria-hidden="true" style="flex: 1; height: 8px; border-radius: 4px; background: var(--surface-sunken)"><span style="display: block; width: 29%; height: 8px; border-radius: 4px; background: var(--jade-bright)"></span></span></span>
+          </li>
+          <li style="display: flex; flex-direction: column; gap: 4px">
+            <span style="display: flex; justify-content: space-between; font-size: 14px"><span>Escritura · caracteres</span><span style="font-weight: 600">[40] de [246]</span></span>
+            <span style="display: flex"><span aria-hidden="true" style="flex: 1; height: 8px; border-radius: 4px; background: var(--surface-sunken)"><span style="display: block; width: 16%; height: 8px; border-radius: 4px; background: var(--jade-bright)"></span></span></span>
+          </li>
+          <li style="display: flex; flex-direction: column; gap: 4px">
+            <span style="display: flex; justify-content: space-between; font-size: 14px"><span>Escritura · palabras</span><span style="font-weight: 600">[12] de [300]</span></span>
+            <span style="display: flex"><span aria-hidden="true" style="flex: 1; height: 8px; border-radius: 4px; background: var(--surface-sunken)"><span style="display: block; width: 4%; height: 8px; border-radius: 4px; background: var(--jade-bright)"></span></span></span>
+          </li>
+          <li style="display: flex; flex-direction: column; gap: 4px">
+            <span style="display: flex; justify-content: space-between; font-size: 14px"><span>Pronunciación · palabras</span><span style="font-weight: 600">[30] de [300]</span></span>
+            <span style="display: flex"><span aria-hidden="true" style="flex: 1; height: 8px; border-radius: 4px; background: var(--surface-sunken)"><span style="display: block; width: 10%; height: 8px; border-radius: 4px; background: var(--jade-bright)"></span></span></span>
+          </li>
+        </ul>
+        <span style="font-size: 12px; color: var(--ink-2)">Dominada: la recuerdas aunque pasen 3 semanas sin verla.</span>
+      </section>
+      <section aria-labelledby="p-time" style="padding: 16px; border: 1px solid var(--line); border-radius: 10px; display: flex; flex-direction: column; gap: 12px; background: var(--surface)">
+        <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap">
+          <h2 id="p-time" style="margin: 0; font-size: 16px; font-weight: 700">Tiempo estudiado</h2>
+          <div role="group" aria-label="Periodo" style="display: flex; gap: 4px">
+            <sc-for list="{{ periods }}" as="p" hint-placeholder-count="3"><button aria-pressed="{{ p.pressed }}" onClick="{{ p.pick }}" style="min-height: 36px; padding: 0 10px; border: 1px solid var(--line-strong); border-radius: 18px; font: inherit; font-size: 13px; {{ p.style }}; background: var(--surface)">{{ p.label }}</button></sc-for>
+          </div>
+        </div>
+        <span style="font-size: 28px; font-weight: 700">{{ total }}</span>
+        <div style="position: relative; display: flex; gap: 6px">
+          <span aria-hidden="true" style="position: absolute; left: 0; right: 0; top: 43px; border-top: 1px dashed var(--ink)"></span>
+          <div style="flex: 1; display: flex; flex-direction: column; align-items: center; gap: 4px"><span style="font-size: 11px; color: var(--ink-2)">62</span><div aria-hidden="true" style="width: 100%; height: 100px; display: flex; align-items: flex-end"><span style="width: 100%; height: 77%; border-radius: 4px 4px 0 0; background: var(--jade-bright)"></span></div><span style="font-size: 12px; color: var(--ink-2)">L</span></div><div style="flex: 1; display: flex; flex-direction: column; align-items: center; gap: 4px"><span style="font-size: 11px; color: var(--ink-2)">48</span><div aria-hidden="true" style="width: 100%; height: 100px; display: flex; align-items: flex-end"><span style="width: 100%; height: 60%; border-radius: 4px 4px 0 0; background: var(--jade-bright)"></span></div><span style="font-size: 12px; color: var(--ink-2)">M</span></div><div style="flex: 1; display: flex; flex-direction: column; align-items: center; gap: 4px"><span style="font-size: 11px; color: var(--ink-2)">70</span><div aria-hidden="true" style="width: 100%; height: 100px; display: flex; align-items: flex-end"><span style="width: 100%; height: 87%; border-radius: 4px 4px 0 0; background: var(--jade-bright)"></span></div><span style="font-size: 12px; color: var(--ink-2)">X</span></div><div style="flex: 1; display: flex; flex-direction: column; align-items: center; gap: 4px"><span style="font-size: 11px; color: var(--ink-2)">0</span><div aria-hidden="true" style="width: 100%; height: 100px; display: flex; align-items: flex-end"><span style="width: 100%; height: 0%; border-radius: 4px 4px 0 0; background: var(--jade-bright)"></span></div><span style="font-size: 12px; color: var(--ink-2)">J</span></div><div style="flex: 1; display: flex; flex-direction: column; align-items: center; gap: 4px"><span style="font-size: 11px; color: var(--ink-2)">55</span><div aria-hidden="true" style="width: 100%; height: 100px; display: flex; align-items: flex-end"><span style="width: 100%; height: 68%; border-radius: 4px 4px 0 0; background: var(--jade-bright)"></span></div><span style="font-size: 12px; color: var(--ink-2)">V</span></div><div style="flex: 1; display: flex; flex-direction: column; align-items: center; gap: 4px"><span style="font-size: 11px; color: var(--ink-2)">40</span><div aria-hidden="true" style="width: 100%; height: 100px; display: flex; align-items: flex-end"><span style="width: 100%; height: 50%; border-radius: 4px 4px 0 0; background: var(--jade-bright)"></span></div><span style="font-size: 12px; color: var(--ink-2)">S</span></div><div style="flex: 1; display: flex; flex-direction: column; align-items: center; gap: 4px"><span style="font-size: 11px; color: var(--ink-2)">45</span><div aria-hidden="true" style="width: 100%; height: 100px; display: flex; align-items: flex-end"><span style="width: 100%; height: 56%; border-radius: 4px 4px 0 0; background: var(--jade-bright)"></span></div><span style="font-size: 12px; color: var(--ink-2)">D</span></div>
+        </div>
+        <span style="font-size: 13px; color: var(--ink-2)">Línea discontinua: tu meta de [60] min al día.</span>
+        <table style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)"><caption>Minutos por día esta semana</caption><tr><th scope="row">L</th><td>62 min</td></tr><tr><th scope="row">M</th><td>48 min</td></tr><tr><th scope="row">X</th><td>70 min</td></tr><tr><th scope="row">J</th><td>0 min</td></tr><tr><th scope="row">V</th><td>55 min</td></tr><tr><th scope="row">S</th><td>40 min</td></tr><tr><th scope="row">D</th><td>45 min</td></tr></table>
+      </section>
+      <section aria-labelledby="p-acc" style="padding: 16px; border: 1px solid var(--line); border-radius: 10px; display: flex; flex-direction: column; gap: 12px; background: var(--surface)">
+        <h2 id="p-acc" style="margin: 0; font-size: 16px; font-weight: 700">Tasa de acierto · últimos 30 días</h2>
+        <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 10px">
+          <li style="display: flex; align-items: center; gap: 10px; font-size: 14px"><span style="width: 150px; flex: none">Significado</span><span aria-hidden="true" style="flex: 1; height: 8px; border-radius: 4px; background: var(--surface-sunken)"><span style="display: block; width: 88%; height: 8px; border-radius: 4px; background: var(--jade-bright)"></span></span><span style="width: 44px; text-align: right; font-weight: 600">88 %</span></li>
+          <li style="display: flex; align-items: center; gap: 10px; font-size: 14px"><span style="width: 150px; flex: none">Escritura</span><span aria-hidden="true" style="flex: 1; height: 8px; border-radius: 4px; background: var(--surface-sunken)"><span style="display: block; width: 74%; height: 8px; border-radius: 4px; background: var(--jade-bright)"></span></span><span style="width: 44px; text-align: right; font-weight: 600">74 %</span></li>
+          <li style="display: flex; align-items: center; gap: 10px; font-size: 14px"><span style="width: 150px; flex: none">Pronunciación</span><span aria-hidden="true" style="flex: 1; height: 8px; border-radius: 4px; background: var(--surface-sunken)"><span style="display: block; width: 69%; height: 8px; border-radius: 4px; background: var(--jade-bright)"></span></span><span style="width: 44px; text-align: right; font-weight: 600">69 %</span></li>
+          <li style="display: flex; align-items: center; gap: 10px; font-size: 14px"><span style="width: 150px; flex: none">Gramática</span><span aria-hidden="true" style="flex: 1; height: 8px; border-radius: 4px; background: var(--surface-sunken)"><span style="display: block; width: 81%; height: 8px; border-radius: 4px; background: var(--jade-bright)"></span></span><span style="width: 44px; text-align: right; font-weight: 600">81 %</span></li>
+          <li style="display: flex; align-items: center; gap: 10px; font-size: 14px"><span style="width: 150px; flex: none">Lecturas (comprensión)</span><span aria-hidden="true" style="flex: 1; height: 8px; border-radius: 4px; background: var(--surface-sunken)"><span style="display: block; width: 92%; height: 8px; border-radius: 4px; background: var(--jade-bright)"></span></span><span style="width: 44px; text-align: right; font-weight: 600">92 %</span></li>
+        </ul>
+        <span style="font-size: 12px; color: var(--ink-2)">Cuenta como acierto valorar Difícil, Bien o Fácil.</span>
+      </section>
+      <section aria-labelledby="p-hard" style="padding: 16px; border: 1px solid var(--line); border-radius: 10px; display: flex; flex-direction: column; gap: 12px; background: var(--surface)">
+        <div style="display: flex; align-items: baseline; justify-content: space-between">
+          <h2 id="p-hard" style="margin: 0; font-size: 16px; font-weight: 700">Palabras difíciles</h2>
+          <span style="font-size: 13px; color: var(--ink-2)">[8] en total</span>
+        </div>
+        <ul style="margin: 0; padding: 0; list-style: none">
+          <li style="display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 6px 0; border-bottom: 1px solid var(--line)">
+            <span style="display: flex; align-items: center; gap: 10px"><ruby lang="zh-Hans" style="ruby-position: under; font-family: var(--font-kai); font-size: 22px; line-height: 1.8">谢<rt style="font-family: var(--font-sans); font-size: 10px; color: var(--ink-2)">xiè</rt>谢<rt style="font-family: var(--font-sans); font-size: 10px; color: var(--ink-2)">xie</rt></ruby><span style="font-size: 14px">gracias</span></span>
+            <span style="font-size: 13px; color: var(--ink-2)">[6] fallos · pronunciación</span>
+          </li>
+          <li style="display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 6px 0; border-bottom: 1px solid var(--line)">
+            <span style="display: flex; align-items: center; gap: 10px"><ruby lang="zh-Hans" style="ruby-position: under; font-family: var(--font-kai); font-size: 22px; line-height: 1.8">喝<rt style="font-family: var(--font-sans); font-size: 10px; color: var(--ink-2)">hē</rt></ruby><span style="font-size: 14px">beber</span></span>
+            <span style="font-size: 13px; color: var(--ink-2)">[5] fallos · escritura</span>
+          </li>
+          <li style="display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 6px 0; border-bottom: 1px solid var(--line)">
+            <span style="display: flex; align-items: center; gap: 10px"><ruby lang="zh-Hans" style="ruby-position: under; font-family: var(--font-kai); font-size: 22px; line-height: 1.8">认<rt style="font-family: var(--font-sans); font-size: 10px; color: var(--ink-2)">rèn</rt>识<rt style="font-family: var(--font-sans); font-size: 10px; color: var(--ink-2)">shi</rt></ruby><span style="font-size: 14px">conocer</span></span>
+            <span style="font-size: 13px; color: var(--ink-2)">[4] fallos · significado</span>
+          </li>
+        </ul>
+        <a href="C-DTarjeta.dc.html" style="min-height: 44px; padding: 0 16px; border: 1px solid var(--line-strong); border-radius: 10px; background: var(--surface); font: inherit; font-size: 14px; font-weight: 600; color: var(--ink); display: flex; align-items: center; justify-content: center; gap: 6px; text-decoration: none">Practicar las [8] palabras difíciles</a>
+      </section>
+      <section aria-labelledby="p-wr" style="padding: 16px; border: 1px solid var(--line); border-radius: 10px; display: flex; flex-direction: column; gap: 12px; background: var(--surface)">
+        <h2 id="p-wr" style="margin: 0; font-size: 16px; font-weight: 700">Escritura y lecturas</h2>
+        <div style="display: flex; gap: 12px; flex-wrap: wrap">
+          <div style="flex: 1 1 140px; display: flex; flex-direction: column; gap: 2px"><span style="font-size: 13px; color: var(--ink-2)">Caracteres escritos</span><span style="font-size: 22px; font-weight: 700">[132]</span><span style="font-size: 12px; color: var(--ink-2)">[1,4] fallos por carácter de media</span></div>
+          <div style="flex: 1 1 140px; display: flex; flex-direction: column; gap: 2px"><span style="font-size: 13px; color: var(--ink-2)">Lecturas leídas</span><span style="font-size: 22px; font-weight: 700">[3] de [24]</span><span style="font-size: 12px; color: var(--ink-2)">Comprensión media: [92] %</span></div>
+        </div>
+      </section>
+      </div>
+    </div>
+  </main>
+</div>
+</template>
+<script type="text/x-dc" data-props='{"tema":{"editor":"enum","options":["claro","oscuro"],"default":"claro","section":"Tema"},"$preview":{"width":1280,"height":860}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { open: true, period: 'semana' };
+  }
+  renderVals() {
+    const __tema = this.props.tema ?? 'claro';
+    const open = this.state.open;
+    const s = this.state;
+    const TONE = { 1: 'var(--tone-1)', 2: 'var(--tone-2)', 3: 'var(--tone-3)', 4: 'var(--tone-4)', 5: 'var(--tone-5)' };
+    return { tema: __tema, 
+      expanded: open,
+      collapsed: !open,
+      toggle: () => this.setState({ open: !open }),
+      pc1: TONE[1], pc2: TONE[2], pc3: TONE[3], pc4: TONE[4], pc5: TONE[5],
+      hc1: 'var(--ink)', hc2: 'var(--ink)', hc3: 'var(--ink)', hc4: 'var(--ink)', hc5: 'var(--ink)',
+      pinyinOpacity: 1, rtVis: 'visible',
+      periods: [['semana', 'Semana'], ['mes', 'Mes'], ['todo', 'Todo']].map(([id, label]) => ({
+        label, pressed: String(s.period === id),
+        style: s.period === id ? 'background: var(--jade); color: var(--surface); border-color: var(--jade)' : 'background: var(--surface); color: var(--ink)',
+        pick: () => this.setState({ period: id })
+      })),
+      total: { semana: '[5 h 20 min]', mes: '[19 h 05 min]', todo: '[41 h 30 min]' }[s.period],
+      practice: [
+        { label: 'Tarjetas', href: 'C-DInicio.dc.html', cur: 'false', bg: '', d: 'M4 7h12v13H4zM8 4h12v13' },
+        { label: 'Escritura', href: 'C-DEscritura.dc.html', cur: 'false', bg: '', d: 'M4 20h4L19 9l-4-4L4 16z' },
+        { label: 'Tonos', href: 'C-DTonos.dc.html', cur: 'false', bg: '', d: 'M2 12c3-6 5-6 8 0s5 6 8 0 3-3 4-2' },
+        { label: 'Gramática', href: 'C-DGramatica.dc.html', cur: 'false', bg: '', d: 'M3 3h8v8H3zM13 13h8v8h-8zM13 7h8M7 13v8' },
+        { label: 'Lecturas', href: 'C-DLecturas.dc.html', cur: 'false', bg: '', d: 'M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2zM4 5v14' },
+        { label: 'Mis listas', href: 'C-DInicio.dc.html', cur: 'false', bg: '', d: 'M9 6h11M9 12h11M9 18h11M4 6h1M4 12h1M4 18h1' }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

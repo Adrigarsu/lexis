@@ -1,0 +1,23 @@
+name: Documentación
+description: Corregir, completar o reorganizar docs/.
+title: "Docs: "
+labels: ["tipo:tarea", "area:docs"]
+body:
+  - type: input
+    id: archivo
+    attributes:
+      label: Archivo o carpeta
+      placeholder: "docs/datos/esquema.md"
+    validations:
+      required: true
+  - type: textarea
+    id: cambio
+    attributes:
+      label: Qué hay que cambiar y por qué
+    validations:
+      required: true
+  - type: textarea
+    id: afectados
+    attributes:
+      label: Otros documentos afectados
+      description: Si el cambio toca una decisión, un ADR o la trazabilidad, indícalo.

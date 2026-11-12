@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="es">
+<head>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500&family=Noto+Serif+SC:wght@400;500&display=swap">
+<link rel="stylesheet" href="../../pantallas/assets/lexis.css">
+<meta charset="utf-8">
+<title>Diálogo</title>
+<style>
+body{margin:0;background:var(--paper)}
+.stage{padding:var(--space-6);display:flex;flex-direction:column;gap:var(--space-5)}
+.row{display:flex;flex-wrap:wrap;gap:var(--space-3);align-items:center}
+.cap{font:500 12px/16px var(--font-sans);color:var(--ink-2);margin:0 0 var(--space-2)}
+.col{display:flex;flex-direction:column;gap:var(--space-2);min-width:220px;flex:1}
+</style>
+</head>
+<body>
+<div class="lx stage">
+<div class="lx-scrim" style="display:flex;align-items:center;justify-content:center;min-height:340px;padding:var(--space-6);border-radius:var(--radius-lg)">
+<section class="lx-dialog" role="dialog" aria-modal="true" aria-labelledby="dl-t" aria-describedby="dl-b">
+<div class="lx-dialog__head"><h2 class="lx-dialog__title" id="dl-t">¿Borrar tu cuenta?</h2><button class="lx-btn lx-btn--icon" aria-label="Cerrar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div>
+<p class="lx-dialog__body" id="dl-b">Se borran tu cuenta, tu progreso, tus tarjetas y tus listas. Desaparecerán de las copias de seguridad en 4 semanas como máximo.</p>
+<label class="lx-field"><span class="lx-field__label">Escribe tu contraseña para confirmar</span><input class="lx-input" type="password" autocomplete="current-password"></label>
+<div class="lx-dialog__actions"><button class="lx-btn lx-btn--secondary">Cancelar</button><button class="lx-btn lx-btn--danger" style="background:var(--danger);color:var(--surface);border-color:var(--danger)">Borrar para siempre</button></div>
+</section></div>
+</div>
+</body>
+</html>

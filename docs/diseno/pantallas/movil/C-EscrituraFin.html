@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Escritura terminada (móvil) · Lexis</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Noto+Sans+SC:wght@400;500&amp;family=Noto+Serif+SC:wght@400;500&amp;display=swap">
+<style>
+body{margin:0}
+a{color:#0E7C6B}a:hover{color:#0A5C50}
+</style>
+<link rel="stylesheet" href="../assets/lexis.css">
+<script src="../assets/dc-runtime.js"></script>
+</head>
+<body style="margin:0">
+<div id="dc-root"></div>
+<template id="dc-template">
+<div class="lx {{ penClass }}" data-theme="{{ tema }}" style="position: relative; width: 390px; height: 844px; box-sizing: border-box; overflow: hidden; background: var(--paper); color: var(--ink); display: flex; flex-direction: column">
+  <header style="display: flex; align-items: center; gap: var(--space-3); padding: var(--space-4) var(--space-4) var(--space-2)">
+    <a class="lx-btn lx-btn--icon" href="C-Inicio.dc.html" aria-label="Salir de la sesión"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></a>
+    <div class="lx-progress lx-progress--thin" style="flex: 1">
+      <div class="lx-progress__head"><span>Escritura · [3] de [8]</span></div>
+      <div class="lx-progress__track" role="progressbar" aria-label="Progreso de la sesión" aria-valuenow="38" aria-valuemin="0" aria-valuemax="100"><div class="lx-progress__fill" style="width: 38%"></div></div>
+    </div>
+    <button class="lx-btn lx-btn--icon" aria-label="Ajustes de estudio" aria-haspopup="dialog" onClick="{{ openSheet }}" style="border-color: var(--line-strong)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h10M18 6h2M4 12h4M12 12h8M4 18h12"/><circle cx="16" cy="6" r="2"/><circle cx="10" cy="12" r="2"/><circle cx="18" cy="18" r="2"/></svg></button>
+  </header>
+  <main style="flex: 1; padding: var(--space-2) var(--space-5); display: flex; flex-direction: column; align-items: center; gap: var(--space-4)">
+    <div style="display: flex; flex-direction: column; align-items: center; gap: var(--space-1); text-align: center">
+      <span class="lx-study__kind">Escribe el carácter</span>
+      <span style="font: 600 22px/28px var(--font-sans)">bueno, bien</span>
+      <span lang="zh-Latn-pinyin" style="font: 600 18px/24px var(--font-sans); color: var(--tone-3)">hǎo</span>
+    </div>
+    <div class="lx-tianzige" role="img" aria-label="好 escrito completo" style="width: 260px; border: var(--border-selected) solid var(--jade)">
+      <svg viewBox="0 0 300 300" aria-hidden="true"><path class="guide" d="M150 0V300M0 150H300M0 0 300 300M300 0 0 300"/></svg>
+      <svg viewBox="0 0 1024 1024" aria-hidden="true">
+        <g transform="translate(0 900) scale(1 -1)">
+          <polyline class="stroke" points="282,788 307,769 327,733 264,465 216,321 235,298 386,194 411,166 424,133" style="stroke-width: 44"/>
+          <polyline class="stroke" points="390,556 417,530 424,516 422,504 387,361 338,255 304,207 260,165 206,127 137,97" style="stroke-width: 44"/>
+          <polyline class="stroke" points="59,457 107,434 373,491 380,501" style="stroke-width: 44"/>
+          <polyline class="stroke" points="493,656 517,646 550,644 680,692 706,699 743,696 771,669 765,657 677,546 674,535 663,536" style="stroke-width: 44"/>
+          <polyline class="stroke" points="613,530 637,519 659,499 674,474 687,432 711,289 709,166 692,92 672,59 648,41 551,85" style="stroke-width: 44"/>
+          <polyline class="stroke" points="449,384 504,377 860,427 906,426 960,412" style="stroke-width: 44"/>
+        </g>
+      </svg>
+    </div>
+    <div class="lx-banner lx-banner--success" role="status" style="width: 100%">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+      <span class="lx-banner__text"><span class="lx-banner__title">¡Completado!</span><span>[0] fallos · [0] pistas</span></span>
+    </div>
+    <sc-if value="{{ manualRate }}" hint-placeholder-val="{{ true }}">
+      <div style="width: 100%; display: flex; flex-direction: column; gap: var(--space-2)">
+        <span id="rate-q" style="text-align: center; font: 600 16px/22px var(--font-sans)">¿Cómo de bien lo sabías?</span>
+        <div class="lx-rate" role="group" aria-labelledby="rate-q">
+          <a href="C-Escritura.dc.html" data-r="1"><span>Otra vez</span><small>&lt; 10 min</small></a>
+          <a href="C-Escritura.dc.html" data-r="2"><span>Difícil</span><small>[1] día</small></a>
+          <a href="C-Escritura.dc.html" data-r="3"><span>Bien</span><small>[3] días</small></a>
+          <a href="C-Escritura.dc.html" data-r="4"><span>Fácil</span><small>[7] días</small></a>
+        </div>
+      </div>
+    </sc-if>
+    <sc-if value="{{ autoRate }}" hint-placeholder-val="{{ false }}">
+      <div class="lx-card" style="width: 100%; flex-direction: row; align-items: center; gap: var(--space-3)">
+        <div style="flex: 1; display: flex; flex-direction: column; gap: 2px"><span style="font: 600 16px/22px var(--font-sans)">Bien</span><span class="lx-card__meta" style="font-size: 13px">Valoración automática · vuelve en [3] días</span></div>
+        <button class="lx-btn lx-btn--secondary" style="min-height: 44px; padding: 0 var(--space-4); font-size: 15px">Cambiar</button>
+      </div>
+    </sc-if>
+  </main>
+  <sc-if value="{{ autoRate }}" hint-placeholder-val="{{ false }}">
+    <footer style="padding: var(--space-2) var(--space-5) var(--space-8)"><a class="lx-btn lx-btn--primary lx-btn--block" href="C-Escritura.dc.html">Siguiente</a></footer>
+  </sc-if>
+  <sc-if value="{{ manualRate }}" hint-placeholder-val="{{ true }}"><div style="height: var(--space-8)"></div></sc-if>
+  <sc-if value="{{ sheetOpen }}" hint-placeholder-val="{{ false }}">
+    <button class="lx-scrim" aria-label="Cerrar ajustes de estudio" onClick="{{ closeSheet }}" style="position: absolute; inset: 0; border: 0"></button>
+    <section class="lx-sheet" role="dialog" aria-modal="true" aria-labelledby="w-title" style="position: absolute; left: 0; right: 0; bottom: 0; display: flex; flex-direction: column; gap: var(--space-5); padding-bottom: var(--space-8)">
+      <span class="lx-sheet__grip" aria-hidden="true"></span>
+      <div class="lx-sheet__head">
+        <h2 class="lx-sheet__title" id="w-title">Ajustes de escritura</h2>
+        <button class="lx-btn lx-btn--text" onClick="{{ closeSheet }}" style="min-height: 44px">Listo</button>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: var(--space-2)">
+        <span id="w-guide" class="lx-field__label">Guía de escritura</span>
+        <div class="lx-segmented" role="group" aria-labelledby="w-guide" style="display: grid">
+          <sc-for list="{{ guides }}" as="o" hint-placeholder-count="3"><button aria-pressed="{{ o.pressed }}" onClick="{{ o.pick }}" style="padding: 0 var(--space-2)">{{ o.label }}</button></sc-for>
+        </div>
+      </div>
+      <label class="lx-switch">
+        <span class="lx-switch__text"><span class="lx-switch__title">Escribir en azul bolígrafo</span><span class="lx-switch__desc">El azul ayuda a recordar lo que escribes. Apagado, los trazos van en tinta.</span></span>
+        <input type="checkbox" role="switch" checked="{{ penOn }}" onChange="{{ togglePen }}">
+      </label>
+      <label class="lx-switch">
+        <span class="lx-switch__text"><span class="lx-switch__title">Valoración automática</span><span class="lx-switch__desc">Apagada: al terminar cada carácter eliges tú cómo de bien lo sabías.</span></span>
+        <input type="checkbox" role="switch" checked="{{ autoRate }}" onChange="{{ toggleRate }}">
+      </label>
+    </section>
+  </sc-if>
+</div>
+</template>
+<script type="text/x-dc" data-props='{"tema":{"editor":"enum","options":["claro","oscuro"],"default":"claro","section":"Tema"},"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { sheet: false, guide: 'contorno', pen: true, autoRate: false };
+  }
+  renderVals() {
+    const s = this.state;
+    return {
+      tema: this.props.tema ?? 'claro',
+      penClass: s.pen ? '' : 'lx-pen-off',
+      sheetOpen: s.sheet,
+      openSheet: () => this.setState({ sheet: true }),
+      closeSheet: () => this.setState({ sheet: false }),
+      guides: [['sin', 'Sin guía'], ['contorno', 'Contorno'], ['trazo', 'Siguiente trazo']].map(([id, label]) => ({
+        label, pressed: String(s.guide === id), pick: () => this.setState({ guide: id })
+      })),
+      outlineDisplay: s.guide === 'contorno' ? 'inline' : 'none',
+      nextDisplay: s.guide === 'trazo' || s.hint === true ? 'inline' : 'none',
+      hintNow: () => this.setState({ hint: true }),
+      penOn: s.pen,
+      togglePen: () => this.setState({ pen: !s.pen }),
+      autoRate: s.autoRate,
+      manualRate: !s.autoRate,
+      toggleRate: () => this.setState({ autoRate: !s.autoRate })
+    };
+  }
+}
+</script>
+</body>
+</html>

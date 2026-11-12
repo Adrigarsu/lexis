@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sin conexión (móvil) · Lexis</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Noto+Sans+SC:wght@400;500&amp;family=Noto+Serif+SC:wght@400;500&amp;display=swap">
+<style>
+body{margin:0}
+a{color:var(--jade)}a:hover{color:var(--ink)}
+[role="status"] a{color:var(--ink)}
+</style>
+<link rel="stylesheet" href="../assets/lexis.css">
+<script src="../assets/dc-runtime.js"></script>
+</head>
+<body style="margin:0">
+<div id="dc-root"></div>
+<template id="dc-template">
+<div class="lx" data-theme="{{ tema }}" style="position: relative; width: 390px; height: 844px; overflow: hidden; box-sizing: border-box; background: var(--paper); font-family: var(--font-sans); color: var(--ink); display: flex; flex-direction: column">
+  <div role="status" style="display: flex; align-items: center; gap: 10px; padding: 12px 20px; background: var(--warning-tint); color: var(--ink); font-size: 13px">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" style="flex: none"><path d="M2 8.8a15 15 0 0 1 4.2-2.6M10.7 5.1A15 15 0 0 1 22 8.8M5 12.5a10 10 0 0 1 3.1-1.9M13.7 10.2A10 10 0 0 1 19 12.5M8.5 16a5 5 0 0 1 7 0M12 20h.01M3 3l18 18"/></svg>
+    <span style="flex: 1">Sin conexión. Puedes seguir estudiando: lo guardamos en este dispositivo y lo subimos a la nube al volver la conexión.</span>
+  </div>
+  <header style="display: flex; align-items: center; justify-content: space-between; padding: 20px 20px 8px">
+    <div style="display: flex; flex-direction: column; gap: 2px">
+      <span style="font-size: 13px; color: var(--ink-2)">Lunes, 9 de noviembre</span>
+      <h1 style="margin: 0; font-size: 24px; font-weight: 700">Hoy</h1>
+    </div>
+    <span style="font-size: 12px; color: var(--ink-2); display: flex; align-items: center; gap: 4px"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/></svg>Guardado en este dispositivo</span>
+  </header>
+  <main style="flex: 1; overflow: hidden; padding: 12px 20px; display: flex; flex-direction: column; gap: 16px">
+    <a href="C-Ficha.dc.html" style="text-decoration: none; display: flex; flex-direction: column; gap: 6px; padding: 20px; border-radius: 10px; background: var(--jade); color: var(--on-jade)"><span style="font-size: 20px; font-weight: 600">Estudiar hoy</span><span style="font-size: 14px; color: var(--on-jade)">[18] repasos · [5] nuevas · unos [15] min</span></a>
+    <section style="display: flex; gap: 12px">
+      <div style="flex: 1; padding: 16px; border: 1px solid var(--line); border-radius: 10px; display: flex; flex-direction: column; gap: 4px; background: var(--surface)"><span style="font-size: 12px; color: var(--ink-2)">Racha</span><span style="font-size: 22px; font-weight: 700">[13] días</span><span style="font-size: 12px; color: var(--ink-2)">[1] de 2 descansos usados</span></div>
+      <div style="flex: 1; padding: 16px; border: 1px solid var(--line); border-radius: 10px; display: flex; flex-direction: column; gap: 4px; background: var(--surface)"><span style="font-size: 12px; color: var(--ink-2)">Esta semana</span><span style="font-size: 22px; font-weight: 700">[90] min</span><span style="font-size: 12px; color: var(--ink-2)">Meta: [105] min</span></div>
+    </section>
+    <section style="display: flex; flex-direction: column; gap: 8px; padding: 16px; border: 1px dashed var(--line-strong); border-radius: 10px; background: var(--surface)">
+      <h2 style="margin: 0; font-size: 14px; font-weight: 600">No disponible sin conexión</h2>
+      <ul style="margin: 0; padding-left: 18px; display: flex; flex-direction: column; gap: 4px; font-size: 13px; color: var(--ink-2)">
+        <li>Responder hablando (reconocimiento de voz)</li>
+        <li>Audio que aún no se ha descargado: se usa la voz del dispositivo</li>
+        <li>Cambiar email o contraseña, descargar o borrar la cuenta</li>
+        <li>Reportar un error: se enviará al volver la conexión</li>
+      </ul>
+    </section>
+  </main>
+  <nav aria-label="Navegación principal" style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-top: 1px solid var(--line); padding: 8px 8px 24px">
+    <a href="C-Inicio.dc.html" aria-current="page" style="min-height: 44px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; text-decoration: none; font-size: 11px; font-weight: 600; color: var(--ink)"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 11 12 4l9 7v9h-6v-6H9v6H3z"/></svg>Hoy</a>
+    <a href="C-Practicar.dc.html" style="min-height: 44px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; text-decoration: none; font-size: 11px; color: var(--ink-2)"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M8 9h8M8 13h5"/></svg>Practicar</a>
+    <a href="C-Progreso.dc.html" style="min-height: 44px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; text-decoration: none; font-size: 11px; color: var(--ink-2)"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg>Progreso</a>
+    <a href="C-Perfil.dc.html" style="min-height: 44px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; text-decoration: none; font-size: 11px; color: var(--ink-2)"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>Perfil</a>
+  </nav>
+</div>
+</template>
+<script type="text/x-dc" data-props='{"tema":{"editor":"enum","options":["claro","oscuro"],"default":"claro","section":"Tema"},"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const __tema = this.props.tema ?? 'claro';
+    return { tema: __tema, };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="es">
+<head>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500&family=Noto+Serif+SC:wght@400;500&display=swap">
+<link rel="stylesheet" href="../../pantallas/assets/lexis.css">
+<meta charset="utf-8">
+<title>Botones de valorar</title>
+<style>
+body{margin:0;background:var(--paper)}
+.stage{padding:var(--space-6);display:flex;flex-direction:column;gap:var(--space-5)}
+.row{display:flex;flex-wrap:wrap;gap:var(--space-3);align-items:center}
+.cap{font:500 12px/16px var(--font-sans);color:var(--ink-2);margin:0 0 var(--space-2)}
+.col{display:flex;flex-direction:column;gap:var(--space-2);min-width:220px;flex:1}
+</style>
+</head>
+<body>
+<div class="lx stage">
+<div class="lx-rate lx-rate--keys" role="group" aria-label="¿Cómo de bien lo sabías?" style="max-width:520px">
+<button data-r="1"><span>Otra vez</span><small>&lt;1 min</small><kbd>1</kbd></button>
+<button data-r="2"><span>Difícil</span><small>6 min</small><kbd>2</kbd></button>
+<button data-r="3" aria-pressed="true"><span>Bien</span><small>1 día</small><kbd>3</kbd></button>
+<button data-r="4"><span>Fácil</span><small>4 días</small><kbd>4</kbd></button>
+</div>
+<p style="margin:0;font:400 13px/18px var(--font-sans);color:var(--ink-2)">Debajo de cada valoración, cuándo volverá la tarjeta. En escritorio, teclas 1 a 4.</p>
+</div>
+</body>
+</html>

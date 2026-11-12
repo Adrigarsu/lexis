@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Escritura de caracteres (móvil) · Lexis</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Noto+Sans+SC:wght@400;500&amp;family=Noto+Serif+SC:wght@400;500&amp;display=swap">
+<style>
+body{margin:0}
+a{color:#0E7C6B}a:hover{color:#0A5C50}
+</style>
+<link rel="stylesheet" href="../assets/lexis.css">
+<script src="../assets/dc-runtime.js"></script>
+</head>
+<body style="margin:0">
+<div id="dc-root"></div>
+<template id="dc-template">
+<div class="lx {{ penClass }}" data-theme="{{ tema }}" style="position: relative; width: 390px; height: 844px; box-sizing: border-box; overflow: hidden; background: var(--paper); color: var(--ink); display: flex; flex-direction: column">
+  <header style="display: flex; align-items: center; gap: var(--space-3); padding: var(--space-4) var(--space-4) var(--space-2)">
+    <a class="lx-btn lx-btn--icon" href="C-Inicio.dc.html" aria-label="Salir de la sesión"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></a>
+    <div class="lx-progress lx-progress--thin" style="flex: 1">
+      <div class="lx-progress__head"><span>Escritura · [3] de [8]</span></div>
+      <div class="lx-progress__track" role="progressbar" aria-label="Progreso de la sesión" aria-valuenow="38" aria-valuemin="0" aria-valuemax="100"><div class="lx-progress__fill" style="width: 38%"></div></div>
+    </div>
+    <button class="lx-btn lx-btn--icon" aria-label="Ajustes de estudio" aria-haspopup="dialog" onClick="{{ openSheet }}" style="border-color: var(--line-strong)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h10M18 6h2M4 12h4M12 12h8M4 18h12"/><circle cx="16" cy="6" r="2"/><circle cx="10" cy="12" r="2"/><circle cx="18" cy="18" r="2"/></svg></button>
+  </header>
+  <main style="flex: 1; padding: var(--space-2) var(--space-5); display: flex; flex-direction: column; align-items: center; gap: var(--space-4)">
+    <div style="display: flex; flex-direction: column; align-items: center; gap: var(--space-1); text-align: center">
+      <span class="lx-study__kind">Escribe el carácter</span>
+      <span style="font: 600 22px/28px var(--font-sans)">bueno, bien</span>
+      <span lang="zh-Latn-pinyin" style="font: 600 18px/24px var(--font-sans); color: var(--tone-3)">hǎo</span>
+    </div>
+    <div class="lx-tianzige" role="img" aria-label="Cuadrícula de escritura: escribe 好 trazo a trazo. Llevas 3 de 6 trazos." style="width: 300px">
+      <svg viewBox="0 0 300 300" aria-hidden="true"><path class="guide" d="M150 0V300M0 150H300M0 0 300 300M300 0 0 300"/></svg>
+      <svg viewBox="0 0 1024 1024" aria-hidden="true">
+        <g transform="translate(0 900) scale(1 -1)">
+          <g style="fill: var(--stroke-outline); display: {{ outlineDisplay }}">
+          <path d="M 330 202 Q 361 175 399 134 Q 415 119 424 118 Q 433 118 439 128 Q 446 138 442 170 Q 435 206 361 247 L 319 270 Q 292 286 258 304 Q 237 314 240 335 Q 261 393 281 453 L 293 492 Q 317 568 337 644 Q 347 690 366 715 Q 379 737 373 750 Q 360 769 313 797 Q 294 810 276 801 Q 263 794 273 778 Q 303 733 247 486 L 236 442 Q 218 373 195 336 Q 185 314 206 296 Q 254 268 294 233 L 330 202 Z"/>
+          <path d="M 294 233 Q 287 226 281 217 Q 250 180 196 143 Q 183 134 165 124 Q 149 114 133 104 Q 120 95 131 92 Q 212 86 327 199 Q 328 200 330 202 L 361 247 Q 406 322 421 385 Q 449 488 463 510 Q 473 526 458 537 Q 416 576 387 569 Q 374 565 378 550 Q 387 531 387 507 L 385 481 Q 384 469 382 455 Q 375 376 319 270 L 294 233 Z"/>
+          <path d="M 387 507 Q 341 501 293 492 L 247 486 Q 183 479 115 468 Q 94 465 61 471 Q 48 471 45 462 Q 41 450 49 441 Q 68 422 96 400 Q 106 396 118 402 Q 190 436 236 442 L 281 453 Q 320 463 362 474 Q 372 478 385 481 C 414 489 417 511 387 507 Z"/>
+          <path d="M 671 521 Q 788 635 822 648 Q 843 655 835 672 Q 831 688 760 725 Q 739 735 716 725 Q 661 703 575 676 Q 553 669 498 669 Q 473 669 482 648 Q 491 635 511 623 Q 544 605 578 627 Q 597 636 691 676 Q 706 682 719 673 Q 732 664 726 649 Q 693 595 655 531 C 640 505 649 500 671 521 Z"/>
+          <path d="M 717 430 Q 702 497 671 521 L 655 531 Q 648 535 640 538 Q 618 547 608 540 Q 595 533 608 519 Q 645 491 653 444 Q 656 434 659 421 L 668 384 Q 701 204 658 103 Q 643 76 607 83 Q 576 89 548 94 Q 536 97 542 85 Q 546 78 564 65 Q 604 31 618 5 Q 628 -14 645 -11 Q 660 -10 687 17 Q 775 107 726 391 L 717 430 Z"/>
+          <path d="M 726 391 Q 783 397 947 397 Q 966 398 971 406 Q 977 416 960 430 Q 909 467 848 454 Q 793 445 717 430 L 659 421 Q 562 409 452 393 Q 431 392 447 375 Q 460 362 478 357 Q 497 351 514 356 Q 586 375 668 384 L 726 391 Z"/>
+          </g>
+          <polyline class="stroke" points="282,788 307,769 327,733 264,465 216,321 235,298 386,194 411,166 424,133" style="stroke-width: 44"/>
+          <polyline class="stroke" points="390,556 417,530 424,516 422,504 387,361 338,255 304,207 260,165 206,127 137,97" style="stroke-width: 44"/>
+          <polyline class="stroke" points="59,457 107,434 373,491 380,501" style="stroke-width: 44"/>
+          <g style="display: {{ nextDisplay }}"><polyline class="hint" points="493,656 517,646 550,644 680,692 706,699 743,696 771,669 765,657 677,546 674,535 663,536" style="stroke-width: 40; stroke-dasharray: 2 70"/></g>
+        </g>
+      </svg>
+      <span style="position: absolute; left: var(--space-2); bottom: var(--space-2); font: 500 12px/16px var(--font-sans); color: var(--ink-2)">Trazo 4 de 6</span>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-2); width: 100%">
+      <button class="lx-btn lx-btn--secondary" style="padding: 0 var(--space-2); font-size: 15px" onClick="{{ hintNow }}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9V16h7v-2.1A6 6 0 0 0 12 3z"/></svg>Pista</button>
+      <button class="lx-btn lx-btn--secondary" style="padding: 0 var(--space-2); font-size: 15px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H2v6h4l5 4zM15.5 8.5a5 5 0 0 1 0 7"/></svg>Escuchar</button>
+      <button class="lx-btn lx-btn--secondary" style="padding: 0 var(--space-2); font-size: 15px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 20H9L4 15l9-9 7 7-6 6"/><path d="m8 11 5 5"/></svg>Borrar</button>
+    </div>
+  </main>
+  <footer style="padding: var(--space-2) var(--space-5) var(--space-8); display: flex; justify-content: center">
+    <a class="lx-btn lx-btn--text" href="C-EscrituraFin.dc.html" style="font-size: 15px; font-weight: 500">No puedo trazar: elegir entre opciones</a>
+  </footer>
+
+  <sc-if value="{{ sheetOpen }}" hint-placeholder-val="{{ false }}">
+    <button class="lx-scrim" aria-label="Cerrar ajustes de estudio" onClick="{{ closeSheet }}" style="position: absolute; inset: 0; border: 0"></button>
+    <section class="lx-sheet" role="dialog" aria-modal="true" aria-labelledby="w-title" style="position: absolute; left: 0; right: 0; bottom: 0; display: flex; flex-direction: column; gap: var(--space-5); padding-bottom: var(--space-8)">
+      <span class="lx-sheet__grip" aria-hidden="true"></span>
+      <div class="lx-sheet__head">
+        <h2 class="lx-sheet__title" id="w-title">Ajustes de escritura</h2>
+        <button class="lx-btn lx-btn--text" onClick="{{ closeSheet }}" style="min-height: 44px">Listo</button>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: var(--space-2)">
+        <span id="w-guide" class="lx-field__label">Guía de escritura</span>
+        <div class="lx-segmented" role="group" aria-labelledby="w-guide" style="display: grid">
+          <sc-for list="{{ guides }}" as="o" hint-placeholder-count="3"><button aria-pressed="{{ o.pressed }}" onClick="{{ o.pick }}" style="padding: 0 var(--space-2)">{{ o.label }}</button></sc-for>
+        </div>
+      </div>
+      <label class="lx-switch">
+        <span class="lx-switch__text"><span class="lx-switch__title">Escribir en azul bolígrafo</span><span class="lx-switch__desc">El azul ayuda a recordar lo que escribes. Apagado, los trazos van en tinta.</span></span>
+        <input type="checkbox" role="switch" checked="{{ penOn }}" onChange="{{ togglePen }}">
+      </label>
+      <label class="lx-switch">
+        <span class="lx-switch__text"><span class="lx-switch__title">Valoración automática</span><span class="lx-switch__desc">Apagada: al terminar cada carácter eliges tú cómo de bien lo sabías.</span></span>
+        <input type="checkbox" role="switch" checked="{{ autoRate }}" onChange="{{ toggleRate }}">
+      </label>
+    </section>
+  </sc-if>
+</div>
+</template>
+<script type="text/x-dc" data-props='{"tema":{"editor":"enum","options":["claro","oscuro"],"default":"claro","section":"Tema"},"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { sheet: false, guide: 'contorno', pen: true, autoRate: false };
+  }
+  renderVals() {
+    const s = this.state;
+    return {
+      tema: this.props.tema ?? 'claro',
+      penClass: s.pen ? '' : 'lx-pen-off',
+      sheetOpen: s.sheet,
+      openSheet: () => this.setState({ sheet: true }),
+      closeSheet: () => this.setState({ sheet: false }),
+      guides: [['sin', 'Sin guía'], ['contorno', 'Contorno'], ['trazo', 'Siguiente trazo']].map(([id, label]) => ({
+        label, pressed: String(s.guide === id), pick: () => this.setState({ guide: id })
+      })),
+      outlineDisplay: s.guide === 'contorno' ? 'inline' : 'none',
+      nextDisplay: s.guide === 'trazo' || s.hint === true ? 'inline' : 'none',
+      hintNow: () => this.setState({ hint: true }),
+      penOn: s.pen,
+      togglePen: () => this.setState({ pen: !s.pen }),
+      autoRate: s.autoRate,
+      toggleRate: () => this.setState({ autoRate: !s.autoRate })
+    };
+  }
+}
+</script>
+</body>
+</html>

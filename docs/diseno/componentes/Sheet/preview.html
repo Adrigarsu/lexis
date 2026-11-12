@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="es">
+<head>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500&family=Noto+Serif+SC:wght@400;500&display=swap">
+<link rel="stylesheet" href="../../pantallas/assets/lexis.css">
+<meta charset="utf-8">
+<title>Hoja inferior</title>
+<style>
+body{margin:0;background:var(--paper)}
+.stage{padding:var(--space-6);display:flex;flex-direction:column;gap:var(--space-5)}
+.row{display:flex;flex-wrap:wrap;gap:var(--space-3);align-items:center}
+.cap{font:500 12px/16px var(--font-sans);color:var(--ink-2);margin:0 0 var(--space-2)}
+.col{display:flex;flex-direction:column;gap:var(--space-2);min-width:220px;flex:1}
+</style>
+</head>
+<body>
+<div class="lx stage">
+<div class="lx-scrim" style="display:flex;align-items:flex-end;justify-content:center;min-height:380px;border-radius:var(--radius-lg);overflow:hidden">
+<section class="lx-sheet" role="dialog" aria-modal="true" aria-labelledby="sh-t" style="width:100%;max-width:390px">
+<span class="lx-sheet__grip" aria-hidden="true"></span>
+<div class="lx-sheet__head"><h2 class="lx-sheet__title" id="sh-t">Ajustes de estudio</h2><button class="lx-btn lx-btn--text" style="text-decoration:none">Listo</button></div>
+<label class="lx-switch"><span class="lx-switch__text"><span class="lx-switch__title">Colores según el tono</span></span><input type="checkbox" role="switch" checked></label>
+<label class="lx-switch"><span class="lx-switch__text"><span class="lx-switch__title">Audio automático</span></span><input type="checkbox" role="switch"></label>
+<span style="font:400 13px/18px var(--font-sans);color:var(--ink-2)">Se guarda para todas tus sesiones.</span>
+</section></div>
+</div>
+</body>
+</html>

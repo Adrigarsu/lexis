@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cuenta y privacidad (móvil) · Lexis</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap">
+<style>
+body{margin:0}
+a{color:var(--jade)}a:hover{color:var(--ink)}
+[role="status"] a{color:var(--ink)}
+</style>
+<link rel="stylesheet" href="../assets/lexis.css">
+<script src="../assets/dc-runtime.js"></script>
+</head>
+<body style="margin:0">
+<div id="dc-root"></div>
+<template id="dc-template">
+<div class="lx" data-theme="{{ tema }}" style="position: relative; width: 390px; height: 844px; box-sizing: border-box; background: var(--paper); font-family: var(--font-sans); color: var(--ink); display: flex; flex-direction: column">
+  <header style="display: flex; align-items: center; gap: 8px; padding: 16px 12px 8px">
+    <a href="C-Perfil.dc.html" aria-label="Volver a Perfil" style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; border-radius: 8px; color: var(--ink)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m15 6-6 6 6 6"/></svg></a>
+    <h1 style="margin: 0; font-size: 20px; font-weight: 700">Cuenta y privacidad</h1>
+  </header>
+
+  <main style="flex: 1; overflow-y: auto; padding: 8px 20px 20px; display: flex; flex-direction: column; gap: 20px">
+    <section style="display: flex; flex-direction: column; gap: 6px">
+      <h2 style="margin: 0 0 2px 4px; font-size: 12px; font-weight: 600; letter-spacing: 0.06em; color: var(--ink-2)">CUENTA</h2>
+      <div style="border: 1px solid var(--line); border-radius: 10px; display: flex; flex-direction: column; background: var(--surface)">
+        <div style="min-height: 60px; display: flex; align-items: center; gap: 12px; padding: 8px 16px; border-bottom: 1px solid var(--line)">
+          <span style="flex: 1; display: flex; flex-direction: column; gap: 2px"><span style="font-size: 12px; color: var(--ink-2)">Nombre de usuario</span><span style="font-size: 15px">adri</span></span>
+          <a href="C-Cuenta.dc.html" style="min-height: 44px; display: flex; align-items: center; padding: 0 12px; font-size: 14px; font-weight: 600">Cambiar</a>
+        </div>
+        <div style="min-height: 60px; display: flex; align-items: center; gap: 12px; padding: 8px 16px; border-bottom: 1px solid var(--line)">
+          <span style="flex: 1; display: flex; flex-direction: column; gap: 2px"><span style="font-size: 12px; color: var(--ink-2)">Email</span><span style="font-size: 15px">[tu@email.com]</span></span>
+          <a href="C-Verificar.dc.html" style="min-height: 44px; display: flex; align-items: center; padding: 0 12px; font-size: 14px; font-weight: 600">Cambiar</a>
+        </div>
+        <div style="min-height: 60px; display: flex; align-items: center; gap: 12px; padding: 8px 16px">
+          <span style="flex: 1; display: flex; flex-direction: column; gap: 2px"><span style="font-size: 12px; color: var(--ink-2)">Contraseña</span><span style="font-size: 15px">Cambiada hace [2] meses</span></span>
+          <a href="C-Cuenta.dc.html" style="min-height: 44px; display: flex; align-items: center; padding: 0 12px; font-size: 14px; font-weight: 600">Cambiar</a>
+        </div>
+      </div>
+      <span style="padding: 0 4px; font-size: 12px; color: var(--ink-2)">El email nuevo no se aplica hasta verificarlo con un código. Para cambiar la contraseña te pediremos la actual.</span>
+    </section>
+
+    <section style="display: flex; flex-direction: column; gap: 6px">
+      <h2 style="margin: 0 0 2px 4px; font-size: 12px; font-weight: 600; letter-spacing: 0.06em; color: var(--ink-2)">TUS DATOS</h2>
+      <div style="padding: 16px; border: 1px solid var(--line); border-radius: 10px; display: flex; flex-direction: column; gap: 10px; background: var(--surface)">
+        <span style="font-size: 15px; font-weight: 500">Descargar mis datos</span>
+        <span style="font-size: 13px; color: var(--ink-2)">Un archivo JSON con tu cuenta, ajustes, tarjetas y listas propias y todo tu historial de estudio.</span>
+        <button style="align-self: flex-start; min-height: 44px; padding: 0 16px; border: 1px solid var(--line-strong); border-radius: 10px; background: var(--surface); font: inherit; font-size: 14px; font-weight: 600; color: var(--ink)">Descargar (JSON)</button>
+      </div>
+      <a href="C-Cuenta.dc.html" style="padding: 8px 4px; font-size: 14px">Política de privacidad</a>
+    </section>
+
+    <section style="display: flex; flex-direction: column; gap: 6px">
+      <h2 style="margin: 0 0 2px 4px; font-size: 12px; font-weight: 600; letter-spacing: 0.06em; color: var(--ink-2)">ZONA PELIGROSA</h2>
+      <div style="padding: 16px; border: 1px solid var(--line-strong); border-radius: 10px; display: flex; flex-direction: column; gap: 10px; background: var(--surface)">
+        <span style="font-size: 15px; font-weight: 500">Borrar la cuenta</span>
+        <span style="font-size: 13px; color: var(--ink-2)">Se borran tu cuenta y todos tus datos. No se puede deshacer.</span>
+        <button onClick="{{ openDialog }}" style="align-self: flex-start; min-height: 44px; padding: 0 16px; border: 2px solid var(--ink); border-radius: 10px; background: var(--surface); font: inherit; font-size: 14px; font-weight: 600; color: var(--ink)">Borrar cuenta…</button>
+      </div>
+    </section>
+  </main>
+
+  <nav aria-label="Navegación principal" style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-top: 1px solid var(--line); padding: 8px 8px 24px">
+    <a href="C-Inicio.dc.html" style="min-height: 44px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; text-decoration: none; font-size: 11px; color: var(--ink-2)"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 11 12 4l9 7v9h-6v-6H9v6H3z"/></svg>Hoy</a>
+    <a href="C-Inicio.dc.html" style="min-height: 44px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; text-decoration: none; font-size: 11px; color: var(--ink-2)"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M8 9h8M8 13h5"/></svg>Practicar</a>
+    <a href="C-Progreso.dc.html" style="min-height: 44px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; text-decoration: none; font-size: 11px; color: var(--ink-2)"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg>Progreso</a>
+    <a href="C-Perfil.dc.html" aria-current="page" style="min-height: 44px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; text-decoration: none; font-size: 11px; font-weight: 600; color: var(--ink)"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>Perfil</a>
+  </nav>
+
+  <sc-if value="{{ dialogOpen }}" hint-placeholder-val="{{ false }}">
+    <div style="position: absolute; inset: 0; background: var(--scrim); display: flex; align-items: flex-end">
+      <div role="dialog" aria-modal="true" aria-labelledby="borrar-titulo" style="width: 100%; box-sizing: border-box; padding: 24px 20px 32px; border-radius: 16px 16px 0 0; background: var(--surface); display: flex; flex-direction: column; gap: 14px">
+        <h2 id="borrar-titulo" style="margin: 0; font-size: 18px; font-weight: 700">¿Borrar tu cuenta?</h2>
+        <ul style="margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 6px; font-size: 14px; color: var(--ink-2)">
+          <li>Se borran tu cuenta, tu progreso, tus tarjetas y tus listas.</li>
+          <li>Desaparecerán de las copias de seguridad en 4 semanas como máximo.</li>
+          <li>Si quieres guardarlos, descárgalos antes.</li>
+        </ul>
+        <label style="display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 500">Escribe tu contraseña para confirmar<input type="password" autocomplete="current-password" style="min-height: 44px; box-sizing: border-box; padding: 0 12px; border: 1px solid var(--line-strong); border-radius: 8px; font: inherit; background: var(--surface)"></label>
+        <span style="font-size: 12px; color: var(--ink-2)">Necesitas conexión a internet.</span>
+        <div style="display: flex; gap: 10px">
+          <button onClick="{{ closeDialog }}" style="flex: 1; min-height: 48px; border: 1px solid var(--line-strong); border-radius: 10px; background: var(--surface); font: inherit; font-size: 15px; font-weight: 600; color: var(--ink)">Cancelar</button>
+          <button style="flex: 1; min-height: 48px; border: 0; border-radius: 10px; background: var(--jade); font: inherit; font-size: 15px; font-weight: 600; color: var(--on-jade)">Borrar para siempre</button>
+        </div>
+      </div>
+    </div>
+  </sc-if>
+</div>
+</template>
+<script type="text/x-dc" data-props='{"tema":{"editor":"enum","options":["claro","oscuro"],"default":"claro","section":"Tema"},"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { dialog: false };
+  }
+  renderVals() {
+    const __tema = this.props.tema ?? 'claro';
+    return { tema: __tema, 
+      dialogOpen: this.state.dialog,
+      openDialog: () => this.setState({ dialog: true }),
+      closeDialog: () => this.setState({ dialog: false })
+    };
+  }
+}
+</script>
+</body>
+</html>

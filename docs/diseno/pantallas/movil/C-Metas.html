@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bienvenida y metas (móvil) · Lexis</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Noto+Sans+SC:wght@400;500&amp;family=Noto+Serif+SC:wght@400;500;900&amp;display=swap">
+<style>
+body{margin:0}
+a{color:var(--jade)}a:hover{color:var(--ink)}
+[role="status"] a{color:var(--ink)}
+input:focus-visible,button:focus-visible,a:focus-visible{outline:2px solid #18181b;outline-offset:2px}
+</style>
+<link rel="stylesheet" href="../assets/lexis.css">
+<script src="../assets/dc-runtime.js"></script>
+</head>
+<body style="margin:0">
+<div id="dc-root"></div>
+<template id="dc-template">
+<div class="lx" data-theme="{{ tema }}" style="position: relative; width: 390px; height: 844px; box-sizing: border-box; background: var(--paper); font-family: var(--font-sans); color: var(--ink); display: flex; flex-direction: column; padding: 24px 24px 32px; gap: 20px">
+  <header style="display: flex; align-items: center; justify-content: center; min-height: 44px"><span style="display: inline-flex; align-items: center; gap: 8px; font-size: 18px; font-weight: 700"><span aria-hidden="true" style="width: 26px; height: 26px; flex: none; box-sizing: border-box; display: grid; place-items: center; border: 2.5px solid var(--jade); border-radius: 4px; color: var(--jade); font: 900 15px/1 'Noto Serif SC', serif">词</span>Lexis</span></header>
+  <main style="flex: 1; display: flex; flex-direction: column; gap: 20px">
+      <div style="display: flex; flex-direction: column; gap: 6px">
+        <h1 style="margin: 0; font-size: 26px; font-weight: 700">Bienvenido, adri</h1>
+        <p style="margin: 0; font-size: 15px; color: var(--ink-2)">Ajusta tu ritmo. Puedes cambiarlo cuando quieras en Ajustes.</p>
+      </div>
+      <section style="display: flex; flex-direction: column; gap: 10px">
+      <h2 style="margin: 0; font-size: 15px; font-weight: 600">Tus metas</h2>
+      <div style="border: 1px solid var(--line); border-radius: 10px; display: flex; flex-direction: column; overflow: hidden; background: var(--surface)">
+        <div style="display: flex; align-items: center; gap: 12px; padding: 12px 16px; border-bottom: 1px solid var(--line)">
+          <span style="flex: 1; display: flex; flex-direction: column; gap: 2px"><span id="w-min" style="font-size: 14px; font-weight: 500">Minutos al día</span></span>
+          <div role="group" aria-labelledby="w-min" style="flex: none; display: flex; align-items: center; border: 1px solid var(--line-strong); border-radius: 10px; background: var(--surface)">
+            <button aria-label="Menos minutos" disabled="{{ mins.atMin }}" onClick="{{ mins.dec }}" style="width: 44px; height: 44px; border: 0; background: transparent; color: var(--ink); display: flex; align-items: center; justify-content: center; border-right: 1px solid var(--line)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14"/></svg></button>
+            <output aria-live="polite" style="min-width: 64px; text-align: center; font-size: 15px; font-weight: 600">{{ mins.value }} min</output>
+            <button aria-label="Más minutos" disabled="{{ mins.atMax }}" onClick="{{ mins.inc }}" style="width: 44px; height: 44px; border: 0; background: transparent; color: var(--ink); display: flex; align-items: center; justify-content: center; border-left: 1px solid var(--line)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></button>
+          </div>
+        </div>
+        <div style="display: flex; align-items: center; gap: 12px; padding: 12px 16px; border-bottom: 1px solid var(--line)">
+          <span style="flex: 1; display: flex; flex-direction: column; gap: 2px"><span id="w-nuevas" style="font-size: 14px; font-weight: 500">Palabras nuevas al día</span></span>
+          <div role="group" aria-labelledby="w-nuevas" style="flex: none; display: flex; align-items: center; border: 1px solid var(--line-strong); border-radius: 10px; background: var(--surface)">
+            <button aria-label="Menos palabras nuevas" disabled="{{ words.atMin }}" onClick="{{ words.dec }}" style="width: 44px; height: 44px; border: 0; background: transparent; color: var(--ink); display: flex; align-items: center; justify-content: center; border-right: 1px solid var(--line)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14"/></svg></button>
+            <output aria-live="polite" style="min-width: 64px; text-align: center; font-size: 15px; font-weight: 600">{{ words.value }}</output>
+            <button aria-label="Más palabras nuevas" disabled="{{ words.atMax }}" onClick="{{ words.inc }}" style="width: 44px; height: 44px; border: 0; background: transparent; color: var(--ink); display: flex; align-items: center; justify-content: center; border-left: 1px solid var(--line)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></button>
+          </div>
+        </div>
+        <div style="display: flex; align-items: center; gap: 12px; padding: 12px 16px">
+          <span style="flex: 1; display: flex; flex-direction: column; gap: 2px"><span id="w-desc" style="font-size: 14px; font-weight: 500">Días de descanso por semana</span><span style="font-size: 12px; color: var(--ink-2)">No rompen la racha</span></span>
+          <div role="group" aria-labelledby="w-desc" style="flex: none; display: flex; align-items: center; border: 1px solid var(--line-strong); border-radius: 10px; background: var(--surface)">
+            <button aria-label="Menos días de descanso" disabled="{{ rest.atMin }}" onClick="{{ rest.dec }}" style="width: 44px; height: 44px; border: 0; background: transparent; color: var(--ink); display: flex; align-items: center; justify-content: center; border-right: 1px solid var(--line)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14"/></svg></button>
+            <output aria-live="polite" style="min-width: 64px; text-align: center; font-size: 15px; font-weight: 600">{{ rest.value }}</output>
+            <button aria-label="Más días de descanso" disabled="{{ rest.atMax }}" onClick="{{ rest.inc }}" style="width: 44px; height: 44px; border: 0; background: transparent; color: var(--ink); display: flex; align-items: center; justify-content: center; border-left: 1px solid var(--line)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></button>
+          </div>
+        </div>
+      </div>
+    </section>
+      <button onClick="{{ openDialog }}" style="min-height: 52px; display: flex; align-items: center; justify-content: center; border-radius: 10px; background: var(--jade); color: var(--on-jade); text-decoration: none; font-size: 16px; font-weight: 600; margin-top: auto; border: 0; font-family: inherit">Empezar</button>
+  </main>
+  <sc-if value="{{ dialogOpen }}" hint-placeholder-val="{{ false }}">
+    <div style="position: absolute; inset: 0; background: var(--scrim)"></div>
+    <section role="dialog" aria-modal="true" aria-labelledby="rec-title" style="position: absolute; left: 16px; right: 16px; top: 50%; transform: translateY(-50%); box-sizing: border-box; padding: 24px; background: var(--surface); border-radius: 16px; display: flex; flex-direction: column; gap: 20px">
+      <div style="display: flex; flex-direction: column; gap: 8px">
+        <h2 id="rec-title" style="margin: 0; font-size: 20px; font-weight: 700">Recordatorio diario</h2>
+        <p style="margin: 0; font-size: 14px; color: var(--ink-2)">Te avisamos si aún no has estudiado ese día.</p>
+      </div>
+      <label style="display: flex; align-items: center; justify-content: space-between; min-height: 48px; font-size: 15px; font-weight: 600">Hora<input type="time" value="20:00" style="min-height: 44px; padding: 0 10px; border: 1px solid var(--line-strong); border-radius: 10px; font: inherit; font-size: 15px; background: var(--surface)"></label>
+      <p style="margin: 0; padding: 10px 12px; background: var(--surface-sunken); border-radius: 10px; font-size: 13px; color: var(--ink-2)">En iPhone, primero añade la app a la pantalla de inicio: sin eso, iOS no permite avisos.</p>
+      <div style="display: flex; flex-direction: column; gap: 10px">
+        <a href="C-Inicio.dc.html" style="min-height: 52px; display: flex; align-items: center; justify-content: center; border-radius: 10px; background: var(--jade); color: var(--on-jade); text-decoration: none; font-size: 16px; font-weight: 600">Activar</a>
+        <a href="C-Inicio.dc.html" style="min-height: 44px; display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 15px; font-weight: 600; color: var(--ink)">Ahora no</a>
+      </div>
+    </section>
+  </sc-if>
+</div>
+</template>
+<script type="text/x-dc" data-props='{"tema":{"editor":"enum","options":["claro","oscuro"],"default":"claro","section":"Tema"},"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { dialog: false, mins: 15, words: 5, rest: 2 };
+  }
+  stepper(key, min, max, step) {
+    const value = this.state[key];
+    return {
+      value: value,
+      atMin: value <= min,
+      atMax: value >= max,
+      dec: () => this.setState({ [key]: Math.max(min, value - step) }),
+      inc: () => this.setState({ [key]: Math.min(max, value + step) })
+    };
+  }
+  renderVals() {
+    const __tema = this.props.tema ?? 'claro';
+    return { tema: __tema, 
+      mins: this.stepper('mins', 5, 120, 5),
+      words: this.stepper('words', 0, 30, 1),
+      rest: this.stepper('rest', 0, 3, 1),
+      dialogOpen: this.state.dialog,
+      openDialog: () => this.setState({ dialog: true })
+    };
+  }
+}
+</script>
+</body>
+</html>

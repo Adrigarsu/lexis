@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Perfil y ajustes (móvil) · Lexis</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Noto+Sans+SC:wght@400;500&amp;family=Noto+Serif+SC:wght@400;500&amp;display=swap">
+<style>
+body{margin:0}
+a{color:var(--jade)}a:hover{color:var(--ink)}
+[role="status"] a{color:var(--ink)}
+</style>
+<link rel="stylesheet" href="../assets/lexis.css">
+<script src="../assets/dc-runtime.js"></script>
+</head>
+<body style="margin:0">
+<div id="dc-root"></div>
+<template id="dc-template">
+<div class="lx" data-theme="{{ tema }}" style="width: 390px; height: 844px; box-sizing: border-box; background: var(--paper); font-family: var(--font-sans); color: var(--ink); display: flex; flex-direction: column">
+  <header style="padding: 20px 20px 8px">
+    <h1 style="margin: 0; font-size: 24px; font-weight: 700">Perfil</h1>
+  </header>
+
+  <main style="flex: 1; overflow-y: auto; padding: 8px 20px 16px; display: flex; flex-direction: column; gap: 20px">
+    <section aria-label="Tu perfil" style="display: flex; align-items: center; gap: 14px; padding: 16px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface)">
+      <span aria-hidden="true" style="width: 52px; height: 52px; flex: none; border-radius: 26px; border: 1px solid var(--line); background: var(--surface-sunken); display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: 600; color: var(--ink-2)">A</span>
+      <div style="flex: 1; display: flex; flex-direction: column; gap: 2px">
+        <span style="font-size: 17px; font-weight: 600">adri</span>
+        <span style="font-size: 13px; color: var(--ink-2)">Racha: [12] días · Mejor: [21]</span>
+        <span style="font-size: 12px; color: var(--ink-2)">Desde [noviembre de 2026]</span>
+      </div>
+    </section>
+
+    <section style="display: flex; flex-direction: column; gap: 6px">
+      <h2 style="margin: 0 0 2px 4px; font-size: 12px; font-weight: 600; letter-spacing: 0.06em; color: var(--ink-2)">ESTUDIO</h2>
+      <div style="border: 1px solid var(--line); border-radius: 10px; display: flex; flex-direction: column; background: var(--surface)">
+        <a href="C-AjEstudio.dc.html" style="min-height: 52px; display: flex; align-items: center; gap: 12px; padding: 0 16px; text-decoration: none; color: var(--ink); border-bottom: 1px solid var(--line)">
+          <span style="flex: 1; display: flex; flex-direction: column; gap: 2px"><span style="font-size: 15px">Ajustes de estudio y metas</span><span style="font-size: 12px; color: var(--ink-2)">[15] min · [5] nuevas · 2 descansos</span></span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="2" aria-hidden="true" style="stroke: var(--ink-2)"><path d="m9 6 6 6-6 6"/></svg>
+        </a>
+        <a href="C-Recordatorios.dc.html" style="min-height: 52px; display: flex; align-items: center; gap: 12px; padding: 0 16px; text-decoration: none; color: var(--ink); border-bottom: 1px solid var(--line)">
+          <span style="flex: 1; display: flex; flex-direction: column; gap: 2px"><span style="font-size: 15px">Recordatorios</span><span style="font-size: 12px; color: var(--ink-2)">[3] de 4 activados</span></span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="2" aria-hidden="true" style="stroke: var(--ink-2)"><path d="m9 6 6 6-6 6"/></svg>
+        </a>
+        <label style="min-height: 60px; display: flex; align-items: center; gap: 12px; padding: 8px 16px">
+          <span style="flex: 1; display: flex; flex-direction: column; gap: 2px"><span style="font-size: 15px">Caracteres extra</span><span style="font-size: 12px; color: var(--ink-2)">[50] radicales y [200] caracteres frecuentes fuera del HSK 1</span></span>
+          <input type="checkbox" role="switch" style="width: 44px; height: 24px; accent-color: var(--ink)">
+        </label>
+      </div>
+    </section>
+
+    <section style="display: flex; flex-direction: column; gap: 6px">
+      <h2 style="margin: 0 0 2px 4px; font-size: 12px; font-weight: 600; letter-spacing: 0.06em; color: var(--ink-2)">APARIENCIA</h2>
+      <div style="border: 1px solid var(--line); border-radius: 10px; display: flex; flex-direction: column; background: var(--surface)">
+        <label style="min-height: 52px; display: flex; align-items: center; gap: 12px; padding: 0 16px; border-bottom: 1px solid var(--line)">
+          <span style="flex: 1; font-size: 15px">Tema</span>
+          <select style="min-height: 36px; padding: 0 8px; border: 1px solid var(--line-strong); border-radius: 8px; background: var(--surface); font: inherit; font-size: 14px"><option>Como el sistema</option><option>Claro</option><option>Oscuro</option></select>
+        </label>
+        <label style="min-height: 52px; display: flex; align-items: center; gap: 12px; padding: 0 16px">
+          <span style="flex: 1; font-size: 15px">Tamaño de letra</span>
+          <select style="min-height: 36px; padding: 0 8px; border: 1px solid var(--line-strong); border-radius: 8px; background: var(--surface); font: inherit; font-size: 14px"><option>100 %</option><option>125 %</option><option>150 %</option><option>175 %</option><option>200 %</option></select>
+        </label>
+      </div>
+    </section>
+
+    <section style="display: flex; flex-direction: column; gap: 6px">
+      <h2 style="margin: 0 0 2px 4px; font-size: 12px; font-weight: 600; letter-spacing: 0.06em; color: var(--ink-2)">CUENTA Y APP</h2>
+      <div style="border: 1px solid var(--line); border-radius: 10px; display: flex; flex-direction: column; background: var(--surface)">
+        <a href="C-Cuenta.dc.html" style="min-height: 52px; display: flex; align-items: center; gap: 12px; padding: 0 16px; text-decoration: none; color: var(--ink); border-bottom: 1px solid var(--line)">
+          <span style="flex: 1; display: flex; flex-direction: column; gap: 2px"><span style="font-size: 15px">Cuenta y privacidad</span><span style="font-size: 12px; color: var(--ink-2)">Email, contraseña, tus datos</span></span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="2" aria-hidden="true" style="stroke: var(--ink-2)"><path d="m9 6 6 6-6 6"/></svg>
+        </a>
+        <button onClick="{{ toggleInstall }}" aria-expanded="{{ installOpen }}" style="min-height: 52px; display: flex; align-items: center; gap: 12px; padding: 0 16px; border: 0; border-bottom: 1px solid var(--line); background: transparent; font: inherit; font-size: 15px; color: var(--ink); text-align: left">
+          <span style="flex: 1">Instalar la app</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="2" aria-hidden="true" style="stroke: var(--ink-2)"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+        <sc-if value="{{ installOpen }}" hint-placeholder-val="{{ false }}">
+          <ol style="margin: 0; padding: 12px 16px 14px 36px; display: flex; flex-direction: column; gap: 6px; font-size: 13px; color: var(--ink-2); border-bottom: 1px solid var(--line)">
+            <li>En Safari, pulsa Compartir.</li>
+            <li>Elige «Añadir a pantalla de inicio».</li>
+            <li>Abre Lexis desde el icono. Así funcionan los recordatorios.</li>
+          </ol>
+        </sc-if>
+        <a href="C-Perfil.dc.html" style="min-height: 52px; display: flex; align-items: center; padding: 0 16px; text-decoration: none; font-size: 15px; color: var(--ink); border-bottom: 1px solid var(--line)">Política de privacidad</a>
+        <a href="C-Login.dc.html" style="min-height: 52px; display: flex; align-items: center; padding: 0 16px; text-decoration: none; font-size: 15px; font-weight: 600; color: var(--ink)">Cerrar sesión</a>
+      </div>
+    </section>
+    <span style="align-self: center; font-size: 12px; color: var(--ink-2)">Guardado en la nube · versión [0.1.0]</span>
+  </main>
+
+  <nav aria-label="Navegación principal" style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-top: 1px solid var(--line); padding: 8px 8px 24px">
+    <a href="C-Inicio.dc.html" style="min-height: 44px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; text-decoration: none; font-size: 11px; color: var(--ink-2)"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 11 12 4l9 7v9h-6v-6H9v6H3z"/></svg>Hoy</a>
+    <a href="C-Inicio.dc.html" style="min-height: 44px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; text-decoration: none; font-size: 11px; color: var(--ink-2)"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M8 9h8M8 13h5"/></svg>Practicar</a>
+    <a href="C-Progreso.dc.html" style="min-height: 44px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; text-decoration: none; font-size: 11px; color: var(--ink-2)"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg>Progreso</a>
+    <a href="C-Perfil.dc.html" aria-current="page" style="min-height: 44px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; text-decoration: none; font-size: 11px; font-weight: 600; color: var(--ink)"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>Perfil</a>
+  </nav>
+</div>
+</template>
+<script type="text/x-dc" data-props='{"tema":{"editor":"enum","options":["claro","oscuro"],"default":"claro","section":"Tema"},"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { install: false };
+  }
+  renderVals() {
+    const __tema = this.props.tema ?? 'claro';
+    return { tema: __tema, 
+      installOpen: this.state.install,
+      toggleInstall: () => this.setState({ install: !this.state.install })
+    };
+  }
+}
+</script>
+</body>
+</html>

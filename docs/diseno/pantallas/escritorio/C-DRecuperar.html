@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Recuperar la contraseña (escritorio) · Lexis</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Noto+Sans+SC:wght@400;500&amp;family=Noto+Serif+SC:wght@400;500;900&amp;display=swap">
+<style>
+body{margin:0}
+a{color:var(--jade)}a:hover{color:var(--ink)}
+[role="status"] a{color:var(--ink)}
+</style>
+<link rel="stylesheet" href="../assets/lexis.css">
+<script src="../assets/dc-runtime.js"></script>
+</head>
+<body style="margin:0">
+<div id="dc-root"></div>
+<template id="dc-template">
+<div class="lx" data-theme="{{ tema }}" style="position: relative; min-height: 860px; box-sizing: border-box; background: var(--surface-sunken); font-family: var(--font-sans); color: var(--ink); display: flex; flex-direction: column; align-items: center; padding: 32px 24px">
+  <header style="width: 100%; max-width: 1040px; display: flex; align-items: center; min-height: 44px"><span style="display: inline-flex; align-items: center; gap: 8px; font-size: 18px; font-weight: 700"><span aria-hidden="true" style="width: 26px; height: 26px; flex: none; box-sizing: border-box; display: grid; place-items: center; border: 2.5px solid var(--jade); border-radius: 4px; color: var(--jade); font: 900 15px/1 'Noto Serif SC', serif">词</span>Lexis</span></header>
+  <main style="width: 100%; max-width: 480px; margin: 32px 0; padding: 32px; box-sizing: border-box; background: var(--surface); border: 1px solid var(--line); border-radius: 16px; display: flex; flex-direction: column; gap: 18px">
+    <sc-if value="{{ form }}" hint-placeholder-val="{{ true }}">
+      <div style="display: flex; flex-direction: column; gap: 6px">
+        <h1 style="margin: 0; font-size: 24px; font-weight: 700">Recuperar la contraseña</h1>
+        <p style="margin: 0; font-size: 15px; color: var(--ink-2)">Te enviaremos un enlace para crear una contraseña nueva.</p>
+      </div>
+      <label style="display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 500">Email<input type="email" autocomplete="email" style="min-height: 48px; box-sizing: border-box; padding: 0 12px; border: 1px solid var(--line-strong); border-radius: 10px; font: inherit; font-size: 15px; font-weight: 400; background: var(--surface)"></label>
+      <div aria-label="Comprobación de seguridad (CAPTCHA)" role="img" style="min-height: 64px; border: 1px dashed var(--line-strong); border-radius: 10px; background: var(--surface-sunken); display: flex; align-items: center; justify-content: center; font-size: 12px; color: var(--ink-2)">CAPTCHA</div>
+      <button onClick="{{ send }}" style="min-height: 52px; display: flex; align-items: center; justify-content: center; border: 0; border-radius: 10px; background: var(--jade); color: var(--on-jade); text-decoration: none; font: inherit; font-size: 16px; font-weight: 600">Enviar enlace</button>
+      <a href="C-DRegistro.dc.html" style="align-self: center; min-height: 44px; display: flex; align-items: center; font-size: 14px; font-weight: 600">Volver a iniciar sesión</a>
+    </sc-if>
+    <sc-if value="{{ sent }}" hint-placeholder-val="{{ false }}">
+      <div role="status" style="display: flex; flex-direction: column; gap: 10px">
+        <h1 style="margin: 0; font-size: 24px; font-weight: 700">Revisa tu correo</h1>
+        <p style="margin: 0; font-size: 15px; color: var(--ink-2)">Si hay una cuenta con ese email, te hemos enviado un enlace. Caduca en [1] hora y solo sirve una vez.</p>
+        <p style="margin: 0; font-size: 13px; color: var(--ink-2)">¿No llega? Mira en spam o vuelve a pedirlo en [60] s.</p>
+      </div>
+      <button onClick="{{ back }}" style="min-height: 48px; display: flex; align-items: center; justify-content: center; border: 1px solid var(--line-strong); border-radius: 10px; background: var(--surface); color: var(--ink); text-decoration: none; font: inherit; font-size: 15px; font-weight: 600">Usar otro email</button>
+      <a href="C-DRegistro.dc.html" style="align-self: center; min-height: 44px; display: flex; align-items: center; font-size: 14px; font-weight: 600">Volver a iniciar sesión</a>
+    </sc-if>
+  </main>
+</div>
+</template>
+<script type="text/x-dc" data-props='{"tema":{"editor":"enum","options":["claro","oscuro"],"default":"claro","section":"Tema"},"$preview":{"width":1280,"height":860}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { sent: false };
+  }
+  renderVals() {
+    const __tema = this.props.tema ?? 'claro';
+    return { tema: __tema, 
+      form: !this.state.sent,
+      sent: this.state.sent,
+      send: () => this.setState({ sent: true }),
+      back: () => this.setState({ sent: false })
+    };
+  }
+}
+</script>
+</body>
+</html>

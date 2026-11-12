@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mis listas (escritorio) · Lexis</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Noto+Sans+SC:wght@400;500&amp;family=Noto+Serif+SC:wght@400;500;900&amp;display=swap">
+<style>
+body{margin:0}
+a{color:var(--jade)}a:hover{color:var(--ink)}
+[role="status"] a{color:var(--ink)}
+</style>
+<link rel="stylesheet" href="../assets/lexis.css">
+<script src="../assets/dc-runtime.js"></script>
+</head>
+<body style="margin:0">
+<div id="dc-root"></div>
+<template id="dc-template">
+<div class="lx" data-theme="{{ tema }}" style="position: relative; min-height: 860px; box-sizing: border-box; background: var(--paper); font-family: var(--font-sans); color: var(--ink); display: flex; flex-wrap: wrap">
+
+  <sc-if value="{{ expanded }}" hint-placeholder-val="{{ true }}">
+    <nav aria-label="Navegación principal" style="flex: 1 1 220px; max-width: 248px; box-sizing: border-box; padding: 20px 12px; border-right: 1px solid var(--line); display: flex; flex-direction: column; gap: 2px">
+      <div style="display: flex; align-items: center; justify-content: space-between; padding: 0 4px 16px 12px">
+        <span style="display: inline-flex; align-items: center; gap: 8px; font-size: 18px; font-weight: 700"><span aria-hidden="true" style="width: 26px; height: 26px; flex: none; box-sizing: border-box; display: grid; place-items: center; border: 2.5px solid var(--jade); border-radius: 4px; color: var(--jade); font: 900 15px/1 'Noto Serif SC', serif">词</span>Lexis</span>
+        <button aria-label="Ocultar menú" aria-expanded="true" onClick="{{ toggle }}" style="width: 40px; height: 40px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); color: var(--ink-2); display: flex; align-items: center; justify-content: center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M11 17l-5-5 5-5M18 17l-5-5 5-5"/></svg></button>
+      </div>
+      <a href="C-DInicio.dc.html" style="min-height: 40px; display: flex; align-items: center; gap: 10px; padding: 0 12px; border-radius: 8px; text-decoration: none; font-size: 14px; color: var(--ink-2)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 11 12 4l9 7v9h-6v-6H9v6H3z"/></svg>Hoy</a>
+      <span style="padding: 16px 12px 6px; font-size: 11px; font-weight: 600; letter-spacing: 0.06em; color: var(--ink-2)">PRACTICAR</span>
+      <sc-for list="{{ practice }}" as="it" hint-placeholder-count="6">
+        <a href="{{ it.href }}" style="min-height: 40px; display: flex; align-items: center; gap: 10px; padding: 0 12px; border-radius: 8px; background: {{ it.bg }}; text-decoration: none; font-size: 14px; font-weight: {{ it.fw }}; color: var(--ink)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="{{ it.d }}"/></svg>{{ it.label }}</a>
+      </sc-for>
+      <div style="height: 1px; background: var(--surface-sunken); margin: 12px 4px"></div>
+      <a href="C-DProgreso.dc.html" style="min-height: 40px; display: flex; align-items: center; gap: 10px; padding: 0 12px; border-radius: 8px; text-decoration: none; font-size: 14px; color: var(--ink-2)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg>Progreso</a>
+      <a href="C-DPerfil.dc.html" aria-label="Perfil de adri: cuenta y ajustes" style="margin-top: auto; min-height: 56px; display: flex; align-items: center; gap: 10px; padding: 8px 12px; border: 1px solid var(--line); border-radius: 10px; text-decoration: none; color: var(--ink); background: var(--surface)">
+        <span aria-hidden="true" style="width: 36px; height: 36px; flex: none; border-radius: 18px; border: 1px solid var(--line); background: var(--surface); display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 600; color: var(--ink-2)">A</span>
+        <span style="display: flex; flex-direction: column; gap: 2px; min-width: 0">
+          <span style="font-size: 14px; font-weight: 600">adri</span>
+          <span style="font-size: 12px; color: var(--ink-2)">Perfil y ajustes</span>
+        </span>
+      </a>
+    </nav>
+  </sc-if>
+
+  <sc-if value="{{ collapsed }}" hint-placeholder-val="{{ false }}">
+    <nav aria-label="Navegación principal" style="width: 64px; flex: none; box-sizing: border-box; padding: 20px 10px; border-right: 1px solid var(--line); display: flex; flex-direction: column; align-items: center; gap: 4px">
+      <button aria-label="Mostrar menú" aria-expanded="false" onClick="{{ toggle }}" style="width: 44px; height: 44px; margin-bottom: 12px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); color: var(--ink-2); display: flex; align-items: center; justify-content: center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M13 17l5-5-5-5M6 17l5-5-5-5"/></svg></button>
+      <a href="C-DInicio.dc.html" aria-label="Hoy" style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; border-radius: 8px; color: var(--ink-2)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 11 12 4l9 7v9h-6v-6H9v6H3z"/></svg></a>
+      <div style="width: 28px; height: 1px; background: var(--surface-sunken); margin: 8px 0"></div>
+      <sc-for list="{{ practice }}" as="it" hint-placeholder-count="6">
+        <a href="{{ it.href }}" aria-label="{{ it.label }}" title="{{ it.label }}" style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; border-radius: 8px; background: {{ it.bg }}; color: var(--ink)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="{{ it.d }}"/></svg></a>
+      </sc-for>
+      <div style="width: 28px; height: 1px; background: var(--surface-sunken); margin: 8px 0"></div>
+      <a href="C-DProgreso.dc.html" aria-label="Progreso" title="Progreso" style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; border-radius: 8px; color: var(--ink-2)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></a>
+      <a href="C-DPerfil.dc.html" aria-label="Perfil y ajustes" title="Perfil y ajustes" style="margin-top: auto; width: 44px; height: 44px; border-radius: 22px; border: 1px solid var(--line); background: var(--surface-sunken); display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 14px; font-weight: 600; color: var(--ink)">A</a>
+    </nav>
+  </sc-if>
+
+  <main style="flex: 999 1 560px; min-width: 0; box-sizing: border-box; padding: 32px 40px 48px">
+    <div style="max-width: 1040px; display: flex; flex-direction: column; gap: 24px">
+      <header style="display: flex; flex-wrap: wrap; align-items: center; gap: 12px">
+        <h1 style="flex: 1; margin: 0; font-size: 28px; font-weight: 700">Mis listas</h1>
+        <a href="C-DImportar.dc.html" style="min-height: 44px; display: flex; align-items: center; gap: 6px; padding: 0 14px; border: 1px solid var(--line-strong); border-radius: 10px; background: var(--surface); font: inherit; font-size: 14px; font-weight: 600; color: var(--ink); text-decoration: none; padding: 0 16px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15V3M7 8l5-5 5 5M4 21h16"/></svg>Importar</a>
+        <button style="min-height: 44px; display: flex; align-items: center; gap: 6px; padding: 0 16px; border: 1px solid var(--line-strong); border-radius: 10px; background: var(--surface); font: inherit; font-size: 14px; font-weight: 600; color: var(--ink)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>Nueva lista</button>
+      </header>
+
+      <div style="display: flex; flex-wrap: wrap; gap: 24px; align-items: flex-start">
+        <nav aria-label="Tus listas" style="flex: 1 1 260px; max-width: 300px; display: flex; flex-direction: column; gap: 8px">
+          <sc-for list="{{ lists }}" as="l" hint-placeholder-count="3">
+            <a href="C-DListas.dc.html" style="display: flex; flex-direction: column; gap: 8px; padding: 14px 16px; border: {{ l.border }}; border-radius: 10px; background: {{ l.bg }}; text-decoration: none; color: var(--ink)">
+              <span style="display: flex; align-items: baseline; gap: 8px"><span style="flex: 1; font-size: 15px; font-weight: 600">{{ l.name }}</span><span style="font-size: 12px; color: var(--ink-2)">{{ l.count }}</span></span>
+              <span style="height: 6px; border-radius: 3px; background: var(--surface-sunken)"><span style="display: block; width: {{ l.pct }}; height: 6px; border-radius: 3px; background: var(--jade-bright)"></span></span>
+              <span style="font-size: 12px; color: var(--ink-2)">{{ l.pct }} dominado · {{ l.due }}</span>
+            </a>
+          </sc-for>
+          <div style="display: flex; align-items: center; gap: 8px; padding: 12px 16px; border: 1px dashed var(--line-strong); border-radius: 10px; background: var(--surface)">
+            <span style="flex: 1; font-size: 13px; color: var(--ink-2)">[7] tarjetas propias</span>
+            <button onClick="{{ openNew }}" style="min-height: 40px; padding: 0 10px; border: 0; background: transparent; font: inherit; font-size: 14px; font-weight: 600; color: var(--ink)">Crear</button>
+          </div>
+        </nav>
+
+        <section aria-labelledby="lista-titulo" style="flex: 999 1 480px; min-width: 0; display: flex; flex-direction: column; gap: 20px; padding: 24px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface)">
+          <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 12px">
+            <div style="flex: 1; display: flex; flex-direction: column; gap: 4px">
+              <h2 id="lista-titulo" style="margin: 0; font-size: 22px; font-weight: 700">[Clase del lunes]</h2>
+              <span style="font-size: 13px; color: var(--ink-2)">[12] palabras · [5] para repasar · [40] % dominado</span>
+            </div>
+            <button style="min-height: 44px; padding: 0 14px; border: 1px solid var(--line-strong); border-radius: 10px; background: var(--surface); font: inherit; font-size: 14px; font-weight: 600; color: var(--ink)">Renombrar</button>
+            <button style="min-height: 44px; padding: 0 14px; border: 1px solid var(--line-strong); border-radius: 10px; background: var(--surface); font: inherit; font-size: 14px; font-weight: 600; color: var(--ink)">Borrar lista</button>
+            <a href="C-DTarjeta.dc.html" style="min-height: 44px; display: flex; align-items: center; padding: 0 18px; border-radius: 10px; background: var(--jade); text-decoration: none; font-size: 14px; font-weight: 600; color: var(--on-jade)">Practicar esta lista</a>
+          </div>
+
+          <div style="height: 1px; background: var(--surface-sunken)"></div>
+
+          <div style="display: flex; flex-direction: column; gap: 10px">
+            <h3 style="margin: 0; font-size: 15px; font-weight: 600">Añadir palabras</h3>
+            <div style="display: flex; flex-wrap: wrap; gap: 10px; align-items: center">
+              <label style="flex: 1 1 300px; display: flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 12px; border: 1px solid var(--line-strong); border-radius: 10px; background: var(--surface)">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2" aria-hidden="true" style="stroke: var(--ink-2)"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+                <input type="search" aria-label="Buscar por caracteres, pinyin o significado" value="chī" style="flex: 1; min-width: 0; border: 0; font: inherit; font-size: 15px; background: transparent">
+              </label>
+              <button onClick="{{ openNew }}" style="min-height: 44px; padding: 0 14px; border: 0; background: transparent; font: inherit; font-size: 14px; font-weight: 600; color: var(--ink); text-decoration: underline">¿No está? Crear tarjeta propia</button>
+            </div>
+            <div style="border: 1px solid var(--line); border-radius: 10px; display: flex; flex-direction: column; overflow: hidden; background: var(--surface)">
+              <div style="min-height: 52px; display: flex; align-items: center; gap: 12px; padding: 4px 8px 4px 16px; border-bottom: 1px solid var(--line)">
+                <span lang="zh-Hans" style="font-family: var(--font-kai); font-size: 18px">吃</span><span style="font-size: 13px; color: var(--ink-2)">chī</span><span style="flex: 1; font-size: 14px">comer</span><span style="font-size: 11px; color: var(--ink-2)">HSK 1</span><span style="width: 96px; text-align: center; font-size: 13px; color: var(--ink-2)">Ya está</span>
+              </div>
+              <div style="min-height: 52px; display: flex; align-items: center; gap: 12px; padding: 4px 8px 4px 16px">
+                <span lang="zh-Hans" style="font-family: var(--font-kai); font-size: 18px">吃饭</span><span style="font-size: 13px; color: var(--ink-2)">chīfàn</span><span style="flex: 1; font-size: 14px">comer, comida</span><span style="font-size: 11px; color: var(--ink-2)">HSK 1</span>
+                <button aria-label="Añadir 吃饭 a la lista" style="width: 96px; min-height: 40px; border: 1px solid var(--line-strong); border-radius: 8px; background: var(--surface); font: inherit; font-size: 13px; font-weight: 600; color: var(--ink)">Añadir</button>
+              </div>
+            </div>
+          </div>
+
+          <div style="display: flex; flex-direction: column; gap: 10px">
+            <h3 style="margin: 0; font-size: 15px; font-weight: 600">En la lista</h3>
+            <div style="overflow-x: auto; border: 1px solid var(--line); border-radius: 10px; background: var(--surface)">
+              <table style="width: 100%; border-collapse: collapse; font-size: 14px">
+                <thead><tr style="text-align: left; background: var(--surface-sunken)"><th scope="col" style="padding: 10px 16px; font-size: 12px; font-weight: 600; color: var(--ink-2)">Palabra</th><th scope="col" style="padding: 10px 16px; font-size: 12px; font-weight: 600; color: var(--ink-2)">Pinyin</th><th scope="col" style="padding: 10px 16px; font-size: 12px; font-weight: 600; color: var(--ink-2)">Significado</th><th scope="col" style="padding: 10px 16px; font-size: 12px; font-weight: 600; color: var(--ink-2)">Origen</th><th scope="col" style="padding: 10px 16px; font-size: 12px; font-weight: 600; color: var(--ink-2)">Estado</th><th scope="col" style="padding: 10px 8px"><span style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Acciones</span></th></tr></thead>
+                <tbody>
+                  <sc-for list="{{ words }}" as="w" hint-placeholder-count="4">
+                    <tr style="border-top: 1px solid var(--line)">
+                      <td lang="zh-Hans" style="padding: 8px 16px; font-family: var(--font-kai); font-size: 18px">{{ w.hz }}</td>
+                      <td style="padding: 8px 16px; color: var(--ink-2)">{{ w.py }}</td>
+                      <td style="padding: 8px 16px">{{ w.es }}</td>
+                      <td style="padding: 8px 16px; font-size: 12px; color: var(--ink-2)">{{ w.tag }}</td>
+                      <td style="padding: 8px 16px; font-size: 13px; color: var(--ink-2)">{{ w.state }}</td>
+                      <td style="padding: 4px 8px; text-align: right"><button aria-label="Quitar {{ w.hz }} de la lista" style="width: 40px; height: 40px; border: 0; background: transparent; color: var(--ink-2)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button></td>
+                    </tr>
+                  </sc-for>
+                </tbody>
+              </table>
+            </div>
+            <span style="font-size: 12px; color: var(--ink-2)">Quitar una palabra de la lista no borra su progreso.</span>
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <sc-if value="{{ newOpen }}" hint-placeholder-val="{{ false }}">
+    <div style="position: absolute; inset: 0; background: var(--scrim); display: flex; align-items: center; justify-content: center; padding: 24px">
+      <div role="dialog" aria-modal="true" aria-labelledby="tarjeta-propia" style="width: 100%; max-width: 520px; box-sizing: border-box; padding: 28px; border-radius: 16px; background: var(--surface); display: flex; flex-direction: column; gap: 16px">
+        <h2 id="tarjeta-propia" style="margin: 0; font-size: 20px; font-weight: 700">Tarjeta propia</h2>
+        <label style="display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 500">Caracteres<input type="text" lang="zh-Hans" value="黑板" style="min-height: 48px; box-sizing: border-box; padding: 0 12px; border: 1px solid var(--line-strong); border-radius: 8px; font-family: var(--font-kai); font-size: 22px; background: var(--surface)"></label>
+        <div style="padding: 10px 12px; border-radius: 10px; background: var(--surface-sunken); font-size: 13px; color: var(--ink-2)">Está en el diccionario: te proponemos el pinyin y el significado. Revísalos antes de guardar.</div>
+        <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px">
+          <label style="display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 500">Pinyin<input type="text" value="hēibǎn" style="min-height: 44px; box-sizing: border-box; padding: 0 12px; border: 1px solid var(--line-strong); border-radius: 8px; font: inherit; font-weight: 400; background: var(--surface)"></label>
+          <label style="display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 500">Significado<input type="text" value="pizarra" style="min-height: 44px; box-sizing: border-box; padding: 0 12px; border: 1px solid var(--line-strong); border-radius: 8px; font: inherit; font-weight: 400; background: var(--surface)"></label>
+        </div>
+        <span style="font-size: 12px; color: var(--ink-2)">Pinyin con marcas (hēi) o números (hei1) · Referencia CC-CEDICT, en inglés: blackboard</span>
+        <label style="display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 500">Notas (opcional)<textarea rows="2" style="box-sizing: border-box; padding: 10px 12px; border: 1px solid var(--line-strong); border-radius: 8px; font: inherit; font-weight: 400; resize: vertical; background: var(--surface)"></textarea></label>
+        <label style="display: flex; align-items: center; gap: 12px; font-size: 14px; font-weight: 500"><span style="flex: 1">Lista</span><select style="min-height: 44px; padding: 0 10px; border: 1px solid var(--line-strong); border-radius: 8px; background: var(--surface); font: inherit; font-weight: 400"><option selected>[Clase del lunes]</option><option>[Comida]</option><option>Ninguna</option></select></label>
+        <div style="display: flex; justify-content: flex-end; gap: 10px">
+          <button onClick="{{ closeNew }}" style="min-height: 44px; padding: 0 18px; border: 1px solid var(--line-strong); border-radius: 10px; background: var(--surface); font: inherit; font-size: 14px; font-weight: 600; color: var(--ink)">Cancelar</button>
+          <button onClick="{{ closeNew }}" style="min-height: 44px; padding: 0 18px; border: 0; border-radius: 10px; background: var(--jade); font: inherit; font-size: 14px; font-weight: 600; color: var(--on-jade)">Guardar tarjeta</button>
+        </div>
+      </div>
+    </div>
+  </sc-if>
+</div>
+</template>
+<script type="text/x-dc" data-props='{"tema":{"editor":"enum","options":["claro","oscuro"],"default":"claro","section":"Tema"},"$preview":{"width":1280,"height":860}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { open: true, card: false };
+  }
+  renderVals() {
+    const __tema = this.props.tema ?? 'claro';
+    const open = this.state.open;
+    const items = [
+      { label: 'Tarjetas', href: 'C-DTarjeta.dc.html', d: 'M4 7h12v13H4zM8 4h12v13' },
+      { label: 'Escritura', href: 'C-DEscritura.dc.html', d: 'M4 20h4L19 9l-4-4L4 16z' },
+      { label: 'Tonos', href: 'C-DTonos.dc.html', d: 'M2 12c3-6 5-6 8 0s5 6 8 0 3-3 4-2' },
+      { label: 'Gramática', href: 'C-DGramatica.dc.html', d: 'M3 3h8v8H3zM13 13h8v8h-8zM13 7h8M7 13v8' },
+      { label: 'Lecturas', href: 'C-DLecturas.dc.html', d: 'M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2zM4 5v14' },
+      { label: 'Mis listas', href: 'C-DListas.dc.html', d: 'M9 6h11M9 12h11M9 18h11M4 6h1M4 12h1M4 18h1', current: true }
+    ];
+    const lists = [
+      { name: '[Clase del lunes]', count: '[12] palabras', pct: '40%', due: '[5] para repasar', current: true },
+      { name: '[Comida]', count: '[8] palabras', pct: '75%', due: 'nada hoy' },
+      { name: '[Viaje a Pekín]', count: '[4] palabras', pct: '0%', due: '[4] nuevas' }
+    ];
+    return { tema: __tema, 
+      expanded: open,
+      collapsed: !open,
+      toggle: () => this.setState({ open: !open }),
+      practice: items.map((it) => ({ ...it, bg: it.current ? 'var(--on-jade)' : 'transparent', fw: it.current ? '600' : '400' })),
+      lists: lists.map((l) => ({ ...l, bg: l.current ? 'var(--line)' : 'var(--surface)', border: l.current ? '2px solid var(--ink)' : '1px solid var(--line)' })),
+      words: [
+        { hz: '吃', py: 'chī', es: 'comer', tag: 'HSK 1', state: 'En repaso' },
+        { hz: '老师', py: 'lǎoshī', es: 'profesor', tag: 'HSK 1', state: 'Dominada' },
+        { hz: '作业', py: 'zuòyè', es: 'deberes', tag: 'Propia', state: 'Nueva' },
+        { hz: '黑板', py: 'hēibǎn', es: 'pizarra', tag: 'Propia', state: 'Nueva' }
+      ],
+      newOpen: this.state.card,
+      openNew: () => this.setState({ card: true }),
+      closeNew: () => this.setState({ card: false })
+    };
+  }
+}
+</script>
+</body>
+</html>

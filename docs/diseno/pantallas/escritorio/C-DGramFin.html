@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lección de gramática terminada (escritorio) · Lexis</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Noto+Sans+SC:wght@400;500&amp;family=Noto+Serif+SC:wght@400;500&amp;display=swap">
+<style>
+body{margin:0}
+a{color:var(--jade)}a:hover{color:var(--ink)}
+[role="status"] a{color:var(--ink)}
+</style>
+<link rel="stylesheet" href="../assets/lexis.css">
+<script src="../assets/dc-runtime.js"></script>
+</head>
+<body style="margin:0">
+<div id="dc-root"></div>
+<template id="dc-template">
+<div class="lx" data-theme="{{ tema }}" style="min-height: 860px; box-sizing: border-box; background: var(--surface-sunken); font-family: var(--font-sans); color: var(--ink); display: flex; flex-direction: column">
+  <header style="display: flex; flex-wrap: wrap; align-items: center; gap: 16px; padding: 16px 32px; background: var(--surface); border-bottom: 1px solid var(--line)">
+    <a href="C-DGramatica.dc.html" style="min-height: 40px; display: flex; align-items: center; gap: 6px; padding: 0 12px; border-radius: 8px; text-decoration: none; font-size: 14px; color: var(--ink-2)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>Salir</a>
+    <div style="flex: 1 1 240px; display: flex; flex-direction: column; gap: 6px">
+      <span style="font-size: 12px; color: var(--ink-2)">Gramática · terminado</span>
+      <div style="height: 6px; border-radius: 3px; background: var(--surface-sunken)"><div style="width: 100%; height: 6px; border-radius: 3px; background: var(--jade-bright)"></div></div>
+    </div>
+    <button aria-haspopup="dialog" aria-expanded="{{ panelExpanded }}" onClick="{{ togglePanel }}" style="min-height: 40px; display: flex; align-items: center; gap: 8px; padding: 0 14px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); font: inherit; font-size: 13px; font-weight: 600; color: var(--ink)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 6h10M18 6h2M4 12h4M12 12h8M4 18h12"/><circle cx="16" cy="6" r="2"/><circle cx="10" cy="12" r="2"/><circle cx="18" cy="18" r="2"/></svg>Ajustes de estudio</button>
+  </header>
+
+  <div style="flex: 1; display: flex; flex-wrap: wrap">
+    <main style="flex: 999 1 560px; min-width: 0; padding: 40px 24px; display: flex; justify-content: center">
+      <div style="width: 100%; max-width: 720px; display: flex; flex-direction: column; gap: 24px">
+        <div style="display: flex; flex-direction: column; gap: 4px">
+          <span style="font-size: 12px; font-weight: 600; letter-spacing: 0.04em; color: var(--ink-2)">LECCIÓN TERMINADA</span>
+          <span style="font-size: 24px; font-weight: 700">Preguntas de sí o no con <ruby lang="zh-Hans" style="ruby-position: under; font-family: var(--font-kai); font-size: 22px; line-height: 1.8"><span style="color: {{ hc5 }}">吗</span><rt style="font-family: var(--font-sans); font-size: 11px; color: {{ pc5 }}; opacity: {{ pinyinOpacity }}; visibility: {{ rtVis }}">ma</rt></ruby></span>
+        </div>
+        <div style="display: flex; flex-wrap: wrap; gap: 12px">
+          <div style="flex: 1 1 140px; padding: 16px; border: 1px solid var(--line); border-radius: 10px; display: flex; flex-direction: column; gap: 4px; background: var(--surface)"><span style="font-size: 12px; color: var(--ink-2)">Aciertos</span><span style="font-size: 24px; font-weight: 700">[5] de [6]</span></div>
+          <div style="flex: 1 1 140px; padding: 16px; border: 1px solid var(--line); border-radius: 10px; display: flex; flex-direction: column; gap: 4px; background: var(--surface)"><span style="font-size: 12px; color: var(--ink-2)">Próximo repaso</span><span style="font-size: 24px; font-weight: 700">en [1] día</span></div>
+        </div>
+        <p style="margin: 0; font-size: 14px; color: var(--ink-2)">Este punto pasa a tu repaso. Los ejercicios que fallaste volverán antes.</p>
+        <ul aria-label="Resultado por ejercicio" style="margin: 0; padding: 0; list-style: none">
+            <li style="padding: 10px 0; border-bottom: 1px solid var(--line); display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap">
+              <span style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 13px; color: var(--ink-2)">Ordenar la frase</span><ruby lang="zh-Hans" style="ruby-position: under; font-family: var(--font-kai); font-size: 20px; line-height: 2"><span style="color: {{ hc3 }}">你</span><rt style="font-family: var(--font-sans); font-size: 11px; color: {{ pc3 }}; opacity: {{ pinyinOpacity }}; visibility: {{ rtVis }}">nǐ</rt><span style="color: {{ hc4 }}">是</span><rt style="font-family: var(--font-sans); font-size: 11px; color: {{ pc4 }}; opacity: {{ pinyinOpacity }}; visibility: {{ rtVis }}">shì</rt><span style="color: {{ hc3 }}">老</span><rt style="font-family: var(--font-sans); font-size: 11px; color: {{ pc3 }}; opacity: {{ pinyinOpacity }}; visibility: {{ rtVis }}">lǎo</rt><span style="color: {{ hc1 }}">师</span><rt style="font-family: var(--font-sans); font-size: 11px; color: {{ pc1 }}; opacity: {{ pinyinOpacity }}; visibility: {{ rtVis }}">shī</rt><span style="color: {{ hc5 }}">吗</span><rt style="font-family: var(--font-sans); font-size: 11px; color: {{ pc5 }}; opacity: {{ pinyinOpacity }}; visibility: {{ rtVis }}">ma</rt>？</ruby></span>
+              <span style="font-size: 14px; font-weight: 600">Fallo · vuelve antes</span>
+            </li>
+            <li style="padding: 10px 0; border-bottom: 1px solid var(--line); display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap">
+              <span style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 13px; color: var(--ink-2)">Completar la frase</span><ruby lang="zh-Hans" style="ruby-position: under; font-family: var(--font-kai); font-size: 20px; line-height: 2"><span style="color: {{ hc3 }}">你</span><rt style="font-family: var(--font-sans); font-size: 11px; color: {{ pc3 }}; opacity: {{ pinyinOpacity }}; visibility: {{ rtVis }}">nǐ</rt><span style="color: {{ hc4 }}">是</span><rt style="font-family: var(--font-sans); font-size: 11px; color: {{ pc4 }}; opacity: {{ pinyinOpacity }}; visibility: {{ rtVis }}">shì</rt><span style="color: {{ hc2 }}">学</span><rt style="font-family: var(--font-sans); font-size: 11px; color: {{ pc2 }}; opacity: {{ pinyinOpacity }}; visibility: {{ rtVis }}">xué</rt><span style="color: {{ hc5 }}">生</span><rt style="font-family: var(--font-sans); font-size: 11px; color: {{ pc5 }}; opacity: {{ pinyinOpacity }}; visibility: {{ rtVis }}">sheng</rt><span style="color: {{ hc5 }}">吗</span><rt style="font-family: var(--font-sans); font-size: 11px; color: {{ pc5 }}; opacity: {{ pinyinOpacity }}; visibility: {{ rtVis }}">ma</rt>？</ruby></span>
+              <span style="font-size: 14px; font-weight: 600">Bien</span>
+            </li>
+            <li style="padding: 10px 0; border-bottom: 1px solid var(--line); display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap">
+              <span style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 13px; color: var(--ink-2)">Elegir la traducción</span><ruby lang="zh-Hans" style="ruby-position: under; font-family: var(--font-kai); font-size: 20px; line-height: 2"><span style="color: {{ hc1 }}">他</span><rt style="font-family: var(--font-sans); font-size: 11px; color: {{ pc1 }}; opacity: {{ pinyinOpacity }}; visibility: {{ rtVis }}">tā</rt><span style="color: {{ hc4 }}">是</span><rt style="font-family: var(--font-sans); font-size: 11px; color: {{ pc4 }}; opacity: {{ pinyinOpacity }}; visibility: {{ rtVis }}">shì</rt><span style="color: {{ hc3 }}">老</span><rt style="font-family: var(--font-sans); font-size: 11px; color: {{ pc3 }}; opacity: {{ pinyinOpacity }}; visibility: {{ rtVis }}">lǎo</rt><span style="color: {{ hc1 }}">师</span><rt style="font-family: var(--font-sans); font-size: 11px; color: {{ pc1 }}; opacity: {{ pinyinOpacity }}; visibility: {{ rtVis }}">shī</rt><span style="color: {{ hc5 }}">吗</span><rt style="font-family: var(--font-sans); font-size: 11px; color: {{ pc5 }}; opacity: {{ pinyinOpacity }}; visibility: {{ rtVis }}">ma</rt>？</ruby></span>
+              <span style="font-size: 14px; font-weight: 600">Bien</span>
+            </li>
+        </ul>
+        <div style="display: flex; justify-content: flex-end; flex-wrap: wrap; gap: 12px">
+          <a href="C-DGramatica.dc.html" style="min-height: 44px; padding: 0 16px; border: 1px solid var(--line-strong); border-radius: 10px; background: var(--surface); font: inherit; font-size: 14px; font-weight: 600; color: var(--ink); display: flex; align-items: center; justify-content: center; gap: 6px; text-decoration: none; min-height: 52px">Ver todos los puntos</a>
+          <a href="C-DInicio.dc.html" style="min-height: 52px; display: flex; align-items: center; justify-content: center; border-radius: 10px; background: var(--jade); color: var(--on-jade); text-decoration: none; font-size: 16px; font-weight: 600; padding: 0 32px">Continuar · Intro</a>
+        </div>
+      </div>
+    </main>
+
+    <sc-if value="{{ panelOpen }}" hint-placeholder-val="{{ true }}">
+      <aside role="dialog" aria-label="Ajustes de estudio" style="flex: 1 1 300px; max-width: 340px; box-sizing: border-box; padding: 24px; background: var(--surface); border-left: 1px solid var(--line); display: flex; flex-direction: column; gap: 20px">
+        <div style="display: flex; align-items: center; justify-content: space-between">
+          <h2 style="margin: 0; font-size: 17px; font-weight: 700">Ajustes de estudio</h2>
+          <button aria-label="Cerrar ajustes" onClick="{{ togglePanel }}" style="width: 40px; height: 40px; border: 0; border-radius: 8px; background: transparent; color: var(--ink-2); display: flex; align-items: center; justify-content: center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 8px">
+          <span id="d-size-label" style="font-size: 14px; font-weight: 600">1 · Tamaño de los caracteres</span>
+          <div role="group" aria-labelledby="d-size-label" style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px">
+            <sc-for list="{{ sizes }}" as="s" hint-placeholder-count="3">
+              <button aria-pressed="{{ s.pressed }}" onClick="{{ s.pick }}" style="min-height: 40px; border: 1px solid var(--line-strong); border-radius: 8px; font: inherit; font-size: 13px; {{ s.style }}; background: var(--surface)">{{ s.label }}</button>
+            </sc-for>
+          </div>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 8px">
+          <span id="d-pinyin-label" style="font-size: 14px; font-weight: 600">2 · Pinyin</span>
+          <div role="group" aria-labelledby="d-pinyin-label" style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px">
+            <sc-for list="{{ modes }}" as="m" hint-placeholder-count="3">
+              <button aria-pressed="{{ m.pressed }}" onClick="{{ m.pick }}" style="min-height: 40px; border: 1px solid var(--line-strong); border-radius: 8px; font: inherit; font-size: 13px; {{ m.style }}; background: var(--surface)">{{ m.label }}</button>
+            </sc-for>
+          </div>
+          <sc-if value="{{ showSlider }}" hint-placeholder-val="{{ true }}">
+            <label for="d-opacity" style="display: flex; justify-content: space-between; font-size: 13px; color: var(--ink-2)">Opacidad <span>{{ opacity }} %</span></label>
+            <input id="d-opacity" type="range" min="10" max="90" step="10" value="{{ opacity }}" onChange="{{ setOpacity }}" style="width: 100%; height: 36px">
+          </sc-if>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 8px">
+          <span id="d-color-label" style="font-size: 14px; font-weight: 600">3 · Colores según el tono</span>
+          <div role="group" aria-labelledby="d-color-label" style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px">
+            <sc-for list="{{ colorModes }}" as="c" hint-placeholder-count="3">
+              <button aria-pressed="{{ c.pressed }}" onClick="{{ c.pick }}" style="min-height: 40px; border: 1px solid var(--line-strong); border-radius: 8px; font: inherit; font-size: 13px; {{ c.style }}; background: var(--surface)">{{ c.label }}</button>
+            </sc-for>
+          </div>
+          <sc-if value="{{ colorsOn }}" hint-placeholder-val="{{ true }}">
+            <div aria-label="Leyenda de colores por tono" style="display: flex; flex-wrap: wrap; gap: 10px; font-size: 12px; color: var(--ink-2)">
+              <span style="display: flex; align-items: center; gap: 4px"><span aria-hidden="true" style="width: 10px; height: 10px; border-radius: 5px; background: var(--tone-1)"></span>1.º ā</span>
+              <span style="display: flex; align-items: center; gap: 4px"><span aria-hidden="true" style="width: 10px; height: 10px; border-radius: 5px; background: var(--tone-2)"></span>2.º á</span>
+              <span style="display: flex; align-items: center; gap: 4px"><span aria-hidden="true" style="width: 10px; height: 10px; border-radius: 5px; background: var(--tone-3)"></span>3.º ǎ</span>
+              <span style="display: flex; align-items: center; gap: 4px"><span aria-hidden="true" style="width: 10px; height: 10px; border-radius: 5px; background: var(--tone-4)"></span>4.º à</span>
+              <span style="display: flex; align-items: center; gap: 4px"><span aria-hidden="true" style="width: 10px; height: 10px; border-radius: 5px; background: var(--jade-bright)"></span>neutro</span>
+            </div>
+          </sc-if>
+        </div>
+        <label style="min-height: 40px; display: flex; align-items: center; justify-content: space-between; font-size: 14px; font-weight: 600">4 · Audio automático al girar <input type="checkbox" checked="{{ autoAudio }}" onChange="{{ toggleAudio }}" style="width: 20px; height: 20px"></label>
+        <span style="margin-top: auto; font-size: 12px; color: var(--ink-2)">Se guarda para todas tus sesiones. Más opciones en Perfil › Ajustes.</span>
+      </aside>
+    </sc-if>
+  </div>
+</div>
+</template>
+<script type="text/x-dc" data-props='{"tema":{"editor":"enum","options":["claro","oscuro"],"default":"claro","section":"Tema"},"$preview":{"width":1280,"height":860}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { panel: false, mode: 'atenuado', opacity: 40, size: 'M', color: 'pinyin', autoAudio: false };
+  }
+  renderVals() {
+    const __tema = this.props.tema ?? 'claro';
+    const s = this.state;
+    const on = 'background: var(--jade-tint); color: var(--ink); border-color: var(--jade); font-weight: 600';
+    const off = 'background: var(--surface); color: var(--ink)';
+    const group = (key, list) => list.map(([id, label]) => ({
+      label, pressed: String(s[key] === id), style: s[key] === id ? on : off, pick: () => this.setState({ [key]: id })
+    }));
+    const TONE = { 1: 'var(--tone-1)', 2: 'var(--tone-2)', 3: 'var(--tone-3)', 4: 'var(--tone-4)', 5: 'var(--tone-5)' };
+    const pc = (t) => (s.color === 'no' ? 'var(--ink-2)' : TONE[t]);
+    const hc = (t) => (s.color === 'ambos' ? TONE[t] : 'var(--ink)');
+    return { tema: __tema, 
+      panelOpen: s.panel,
+      panelExpanded: String(s.panel),
+      togglePanel: () => this.setState({ panel: !s.panel }),
+      sizes: group('size', [['S', 'Pequeño'], ['M', 'Normal'], ['L', 'Grande']]),
+      modes: group('mode', [['mostrar', 'Mostrar'], ['atenuado', 'Atenuado'], ['ocultar', 'Ocultar']]),
+      colorModes: group('color', [['no', 'Sin color'], ['pinyin', 'Pinyin'], ['ambos', 'Pinyin y caracteres']]),
+      opacity: s.opacity,
+      setOpacity: (e) => this.setState({ opacity: Number(e.target.value) }),
+      showSlider: s.mode === 'atenuado',
+      pinyinHidden: s.mode === 'ocultar',
+      rtVis: s.mode === 'ocultar' ? 'hidden' : 'visible',
+      pinyinOpacity: s.mode === 'mostrar' ? 1 : s.opacity / 100,
+      charSize: s.size === 'S' ? 60 : s.size === 'L' ? 104 : 80,
+      colorsOn: s.color !== 'no',
+      pc1: pc(1), pc2: pc(2), pc3: pc(3), pc4: pc(4), pc5: pc(5),
+      hc1: hc(1), hc2: hc(2), hc3: hc(3), hc4: hc(4), hc5: hc(5),
+      autoAudio: s.autoAudio,
+      toggleAudio: () => this.setState({ autoAudio: !s.autoAudio })
+    };
+  }
+}
+</script>
+</body>
+</html>

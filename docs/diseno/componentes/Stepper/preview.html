@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="es">
+<head>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500&family=Noto+Serif+SC:wght@400;500&display=swap">
+<link rel="stylesheet" href="../../pantallas/assets/lexis.css">
+<meta charset="utf-8">
+<title>Spinner</title>
+<style>
+body{margin:0;background:var(--paper)}
+.stage{padding:var(--space-6);display:flex;flex-direction:column;gap:var(--space-5)}
+.row{display:flex;flex-wrap:wrap;gap:var(--space-3);align-items:center}
+.cap{font:500 12px/16px var(--font-sans);color:var(--ink-2);margin:0 0 var(--space-2)}
+.col{display:flex;flex-direction:column;gap:var(--space-2);min-width:220px;flex:1}
+</style>
+</head>
+<body>
+<div class="lx stage">
+<div style="max-width:420px;border:var(--border-hair) solid var(--line);border-radius:var(--radius-lg);background:var(--surface)">
+<div style="display:flex;align-items:center;gap:var(--space-3);padding:var(--space-3) var(--space-4);border-bottom:var(--border-hair) solid var(--line)"><span id="lbl-min" style="flex:1;font:500 15px/20px var(--font-sans)">Minutos al día</span>
+<div class="lx-stepper" role="group" aria-labelledby="lbl-min"><button aria-label="Menos minutos" data-d="-5"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14"/></svg></button><output aria-live="polite" data-v="15" data-min="5" data-max="120" data-u=" min">15 min</output><button aria-label="Más minutos" data-d="5"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></button></div></div>
+<div style="display:flex;align-items:center;gap:var(--space-3);padding:var(--space-3) var(--space-4)"><span id="lbl-desc" style="flex:1;font:500 15px/20px var(--font-sans)">Días de descanso</span>
+<div class="lx-stepper" role="group" aria-labelledby="lbl-desc"><button aria-label="Menos días de descanso" data-d="-1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14"/></svg></button><output aria-live="polite" data-v="2" data-min="0" data-max="3" data-u="">2</output><button aria-label="Más días de descanso" data-d="1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></button></div></div>
+</div>
+</div>
+<script>
+document.querySelectorAll('.lx-stepper').forEach(function (g) {
+  var out = g.querySelector('output'), b = g.querySelectorAll('button');
+  function sync() { var v = +out.dataset.v; out.textContent = v + out.dataset.u; b[0].disabled = v <= +out.dataset.min; b[1].disabled = v >= +out.dataset.max; }
+  b.forEach(function (x) { x.addEventListener('click', function () { var v = +out.dataset.v + +x.dataset.d; out.dataset.v = Math.min(+out.dataset.max, Math.max(+out.dataset.min, v)); sync(); }); });
+  sync();
+});
+</script>
+</body>
+</html>

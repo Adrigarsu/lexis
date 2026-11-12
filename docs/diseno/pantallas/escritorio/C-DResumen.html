@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Resumen de la sesión (escritorio) · Lexis</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Noto+Sans+SC:wght@400;500&amp;family=Noto+Serif+SC:wght@400;500&amp;display=swap">
+<style>
+body{margin:0}
+a{color:var(--jade)}a:hover{color:var(--ink)}
+[role="status"] a{color:var(--ink)}
+</style>
+<link rel="stylesheet" href="../assets/lexis.css">
+<script src="../assets/dc-runtime.js"></script>
+</head>
+<body style="margin:0">
+<div id="dc-root"></div>
+<template id="dc-template">
+<div class="lx" data-theme="{{ tema }}" style="min-height: 860px; box-sizing: border-box; background: var(--surface-sunken); font-family: var(--font-sans); color: var(--ink); display: flex; justify-content: center; padding: 56px 24px">
+  <main style="width: 100%; max-width: 720px; display: flex; flex-direction: column; gap: 24px">
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 8px; text-align: center">
+      <div style="width: 72px; height: 72px; border-radius: 36px; border: 2px solid var(--ink); display: flex; align-items: center; justify-content: center; background: var(--surface)"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke-width="2" aria-hidden="true" style="stroke: var(--ink)"><path d="M20 6 9 17l-5-5"/></svg></div>
+      <h1 style="margin: 0; font-size: 28px; font-weight: 700">Sesión completada</h1>
+      <span style="font-size: 15px; color: var(--ink-2)">Racha: [13] días</span>
+    </div>
+
+    <section style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px">
+      <div style="padding: 16px; background: var(--surface); border: 1px solid var(--line); border-radius: 10px; display: flex; flex-direction: column; gap: 2px"><span style="font-size: 12px; color: var(--ink-2)">Tiempo</span><span style="font-size: 22px; font-weight: 700">[16] min</span></div>
+      <div style="padding: 16px; background: var(--surface); border: 1px solid var(--line); border-radius: 10px; display: flex; flex-direction: column; gap: 2px"><span style="font-size: 12px; color: var(--ink-2)">Repasos</span><span style="font-size: 22px; font-weight: 700">[23]</span></div>
+      <div style="padding: 16px; background: var(--surface); border: 1px solid var(--line); border-radius: 10px; display: flex; flex-direction: column; gap: 2px"><span style="font-size: 12px; color: var(--ink-2)">Palabras nuevas</span><span style="font-size: 22px; font-weight: 700">[5]</span></div>
+      <div style="padding: 16px; background: var(--surface); border: 1px solid var(--line); border-radius: 10px; display: flex; flex-direction: column; gap: 2px"><span style="font-size: 12px; color: var(--ink-2)">Acierto</span><span style="font-size: 22px; font-weight: 700">[87] %</span></div>
+    </section>
+
+    <section style="padding: 20px; background: var(--surface); border: 1px solid var(--line); border-radius: 10px; display: flex; flex-direction: column; gap: 10px">
+      <h2 style="margin: 0; font-size: 16px; font-weight: 600">Desbloqueado hoy</h2>
+      <span style="font-size: 14px; color: var(--ink-2)">Ya conoces bien su significado: empiezas a escribirlas y pronunciarlas.</span>
+      <div style="display: flex; gap: 10px; flex-wrap: wrap">
+        <ruby lang="zh-Hans" style="ruby-position: under; padding: 8px 14px; border: 1px solid var(--line); border-radius: 18px; font-family: var(--font-kai); font-size: 18px; background: var(--surface)">爸<rt style="font-family: var(--font-sans); font-size: 11px; color: var(--ink-2)">bà</rt>爸<rt style="font-family: var(--font-sans); font-size: 11px; color: var(--ink-2)">ba</rt></ruby>
+        <ruby lang="zh-Hans" style="ruby-position: under; padding: 8px 14px; border: 1px solid var(--line); border-radius: 18px; font-family: var(--font-kai); font-size: 18px; background: var(--surface)">妈<rt style="font-family: var(--font-sans); font-size: 11px; color: var(--ink-2)">mā</rt>妈<rt style="font-family: var(--font-sans); font-size: 11px; color: var(--ink-2)">ma</rt></ruby>
+        <ruby lang="zh-Hans" style="ruby-position: under; padding: 8px 14px; border: 1px solid var(--line); border-radius: 18px; font-family: var(--font-kai); font-size: 18px; background: var(--surface)">谢<rt style="font-family: var(--font-sans); font-size: 11px; color: var(--ink-2)">xiè</rt>谢<rt style="font-family: var(--font-sans); font-size: 11px; color: var(--ink-2)">xie</rt></ruby>
+      </div>
+    </section>
+
+    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 12px">
+      <a href="C-DInicio.dc.html" style="flex: 1 1 220px; max-width: 300px; min-height: 52px; display: flex; align-items: center; justify-content: center; border-radius: 10px; background: var(--jade); color: var(--on-jade); text-decoration: none; font-size: 16px; font-weight: 600">Volver al inicio</a>
+      <a href="C-DTarjeta.dc.html" style="flex: 1 1 220px; max-width: 300px; min-height: 52px; display: flex; align-items: center; justify-content: center; border-radius: 10px; border: 1px solid var(--line-strong); color: var(--ink); text-decoration: none; font-size: 16px; font-weight: 600; background: var(--surface)">Seguir practicando</a>
+    </div>
+  </main>
+</div>
+</template>
+<script type="text/x-dc" data-props='{"tema":{"editor":"enum","options":["claro","oscuro"],"default":"claro","section":"Tema"},"$preview":{"width":1280,"height":860}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const __tema = this.props.tema ?? 'claro';
+    return { tema: __tema, };
+  }
+}
+</script>
+</body>
+</html>

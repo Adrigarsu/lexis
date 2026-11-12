@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="es">
+<head>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500&family=Noto+Serif+SC:wght@400;500&display=swap">
+<link rel="stylesheet" href="../../pantallas/assets/lexis.css">
+<meta charset="utf-8">
+<title>Chip</title>
+<style>
+body{margin:0;background:var(--paper)}
+.stage{padding:var(--space-6);display:flex;flex-direction:column;gap:var(--space-5)}
+.row{display:flex;flex-wrap:wrap;gap:var(--space-3);align-items:center}
+.cap{font:500 12px/16px var(--font-sans);color:var(--ink-2);margin:0 0 var(--space-2)}
+.col{display:flex;flex-direction:column;gap:var(--space-2);min-width:220px;flex:1}
+</style>
+</head>
+<body>
+<div class="lx stage">
+<div><p class="cap">Estados</p><div class="row">
+<span class="lx-chip lx-chip--success"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Dominado</span>
+<span class="lx-chip">En repaso</span>
+<span class="lx-chip lx-chip--warning"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg>Bloqueado</span>
+<span class="lx-chip lx-chip--danger"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg>Error</span>
+<span class="lx-chip">HSK 1</span>
+<span class="lx-chip">Propia</span>
+</div></div>
+<div><p class="cap">Tonos</p><div class="row">
+<span class="lx-chip lx-chip--tone lx-chip--t1">1.º ā</span><span class="lx-chip lx-chip--tone lx-chip--t2">2.º á</span><span class="lx-chip lx-chip--tone lx-chip--t3">3.º ǎ</span><span class="lx-chip lx-chip--tone lx-chip--t4">4.º à</span><span class="lx-chip lx-chip--tone lx-chip--t5">neutro a</span>
+</div></div>
+<div><p class="cap">Filtros</p><div class="row" role="group" aria-label="Filtrar lecturas">
+<button class="lx-chip lx-chip--filter" aria-pressed="true">Todas</button><button class="lx-chip lx-chip--filter" aria-pressed="false">Sin leer</button><button class="lx-chip lx-chip--filter" aria-pressed="false">Leídas</button>
+</div></div>
+</div>
+</body>
+</html>

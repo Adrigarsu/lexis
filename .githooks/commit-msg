@@ -1,0 +1,11 @@
+#!/bin/sh
+# Git commit-msg hook (capa 4 de autoría, D-04): rechaza cualquier commit cuyo
+# mensaje lleve una firma o mención de Claude, venga de donde venga.
+# Se activa una vez por clon con: git config core.hooksPath .githooks
+# En el milestone 1 lo sustituye Lefthook, con la misma comprobación.
+
+if grep -qiE 'co-authored-by|generated with|noreply@anthropic\.com|claude-session|claude\.ai/code|claude\.com/claude-code' "$1"; then
+  echo "commit-msg: el mensaje lleva una firma o mención de Claude." >&2
+  echo "Quítala: todos los commits salen solo a tu nombre (D-04)." >&2
+  exit 1
+fi

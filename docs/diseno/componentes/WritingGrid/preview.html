@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="es">
+<head>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500&family=Noto+Serif+SC:wght@400;500&display=swap">
+<link rel="stylesheet" href="../../pantallas/assets/lexis.css">
+<meta charset="utf-8">
+<title>Cuadrícula de escritura</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.7.0/style.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Noto+Sans+SC:wght@400;500&amp;family=Noto+Serif+SC:wght@400;600&amp;display=swap">
+<style>
+body{margin:0;background:var(--paper)}
+.stage{padding:var(--space-6);display:flex;flex-direction:column;gap:var(--space-5)}
+.row{display:flex;flex-wrap:wrap;gap:var(--space-3);align-items:center}
+.cap{font:500 12px/16px var(--font-sans);color:var(--ink-2);margin:0 0 var(--space-2)}
+.col{display:flex;flex-direction:column;gap:var(--space-2);min-width:220px;flex:1}
+</style>
+</head>
+<body>
+<div class="lx stage">
+<div class="row" style="align-items:flex-start;gap:var(--space-8)">
+<div><div class="lx-tianzige" style="--grid-cell:260px" role="img" aria-label="Cuadrícula para escribir 你; llevas 2 de 7 trazos">
+<svg viewBox="0 0 100 100" aria-hidden="true">
+<path class="guide" d="M0 50h100M50 0v100M0 0l100 100M100 0L0 100"/>
+<text class="outline" x="50" y="83" text-anchor="middle" font-size="86">你</text>
+<path class="stroke" d="M33 18 22 42"/>
+<path class="stroke" d="M28 36v50"/>
+<path class="hint" d="M52 20 44 34"/>
+</svg></div>
+<div class="lx-tianzige__bar"><button class="lx-btn lx-btn--secondary"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12.7V17h8v-2.3A7 7 0 0 0 12 2z"/></svg>Pista</button><button class="lx-btn lx-btn--secondary"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7L3 8M3 3v5h5"/></svg>Borrar</button></div></div>
+<div class="lx-pen-off"><p class="cap">Azul bolígrafo desactivado</p><div class="lx-tianzige" style="--grid-cell:180px" role="img" aria-label="Trazos en tinta">
+<svg viewBox="0 0 100 100" aria-hidden="true">
+<path class="guide" d="M0 50h100M50 0v100M0 0l100 100M100 0L0 100"/>
+<text class="outline" x="50" y="83" text-anchor="middle" font-size="86">你</text>
+<path class="stroke" d="M33 18 22 42"/><path class="stroke" d="M28 36v50"/><path class="miss" d="M50 22 58 40"/>
+</svg></div><p class="cap" style="margin-top:var(--space-2)">Trazo fallado en carmín, un momento</p></div>
+</div>
+</div>
+</body>
+</html>

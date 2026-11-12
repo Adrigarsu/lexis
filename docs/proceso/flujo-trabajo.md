@@ -1,6 +1,6 @@
 # Flujo de trabajo
 
-Decidido en D-138 y D-139. Una sesión de Claude Code por issue, en el ordenador de la desarrolladora, con su Git y su sesión de `gh`. Cada sesión empieza sin memoria: todo lo que necesita está en el repositorio y en la issue, y todo lo que se decide queda escrito en uno de los dos.
+Decidido en D-138, D-139 y D-140. Una sesión de Claude Code por issue, en el ordenador de la desarrolladora, con su Git y su sesión de `gh`. Cada sesión empieza sin memoria: todo lo que necesita está en el repositorio y en la issue, y todo lo que se decide queda escrito en uno de los dos.
 
 ## Organización en GitHub
 
@@ -59,7 +59,7 @@ Los commits salen con la identidad de Git configurada en su ordenador. Lo que ha
 | 1. Ajuste | `~/.claude/settings.json` y `.claude/settings.json` | `"attribution": { "commit": "", "pr": "" }` desactiva las firmas |
 | 2. Instrucciones | `CLAUDE.md` | Regla explícita, por encima de cualquier otra instrucción |
 | 3. Hook de Claude Code | `.claude/hooks/guard-git.mjs` | Antes de cada comando bloquea firmas, cambios de identidad, push forzados y push a `main`, y pide confirmación para `gh pr merge` |
-| 4. Git y CI | `.githooks/commit-msg` y `.github/workflows/autoria.yml` | Rechazan cualquier mensaje con firma, venga de donde venga. El job del CI es un check obligatorio de `main` |
+| 4. Hook de Git | `.githooks/commit-msg` | Rechaza cualquier mensaje con firma, venga de donde venga. Sin comprobación en el CI (D-140) |
 
 El hook de Git se activa una vez en cada clon con `git config core.hooksPath .githooks`. En el milestone 1, Lefthook lo sustituye con la misma comprobación.
 

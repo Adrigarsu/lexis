@@ -15,7 +15,7 @@ Decidido en D-138, D-139 y D-140. Una sesión de Claude Code por issue, en el or
 
 | Paso | Quién | Skill | Qué pasa |
 | --- | --- | --- | --- |
-| 1. Elegir | Ella | `estado-backlog` | Lista las issues del milestone en tres grupos (listas, bloqueadas con qué las bloquea, en curso) y recomienda una por prioridad y dependencias |
+| 1. Elegir | Ella | `estado-backlog` | Lista las issues del milestone en tres grupos (listas, bloqueadas con qué las bloquea, en curso) y recomienda una. Por defecto usa el milestone abierto con el número de iteración más bajo que tenga issues abiertas. Recomienda por prioridad, después lo que más desbloquea, después el menor Tamaño y por último el número más bajo (D-147). Solo lee |
 | 2. Empezar | Claude | `empezar-issue` | Comprueba que no está cerrada ni bloqueada. Si ya estaba empezada (rama, plan comentado o PR), la retoma: resume lo hecho y lo que queda, sin volver a planificar. Si no, actualiza `main`, crea la rama según la plantilla (D-144) y lee la issue, su historia, sus RF, ADR y pantallas |
 | 3. Planificar | Claude propone, ella decide | `empezar-issue` | En modo plan: pruebas por criterio, archivos, si hacen falta varias PR y cada hueco con opciones y la recomendada. Revisa el Tamaño si el plan no encaja con él. Aprobado, deja una copia breve como comentario en la issue, la mueve a *In progress*, ajusta el Tamaño y, si se parte, crea las sub-issues |
 | 4. Programar | Claude | `tdd` | Criterio a criterio: prueba en rojo, código mínimo en verde, refactorizar. Un commit convencional por paso. Si aparece algo sin definir, para y pregunta con opciones |
@@ -25,7 +25,7 @@ Decidido en D-138, D-139 y D-140. Una sesión de Claude Code por issue, en el or
 
 Otras dos skills: `crear-issue`, cuando se pide algo nuevo, y `registrar-decision`, cuando se decide algo.
 
-> Las 7 skills se crean en el milestone 0. Ya existen `crear-issue`, `empezar-issue`, `preparar-pr` y `cerrar-issue`; mientras no estén las demás, sus pasos se siguen a mano.
+> Las 7 skills se crean en el milestone 0. Ya existen `crear-issue`, `estado-backlog`, `empezar-issue`, `preparar-pr` y `cerrar-issue`; mientras no estén las demás, sus pasos se siguen a mano.
 
 Las skills viven en `.claude/skills/<nombre>/SKILL.md`. Se prueban en seco (D-142): antes de escribirlas se apuntan casos con lo que debe salir y después se recorre la skill con cada uno, mostrando los comandos que lanzaría sin ejecutarlos. El resultado va en la PR.
 

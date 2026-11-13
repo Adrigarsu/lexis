@@ -31,7 +31,7 @@ Detalle en [docs/proceso/flujo-trabajo.md](docs/proceso/flujo-trabajo.md).
 
 Para pedir algo nuevo: skill `crear-issue`. Para apuntar una decisión: skill `registrar-decision`.
 
-> Las 7 skills se crean en el milestone 0. Ya existen `crear-issue`, `estado-backlog`, `empezar-issue`, `preparar-pr` y `cerrar-issue`; mientras no existan las demás, sigue sus pasos a mano.
+> Las 7 skills se crean en el milestone 0. Ya existen `crear-issue`, `estado-backlog`, `empezar-issue`, `tdd`, `preparar-pr` y `cerrar-issue`; mientras no existan las demás, sigue sus pasos a mano.
 
 ## Mapa de la documentación
 

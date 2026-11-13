@@ -23,9 +23,9 @@ Decidido en D-138, D-139 y D-140. Una sesión de Claude Code por issue, en el or
 | 6. Fusionar | Ella | — | *Squash and merge*. Claude solo si se lo autoriza expresamente en esa sesión |
 | 7. Cerrar | Claude | `cerrar-issue` | Comprueba que la PR está fusionada, actualiza `main` y borra la rama local (solo si su punta es la de la PR; la remota la borra GitHub). Comprueba que la issue está cerrada y en *Done*: si sigue abierta, avisa y no la cierra. Si es la última parte, cierra la madre. Lista lo que se desbloquea (para elegir está `estado-backlog`) y, si el milestone queda completo, propone cerrarlo (D-146) |
 
-Otras dos skills: `crear-issue`, cuando se pide algo nuevo, y `registrar-decision`, cuando se decide algo.
+Otras dos skills: `crear-issue`, cuando se pide algo nuevo, y `registrar-decision`, cuando se decide algo. Una decisión que sale dentro de una issue va en su rama; si sale fuera, se registra en una issue «Docs: registrar D-xx …» con su propia PR (D-149).
 
-> Las 7 skills se crean en el milestone 0. Ya existen `crear-issue`, `estado-backlog`, `empezar-issue`, `tdd`, `preparar-pr` y `cerrar-issue`; mientras no estén las demás, sus pasos se siguen a mano.
+> Las 7 skills están en `.claude/skills/`: `estado-backlog`, `empezar-issue`, `tdd`, `preparar-pr`, `cerrar-issue`, `crear-issue` y `registrar-decision`.
 
 Las skills viven en `.claude/skills/<nombre>/SKILL.md`. Se prueban en seco (D-142): antes de escribirlas se apuntan casos con lo que debe salir y después se recorre la skill con cada uno, mostrando los comandos que lanzaría sin ejecutarlos. El resultado va en la PR.
 
@@ -78,7 +78,7 @@ El hook de Git se activa una vez en cada clon con `git config core.hooksPath .gi
 ## Documentación
 
 - Una PR que cambia algo documentado actualiza su documento en la misma PR. La plantilla de PR lo pregunta y la [definición de hecho](definicion-de-hecho.md) lo exige.
-- Las decisiones nuevas van arriba de la tabla de `docs/decisiones.md` con el siguiente ID. Si son de arquitectura, además, un ADR nuevo en `docs/adr/` y una fila en su índice.
+- Las decisiones nuevas van arriba de la tabla de `docs/decisiones.md` con el siguiente ID (skill `registrar-decision`). Si son de arquitectura del producto, según la definición de [arquitectura.md](../arquitectura/arquitectura.md#qué-es-una-decisión-de-arquitectura), además, un ADR nuevo en `docs/adr/` y una fila en su índice.
 - Un ADR aceptado no se edita: se escribe uno nuevo que lo sustituye.
 - Los documentos de claude.ai (SRS, ADR, esquema, lienzo de diseño, pizarra del flujo) quedan como historia. La fuente de verdad es `docs/`.
 - Si hace falta una pantalla nueva, se diseña fuera del repositorio y se exporta a `docs/diseno/pantallas/` (PNG + HTML) antes de programarla.

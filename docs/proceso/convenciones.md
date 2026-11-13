@@ -45,7 +45,7 @@ El ámbito es el módulo (`sesion`, `tarjetas`, `escritura`, `sync`, `db`…). S
 
 ## Ramas
 
-`tipo/HU-xx-descripcion-corta` desde `main` actualizada; para una parte de una issue grande, `tipo/HU-xx-n-descripcion` (por ejemplo `feat/HU-12-1-fsrs`). Las tareas sin historia usan el número de la issue: `chore/7-skill-crear-issue`.
+`tipo/HU-xx-descripcion-corta` desde `main` actualizada; para una parte de una issue grande, `tipo/HU-xx-n-descripcion` (por ejemplo `feat/HU-12-1-fsrs`). Las tareas sin historia usan el número de la issue: `chore/3-skill-crear-issue`.
 
 ## Idiomas
 

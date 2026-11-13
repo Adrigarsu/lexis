@@ -25,7 +25,19 @@ Decidido en D-138, D-139 y D-140. Una sesión de Claude Code por issue, en el or
 
 Otras dos skills: `crear-issue`, cuando se pide algo nuevo, y `registrar-decision`, cuando se decide algo.
 
-> Las 7 skills se crean en el milestone 0, empezando por `crear-issue`. Hasta entonces, estos pasos se siguen a mano.
+> Las 7 skills se crean en el milestone 0. Ya existe `crear-issue`; mientras no estén las demás, sus pasos se siguen a mano.
+
+Las skills viven en `.claude/skills/<nombre>/SKILL.md`. Se prueban en seco (D-142): antes de escribirlas se apuntan casos con lo que debe salir y después se recorre la skill con cada uno, mostrando los comandos que lanzaría sin ejecutarlos. El resultado va en la PR.
+
+## Crear una issue
+
+La skill `crear-issue` convierte una petición en una issue lista para el backlog:
+
+1. Elige la plantilla de `.github/ISSUE_TEMPLATE/`, busca duplicados y lee la documentación relacionada.
+2. Redacta el cuerpo con las secciones del formulario (GitHub CLI no rellena formularios YAML), las etiquetas `tipo:`, `prio:`, `area:` y `epica:`, el milestone y las dependencias.
+3. Enseña el borrador con los huecos y sus opciones. No crea nada sin el visto bueno de la desarrolladora.
+4. Crea la issue, sus relaciones *blocked by* (y la de sub-issue si es una parte) y la añade al Project «Lexis» con Status `Todo`, la Prioridad de su etiqueta y el Tamaño confirmado (D-141): S, unas pocas horas; M, una PR normal; L, probablemente varias PR.
+5. Si es una **funcionalidad nueva**, abre además una rama `docs/<n>-descripcion` y una PR que añade su RF, su historia, su fila de trazabilidad y, si hace falta, su decisión. La PR lleva `Refs #<n>`, porque la issue sigue abierta hasta que se programe.
 
 ## Huecos durante el plan o el trabajo
 

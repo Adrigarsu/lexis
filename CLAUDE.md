@@ -31,7 +31,7 @@ Detalle en [docs/proceso/flujo-trabajo.md](docs/proceso/flujo-trabajo.md).
 
 Para pedir algo nuevo: skill `crear-issue`. Para apuntar una decisión: skill `registrar-decision`.
 
-> Las 7 skills se crean en el milestone 0. Ya existen `crear-issue`, `estado-backlog`, `empezar-issue`, `tdd`, `preparar-pr` y `cerrar-issue`; mientras no existan las demás, sigue sus pasos a mano.
+> Las 7 skills están en `.claude/skills/`. La skill `tdd` es solo para issues con código; las de skills y documentación siguen el plan aprobado (D-148).
 
 ## Mapa de la documentación
 
@@ -43,6 +43,7 @@ Lee solo lo que toca la issue. Índice completo en [docs/README.md](docs/README.
 | Requisitos RF y RNF | `docs/producto/requisitos.md` |
 | Qué RF, HU y decisiones van juntos | `docs/producto/trazabilidad.md` |
 | Por qué se eligió una tecnología | `docs/adr/` (índice en `docs/adr/README.md`) |
+| Si una decisión lleva ADR | `docs/arquitectura/arquitectura.md` («Qué es una decisión de arquitectura») |
 | Visión de la arquitectura | `docs/arquitectura/arquitectura.md` |
 | Rutas y acceso | `docs/arquitectura/rutas.md` |
 | Sincronización sin conexión | `docs/arquitectura/sincronizacion.md` |

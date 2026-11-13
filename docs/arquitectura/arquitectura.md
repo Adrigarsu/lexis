@@ -27,6 +27,27 @@ Dispositivo (PWA)
         └─ Sentry ──────── errores sin datos personales
 ```
 
+## Qué es una decisión de arquitectura
+
+Arquitectura es la arquitectura del producto (D-149). Una decisión es de arquitectura si cambia cómo está construido Lexis:
+
+- las tecnologías y servicios que usa, y cómo se reparten sus piezas (dispositivo, nube, servicios externos);
+- el modelo de datos y la sincronización;
+- los patrones que atraviesan varios módulos (estado, rutas, traducciones, PWA);
+- la seguridad y el rendimiento;
+- la estructura del repositorio;
+- la estrategia de pruebas y las convenciones del código.
+
+Estas decisiones llevan un ADR en [adr/](../adr/README.md), además de su fila en [decisiones.md](../decisiones.md).
+
+No son de arquitectura, y solo van a `decisiones.md`:
+
+- qué hace el producto (requisitos, historias, contenido);
+- cómo se ve (diseño, textos);
+- cómo se trabaja (flujo, skills, issues).
+
+La skill `registrar-decision` aplica esta definición.
+
 ## Decisiones
 
 Cada decisión está en su ADR: [lista completa](../adr/README.md). Las que más se consultan al programar:

@@ -17,11 +17,18 @@ Closes #
 
 ## Comprobaciones
 
-- [ ] Todas las pruebas pasan en local (lint, tipos, unitarias, componentes, integración, pgTAP si toca `supabase/`, build y E2E de humo).
-- [ ] Cada criterio de aceptación tiene al menos una prueba con el ID de la historia.
-- [ ] Accesibilidad: sin errores de axe, se usa con teclado y el foco se ve.
-- [ ] Documentación actualizada en esta PR (historia, requisitos, decisiones, ADR, pantallas), o no hacía falta.
+<!-- Resumen de la definición de hecho: docs/proceso/definicion-de-hecho.md. Marca lo que aplica y escribe «No aplica» en lo demás. -->
+
+- [ ] Rama `tipo/…` desde `main` actualizada; enlaza su issue (`Closes`, `Part of` o `Refs`).
+- [ ] Commits y título en Conventional Commits, a nombre de la desarrolladora.
 - [ ] Ningún commit, ni el título ni esta descripción llevan firmas o menciones de Claude.
+- [ ] Cada criterio de la issue está en «Cómo se ha probado».
+- [ ] Documentación actualizada en esta PR (historia, requisitos, decisiones, ADR, pantallas, índices), o no hacía falta.
+- [ ] Sin secretos ni datos personales.
+- [ ] Skills: prueba en seco con los casos escritos antes (D-142).
+- [ ] Si hay código: todas las pruebas pasan en local (lint, tipos, unitarias, componentes, integración, pgTAP si toca `supabase/`, build y E2E de humo).
+- [ ] Si hay código: cada criterio de aceptación tiene al menos una prueba con el ID de la historia.
+- [ ] Si hay interfaz: sin errores de axe, se usa con teclado y el foco se ve.
 
 ## Capturas
 

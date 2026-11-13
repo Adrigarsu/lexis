@@ -19,7 +19,7 @@ Decidido en D-138, D-139 y D-140. Una sesión de Claude Code por issue, en el or
 | 2. Empezar | Claude | `empezar-issue` | Comprueba que no está bloqueada, actualiza `main`, crea la rama y lee la issue, su historia, sus RF, ADR y pantallas |
 | 3. Planificar | Claude propone, ella decide | `empezar-issue` | En modo plan: pruebas por criterio, archivos, si hacen falta varias PR y cada hueco con opciones y la recomendada. Aprobado, deja una copia breve como comentario en la issue y la mueve a *In progress* |
 | 4. Programar | Claude | `tdd` | Criterio a criterio: prueba en rojo, código mínimo en verde, refactorizar. Un commit convencional por paso. Si aparece algo sin definir, para y pregunta con opciones |
-| 5. Preparar la PR | Claude | `preparar-pr` | Ejecuta todas las pruebas (si alguna falla, vuelve al paso 4), comprueba que no hay firmas, actualiza la documentación y abre la PR con la plantilla |
+| 5. Preparar la PR | Claude | `preparar-pr` | Ejecuta todas las pruebas (si alguna falla, vuelve al paso 4), comprueba la [definición de hecho](definicion-de-hecho.md) (sin firmas, documentación al día…) y abre la PR con la plantilla |
 | 6. Fusionar | Ella | — | *Squash and merge*. Claude solo si se lo autoriza expresamente en esa sesión |
 | 7. Cerrar | Claude | `cerrar-issue` | Actualiza `main`, borra la rama, comprueba que la issue (o la madre) está cerrada, mueve el Project y avisa de lo que se desbloquea |
 
@@ -77,7 +77,7 @@ El hook de Git se activa una vez en cada clon con `git config core.hooksPath .gi
 
 ## Documentación
 
-- Una PR que cambia algo documentado actualiza su documento en la misma PR. La plantilla de PR lo pregunta.
+- Una PR que cambia algo documentado actualiza su documento en la misma PR. La plantilla de PR lo pregunta y la [definición de hecho](definicion-de-hecho.md) lo exige.
 - Las decisiones nuevas van arriba de la tabla de `docs/decisiones.md` con el siguiente ID. Si son de arquitectura, además, un ADR nuevo en `docs/adr/` y una fila en su índice.
 - Un ADR aceptado no se edita: se escribe uno nuevo que lo sustituye.
 - Los documentos de claude.ai (SRS, ADR, esquema, lienzo de diseño, pizarra del flujo) quedan como historia. La fuente de verdad es `docs/`.

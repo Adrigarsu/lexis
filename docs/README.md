@@ -45,4 +45,4 @@ Fuente de verdad del producto desde el 12 de noviembre de 2026. Los documentos o
 | [decisiones.md](decisiones.md) | Registro D-01 a D-139 y siguientes |
 | [proceso/flujo-trabajo.md](proceso/flujo-trabajo.md) | Cómo se trabaja cada issue, varias PR, huecos, autoría |
 | [proceso/convenciones.md](proceso/convenciones.md) | Nombres, archivos, commits, ramas e idiomas |
-| `proceso/definicion-de-hecho.md` | Qué tiene que cumplir una PR para fusionarse (pendiente: issue del milestone 0) |
+| [proceso/definicion-de-hecho.md](proceso/definicion-de-hecho.md) | Qué tiene que cumplir una PR para fusionarse |

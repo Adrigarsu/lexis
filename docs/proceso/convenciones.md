@@ -45,7 +45,17 @@ El ámbito es el módulo (`sesion`, `tarjetas`, `escritura`, `sync`, `db`…). S
 
 ## Ramas
 
-`tipo/HU-xx-descripcion-corta` desde `main` actualizada; para una parte de una issue grande, `tipo/HU-xx-n-descripcion` (por ejemplo `feat/HU-12-1-fsrs`). Las tareas sin historia usan el número de la issue: `chore/3-skill-crear-issue`.
+`tipo/HU-xx-descripcion-corta` desde `main` actualizada; para una parte de una issue grande, `tipo/HU-xx-n-descripcion` (por ejemplo `feat/HU-12-1-fsrs`). Las issues sin historia usan su número: `chore/3-skill-crear-issue`. La descripción va en kebab-case, en español y sin tildes.
+
+El tipo depende de la plantilla de la issue (D-144). La rama la crea la skill `empezar-issue`.
+
+| Plantilla | Rama | Ejemplo |
+| --- | --- | --- |
+| Historia o funcionalidad | `feat/HU-xx-descripcion` | `feat/HU-12-valorar-tarjeta` |
+| Bug | `fix/<n>-descripcion`, o `fix/HU-xx-descripcion` si es de una historia | `fix/31-sesion-ultima-tarjeta` |
+| Tarea | `chore/<n>-descripcion`, o `ci/` o `build/` si encaja mejor | `chore/6-skill-empezar-issue` |
+| Documentación | `docs/<n>-descripcion` | `docs/4-definicion-de-hecho` |
+| Parte | la rama de la madre con el número de parte | `feat/HU-12-2-botones` |
 
 ## Idiomas
 

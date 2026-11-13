@@ -19,13 +19,13 @@ Decidido en D-138, D-139 y D-140. Una sesión de Claude Code por issue, en el or
 | 2. Empezar | Claude | `empezar-issue` | Comprueba que no está cerrada ni bloqueada. Si ya estaba empezada (rama, plan comentado o PR), la retoma: resume lo hecho y lo que queda, sin volver a planificar. Si no, actualiza `main`, crea la rama según la plantilla (D-144) y lee la issue, su historia, sus RF, ADR y pantallas |
 | 3. Planificar | Claude propone, ella decide | `empezar-issue` | En modo plan: pruebas por criterio, archivos, si hacen falta varias PR y cada hueco con opciones y la recomendada. Revisa el Tamaño si el plan no encaja con él. Aprobado, deja una copia breve como comentario en la issue, la mueve a *In progress*, ajusta el Tamaño y, si se parte, crea las sub-issues |
 | 4. Programar | Claude | `tdd` | Criterio a criterio: prueba en rojo, código mínimo en verde, refactorizar. Un commit convencional por paso. Si aparece algo sin definir, para y pregunta con opciones |
-| 5. Preparar la PR | Claude | `preparar-pr` | Ejecuta todas las pruebas (si alguna falla, vuelve al paso 4), comprueba la [definición de hecho](definicion-de-hecho.md) (sin firmas, documentación al día…) y abre la PR con la plantilla |
+| 5. Preparar la PR | Claude | `preparar-pr` | Pone la rama al día fusionando `main` (nunca rebase de una rama subida ni push forzado), ejecuta todas las pruebas (si alguna falla, vuelve al paso 4) y recorre la [definición de hecho](definicion-de-hecho.md). Comprueba que no hay firmas pasando commits, título y descripción por `.githooks/commit-msg`. Después enseña un resumen y, con su «sí», sube la rama y abre la PR con la plantilla (D-145) |
 | 6. Fusionar | Ella | — | *Squash and merge*. Claude solo si se lo autoriza expresamente en esa sesión |
 | 7. Cerrar | Claude | `cerrar-issue` | Actualiza `main`, borra la rama, comprueba que la issue (o la madre) está cerrada, mueve el Project y avisa de lo que se desbloquea |
 
 Otras dos skills: `crear-issue`, cuando se pide algo nuevo, y `registrar-decision`, cuando se decide algo.
 
-> Las 7 skills se crean en el milestone 0. Ya existen `crear-issue` y `empezar-issue`; mientras no estén las demás, sus pasos se siguen a mano.
+> Las 7 skills se crean en el milestone 0. Ya existen `crear-issue`, `empezar-issue` y `preparar-pr`; mientras no estén las demás, sus pasos se siguen a mano.
 
 Las skills viven en `.claude/skills/<nombre>/SKILL.md`. Se prueban en seco (D-142): antes de escribirlas se apuntan casos con lo que debe salir y después se recorre la skill con cada uno, mostrando los comandos que lanzaría sin ejecutarlos. El resultado va en la PR.
 

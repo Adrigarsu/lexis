@@ -10,6 +10,9 @@ Decidido en D-138, D-139 y D-140. Una sesión de Claude Code por issue, en el or
 - **Dependencias:** con la relación nativa *blocked by* de GitHub, no con etiquetas.
 - **Project «Lexis»:** vista *Backlog* (por milestone y prioridad, con bloqueos y progreso de sub-issues) y vista *Tablero* (por estado).
 - **`main` protegida:** solo por PR, historial lineal, sin force push ni borrado, y solo *squash merge*. Los checks del CI pasan a ser obligatorios cuando existen.
+  - Lo aplica el *ruleset* «main» del repositorio (Settings → Rules), sin excepciones: tampoco la administradora puede saltárselo.
+  - El repositorio, además, solo permite *squash merge* y borra la rama al fusionar.
+  - Para comprobarlo: `gh api repos/Adrigarsu/lexis/rules/branches/main`. La API de protección clásica (`branches/main/protection`) responde «Branch not protected» aunque `main` esté protegida, porque no ve los rulesets.
 
 ## Las 7 fases de una issue
 

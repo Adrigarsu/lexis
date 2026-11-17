@@ -27,3 +27,4 @@ Formato de Michael Nygard: **contexto**, **decisión** y **consecuencias**. Un A
 | [ADR-021](0021-estrategia-de-pruebas-con-tdd.md) | Estrategia de pruebas con TDD | Calidad | Aceptado | D-133 |
 | [ADR-022](0022-esquema-de-datos.md) | Esquema de datos | Datos | Aceptado | D-134, D-135 |
 | [ADR-023](0023-sincronizacion-sin-conexion.md) | Sincronización sin conexión | Datos | Aceptado | D-136 |
+| [ADR-024](0024-pnpm-sin-corepack.md) | pnpm sin Corepack | Repositorio | Aceptado | D-150 |

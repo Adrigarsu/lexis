@@ -51,23 +51,23 @@ Lee `docs/proceso/definicion-de-hecho.md` cada vez: es la fuente de verdad y cam
   ```sh
   git diff --name-only origin/main...HEAD
   ```
-  Por ejemplo: `docs/` → solo documentación; `.claude/skills/` → skills; `.claude/settings.json`, `.claude/hooks/` o `.githooks/` → ajustes y hooks; `.github/` → plantillas.
+  Por ejemplo: `docs/` → solo documentación; `.claude/skills/` → skills; `.claude/settings.json`, `.claude/hooks/`, `lefthook.yml` o `.lefthook/` → ajustes y hooks; `.github/` → plantillas.
 
 Lo que no se cumpla se arregla **en la rama**, con su commit convencional, antes de seguir. Puede ser documentación sin actualizar, una decisión sin registrar, un criterio sin prueba o un enlace roto. Si arreglarlo cambia código, vuelve al paso 3.
 
 ## 5. Firmas
 
-Pasa cada mensaje de commit de la rama por el hook de Git (`.githooks/commit-msg`), que tiene la lista de firmas en un solo sitio:
+Pasa cada mensaje de commit de la rama por el script de firmas de Lefthook (`.lefthook/commit-msg/check-signature.sh`), que tiene la lista de firmas en un solo sitio (D-153):
 
 ```sh
 S=<directorio scratchpad>
 for c in $(git rev-list origin/main..HEAD); do
   git log -1 --format=%B "$c" > "$S/msg-$c.txt"
-  sh .githooks/commit-msg "$S/msg-$c.txt" || echo "Firma en $c"
+  sh .lefthook/commit-msg/check-signature.sh "$S/msg-$c.txt" || echo "Firma en $c"
 done
 ```
 
-Comprueba también que todos los commits son de la desarrolladora (`git log --format='%h %an <%ae>' origin/main..HEAD`) y que el hook está activo (`git config core.hooksPath` → `.githooks`).
+Comprueba también que todos los commits son de la desarrolladora (`git log --format='%h %an <%ae>' origin/main..HEAD`) y que Lefthook está instalado: `grep -q lefthook "$(git rev-parse --git-path hooks)/commit-msg"`. Si no lo está, `pnpm install` lo instala (script `prepare`).
 
 **Si un commit lleva firma:**
 
@@ -84,7 +84,7 @@ Comprueba también que todos los commits son de la desarrolladora (`git log --fo
   - **Comprobaciones:** marca lo que se cumple y escribe _No aplica_ en lo demás.
   - **Capturas:** solo si cambia la interfaz.
   - **Decisiones tomadas por el camino:** los huecos y su respuesta, con las D nuevas.
-- Escribe el título y el cuerpo en un archivo del _scratchpad_ y pásalo por `sh .githooks/commit-msg <archivo>`, igual que los commits.
+- Escribe el título y el cuerpo en un archivo del _scratchpad_ y pásalo por `sh .lefthook/commit-msg/check-signature.sh <archivo>`, igual que los commits.
 
 ## 7. Resumen y confirmación
 

@@ -1,6 +1,11 @@
 packages:
   - apps/*
   - packages/*
+  - e2e
+
+# lefthook is installed by the root "prepare" script, not by its own postinstall (D-155).
+allowBuilds:
+  lefthook: false
 
 peerDependencyRules:
   allowedVersions:

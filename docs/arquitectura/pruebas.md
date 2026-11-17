@@ -10,7 +10,7 @@ TDD repite un ciclo corto: **rojo** (escribir una prueba que falla), **verde** (
 2. Para hacerla pasar, cada pieza de lógica que falta se escribe con su propio ciclo rojo-verde-refactorizar de pruebas unitarias.
 3. La historia está terminada cuando todas sus pruebas de aceptación están en verde y el CI pasa.
 
-Cada prueba lleva el ID de su historia en el nombre (`HU-12 rates the card with keys 1-4`), así la matriz de trazabilidad llega hasta el código. Las pruebas de humo de infraestructura, que no pertenecen a ninguna historia, no llevan ID (D-156). Excepciones a TDD: los ajustes puramente visuales y los experimentos desechables (_spikes_), que se tiran y se reescriben con TDD si se quedan.
+Cada prueba lleva el ID de su historia en el nombre (`HU-12 rates the card with keys 1-4`), así la matriz de trazabilidad llega hasta el código. Las pruebas de humo de infraestructura, que no pertenecen a ninguna historia, no llevan ID (D-157). Excepciones a TDD: los ajustes puramente visuales y los experimentos desechables (_spikes_), que se tiran y se reescriben con TDD si se quedan.
 
 ## Qué se prueba en cada nivel
 
@@ -25,11 +25,13 @@ Cada prueba lleva el ID de su historia en el nombre (`HU-12 rates the card with 
 
 Además, antes de cada versión se revisa a mano con VoiceOver (RNF-21), porque ninguna herramienta automática detecta todos los problemas de accesibilidad.
 
+Las pruebas E2E viven en el paquete `e2e/` (D-156). Playwright compila la app y la sirve con `vite preview`, igual que se publica. Las pruebas de humo llevan la etiqueta `@humo`: `pnpm test:e2e` ejecuta solo esas en Chromium, y `pnpm test:e2e:full`, todas en Chromium y WebKit.
+
 Orden en el CI: lint y tipos → unitarias, componentes e integración → base de datos → build → E2E de humo y Lighthouse. Si un paso falla, los siguientes no corren. La cobertura se mide con Vitest y se exige el 80 % solo en `lib/`, `db/`, `sync/` y los hooks de cada funcionalidad.
 
 ## Cómo se ejecutan
 
-Configuración en D-156 y [ADR-026](../adr/0026-entorno-de-vitest.md).
+Configuración en D-157 y [ADR-026](../adr/0026-entorno-de-vitest.md).
 
 | Comando                | Qué hace                                                                                       |
 | ---------------------- | ---------------------------------------------------------------------------------------------- |

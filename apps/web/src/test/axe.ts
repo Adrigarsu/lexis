@@ -5,7 +5,7 @@ import axe from 'axe-core';
  *
  * jsdom computes no layout or styles, so axe reports color-contrast as
  * incomplete, never as a violation. Playwright + axe and Lighthouse check
- * contrast in a real browser (D-156).
+ * contrast in a real browser (D-157).
  */
 export async function expectNoAxeViolations(container: Element): Promise<void> {
   const { violations } = await axe.run(container);

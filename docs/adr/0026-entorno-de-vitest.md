@@ -2,7 +2,7 @@
 
 - **Estado:** Aceptado
 - **Fecha:** 2026-11-17
-- **Registro:** D-156
+- **Registro:** D-157
 
 - **Contexto:** ADR-021 eligió Vitest, Testing Library y axe para las pruebas unitarias, de componentes y de integración, y D-75 pide un 80 % de cobertura en la lógica principal. Al montarlos aparecen cuatro límites:
   - Vitest mide la cobertura de toda la ejecución, no de cada paquete;

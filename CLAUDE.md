@@ -66,4 +66,4 @@ Accesibilidad WCAG 2.2 AA en todo: es un requisito, no un extra.
 
 ## Estado actual
 
-Milestone 0 · Organización del repositorio (D-139): todavía no hay código de la app ni base de datos (D-137). El esqueleto del monorepo, el CI, Supabase y la primera migración llegan en el milestone 1 · Cimientos técnicos. Comandos raíz previstos (ADR-019): `pnpm dev`, `pnpm build`, `pnpm lint`, `pnpm typecheck`, `pnpm test`, `pnpm test:e2e` y `pnpm format`.
+Milestone 1 · Cimientos técnicos. El esqueleto del monorepo está montado (#22): `apps/web` es una página mínima con Vite y React, y los cuatro `packages/` están vacíos. pnpm se fija en `packageManager`, sin Corepack (ADR-024). Hoy funcionan `pnpm install`, `pnpm dev` y `pnpm build`. Los demás comandos raíz de ADR-019 llegan con sus issues: `lint`, `typecheck` y `format` (#23), `test` (#25) y `test:e2e` (#26). Todavía no hay CI, Supabase ni base de datos.

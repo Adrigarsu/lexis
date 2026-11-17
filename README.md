@@ -29,6 +29,21 @@ pnpm dev                              # arranca la app en http://localhost:5173
 pnpm build                            # compila todos los paquetes
 ```
 
+### Base de datos local (Supabase)
+
+Hace falta [Docker Desktop](https://www.docker.com/products/docker-desktop/) abierto. La CLI de Supabase viene con `pnpm install`, en la versión fijada en el `package.json` (D-158). La primera vez, `supabase start` descarga las imágenes de Docker y tarda unos minutos.
+
+```bash
+pnpm exec supabase start              # levanta Postgres, Auth, Storage y Studio en local
+pnpm exec supabase status             # URL, claves locales y Studio (http://127.0.0.1:55323)
+pnpm test:db                          # pruebas pgTAP de supabase/tests
+pnpm exec supabase stop               # para los contenedores
+```
+
+Lexis usa los puertos 553xx (API en 55321, Postgres en 55322 y Studio en 55323) en lugar de los 543xx de Supabase, para poder convivir con otros proyectos de Supabase locales. Si otro proyecto ocupa un puerto, `supabase start` falla con «port is already allocated»: páralo con `pnpm exec supabase stop --project-id <nombre>`.
+
+Las variables de entorno van en un `.env.local` en la raíz, copiado de [`.env.example`](.env.example). En local, sus valores salen de `supabase status`. Los archivos `.env` nunca se suben al repositorio. El proyecto de Supabase en la nube todavía no existe: se creará con la issue que conecte la app.
+
 `pnpm install` instala también los hooks de Git con Lefthook: en cada commit, commitlint revisa el mensaje, se rechaza cualquier firma de Claude, Prettier formatea los archivos preparados y ESLint los comprueba. Los demás comandos (`pnpm lint`, `pnpm typecheck`, `pnpm format`…) están en [convenciones.md](docs/proceso/convenciones.md#comandos).
 
 ### Si tu clon tenía `.githooks`

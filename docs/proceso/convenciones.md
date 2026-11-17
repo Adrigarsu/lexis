@@ -36,6 +36,7 @@ Se lanzan desde la raíz del repositorio. La configuración de TypeScript, ESLin
 | `pnpm test:coverage` | Lo mismo, midiendo la cobertura con v8. Falla si `lib/`, `db/`, `sync/` o los hooks bajan del 80 % (D-75, D-157)                                                  | Antes de abrir una PR y en el CI   |
 | `pnpm test:e2e`      | Prueba de humo (`@humo`) con Playwright + axe en Chromium. Compila la app y la sirve con `vite preview` (D-156). Los navegadores se instalan antes: ver el README | Antes de abrir una PR y en el CI   |
 | `pnpm test:e2e:full` | Todas las pruebas E2E en Chromium y WebKit                                                                                                                        | Cada noche y antes de cada versión |
+| `pnpm test:db`       | Pruebas pgTAP de `supabase/tests` contra la base local. Necesita Docker Desktop y `pnpm exec supabase start` (D-158)                                              | Cada PR que toca `supabase/`       |
 
 Un paquete nuevo con código añade un `tsconfig.json` que extiende `@lexis/config/tsconfig.base.json` y un script `"typecheck": "tsc"`. ESLint lo cubre solo, porque se ejecuta desde la raíz.
 

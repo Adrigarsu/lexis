@@ -1,0 +1,2 @@
+-- Seed data for the local database, loaded by `supabase start` and `supabase db reset`.
+-- Empty until the first migration (#30).

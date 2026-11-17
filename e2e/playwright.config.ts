@@ -1,7 +1,7 @@
 import { defineConfig, devices } from '@playwright/test';
 
 // The app is built and served with `vite preview`, so the tests run against
-// the same files that get deployed (D-155).
+// the same files that get deployed (D-156).
 const PORT = 4173;
 const isCI = Boolean(process.env.CI);
 

@@ -27,13 +27,13 @@ Registra decisiones en `docs/decisiones.md` y, si son de arquitectura, en un ADR
 
 Lee la cabecera y las primeras filas de `docs/decisiones.md`:
 
-| Columna | Qué va |
-| --- | --- |
-| **ID** | El más alto de la tabla + 1 (la tabla va de la más nueva a la más antigua: el primero es el más alto) |
-| **Fecha** | Hoy, `AAAA-MM-DD` |
-| **Decisión** | Lo decidido, en frases completas y sin ambigüedad. Si son varios puntos, numerados: (1) …; (2) … |
-| **Motivo** | Quién decide y por qué, con la issue: «Decisión de la desarrolladora al planificar la issue #N. …» |
-| **Estado** | `Aceptada` |
+| Columna      | Qué va                                                                                                |
+| ------------ | ----------------------------------------------------------------------------------------------------- |
+| **ID**       | El más alto de la tabla + 1 (la tabla va de la más nueva a la más antigua: el primero es el más alto) |
+| **Fecha**    | Hoy, `AAAA-MM-DD`                                                                                     |
+| **Decisión** | Lo decidido, en frases completas y sin ambigüedad. Si son varios puntos, numerados: (1) …; (2) …      |
+| **Motivo**   | Quién decide y por qué, con la issue: «Decisión de la desarrolladora al planificar la issue #N. …»    |
+| **Estado**   | `Aceptada`                                                                                            |
 
 Dentro de una celda, evita `|` y saltos de línea, que rompen la tabla.
 

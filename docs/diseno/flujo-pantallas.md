@@ -30,9 +30,9 @@ Barra inferior en las pantallas principales: Hoy · Practicar · Progreso · Per
   - → Calentamiento de tonos (si está activado)
 - **Calentamiento de tonos (si está activado)**
   - → Ficha de componente (禾)
-- **Ficha de componente (禾)** *(nueva)*
+- **Ficha de componente (禾)** _(nueva)_
   - → Ficha de carácter (租)
-- **Ficha de carácter (租)** *(nueva)*
+- **Ficha de carácter (租)** _(nueva)_
   - → Ficha de palabra (出租车)
 - **Ficha de palabra (出租车)**
   - → Tarjeta de significado pregunta → respuesta
@@ -87,7 +87,7 @@ Barra inferior en las pantallas principales: Hoy · Practicar · Progreso · Per
 - **Preguntas**
   - → Lectura terminada
 - **Lectura terminada**
-- **Mi texto (privado)** *(nueva)*
+- **Mi texto (privado)** _(nueva)_
   - → Lectura
 - **Mis listas**
   - → Lista: añadir y quitar palabras
@@ -95,7 +95,7 @@ Barra inferior en las pantallas principales: Hoy · Practicar · Progreso · Per
 - **Lista: añadir y quitar palabras**
   - → Crear tarjeta propia
 - **Crear tarjeta propia**
-- **Importar caracteres (privado)** *(nueva)*
+- **Importar caracteres (privado)** _(nueva)_
   - → Lista: añadir y quitar palabras
 
 ### Progreso y perfil (barra inferior)
@@ -137,9 +137,9 @@ Barra inferior en las pantallas principales: Hoy · Practicar · Progreso · Per
   - → Calentamiento de tonos (si está activado)
 - **Calentamiento de tonos (si está activado)**
   - → Ficha de componente (禾)
-- **Ficha de componente (禾)** *(nueva)*
+- **Ficha de componente (禾)** _(nueva)_
   - → Ficha de carácter (租)
-- **Ficha de carácter (租)** *(nueva)*
+- **Ficha de carácter (租)** _(nueva)_
   - → Ficha de palabra (出租车)
 - **Ficha de palabra (出租车)**
   - → Tarjeta de significado pregunta → respuesta
@@ -194,7 +194,7 @@ Barra inferior en las pantallas principales: Hoy · Practicar · Progreso · Per
 - **Preguntas**
   - → Lectura terminada
 - **Lectura terminada**
-- **Mi texto (privado)** *(nueva)*
+- **Mi texto (privado)** _(nueva)_
   - → Lectura
 - **Mis listas**
   - → Lista elegida (misma página)
@@ -202,7 +202,7 @@ Barra inferior en las pantallas principales: Hoy · Practicar · Progreso · Per
 - **Lista elegida (misma página)**
   - → Crear tarjeta propia (diálogo)
 - **Crear tarjeta propia (diálogo)**
-- **Importar caracteres (privado)** *(nueva)*
+- **Importar caracteres (privado)** _(nueva)_
   - → Lista elegida (misma página)
 
 ### Progreso y perfil
@@ -226,10 +226,10 @@ Barra inferior en las pantallas principales: Hoy · Practicar · Progreso · Per
 - **Editar palabra**
 - **Caracteres y radicales**
   - → Editar carácter
-- **Editar carácter** *(nueva)*
+- **Editar carácter** _(nueva)_
 - **Gramática**
   - → Editar punto gramatical
-- **Editar punto gramatical** *(nueva)*
+- **Editar punto gramatical** _(nueva)_
 - **Administración (desde Perfil y ajustes)**
   - → Resumen
   - → Palabras

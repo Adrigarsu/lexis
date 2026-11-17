@@ -64,13 +64,13 @@ La prueba de aceptación sigue en rojo mientras tanto, y es normal.
 ## 3. Commits
 
 - Conventional Commits (`docs/proceso/convenciones.md`): `tipo(ámbito): descripción`, en español, en presente e imperativo y sin punto final. El ámbito es el módulo (`sesion`, `tarjetas`, `sync`, `db`…).
-- Un commit por paso del ciclo. Un commit en rojo es válido en la rama: `main` solo recibe el *squash* de la PR, que ya está en verde.
+- Un commit por paso del ciclo. Un commit en rojo es válido en la rama: `main` solo recibe el _squash_ de la PR, que ya está en verde.
 - Código, nombres y comentarios en inglés; textos de la interfaz en los archivos de traducción, nunca en el código (RNF-33).
 
 ## 4. Excepciones (`pruebas.md`)
 
 - **Ajustes puramente visuales** (espaciado, color con los tokens): no llevan prueba nueva, pero las pruebas de axe tienen que seguir pasando.
-- **Experimentos desechables** (*spikes*): se hacen fuera de la rama o se descartan. Si la idea se queda, se reescribe con TDD desde el rojo.
+- **Experimentos desechables** (_spikes_): se hacen fuera de la rama o se descartan. Si la idea se queda, se reescribe con TDD desde el rojo.
 
 ## 5. Al terminar los criterios
 

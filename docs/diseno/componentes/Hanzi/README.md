@@ -6,8 +6,8 @@ Cualquier texto en chino de la app: caracteres con su pinyin en ruby debajo de c
 
 ```html
 <ruby class="lx-hz lx-hz--xl" lang="zh-Hans">
-  <span class="t3">你</span><rt class="t3">nǐ</rt>
-  <span class="t3">好</span><rt class="t3">hǎo</rt>
+  <span class="t3">你</span><rt class="t3">nǐ</rt> <span class="t3">好</span
+  ><rt class="t3">hǎo</rt>
 </ruby>
 ```
 
@@ -17,14 +17,14 @@ Cualquier texto en chino de la app: caracteres con su pinyin en ruby debajo de c
 
 ## Ajustes del usuario (clases en un contenedor)
 
-| Ajuste | Clase |
-| --- | --- |
-| Colores solo en el pinyin (por defecto) | ninguna |
-| Colores en pinyin y caracteres | `lx-tones-all` |
-| Sin colores | `lx-tones-off` |
-| Fuente Hei o Song (Kai por defecto, D-106) | `lx-font-hei`, `lx-font-song` |
-| Opacidad del pinyin | variable `--lx-pinyin-opacity` (de 0.1 a 1) |
-| Pinyin oculto | quitar los `<rt>` del árbol, no solo ocultarlos |
+| Ajuste                                     | Clase                                           |
+| ------------------------------------------ | ----------------------------------------------- |
+| Colores solo en el pinyin (por defecto)    | ninguna                                         |
+| Colores en pinyin y caracteres             | `lx-tones-all`                                  |
+| Sin colores                                | `lx-tones-off`                                  |
+| Fuente Hei o Song (Kai por defecto, D-106) | `lx-font-hei`, `lx-font-song`                   |
+| Opacidad del pinyin                        | variable `--lx-pinyin-opacity` (de 0.1 a 1)     |
+| Pinyin oculto                              | quitar los `<rt>` del árbol, no solo ocultarlos |
 
 - La marca del tono (ā á ǎ à) va siempre en el pinyin: el color nunca es la única pista.
 - Si un carácter se lee distinto en esa palabra (D-84), su `<rt>` lleva además `lx-reading-change`, que lo subraya, y la ficha añade la nota «aquí se lee háng».

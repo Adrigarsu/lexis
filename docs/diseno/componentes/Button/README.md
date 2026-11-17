@@ -4,14 +4,14 @@ Acciones que el usuario pulsa. Cinco variantes con la misma altura mínima de 44
 
 ## Variantes
 
-| Clase | Cuándo |
-| --- | --- |
-| `lx-btn--primary` | La acción principal de la pantalla: «Estudiar hoy», «Comprobar», «Guardar tarjeta». Una sola por pantalla. Alto `control-h-lg` (52px), fondo `jade`, texto `on-jade`. |
-| `lx-btn--secondary` | Acciones de apoyo: «Más lento», «Cancelar», «Instalar». Fondo `surface`, borde `line-strong`. |
-| `lx-btn--text` | Enlaces con aspecto de acción dentro de un texto o al pie: «Ver todas las lecturas». Texto `jade` subrayado. |
-| `lx-btn--danger` | Acciones destructivas que abren una confirmación: «Borrar cuenta…», «Borrar lista». |
-| `lx-btn--icon` | Botones solo de icono (ajustes, cerrar, más opciones). Siempre con `aria-label`. |
-| `lx-btn--audio` | Reproducir audio. Redondo (`radius-pill`). `aria-pressed="true"` mientras suena. |
+| Clase               | Cuándo                                                                                                                                                                |
+| ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `lx-btn--primary`   | La acción principal de la pantalla: «Estudiar hoy», «Comprobar», «Guardar tarjeta». Una sola por pantalla. Alto `control-h-lg` (52px), fondo `jade`, texto `on-jade`. |
+| `lx-btn--secondary` | Acciones de apoyo: «Más lento», «Cancelar», «Instalar». Fondo `surface`, borde `line-strong`.                                                                         |
+| `lx-btn--text`      | Enlaces con aspecto de acción dentro de un texto o al pie: «Ver todas las lecturas». Texto `jade` subrayado.                                                          |
+| `lx-btn--danger`    | Acciones destructivas que abren una confirmación: «Borrar cuenta…», «Borrar lista».                                                                                   |
+| `lx-btn--icon`      | Botones solo de icono (ajustes, cerrar, más opciones). Siempre con `aria-label`.                                                                                      |
+| `lx-btn--audio`     | Reproducir audio. Redondo (`radius-pill`). `aria-pressed="true"` mientras suena.                                                                                      |
 
 Añade `lx-btn--block` para que ocupe todo el ancho (pie de pantallas móviles).
 

@@ -40,7 +40,7 @@ Si `git switch` falla porque hay cambios sin guardar, para y pregunta qué hacer
 
 ## 4. Borrar la rama
 
-**Local.** Con *squash and merge*, `git branch -d` no reconoce la rama como fusionada. Bórrala con `-D` **solo** si su último commit es el último de la PR:
+**Local.** Con _squash and merge_, `git branch -d` no reconoce la rama como fusionada. Bórrala con `-D` **solo** si su último commit es el último de la PR:
 
 ```sh
 test "$(git rev-parse <rama>)" = "<headRefOid>" && git branch -D <rama>
@@ -57,17 +57,17 @@ Si no coincide, la rama tiene commits que no entraron en la PR. No la borres: en
   ```sh
   gh issue view <madre> --json subIssues --jq '.subIssues.nodes[] | "#\(.number) \(.state)"'
   ```
-  Si todas las sub-issues están cerradas, esta era la última parte. Como dice `flujo-trabajo.md`, cierra la madre con `gh issue close <madre> --comment "Todas sus partes están fusionadas."` (pide permiso) y comprueba que pasa a *Done*. Si quedan partes abiertas, dilo: la siguiente parte se empieza con `empezar-issue`.
+  Si todas las sub-issues están cerradas, esta era la última parte. Como dice `flujo-trabajo.md`, cierra la madre con `gh issue close <madre> --comment "Todas sus partes están fusionadas."` (pide permiso) y comprueba que pasa a _Done_. Si quedan partes abiertas, dilo: la siguiente parte se empieza con `empezar-issue`.
 
 ## 6. Project
 
-La automatización del Project pasa a *Done* las issues cerradas. Compruébalo:
+La automatización del Project pasa a _Done_ las issues cerradas. Compruébalo:
 
 ```sh
 gh project item-list 5 --owner Adrigarsu --format json --jq '.items[] | select(.content.number==N) | .status'
 ```
 
-Si no está en *Done*, pásala con `gh project item-edit`. Los IDs se leen con `gh project field-list 5 --owner Adrigarsu --format json`, como en `empezar-issue`.
+Si no está en _Done_, pásala con `gh project item-edit`. Los IDs se leen con `gh project field-list 5 --owner Adrigarsu --format json`, como en `empezar-issue`.
 
 ## 7. Lo que se desbloquea
 

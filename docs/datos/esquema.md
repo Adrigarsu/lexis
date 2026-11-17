@@ -30,20 +30,20 @@ Cada flecha va de una tabla a la que depende de ella. `practice` apunta a una pa
 
 El contenido de Lexis lo editan Editor y Admin y lo leen todos los usuarios cuando está publicado. El contenido propio (`owner_id` con valor) solo lo ve y lo edita su dueño. Las tablas `custom_card` y `custom_list` de la fase 3 desaparecen: una tarjeta propia es una `word` con dueño, y una lista es un `course` con dueño.
 
-| Tabla | Para qué | Columnas clave |
-| --- | --- | --- |
-| `course` | Curso, conjunto o lista | `owner_id`, `kind` (hsk, thematic, extra, components, user_list, user_import), `level`, `title` jsonb, `sort_order`, `status` (draft, published) |
-| `course_item` | Elemento de un curso, en orden | `course_id`, una de `word_id`, `character_id`, `grammar_point_id`, `reading_id`, `sort_order`; único por curso y elemento |
-| `character` | Carácter o componente | `owner_id`, `hanzi`, `kind` (character, component), `standalone` (el componente se usa también como carácter), `pinyin` (lectura común), `meaning` jsonb, `radical_id`, `stroke_count`, `strokes_key` (archivo de trazos en Vercel), `status` |
-| `character_component` | Qué piezas forman cada carácter | `character_id`, `component_id`, `role` (meaning, sound, form), `position` |
-| `word` | Palabra | `owner_id`, `hanzi`, `pinyin`, `hsk_level`, `audio_key`, `status`; única por `hanzi` y `pinyin` en el contenido común |
-| `word_sense` | Acepciones de una palabra (D-83) | `word_id`, `sort_order`, `part_of_speech`, `meaning` jsonb, `example_hanzi`, `example_pinyin`, `example_translation` jsonb |
-| `word_character` | Caracteres de cada palabra, en orden (D-84) | `word_id`, `position`, `character_id`, `pinyin` (lectura en esa palabra) |
-| `grammar_point` | Punto gramatical | `hsk_level`, `sort_order`, `title` jsonb, `structure`, `explanation` jsonb, `status` |
-| `grammar_point_word` | Vocabulario que desbloquea un punto | `grammar_point_id`, `word_id` |
-| `exercise` | Ejercicio de gramática | `grammar_point_id`, `type` (los 11 de la tabla 3.5.1), `level` 1 a 4 (D-110), `payload` jsonb validado con Zod, `status` |
-| `reading` | Lectura de Lexis o texto propio | `owner_id`, `title`, `topic`, `body`, `sentence_translations` jsonb, `char_count` (calculado), `status` |
-| `reading_question` | Pregunta de comprensión | `reading_id`, `sort_order`, `prompt` jsonb, `options` jsonb, `correct_index`, `evidence_sentence` |
+| Tabla                 | Para qué                                    | Columnas clave                                                                                                                                                                                                                                |
+| --------------------- | ------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `course`              | Curso, conjunto o lista                     | `owner_id`, `kind` (hsk, thematic, extra, components, user_list, user_import), `level`, `title` jsonb, `sort_order`, `status` (draft, published)                                                                                              |
+| `course_item`         | Elemento de un curso, en orden              | `course_id`, una de `word_id`, `character_id`, `grammar_point_id`, `reading_id`, `sort_order`; único por curso y elemento                                                                                                                     |
+| `character`           | Carácter o componente                       | `owner_id`, `hanzi`, `kind` (character, component), `standalone` (el componente se usa también como carácter), `pinyin` (lectura común), `meaning` jsonb, `radical_id`, `stroke_count`, `strokes_key` (archivo de trazos en Vercel), `status` |
+| `character_component` | Qué piezas forman cada carácter             | `character_id`, `component_id`, `role` (meaning, sound, form), `position`                                                                                                                                                                     |
+| `word`                | Palabra                                     | `owner_id`, `hanzi`, `pinyin`, `hsk_level`, `audio_key`, `status`; única por `hanzi` y `pinyin` en el contenido común                                                                                                                         |
+| `word_sense`          | Acepciones de una palabra (D-83)            | `word_id`, `sort_order`, `part_of_speech`, `meaning` jsonb, `example_hanzi`, `example_pinyin`, `example_translation` jsonb                                                                                                                    |
+| `word_character`      | Caracteres de cada palabra, en orden (D-84) | `word_id`, `position`, `character_id`, `pinyin` (lectura en esa palabra)                                                                                                                                                                      |
+| `grammar_point`       | Punto gramatical                            | `hsk_level`, `sort_order`, `title` jsonb, `structure`, `explanation` jsonb, `status`                                                                                                                                                          |
+| `grammar_point_word`  | Vocabulario que desbloquea un punto         | `grammar_point_id`, `word_id`                                                                                                                                                                                                                 |
+| `exercise`            | Ejercicio de gramática                      | `grammar_point_id`, `type` (los 11 de la tabla 3.5.1), `level` 1 a 4 (D-110), `payload` jsonb validado con Zod, `status`                                                                                                                      |
+| `reading`             | Lectura de Lexis o texto propio             | `owner_id`, `title`, `topic`, `body`, `sentence_translations` jsonb, `char_count` (calculado), `status`                                                                                                                                       |
+| `reading_question`    | Pregunta de comprensión                     | `reading_id`, `sort_order`, `prompt` jsonb, `options` jsonb, `correct_index`, `evidence_sentence`                                                                                                                                             |
 
 **Orden componente → carácter → palabra (D-127):** sale de `word_character` y `character_component`. Para introducir 出租车, la app busca sus caracteres y, de cada uno, sus componentes; introduce primero los que el usuario aún no tiene en `practice`. Ningún orden se guarda dos veces.
 
@@ -53,17 +53,17 @@ El contenido de Lexis lo editan Editor y Admin y lo leen todos los usuarios cuan
 
 Cada fila lleva `user_id` y solo la ve su dueño. Los historiales (`review_log`, `reading_attempt`, `tone_attempt`) solo crecen: nunca se editan ni se borran, salvo al borrar la cuenta. Sincronizarlos es juntar filas, sin conflictos (D-72).
 
-| Tabla | Para qué | Columnas clave |
-| --- | --- | --- |
-| `profile` | Uno por cuenta de Auth | `id` (= `auth.users.id`), `username` único sin distinguir mayúsculas, `age_confirmed_at`, `privacy_accepted_at`, `timezone`, `minutes_per_day`, `new_per_day`, `rest_days_per_week`, `study_settings` jsonb, `updated_at` |
-| `reminder` | Los 4 recordatorios (RF-64) | `user_id`, `type` (daily, streak_risk, weekly, backlog), `enabled`, `local_time`; clave `(user_id, type)` |
-| `practice` | Una por elemento y habilidad | `user_id`, una de `word_id`, `character_id`, `grammar_point_id`; `skill` (meaning, writing, pronunciation, grammar); caché FSRS: `state`, `stability`, `difficulty`, `due_at`, `last_review_at`, `reps`, `lapses`; nivel adaptativo: `level` 1 a 4, `streak`; `introduced_at`, `unlocked_at` |
-| `review_log` | Cada repaso, solo se añade | `practice_id`, `user_id`, `reviewed_at`, `rating` 1 a 4, `rating_source` (user, auto, auto_corrected), `answer_mode`, `level`, `duration_ms`, `details` jsonb (trazos fallados, pista usada) |
-| `reading_attempt` | Cada lectura terminada | `reading_id`, `completed_at`, `correct`, `total`, `duration_s`; velocidad calculada |
-| `tone_attempt` | Cada respuesta de tono (RF-38) | `syllable`, `expected_tone`, `chosen_tone`, `exercise_type`, `answered_at` |
-| `push_subscription` | Un navegador suscrito a Web Push | `endpoint` único, `p256dh`, `auth`, `user_agent` |
-| `notification_log` | Avisos enviados, para el máximo de 2 al día | `type`, `sent_at`; solo la escribe la Edge Function |
-| `content_report` | Error de contenido reportado | `reporter_id`, uno de `word_id`, `character_id`, `grammar_point_id`, `reading_id`, `exercise_id`; `reason`, `message`, `status` (open, resolved), `reply`, `resolved_by` |
+| Tabla               | Para qué                                    | Columnas clave                                                                                                                                                                                                                                                                               |
+| ------------------- | ------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `profile`           | Uno por cuenta de Auth                      | `id` (= `auth.users.id`), `username` único sin distinguir mayúsculas, `age_confirmed_at`, `privacy_accepted_at`, `timezone`, `minutes_per_day`, `new_per_day`, `rest_days_per_week`, `study_settings` jsonb, `updated_at`                                                                    |
+| `reminder`          | Los 4 recordatorios (RF-64)                 | `user_id`, `type` (daily, streak_risk, weekly, backlog), `enabled`, `local_time`; clave `(user_id, type)`                                                                                                                                                                                    |
+| `practice`          | Una por elemento y habilidad                | `user_id`, una de `word_id`, `character_id`, `grammar_point_id`; `skill` (meaning, writing, pronunciation, grammar); caché FSRS: `state`, `stability`, `difficulty`, `due_at`, `last_review_at`, `reps`, `lapses`; nivel adaptativo: `level` 1 a 4, `streak`; `introduced_at`, `unlocked_at` |
+| `review_log`        | Cada repaso, solo se añade                  | `practice_id`, `user_id`, `reviewed_at`, `rating` 1 a 4, `rating_source` (user, auto, auto_corrected), `answer_mode`, `level`, `duration_ms`, `details` jsonb (trazos fallados, pista usada)                                                                                                 |
+| `reading_attempt`   | Cada lectura terminada                      | `reading_id`, `completed_at`, `correct`, `total`, `duration_s`; velocidad calculada                                                                                                                                                                                                          |
+| `tone_attempt`      | Cada respuesta de tono (RF-38)              | `syllable`, `expected_tone`, `chosen_tone`, `exercise_type`, `answered_at`                                                                                                                                                                                                                   |
+| `push_subscription` | Un navegador suscrito a Web Push            | `endpoint` único, `p256dh`, `auth`, `user_agent`                                                                                                                                                                                                                                             |
+| `notification_log`  | Avisos enviados, para el máximo de 2 al día | `type`, `sent_at`; solo la escribe la Edge Function                                                                                                                                                                                                                                          |
+| `content_report`    | Error de contenido reportado                | `reporter_id`, uno de `word_id`, `character_id`, `grammar_point_id`, `reading_id`, `exercise_id`; `reason`, `message`, `status` (open, resolved), `reply`, `resolved_by`                                                                                                                     |
 
 **Ajustes mixtos (D-135):** `study_settings` guarda en la cuenta lo que se sincroniza: pinyin y opacidad, tamaño de los caracteres, colores de tono, audio automático, letra, guía de escritura, azul bolígrafo, valoración automática, calentamiento y conjuntos activados. La apariencia (tema y tamaño del texto) se queda en el dispositivo, en IndexedDB, y nunca sube.
 
@@ -71,11 +71,11 @@ Cada fila lleva `user_id` y solo la ve su dueño. Los historiales (`review_log`,
 
 ## Administración y sincronización (3 tablas)
 
-| Tabla | Para qué | Columnas clave |
-| --- | --- | --- |
-| `user_role` | Rol y bloqueo de una cuenta (D-67) | `user_id`, `role` (editor, admin; vacío = estudiante), `blocked_at`, `blocked_reason`, `granted_by` |
-| `audit_log` | Quién cambió qué y cuándo (RNF-14) | `id` entero, `at`, `actor_id`, `action`, `table_name`, `row_id`, `old` y `new` jsonb |
-| `tombstone` | Avisa a los demás dispositivos de lo que se ha borrado | `id` entero, `table_name`, `row_id`, `user_id`, `deleted_at` |
+| Tabla       | Para qué                                               | Columnas clave                                                                                      |
+| ----------- | ------------------------------------------------------ | --------------------------------------------------------------------------------------------------- |
+| `user_role` | Rol y bloqueo de una cuenta (D-67)                     | `user_id`, `role` (editor, admin; vacío = estudiante), `blocked_at`, `blocked_reason`, `granted_by` |
+| `audit_log` | Quién cambió qué y cuándo (RNF-14)                     | `id` entero, `at`, `actor_id`, `action`, `table_name`, `row_id`, `old` y `new` jsonb                |
+| `tombstone` | Avisa a los demás dispositivos de lo que se ha borrado | `id` entero, `table_name`, `row_id`, `user_id`, `deleted_at`                                        |
 
 **Auditoría:** la rellenan triggers en las tablas de contenido y en `user_role`, nunca la app. Ningún rol, ni Admin, tiene permiso para editarla o borrarla. Guarda quién tocó el contenido y las cuentas, nunca datos de estudio (RGPD).
 
@@ -91,28 +91,28 @@ Hay dos cerrojos y los dos deben abrirse para que la app lea una fila. En los pr
 - **Cada migración que crea una tabla incluye en el mismo archivo** `ENABLE ROW LEVEL SECURITY`, sus políticas y sus `GRANT` para `authenticated`. Una prueba de pgTAP falla si alguna tabla de `public` no tiene RLS.
 - **Las funciones de rol** (`is_editor()`, `is_admin()`, `is_blocked()`) son `SECURITY DEFINER` y leen `user_role`, para que las políticas no dependan de lo que diga el cliente.
 
-| Tablas | `GRANT` a `authenticated` | Política RLS |
-| --- | --- | --- |
+| Tablas                                                                  | `GRANT` a `authenticated`      | Política RLS                                                                                                        |
+| ----------------------------------------------------------------------- | ------------------------------ | ------------------------------------------------------------------------------------------------------------------- |
 | Contenido (`course`, `character`, `word`, `reading` y sus tablas hijas) | select, insert, update, delete | Leer: publicado y sin dueño, o `owner_id = auth.uid()`, o Editor. Escribir: Editor en lo común; el dueño en lo suyo |
-| `grammar_point`, `grammar_point_word`, `exercise` | select, insert, update, delete | Leer: publicado, o Editor. Escribir: solo Editor |
-| `profile`, `reminder`, `practice` | select, insert, update | Solo `user_id = auth.uid()` y cuenta no bloqueada |
-| `review_log`, `reading_attempt`, `tone_attempt` | select, insert | Solo las propias; sin update ni delete, el historial no se reescribe |
-| `push_subscription` | select, insert, delete | Solo las propias |
-| `content_report` | select, insert, update | El autor crea y ve las suyas; Editor las ve todas y las resuelve |
-| `user_role` | select | Cada uno ve la suya; Admin ve todas. Los cambios, solo por la Edge Function de cuentas |
-| `audit_log` | select | Solo Editor y Admin pueden leer; nadie puede escribir desde la API |
-| `notification_log` | ninguno | Solo `service_role` (Edge Function de avisos) |
-| `tombstone` | select | Solo las propias y las del contenido común |
+| `grammar_point`, `grammar_point_word`, `exercise`                       | select, insert, update, delete | Leer: publicado, o Editor. Escribir: solo Editor                                                                    |
+| `profile`, `reminder`, `practice`                                       | select, insert, update         | Solo `user_id = auth.uid()` y cuenta no bloqueada                                                                   |
+| `review_log`, `reading_attempt`, `tone_attempt`                         | select, insert                 | Solo las propias; sin update ni delete, el historial no se reescribe                                                |
+| `push_subscription`                                                     | select, insert, delete         | Solo las propias                                                                                                    |
+| `content_report`                                                        | select, insert, update         | El autor crea y ve las suyas; Editor las ve todas y las resuelve                                                    |
+| `user_role`                                                             | select                         | Cada uno ve la suya; Admin ve todas. Los cambios, solo por la Edge Function de cuentas                              |
+| `audit_log`                                                             | select                         | Solo Editor y Admin pueden leer; nadie puede escribir desde la API                                                  |
+| `notification_log`                                                      | ninguno                        | Solo `service_role` (Edge Function de avisos)                                                                       |
+| `tombstone`                                                             | select                         | Solo las propias y las del contenido común                                                                          |
 
 ## Límites, índices y espacio
 
 **Límites del contenido propio (D-135).** Los comprueba un trigger antes de insertar, y la app avisa antes de llegar:
 
-| Qué | Máximo por usuario |
-| --- | --- |
-| Listas y conjuntos (`course` con dueño) | 50 |
-| Palabras y caracteres importados o creados | 2.000 |
-| Textos propios (`reading` con dueño) | 100, de hasta 2.000 caracteres cada uno |
+| Qué                                        | Máximo por usuario                      |
+| ------------------------------------------ | --------------------------------------- |
+| Listas y conjuntos (`course` con dueño)    | 50                                      |
+| Palabras y caracteres importados o creados | 2.000                                   |
+| Textos propios (`reading` con dueño)       | 100, de hasta 2.000 caracteres cada uno |
 
 **Índices** (además de las claves primarias y únicas):
 
@@ -134,15 +134,15 @@ Da para unos 80 años-usuario muy activos, de sobra para uso personal y un grupo
 
 De 21 tablas se pasa a 24. La idea central no cambia: el historial manda y el resto se calcula (D-81).
 
-| Cambio | Por qué |
-| --- | --- |
-| Salen `custom_card` y `custom_list`; entra `owner_id` en `course`, `word`, `character` y `reading` | El contenido propio usa las mismas tablas, las mismas pantallas y el mismo código que el común (D-126) |
-| Entra `character_component` y `character.kind` | Los 186 componentes son elementos de estudio con ficha y prácticas (D-125) |
-| Entra `grammar_point_word` | Saber qué vocabulario desbloquea cada punto gramatical sin leer los ejemplos (RF-43) |
-| Entra `tone_attempt` | Guardar cada respuesta de tono para la estadística futura (RF-38) |
-| `reading_progress` pasa a ser `reading_attempt`, que solo crece | Se sincroniza como `review_log`, sin conflictos |
-| Entran `reminder` y `tombstone` | Recordatorios con su hora local, y borrados que llegan a todos los dispositivos (D-135) |
-| `practice` gana `level`, `streak` y `unlocked_at`; `review_log` gana `level`, `rating_source` y `details` | Nivel adaptativo (D-110) y valoración del usuario o automática (D-91) |
-| Las referencias a «cualquier contenido» son columnas con clave foránea y `CHECK`, no un tipo y un id sueltos | Postgres garantiza que lo referenciado existe |
+| Cambio                                                                                                       | Por qué                                                                                                |
+| ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ |
+| Salen `custom_card` y `custom_list`; entra `owner_id` en `course`, `word`, `character` y `reading`           | El contenido propio usa las mismas tablas, las mismas pantallas y el mismo código que el común (D-126) |
+| Entra `character_component` y `character.kind`                                                               | Los 186 componentes son elementos de estudio con ficha y prácticas (D-125)                             |
+| Entra `grammar_point_word`                                                                                   | Saber qué vocabulario desbloquea cada punto gramatical sin leer los ejemplos (RF-43)                   |
+| Entra `tone_attempt`                                                                                         | Guardar cada respuesta de tono para la estadística futura (RF-38)                                      |
+| `reading_progress` pasa a ser `reading_attempt`, que solo crece                                              | Se sincroniza como `review_log`, sin conflictos                                                        |
+| Entran `reminder` y `tombstone`                                                                              | Recordatorios con su hora local, y borrados que llegan a todos los dispositivos (D-135)                |
+| `practice` gana `level`, `streak` y `unlocked_at`; `review_log` gana `level`, `rating_source` y `details`    | Nivel adaptativo (D-110) y valoración del usuario o automática (D-91)                                  |
+| Las referencias a «cualquier contenido» son columnas con clave foránea y `CHECK`, no un tipo y un id sueltos | Postgres garantiza que lo referenciado existe                                                          |
 
 **Siguiente paso:** escribir la primera migración (`supabase/migrations/…_init.sql`) con TDD. Primero van las pruebas de pgTAP de las políticas, luego las tablas que las hacen pasar.

@@ -5,7 +5,7 @@
 - **Registro:** D-130
 
 - **Contexto:** un solo repositorio público (ADR-017) con la app, la base de datos, el contenido y las pruebas. Tiene que poder leerse sin explicaciones.
-- **Decisión:** carpetas por funcionalidad (*feature folders*): cada módulo de la app reúne sus pantallas, componentes, hooks y pruebas. Lo compartido vive en paquetes.
+- **Decisión:** carpetas por funcionalidad (_feature folders_): cada módulo de la app reúne sus pantallas, componentes, hooks y pruebas. Lo compartido vive en paquetes.
 - **Consecuencias:** al trabajar en una historia de usuario se toca casi siempre una sola carpeta. No se usa Turborepo: `pnpm -r` basta mientras el proyecto sea pequeño.
 
 ```text

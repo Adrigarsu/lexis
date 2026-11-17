@@ -12,8 +12,8 @@ Closes #
 <!-- Criterio de aceptación → prueba que lo cubre. -->
 
 | Criterio | Prueba |
-| --- | --- |
-| | |
+| -------- | ------ |
+|          |        |
 
 ## Comprobaciones
 

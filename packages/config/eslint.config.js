@@ -19,7 +19,9 @@ const eslintReactRecommended = eslintReact.configs['recommended-typescript'];
 // @eslint-react ships its own copy of the hooks rules. The official react-hooks
 // plugin owns them, so the copies are turned off to avoid reporting twice.
 const hookRuleNames = new Set(
-  Object.keys(reactHooksRecommended.rules ?? {}).map((name) => name.replace('react-hooks/', '')),
+  Object.keys(reactHooksRecommended.rules ?? {}).map((name) =>
+    name.replace('react-hooks/', ''),
+  ),
 );
 const duplicatedHookRules = Object.fromEntries(
   Object.keys(eslintReactRecommended.rules ?? {})

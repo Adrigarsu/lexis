@@ -21,7 +21,7 @@ TDD (desarrollo guiado por pruebas) repite un ciclo corto: **rojo** (una prueba 
 
 1. Estás en la rama de la issue, no en `main`.
 2. La issue tiene un comentario «### Plan aprobado» con las pruebas por criterio. Si no lo tiene, para: primero va `empezar-issue`.
-3. La issue cambia código (`apps/`, `packages/`, `supabase/` o `e2e/`). Si no, esta skill no aplica: dilo y sigue el plan.
+3. El plan dice «**Paso 4:** skill `tdd`». Normalmente te invoca `empezar-issue` en cuanto se aprueba el plan, sin preguntar (D-154). Si dice «seguir el plan», o no lo dice y la issue no cambia código (`apps/`, `packages/`, `supabase/` o `e2e/`), esta skill no aplica: dilo y sigue el plan.
 4. La suite está en verde antes de tocar nada (`pnpm test`). Si ya falla, es un hueco: no se empieza encima de un rojo ajeno.
 
 ## 2. Un criterio cada vez, de fuera hacia dentro

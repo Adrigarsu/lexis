@@ -34,6 +34,7 @@ Se lanzan desde la raíz del repositorio. La configuración de TypeScript, ESLin
 | `pnpm format:check` | Comprueba el formato sin cambiar nada. Falla si algún archivo no sigue Prettier                                                            | En el CI                        |
 | `pnpm test`         | Pruebas con Vitest (llega con #25)                                                                                                         |                                 |
 | `pnpm test:e2e`     | Pruebas E2E con Playwright (llega con #26)                                                                                                 |                                 |
+| `pnpm test:db`      | Pruebas pgTAP de `supabase/tests` contra la base local. Necesita Docker Desktop y `pnpm exec supabase start` (D-156)                       | Cada PR que toca `supabase/`    |
 
 Un paquete nuevo con código añade un `tsconfig.json` que extiende `@lexis/config/tsconfig.base.json` y un script `"typecheck": "tsc"`. ESLint lo cubre solo, porque se ejecuta desde la raíz.
 

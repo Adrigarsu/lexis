@@ -24,16 +24,17 @@ Flujo de Git: GitHub Flow. `main` está protegida y solo recibe cambios por PR c
 
 Se lanzan desde la raíz del repositorio. La configuración de TypeScript, ESLint y Prettier vive en `packages/config` y la comparten todos los paquetes (D-152, [ADR-025](../adr/0025-eslint-prettier-y-typescript-compartidos.md)).
 
-| Comando             | Qué hace                                                                                                                                   | Cuándo                          |
-| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------- |
-| `pnpm dev`          | Arranca la app en modo desarrollo                                                                                                          | Mientras programas              |
-| `pnpm build`        | Genera la versión de producción de cada paquete                                                                                            | Antes de abrir una PR           |
-| `pnpm lint`         | Pasa ESLint por todo el monorepo: TypeScript con información de tipos, React, hooks y accesibilidad (`jsx-a11y`). Falla si hay algún error | Antes de cada commit y en el CI |
-| `pnpm typecheck`    | Ejecuta `tsc` en cada paquete que tiene script `typecheck`, con el tsconfig estricto de `@lexis/config`. No genera archivos                | Antes de cada commit y en el CI |
-| `pnpm format`       | Formatea con Prettier todos los archivos, salvo lo de `.prettierignore`                                                                    | Cuando `format:check` falla     |
-| `pnpm format:check` | Comprueba el formato sin cambiar nada. Falla si algún archivo no sigue Prettier                                                            | En el CI                        |
-| `pnpm test`         | Pruebas con Vitest (llega con #25)                                                                                                         |                                 |
-| `pnpm test:e2e`     | Pruebas E2E con Playwright (llega con #26)                                                                                                 |                                 |
+| Comando              | Qué hace                                                                                                                                                          | Cuándo                             |
+| -------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------- |
+| `pnpm dev`           | Arranca la app en modo desarrollo                                                                                                                                 | Mientras programas                 |
+| `pnpm build`         | Genera la versión de producción de cada paquete                                                                                                                   | Antes de abrir una PR              |
+| `pnpm lint`          | Pasa ESLint por todo el monorepo: TypeScript con información de tipos, React, hooks y accesibilidad (`jsx-a11y`). Falla si hay algún error                        | Antes de cada commit y en el CI    |
+| `pnpm typecheck`     | Ejecuta `tsc` en cada paquete que tiene script `typecheck`, con el tsconfig estricto de `@lexis/config`. No genera archivos                                       | Antes de cada commit y en el CI    |
+| `pnpm format`        | Formatea con Prettier todos los archivos, salvo lo de `.prettierignore`                                                                                           | Cuando `format:check` falla        |
+| `pnpm format:check`  | Comprueba el formato sin cambiar nada. Falla si algún archivo no sigue Prettier                                                                                   | En el CI                           |
+| `pnpm test`          | Pruebas con Vitest (llega con #25)                                                                                                                                |                                    |
+| `pnpm test:e2e`      | Prueba de humo (`@humo`) con Playwright + axe en Chromium. Compila la app y la sirve con `vite preview` (D-156). Los navegadores se instalan antes: ver el README | Antes de abrir una PR y en el CI   |
+| `pnpm test:e2e:full` | Todas las pruebas E2E en Chromium y WebKit                                                                                                                        | Cada noche y antes de cada versión |
 
 Un paquete nuevo con código añade un `tsconfig.json` que extiende `@lexis/config/tsconfig.base.json` y un script `"typecheck": "tsc"`. ESLint lo cubre solo, porque se ejecuta desde la raíz.
 

@@ -13,7 +13,9 @@
     "typecheck": "pnpm -r --if-present typecheck",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "prepare": "lefthook install --reset-hooks-path"
+    "prepare": "lefthook install --reset-hooks-path",
+    "test:e2e": "pnpm --filter @lexis/e2e test",
+    "test:e2e:full": "pnpm --filter @lexis/e2e test:full"
   },
   "devDependencies": {
     "@commitlint/cli": "^21.2.4",

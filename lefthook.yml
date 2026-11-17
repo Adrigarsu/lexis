@@ -1,4 +1,4 @@
-# Git hooks (D-153). Installed by `pnpm install` through the root "prepare" script.
+# Git hooks (D-155). Installed by `pnpm install` through the root "prepare" script.
 
 commit-msg:
   commands:
@@ -10,7 +10,7 @@ commit-msg:
 
 pre-commit:
   commands:
-    # Prettier fixes the staged files and stages them again; ESLint only checks (D-153).
+    # Prettier fixes the staged files and stages them again; ESLint only checks (D-155).
     prettier:
       run: pnpm exec prettier --write --ignore-unknown {staged_files}
       stage_fixed: true

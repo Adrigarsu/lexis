@@ -24,13 +24,21 @@ Requisitos: Node.js 26 (ver `.nvmrc`), pnpm y GitHub CLI. pnpm se instala una ve
 ```bash
 git clone https://github.com/Adrigarsu/lexis.git
 cd lexis
-git config core.hooksPath .githooks   # activa la comprobación de mensajes de commit
-pnpm install                          # instala todo el monorepo
+pnpm install                          # instala todo el monorepo y los hooks de Git (Lefthook)
 pnpm dev                              # arranca la app en http://localhost:5173
 pnpm build                            # compila todos los paquetes
 ```
 
-El resto de comandos (`pnpm lint`, `pnpm typecheck`, `pnpm test`, `pnpm test:e2e` y `pnpm format`) llegan con sus issues del milestone 1.
+`pnpm install` instala también los hooks de Git con Lefthook: en cada commit, commitlint revisa el mensaje, se rechaza cualquier firma de Claude, Prettier formatea los archivos preparados y ESLint los comprueba. Los demás comandos (`pnpm lint`, `pnpm typecheck`, `pnpm format`…) están en [convenciones.md](docs/proceso/convenciones.md#comandos).
+
+### Si tu clon tenía `.githooks`
+
+Antes de Lefthook, los hooks se activaban con `git config core.hooksPath .githooks`. Lefthook no se instala mientras ese ajuste exista, así que `pnpm install` lo quita solo (`lefthook install --reset-hooks-path`). Si pnpm dice «Already up to date» y no instala nada, hazlo a mano:
+
+```bash
+git config --unset core.hooksPath
+pnpm exec lefthook install
+```
 
 ## Licencia
 

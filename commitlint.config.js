@@ -1,5 +1,5 @@
 // Commit messages follow Conventional Commits with the types of
-// docs/proceso/convenciones.md (ADR-019, D-153).
+// docs/proceso/convenciones.md (ADR-019, D-155).
 
 /** @type {import('@commitlint/types').UserConfig} */
 const config = {

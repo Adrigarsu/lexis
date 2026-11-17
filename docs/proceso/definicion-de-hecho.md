@@ -14,7 +14,7 @@ Tiene dos partes: lo **común**, que vale para toda PR, y lo que **se aplica seg
 ### Commits y autoría
 
 - [ ] Los commits siguen [Conventional Commits](convenciones.md#commits) (`tipo(ámbito): descripción`, en presente e imperativo) y el título de la PR también, porque será el commit de `main`.
-- [ ] Todos los commits salen a nombre de la desarrolladora (D-04), y el hook de Git está activo en el clon (`git config core.hooksPath .githooks`).
+- [ ] Todos los commits salen a nombre de la desarrolladora (D-04), y los hooks de Lefthook están instalados en el clon (`pnpm install`).
 - [ ] Ni los commits, ni el título, ni la descripción de la PR llevan `Co-Authored-By`, «Generated with», enlaces de sesión ni otras firmas o menciones de Claude (D-04, D-140).
 
 ### Criterios y decisiones

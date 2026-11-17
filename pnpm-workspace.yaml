@@ -2,7 +2,7 @@ packages:
   - apps/*
   - packages/*
 
-# lefthook is installed by the root "prepare" script, not by its own postinstall (D-153).
+# lefthook is installed by the root "prepare" script, not by its own postinstall (D-155).
 allowBuilds:
   lefthook: false
 

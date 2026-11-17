@@ -57,7 +57,7 @@ Lo que no se cumpla se arregla **en la rama**, con su commit convencional, antes
 
 ## 5. Firmas
 
-Pasa cada mensaje de commit de la rama por el script de firmas de Lefthook (`.lefthook/commit-msg/check-signature.sh`), que tiene la lista de firmas en un solo sitio (D-153):
+Pasa cada mensaje de commit de la rama por el script de firmas de Lefthook (`.lefthook/commit-msg/check-signature.sh`), que tiene la lista de firmas en un solo sitio (D-155):
 
 ```sh
 S=<directorio scratchpad>

@@ -1,7 +1,7 @@
 #!/bin/sh
 # Capa 4 de autoría (D-04, D-140): rechaza cualquier mensaje que lleve una firma
 # o mención de Claude, venga de donde venga. Es la única lista de firmas para los
-# mensajes (D-153): Lefthook la ejecuta en cada commit (lefthook.yml) y la skill
+# mensajes (D-155): Lefthook la ejecuta en cada commit (lefthook.yml) y la skill
 # preparar-pr la usa con los commits, el título y la descripción de la PR.
 # Uso: sh .lefthook/commit-msg/check-signature.sh <archivo con el mensaje>
 

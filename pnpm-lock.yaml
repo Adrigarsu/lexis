@@ -184,6 +184,9 @@ importers:
         specifier: ^19.3.1
         version: 19.3.1(react@19.3.1)
     devDependencies:
+      '@lexis/config':
+        specifier: workspace:*
+        version: link:../../packages/config
       '@types/react':
         specifier: ^19.3.0
         version: 19.3.0
@@ -199,6 +202,14 @@ importers:
       vite:
         specifier: ^8.3.8
         version: 8.3.8
+
+  packages/config: {}
+
+  packages/content: {}
+
+  packages/design-tokens: {}
+
+  packages/shared: {}
 
 packages:
 

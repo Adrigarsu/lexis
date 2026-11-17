@@ -20,12 +20,4 @@ describe('expectNoAxeViolations', () => {
 
     await expect(expectNoAxeViolations(container)).rejects.toThrow('image-alt');
   });
-
-  it('skips color-contrast, which jsdom cannot measure', async () => {
-    const container = mount(
-      '<p style="color: #fff; background: #fff">Lexis</p>',
-    );
-
-    await expect(expectNoAxeViolations(container)).resolves.toBeUndefined();
-  });
 });

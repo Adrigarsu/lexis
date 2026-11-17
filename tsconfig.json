@@ -1,0 +1,5 @@
+{
+  // Root tooling only: each package has its own tsconfig.json.
+  "extends": "@lexis/config/tsconfig.base.json",
+  "include": ["vitest.config.ts"]
+}

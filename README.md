@@ -31,7 +31,7 @@ pnpm build                            # compila todos los paquetes
 
 ### Base de datos local (Supabase)
 
-Hace falta [Docker Desktop](https://www.docker.com/products/docker-desktop/) abierto. La CLI de Supabase viene con `pnpm install`, en la versión fijada en el `package.json` (D-156). La primera vez, `supabase start` descarga las imágenes de Docker y tarda unos minutos.
+Hace falta [Docker Desktop](https://www.docker.com/products/docker-desktop/) abierto. La CLI de Supabase viene con `pnpm install`, en la versión fijada en el `package.json` (D-158). La primera vez, `supabase start` descarga las imágenes de Docker y tarda unos minutos.
 
 ```bash
 pnpm exec supabase start              # levanta Postgres, Auth, Storage y Studio en local
@@ -54,6 +54,25 @@ Antes de Lefthook, los hooks se activaban con `git config core.hooksPath .githoo
 git config --unset core.hooksPath
 pnpm exec lefthook install
 ```
+
+### Pruebas de extremo a extremo
+
+Las pruebas E2E usan Playwright, que necesita sus propios navegadores. Se instalan una vez, y otra cada vez que se actualiza `@playwright/test`:
+
+```bash
+pnpm --filter @lexis/e2e exec playwright install chromium webkit
+# en Linux, con las librerías del sistema:
+pnpm --filter @lexis/e2e exec playwright install --with-deps chromium webkit
+```
+
+Después:
+
+```bash
+pnpm test:e2e        # humo (@humo) en Chromium: compila la app y la sirve con vite preview
+pnpm test:e2e:full   # todas las pruebas en Chromium y WebKit
+```
+
+Los informes quedan en `e2e/playwright-report/` (se abren con `pnpm --filter @lexis/e2e exec playwright show-report`).
 
 ## Licencia
 

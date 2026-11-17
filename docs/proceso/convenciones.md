@@ -18,7 +18,7 @@ Decididas en [ADR-019](../adr/0019-convenciones-de-codigo-y-de-git.md).
 | Ramas                     | `tipo/HU-xx-descripcion` desde `main`                   | `feat/HU-12-valorar-tarjeta`           |
 | Commits                   | Conventional Commits con el módulo como ámbito          | `feat(sesion): valorar con teclas 1-4` |
 
-Flujo de Git: GitHub Flow. `main` está protegida y solo recibe cambios por PR con el CI en verde, fusionados con _squash_. Cada PR enlaza su historia de usuario y cierra su issue. Lefthook ejecuta lint y formato antes de cada commit, y commitlint revisa el mensaje. Las versiones siguen SemVer con etiquetas y un changelog generado de los commits. Todo commit, push y PR se hace desde la cuenta de la desarrolladora, sin coautorías (D-04).
+Flujo de Git: GitHub Flow. `main` está protegida y solo recibe cambios por PR con el CI en verde, fusionados con _squash_. Cada PR enlaza su historia de usuario y cierra su issue. Lefthook (`lefthook.yml`, D-155) instala dos hooks con `pnpm install`: `pre-commit`, en el que Prettier formatea los archivos preparados y ESLint los comprueba, y `commit-msg`, en el que commitlint exige Conventional Commits con los tipos de la tabla de [Commits](#commits) y `.lefthook/commit-msg/check-signature.sh` rechaza las firmas de Claude. Las versiones siguen SemVer con etiquetas y un changelog generado de los commits. Todo commit, push y PR se hace desde la cuenta de la desarrolladora, sin coautorías (D-04).
 
 ## Comandos
 

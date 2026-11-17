@@ -4,7 +4,7 @@
 
 # Scripts que tienen que funcionar en Git Bash y en Linux
 *.sh text eol=lf
-.githooks/* text eol=lf
+.lefthook/** text eol=lf
 
 # Binarios
 *.png binary

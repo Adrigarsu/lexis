@@ -20,7 +20,22 @@ Decididas en [ADR-019](../adr/0019-convenciones-de-codigo-y-de-git.md).
 
 Flujo de Git: GitHub Flow. `main` está protegida y solo recibe cambios por PR con el CI en verde, fusionados con _squash_. Cada PR enlaza su historia de usuario y cierra su issue. Lefthook ejecuta lint y formato antes de cada commit, y commitlint revisa el mensaje. Las versiones siguen SemVer con etiquetas y un changelog generado de los commits. Todo commit, push y PR se hace desde la cuenta de la desarrolladora, sin coautorías (D-04).
 
-Comandos raíz: `pnpm dev`, `pnpm build`, `pnpm lint`, `pnpm typecheck`, `pnpm test`, `pnpm test:e2e` y `pnpm format`.
+## Comandos
+
+Se lanzan desde la raíz del repositorio. La configuración de TypeScript, ESLint y Prettier vive en `packages/config` y la comparten todos los paquetes (D-152, [ADR-025](../adr/0025-eslint-prettier-y-typescript-compartidos.md)).
+
+| Comando             | Qué hace                                                                                                                                   | Cuándo                          |
+| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------- |
+| `pnpm dev`          | Arranca la app en modo desarrollo                                                                                                          | Mientras programas              |
+| `pnpm build`        | Genera la versión de producción de cada paquete                                                                                            | Antes de abrir una PR           |
+| `pnpm lint`         | Pasa ESLint por todo el monorepo: TypeScript con información de tipos, React, hooks y accesibilidad (`jsx-a11y`). Falla si hay algún error | Antes de cada commit y en el CI |
+| `pnpm typecheck`    | Ejecuta `tsc` en cada paquete que tiene script `typecheck`, con el tsconfig estricto de `@lexis/config`. No genera archivos                | Antes de cada commit y en el CI |
+| `pnpm format`       | Formatea con Prettier todos los archivos, salvo lo de `.prettierignore`                                                                    | Cuando `format:check` falla     |
+| `pnpm format:check` | Comprueba el formato sin cambiar nada. Falla si algún archivo no sigue Prettier                                                            | En el CI                        |
+| `pnpm test`         | Pruebas con Vitest (llega con #25)                                                                                                         |                                 |
+| `pnpm test:e2e`     | Pruebas E2E con Playwright (llega con #26)                                                                                                 |                                 |
+
+Un paquete nuevo con código añade un `tsconfig.json` que extiende `@lexis/config/tsconfig.base.json` y un script `"typecheck": "tsc"`. ESLint lo cubre solo, porque se ejecuta desde la raíz.
 
 ## Commits
 

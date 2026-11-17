@@ -23,8 +23,8 @@ Detalle en [docs/proceso/flujo-trabajo.md](docs/proceso/flujo-trabajo.md).
 
 1. **Elegir:** skill `estado-backlog`. Ella elige.
 2. **Empezar:** skill `empezar-issue`. Actualiza `main`, crea la rama, lee la issue y su documentación.
-3. **Planificar en modo plan:** pruebas por criterio de aceptación, archivos, si hacen falta varias PR (sub-issues) y los huecos con opciones. Se propone en el chat; cuando ella lo aprueba, deja una copia breve como comentario en la issue.
-4. **Programar con TDD:** skill `tdd`. Un commit convencional por paso.
+3. **Planificar en modo plan:** pruebas por criterio de aceptación, archivos, si hacen falta varias PR (sub-issues) y los huecos con opciones. El plan dice en su línea «Paso 4» si se programa con `tdd` o se sigue el plan. Se propone en el chat; cuando ella lo aprueba, deja una copia breve como comentario en la issue y la sesión pasa sola al paso 4, sin pedirlo (D-154).
+4. **Programar con TDD:** skill `tdd`, o el plan aprobado si la issue no lleva código. Un commit convencional por paso.
 5. **Preparar la PR:** skill `preparar-pr`. Todas las pruebas, comprobación de firmas, documentación y PR con la plantilla.
 6. **Fusionar:** ella.
 7. **Cerrar:** skill `cerrar-issue`.
@@ -66,4 +66,4 @@ Accesibilidad WCAG 2.2 AA en todo: es un requisito, no un extra.
 
 ## Estado actual
 
-Milestone 1 · Cimientos técnicos. El esqueleto del monorepo está montado (#22): `apps/web` es una página mínima con Vite y React, `packages/config` tiene la configuración compartida de TypeScript, ESLint y Prettier, y los otros tres `packages/` están vacíos. pnpm se fija en `packageManager`, sin Corepack (ADR-024). Hoy funcionan `pnpm install`, `pnpm dev`, `pnpm build`, `pnpm lint`, `pnpm typecheck`, `pnpm format` y `pnpm format:check`, con la configuración compartida de `packages/config` (#23, ADR-025). Lefthook instala los hooks de Git con `pnpm install`: commitlint y el bloqueo de firmas en `commit-msg`, Prettier y ESLint en `pre-commit` (#24). Llegan con sus issues `test` (#25) y `test:e2e` (#26). Todavía no hay CI, Supabase ni base de datos.
+Milestone 1 · Cimientos técnicos. El esqueleto del monorepo está montado (#22): `apps/web` es una página mínima con Vite y React, `packages/config` tiene la configuración compartida de TypeScript, ESLint y Prettier, y los otros tres `packages/` están vacíos. pnpm se fija en `packageManager`, sin Corepack (ADR-024). Hoy funcionan `pnpm install`, `pnpm dev`, `pnpm build`, `pnpm lint`, `pnpm typecheck`, `pnpm format` y `pnpm format:check`, con la configuración compartida de `packages/config` (#23, ADR-025). Lefthook instala los hooks de Git con `pnpm install`: commitlint y el bloqueo de firmas en `commit-msg`, Prettier y ESLint en `pre-commit` (#24). Llegan con sus issues `test` (#25) y `test:e2e` (#26). Dependabot propone cada semana las actualizaciones de pnpm y GitHub Actions (D-153). Todavía no hay CI, Supabase ni base de datos.

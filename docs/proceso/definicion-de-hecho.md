@@ -2,6 +2,8 @@
 
 Decidida en D-143. Es la lista que tiene que cumplir toda PR antes del _squash and merge_. La skill `preparar-pr` la recorre antes de abrir la PR y la desarrolladora la revisa antes de fusionar. Si un punto no se cumple, la PR no se fusiona: se arregla en la misma rama.
 
+Las PR de Dependabot son la excepción: no usan la plantilla ni enlazan issue, y se revisan como explica [flujo-trabajo.md](flujo-trabajo.md#actualizaciones-de-dependencias-dependabot) (D-153).
+
 Tiene dos partes: lo **común**, que vale para toda PR, y lo que **se aplica según lo que toque** la PR. La plantilla de PR ([.github/pull_request_template.md](../../.github/pull_request_template.md)) resume estos puntos como casillas.
 
 ## Común: toda PR

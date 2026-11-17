@@ -12,7 +12,9 @@
     "lint": "eslint .",
     "typecheck": "pnpm -r --if-present typecheck",
     "format": "prettier --write .",
-    "format:check": "prettier --check ."
+    "format:check": "prettier --check .",
+    "test:e2e": "pnpm --filter @lexis/e2e test",
+    "test:e2e:full": "pnpm --filter @lexis/e2e test:full"
   },
   "devDependencies": {
     "@lexis/config": "workspace:*",

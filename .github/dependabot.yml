@@ -1,0 +1,42 @@
+# Dependabot version updates (D-77, ADR-020). Review and merge rules: D-153,
+# docs/proceso/flujo-trabajo.md.
+version: 2
+updates:
+  # npm ecosystem: Dependabot detects pnpm from pnpm-lock.yaml and covers the whole workspace.
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+      day: monday
+      time: '07:00'
+      timezone: Europe/Madrid
+    groups:
+      npm-minor-and-patch:
+        update-types:
+          - minor
+          - patch
+    commit-message:
+      prefix: build
+      include: scope
+    labels:
+      - tipo:tarea
+      - area:infra
+
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+      day: monday
+      time: '07:00'
+      timezone: Europe/Madrid
+    groups:
+      actions-minor-and-patch:
+        update-types:
+          - minor
+          - patch
+    commit-message:
+      prefix: ci
+      include: scope
+    labels:
+      - tipo:tarea
+      - area:infra

@@ -13,6 +13,7 @@
     "typecheck": "pnpm -r --if-present typecheck",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
+    "test:db": "supabase test db",
     "prepare": "lefthook install --reset-hooks-path"
   },
   "devDependencies": {

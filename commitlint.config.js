@@ -8,7 +8,18 @@ const config = {
     'type-enum': [
       2,
       'always',
-      ['feat', 'fix', 'test', 'refactor', 'docs', 'style', 'perf', 'build', 'ci', 'chore'],
+      [
+        'feat',
+        'fix',
+        'test',
+        'refactor',
+        'docs',
+        'style',
+        'perf',
+        'build',
+        'ci',
+        'chore',
+      ],
     ],
   },
 };

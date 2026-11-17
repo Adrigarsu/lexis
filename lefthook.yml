@@ -1,0 +1,6 @@
+# Git hooks (D-153). Installed by `pnpm install` through the root "prepare" script.
+
+commit-msg:
+  commands:
+    commitlint:
+      run: pnpm exec commitlint --edit {1}

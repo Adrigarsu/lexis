@@ -2,6 +2,10 @@ packages:
   - apps/*
   - packages/*
 
+# lefthook is installed by the root "prepare" script, not by its own postinstall (D-153).
+allowBuilds:
+  lefthook: false
+
 peerDependencyRules:
   allowedVersions:
     # eslint-plugin-jsx-a11y 6.10.2 works with ESLint 10 but its peer range stops at ^9 (D-152).

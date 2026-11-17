@@ -86,6 +86,19 @@ El hook de Git se activa una vez en cada clon con `git config core.hooksPath .gi
 - Los documentos de claude.ai (SRS, ADR, esquema, lienzo de diseño, pizarra del flujo) quedan como historia. La fuente de verdad es `docs/`.
 - Si hace falta una pantalla nueva, se diseña fuera del repositorio y se exporta a `docs/diseno/pantallas/` (PNG + HTML) antes de programarla.
 
+## Actualizaciones de dependencias (Dependabot)
+
+Decidido en D-77 y D-153. [`.github/dependabot.yml`](../../.github/dependabot.yml) le pide a Dependabot que revise cada lunes a las 07:00 (hora de Madrid) las dependencias de pnpm de todo el monorepo y las acciones de GitHub Actions. Las alertas y las actualizaciones de seguridad están activadas aparte, en los ajustes del repositorio.
+
+- **Qué propone:** una PR por ecosistema con todas las versiones menores y de parche juntas, y una PR suelta por cada versión mayor, que puede romper cosas. Como mucho tiene 5 PR abiertas por ecosistema.
+- **Cómo se ven:** títulos en Conventional Commits (`build(deps): …`, `build(deps-dev): …` y `ci(deps): …`), en inglés, con las etiquetas `tipo:tarea` y `area:infra`.
+- **Cómo se revisan:**
+  1. Hasta que exista el CI (#27), en local: `gh pr checkout <n>`, y después `pnpm install`, `pnpm build`, `pnpm lint`, `pnpm typecheck` y `pnpm format:check`. Cuando exista el CI, basta con que esté en verde.
+  2. En las versiones mayores, además, se lee el changelog de la dependencia antes de fusionar.
+  3. Si algo falla, no se fusiona: se cierra la PR o se abre una issue para adaptar el código.
+- **Cómo se fusionan:** _squash and merge_, como cualquier PR, y lo hace la desarrolladora.
+- **Autoría:** las PR y los commits salen a nombre de `dependabot[bot]`, y el commit de `main` lo menciona. Es la excepción a D-04, que sigue prohibiendo las firmas de Claude. Tampoco usan la plantilla de PR ni enlazan una issue.
+
 ## Servicios externos
 
 Supabase, Vercel, Sentry y Turnstile se crean cuando llega la issue que los necesita, no antes: un proyecto de Supabase sin uso se pausa a los 7 días. Sus claves viven en los paneles de cada servicio y en los secretos de GitHub, nunca en el repositorio.

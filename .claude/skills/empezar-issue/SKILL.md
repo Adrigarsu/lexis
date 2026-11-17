@@ -1,11 +1,11 @@
 ---
 name: empezar-issue
-description: Empieza y planifica una issue de Lexis cuando la desarrolladora dice «empieza la issue N». Comprueba que no está cerrada ni bloqueada, detecta si ya estaba empezada para retomarla, actualiza main, crea la rama, lee la issue y su documentación (historia, RF, decisiones, ADR, pantallas, madre si es una parte) y propone el plan en modo plan. Aprobado el plan, lo comenta en la issue, la mueve a In Progress, revisa el Tamaño y crea las sub-issues si hay que partirla.
+description: Empieza y planifica una issue de Lexis cuando la desarrolladora dice «empieza la issue N». Comprueba que no está cerrada ni bloqueada, detecta si ya estaba empezada para retomarla, actualiza main, crea la rama, lee la issue y su documentación (historia, RF, decisiones, ADR, pantallas, madre si es una parte) y propone el plan en modo plan. Aprobado el plan, lo comenta en la issue, la mueve a In Progress, revisa el Tamaño, crea las sub-issues si hay que partirla y sigue sola: con la skill tdd si la issue lleva código y con el plan si no.
 ---
 
 # empezar-issue
 
-Pasos 2 y 3 del flujo de `docs/proceso/flujo-trabajo.md`: **empezar** y **planificar**. Decisiones D-138, D-141, D-142 y D-144. Termina cuando el plan está aprobado y comentado; lo siguiente es programar (skill `tdd`).
+Pasos 2 y 3 del flujo de `docs/proceso/flujo-trabajo.md`: **empezar** y **planificar**. Decisiones D-138, D-141, D-142, D-144 y D-154. Cuando el plan está aprobado y comentado, no se para: pasa sola al paso 4 (skill `tdd`, o el plan si la issue no lleva código).
 
 ## Reglas
 
@@ -39,7 +39,7 @@ En este orden:
    - un comentario que empieza por «### Plan aprobado» (`gh issue view N --json comments --jq '[.comments[].body | startswith("### Plan aprobado")] | any'`);
    - una PR enlazada: `closedByPullRequestsReferences` del paso 1, o `gh pr list --state all --head <rama>` si has encontrado la rama.
 
-   Si hay alguna, **no vuelvas a planificar: retoma**. Cambia a la rama (`git switch <rama>`; si solo está en remoto, `git switch --track origin/<rama>`). Lee el plan comentado y los commits (`git log --oneline main..HEAD`), comprueba si la rama está subida y si la PR existe, y resume qué está hecho y qué queda. Después pregunta si seguir. Si algo no cuadra, pregunta con opciones: cambios sin guardar de otra cosa, una PR cerrada sin fusionar, una rama sin plan.
+   Si hay alguna, **no vuelvas a planificar: retoma**. Cambia a la rama (`git switch <rama>`; si solo está en remoto, `git switch --track origin/<rama>`). Lee el plan comentado y los commits (`git log --oneline main..HEAD`), comprueba si la rama está subida y si la PR existe, y resume qué está hecho y qué queda, con el Paso 4 del plan comentado. Los planes anteriores a D-154 no lo tienen: dedúcelo con D-148 y dilo en el resumen. Después pregunta si seguir; con el «sí», ve al paso 7. Si algo no cuadra, pregunta con opciones: cambios sin guardar de otra cosa, una PR cerrada sin fusionar, una rama sin plan.
 
 ## 3. Preparar Git
 
@@ -92,8 +92,9 @@ Entra en modo plan (`EnterPlanMode`). Pregunta los huecos con opciones **antes**
 5. **¿Varias PR?** Si saldría de más de unas 400 líneas o mezcla áreas (base de datos y pantallas, por ejemplo), propón partirla. Cada parte lleva su alcance (criterios que cubre), su orden, su Tamaño y sus dependencias. Cada PR deja `main` funcionando.
 6. **Tamaño:** si el plan no encaja con el Tamaño del Project (S, unas pocas horas; M, una PR normal; L, varias PR, D-141), propón el nuevo.
 7. **Huecos resueltos** y la decisión nueva que generan, con el siguiente ID de `docs/decisiones.md`.
-8. **Commits** previstos, en Conventional Commits.
-9. **Verificación.**
+8. **Paso 4:** una línea que dice cómo se programa (D-154). «**Paso 4:** skill `tdd`» si la issue cambia código (D-148), o «**Paso 4:** seguir el plan (skill, documentación o ajuste)». Manda esta línea, no la carpeta que se toca: un ajuste en `apps/` puede no llevar `tdd` (D-151). Si se parte, cada parte lleva la suya.
+9. **Commits** previstos, en Conventional Commits.
+10. **Verificación.**
 
 ## 6. Al aprobarse el plan
 
@@ -102,6 +103,8 @@ Entra en modo plan (`EnterPlanMode`). Pregunta los huecos con opciones **antes**
    ### Plan aprobado
 
    Rama `…`, una sola PR (o N partes).
+
+   **Paso 4:** skill `tdd` (o seguir el plan: skill, documentación o ajuste).
 
    **Huecos resueltos (D-xx)**
 
@@ -127,6 +130,19 @@ Entra en modo plan (`EnterPlanMode`). Pregunta los huecos con opciones **antes**
 
    Enseña los borradores con el plan, para que se aprueben juntos. Después, la sesión sigue solo con la parte 1: renombra la rama si hace falta (`git branch -m feat/HU-xx-1-…`) y pasa la parte 1 a _In Progress_.
 
-## 7. Siguiente paso
+## 7. Seguir sola
 
-Di que toca programar con la skill `tdd`. Mientras no exista, se sigue el ciclo rojo → verde → refactorizar a mano, con un commit convencional por paso (ADR-021).
+Con el comentario y el Project hechos (y las sub-issues, si se parte), **no te pares ni preguntes**: pasa al paso 4 del flujo según la línea Paso 4 del plan (D-154).
+
+- **Paso 4: skill `tdd`.** Invoca la skill `tdd` con el número de la issue (herramienta `Skill`, argumento `N`).
+- **Paso 4: seguir el plan.** No uses `tdd`: sigue el plan aprobado en esta sesión. En una skill, primero la prueba en seco (D-142) con los casos del plan; en documentación o ajustes, sus comprobaciones.
+- **Si se parte,** sigue solo con la parte 1, según su propio Paso 4. Las demás partes se quedan en `Todo`, cada una para su sesión.
+- **Al retomar** (paso 2.3), lo mismo, pero solo después del «sí».
+
+No sigues, y te paras, si:
+
+- el plan no se aprueba (`ExitPlanMode` rechazado o con cambios pedidos): sigues en modo plan y no hay comentario, ni Project, ni paso 4;
+- queda un hueco sin respuesta: el plan no se presenta hasta resolverlo;
+- ella pide parar al aprobar («aprobado, pero para»): haz el comentario y el Project, y di qué toca después.
+
+Al terminar el paso 4 se para, como hasta ahora: `tdd` o el plan dicen que toca `preparar-pr`, y no se pasa a ella sola.

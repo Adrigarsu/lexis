@@ -29,3 +29,4 @@ Formato de Michael Nygard: **contexto**, **decisión** y **consecuencias**. Un A
 | [ADR-023](0023-sincronizacion-sin-conexion.md)              | Sincronización sin conexión                | Datos       | Aceptado | D-136            |
 | [ADR-024](0024-pnpm-sin-corepack.md)                        | pnpm sin Corepack                          | Repositorio | Aceptado | D-150            |
 | [ADR-025](0025-eslint-prettier-y-typescript-compartidos.md) | ESLint, Prettier y TypeScript compartidos  | Calidad     | Aceptado | D-152            |
+| [ADR-026](0026-entorno-de-vitest.md)                        | Entorno de Vitest para el monorepo         | Calidad     | Aceptado | D-156            |

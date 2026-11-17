@@ -10,7 +10,7 @@ TDD repite un ciclo corto: **rojo** (escribir una prueba que falla), **verde** (
 2. Para hacerla pasar, cada pieza de lógica que falta se escribe con su propio ciclo rojo-verde-refactorizar de pruebas unitarias.
 3. La historia está terminada cuando todas sus pruebas de aceptación están en verde y el CI pasa.
 
-Cada prueba lleva el ID de su historia en el nombre (`HU-12 rates the card with keys 1-4`), así la matriz de trazabilidad llega hasta el código. Excepciones: los ajustes puramente visuales y los experimentos desechables (_spikes_), que se tiran y se reescriben con TDD si se quedan.
+Cada prueba lleva el ID de su historia en el nombre (`HU-12 rates the card with keys 1-4`), así la matriz de trazabilidad llega hasta el código. Las pruebas de humo de infraestructura, que no pertenecen a ninguna historia, no llevan ID (D-156). Excepciones a TDD: los ajustes puramente visuales y los experimentos desechables (_spikes_), que se tiran y se reescriben con TDD si se quedan.
 
 ## Qué se prueba en cada nivel
 
@@ -26,3 +26,18 @@ Cada prueba lleva el ID de su historia en el nombre (`HU-12 rates the card with 
 Además, antes de cada versión se revisa a mano con VoiceOver (RNF-21), porque ninguna herramienta automática detecta todos los problemas de accesibilidad.
 
 Orden en el CI: lint y tipos → unitarias, componentes e integración → base de datos → build → E2E de humo y Lighthouse. Si un paso falla, los siguientes no corren. La cobertura se mide con Vitest y se exige el 80 % solo en `lib/`, `db/`, `sync/` y los hooks de cada funcionalidad.
+
+## Cómo se ejecutan
+
+Configuración en D-156 y [ADR-026](../adr/0026-entorno-de-vitest.md).
+
+| Comando                | Qué hace                                                                                       |
+| ---------------------- | ---------------------------------------------------------------------------------------------- |
+| `pnpm test`            | Unitarias, componentes e integración de todos los paquetes con `vitest.config.ts`              |
+| `pnpm test -t "HU-12"` | Solo las pruebas cuyo nombre contiene `HU-12`                                                  |
+| `pnpm test:coverage`   | Lo mismo, con cobertura v8 y el umbral del 80 % en `lib/`, `db/`, `sync/` y los hooks (`use*`) |
+
+- Cada prueba va junto a su código: `Card.tsx` y `Card.test.tsx`.
+- Las pruebas de `apps/web` corren en jsdom, sin globales: `describe`, `it` y `expect` se importan de `vitest`. El _setup_ (`src/test/setup.ts`) ya carga los _matchers_ de jest-dom (`toBeInTheDocument`…) y una IndexedDB en memoria (`fake-indexeddb`) para Dexie.
+- Accesibilidad en componentes: `await expectNoAxeViolations(container)` de `src/test/axe.ts`. jsdom no calcula estilos, así que axe no mide el contraste; de eso se encargan Playwright + axe y Lighthouse.
+- La cobertura es de todo el proyecto: un archivo de `lib/` o un hook sin probar hace fallar `pnpm test:coverage` aunque lo demás esté cubierto.

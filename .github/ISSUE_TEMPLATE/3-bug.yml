@@ -1,7 +1,7 @@
 name: Bug
 description: Algo no funciona como dice la documentación.
-title: "Bug: "
-labels: ["tipo:bug"]
+title: 'Bug: '
+labels: ['tipo:bug']
 body:
   - type: textarea
     id: que-pasa
@@ -14,7 +14,7 @@ body:
     attributes:
       label: Qué debería pasar
       description: Con la historia, requisito o decisión que lo define, si existe.
-      placeholder: "Según HU-12, …"
+      placeholder: 'Según HU-12, …'
     validations:
       required: true
   - type: textarea
@@ -31,7 +31,7 @@ body:
     id: entorno
     attributes:
       label: Dispositivo y navegador
-      placeholder: "iPhone, Safari 19 · app instalada"
+      placeholder: 'iPhone, Safari 19 · app instalada'
   - type: dropdown
     id: gravedad
     attributes:

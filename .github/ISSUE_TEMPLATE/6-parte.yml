@@ -1,13 +1,13 @@
 name: Parte de una issue (sub-issue)
 description: Una de las PR en que se divide una issue grande. Normalmente la crea la skill empezar-issue.
-title: "HU-xx · parte n/N: "
-labels: ["tipo:tarea"]
+title: 'HU-xx · parte n/N: '
+labels: ['tipo:tarea']
 body:
   - type: input
     id: madre
     attributes:
       label: Issue madre
-      placeholder: "#12"
+      placeholder: '#12'
     validations:
       required: true
   - type: textarea

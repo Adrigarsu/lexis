@@ -28,7 +28,7 @@ git fetch origin
 git log --oneline HEAD..origin/main
 ```
 
-Si `main` tiene commits nuevos, fusiónalos en la rama con `git merge origin/main` (D-145). Hay dos motivos: no hace falta push forzado, y el *squash and merge* deja `main` con un solo commit igualmente. Si hay conflictos, para, enséñalos y pregunta con opciones cómo resolverlos. Después de fusionar, las pruebas del paso 3 se vuelven a pasar.
+Si `main` tiene commits nuevos, fusiónalos en la rama con `git merge origin/main` (D-145). Hay dos motivos: no hace falta push forzado, y el _squash and merge_ deja `main` con un solo commit igualmente. Si hay conflictos, para, enséñalos y pregunta con opciones cómo resolverlos. Después de fusionar, las pruebas del paso 3 se vuelven a pasar.
 
 ## 3. Pruebas
 
@@ -70,6 +70,7 @@ done
 Comprueba también que todos los commits son de la desarrolladora (`git log --format='%h %an <%ae>' origin/main..HEAD`) y que el hook está activo (`git config core.hooksPath` → `.githooks`).
 
 **Si un commit lleva firma:**
+
 - Si la rama **no está subida**, quítala reescribiendo el mensaje en local: `git commit --amend` si es el último, o un rebase local si no lo es.
 - Si **ya está subida**, no se puede reescribir sin push forzado: para y pregunta con opciones.
 
@@ -80,10 +81,10 @@ Comprueba también que todos los commits son de la desarrolladora (`git log --fo
   - **Qué cambia:** dos o tres frases.
   - **Enlace:** `Closes #n`. En una parte, `Closes #<parte>` y `Part of #<madre>`. En la PR de documentación de una funcionalidad nueva, `Refs #n`.
   - **Cómo se ha probado:** cada criterio de la issue → la prueba o comprobación que lo cubre. En skills, los casos en seco y su resultado. Si la prueba encontró algún fallo, cuéntalo y di cómo se corrigió.
-  - **Comprobaciones:** marca lo que se cumple y escribe *No aplica* en lo demás.
+  - **Comprobaciones:** marca lo que se cumple y escribe _No aplica_ en lo demás.
   - **Capturas:** solo si cambia la interfaz.
   - **Decisiones tomadas por el camino:** los huecos y su respuesta, con las D nuevas.
-- Escribe el título y el cuerpo en un archivo del *scratchpad* y pásalo por `sh .githooks/commit-msg <archivo>`, igual que los commits.
+- Escribe el título y el cuerpo en un archivo del _scratchpad_ y pásalo por `sh .githooks/commit-msg <archivo>`, igual que los commits.
 
 ## 7. Resumen y confirmación
 
@@ -108,4 +109,4 @@ Comprueba que la PR enlaza la issue (en una parte, la parte). Después, mira có
 
 ## 9. Siguiente paso
 
-Da el enlace de la PR. El *squash and merge* lo hace ella (regla 3 de `CLAUDE.md`); tú solo si te lo autoriza expresamente en esta sesión. Cuando esté fusionada, toca la skill `cerrar-issue`.
+Da el enlace de la PR. El _squash and merge_ lo hace ella (regla 3 de `CLAUDE.md`); tú solo si te lo autoriza expresamente en esta sesión. Cuando esté fusionada, toca la skill `cerrar-issue`.

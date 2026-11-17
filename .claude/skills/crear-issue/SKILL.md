@@ -19,14 +19,14 @@ Convierte una petición en una issue lista para el backlog. Nada se crea sin que
 
 Lee la plantilla que toca en `.github/ISSUE_TEMPLATE/` antes de escribir nada: de ella salen el prefijo del título, las secciones, las obligatorias y las etiquetas fijas.
 
-| Petición | Plantilla | Prefijo |
-| --- | --- | --- |
-| Una historia que ya está en `docs/producto/historias/` | `1-historia.yml` | `HU-xx · ` |
-| Algo que no está en los requisitos ni en las historias | `2-funcionalidad.yml` | `Nueva: ` |
-| Algo no funciona como dice la documentación | `3-bug.yml` | `Bug: ` |
-| Configuración, herramientas, CI, refactorización, skills | `4-tarea.yml` | `Tarea: ` |
-| Corregir, completar o reorganizar `docs/` | `5-documentacion.yml` | `Docs: ` |
-| Una parte de una issue grande | `6-parte.yml` | `HU-xx · parte n/N: ` |
+| Petición                                                 | Plantilla             | Prefijo               |
+| -------------------------------------------------------- | --------------------- | --------------------- |
+| Una historia que ya está en `docs/producto/historias/`   | `1-historia.yml`      | `HU-xx · `            |
+| Algo que no está en los requisitos ni en las historias   | `2-funcionalidad.yml` | `Nueva: `             |
+| Algo no funciona como dice la documentación              | `3-bug.yml`           | `Bug: `               |
+| Configuración, herramientas, CI, refactorización, skills | `4-tarea.yml`         | `Tarea: `             |
+| Corregir, completar o reorganizar `docs/`                | `5-documentacion.yml` | `Docs: `              |
+| Una parte de una issue grande                            | `6-parte.yml`         | `HU-xx · parte n/N: ` |
 
 La plantilla 6 la usa normalmente `empezar-issue` al partir una issue. Si la petición encaja en dos plantillas, pregunta con opciones.
 
@@ -64,9 +64,10 @@ D-138 · ADR-019
 #11
 ```
 
-Escríbelo en un archivo del directorio temporal de la sesión (el *scratchpad*), nunca en el repositorio.
+Escríbelo en un archivo del directorio temporal de la sesión (el _scratchpad_), nunca en el repositorio.
 
 **Etiquetas.**
+
 - Las fijas de la plantilla (`tipo:historia`, `tipo:bug`, `tipo:tarea`, `area:docs`…).
 - Una `prio:` (`must`, `should`, `could`). En historias y funcionalidades sale del campo de prioridad; en el resto, propónla.
 - Una o varias `area:` (`app`, `db`, `content`, `infra`, `docs`).
@@ -76,19 +77,19 @@ Comprueba que existen con `gh label list`. No crees etiquetas nuevas sin pregunt
 
 **Milestone.** Lista los abiertos con `gh api repos/Adrigarsu/lexis/milestones --jq '.[] | "\(.number) \(.title)"'`. Si no está claro a cuál va, pregunta con opciones. Si no va a ninguno todavía, se queda sin milestone.
 
-**Dependencias.** Issues que tienen que estar cerradas antes. Van en la sección «Depende de» y, además, como relación *blocked by* (paso 6). No uses etiquetas para esto.
+**Dependencias.** Issues que tienen que estar cerradas antes. Van en la sección «Depende de» y, además, como relación _blocked by_ (paso 6). No uses etiquetas para esto.
 
 **Project.** Status `Todo`, Prioridad igual que la etiqueta `prio:` y un Tamaño propuesto (D-141):
 
-| Tamaño | Cuándo |
-| --- | --- |
-| S | Unas pocas horas: un cambio pequeño y acotado |
-| M | Una PR normal |
-| L | Probablemente varias PR: más de unas 400 líneas o mezcla áreas (base de datos y pantallas, por ejemplo) |
+| Tamaño | Cuándo                                                                                                  |
+| ------ | ------------------------------------------------------------------------------------------------------- |
+| S      | Unas pocas horas: un cambio pequeño y acotado                                                           |
+| M      | Una PR normal                                                                                           |
+| L      | Probablemente varias PR: más de unas 400 líneas o mezcla áreas (base de datos y pantallas, por ejemplo) |
 
 ## 5. Enseñar el borrador y esperar
 
-Muestra en el chat, junto: título, cuerpo, etiquetas, milestone, *blocked by*, Prioridad y Tamaño, y los huecos con sus opciones. Si es una funcionalidad nueva, también los IDs y textos que se añadirían a `docs/` (paso 9). **No ejecutes nada hasta que ella lo apruebe.** Si cambia algo, rehaz el borrador y vuelve a enseñarlo.
+Muestra en el chat, junto: título, cuerpo, etiquetas, milestone, _blocked by_, Prioridad y Tamaño, y los huecos con sus opciones. Si es una funcionalidad nueva, también los IDs y textos que se añadirían a `docs/` (paso 9). **No ejecutes nada hasta que ella lo apruebe.** Si cambia algo, rehaz el borrador y vuelve a enseñarlo.
 
 ## 6. Crear la issue y sus dependencias
 
@@ -97,7 +98,7 @@ gh issue create --repo Adrigarsu/lexis --title "<título>" --body-file <archivo>
   --label "tipo:tarea" --label "prio:must" --label "area:infra" --milestone "<título del milestone>"
 ```
 
-Por cada issue que la bloquea, la relación *blocked by* necesita el `id` numérico de la que bloquea (no su número):
+Por cada issue que la bloquea, la relación _blocked by_ necesita el `id` numérico de la que bloquea (no su número):
 
 ```sh
 BLOCKER_ID=$(gh api repos/Adrigarsu/lexis/issues/<bloqueadora> --jq .id)

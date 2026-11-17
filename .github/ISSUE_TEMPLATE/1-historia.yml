@@ -1,7 +1,7 @@
 name: Historia de usuario
 description: Una historia ya escrita en docs/producto/historias (una issue por historia).
-title: "HU-xx · "
-labels: ["tipo:historia"]
+title: 'HU-xx · '
+labels: ['tipo:historia']
 body:
   - type: markdown
     attributes:
@@ -12,7 +12,7 @@ body:
     attributes:
       label: Historia
       description: ID y archivo de la historia.
-      placeholder: "HU-12 · docs/producto/historias/EP-02-tarjetas-y-repeticion-espaciada.md"
+      placeholder: 'HU-12 · docs/producto/historias/EP-02-tarjetas-y-repeticion-espaciada.md'
     validations:
       required: true
   - type: textarea
@@ -34,7 +34,7 @@ body:
     id: requisitos
     attributes:
       label: Requisitos, decisiones y ADR
-      placeholder: "RF-14, RF-15 · D-45 · ADR-004"
+      placeholder: 'RF-14, RF-15 · D-45 · ADR-004'
     validations:
       required: true
   - type: textarea
@@ -42,7 +42,7 @@ body:
     attributes:
       label: Pantallas
       description: Archivos de docs/diseno/pantallas que muestran esta historia. Si falta alguna, dilo.
-      placeholder: "docs/diseno/pantallas/movil/C-Tarjeta.png"
+      placeholder: 'docs/diseno/pantallas/movil/C-Tarjeta.png'
   - type: dropdown
     id: prioridad
     attributes:
@@ -55,4 +55,4 @@ body:
     attributes:
       label: Depende de
       description: Issues que tienen que estar cerradas antes. Márcalas también como «blocked by» en GitHub.
-      placeholder: "#12"
+      placeholder: '#12'

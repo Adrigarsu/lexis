@@ -18,15 +18,15 @@ Dos temas, `light` (Claro) y `dark` (Oscuro). El tema sigue al sistema por defec
 
 ### Base
 
-| Token | Uso |
-| --- | --- |
-| `paper` | Fondo de página. 宣纸, papel de arroz. |
-| `surface` | Tarjetas, hojas, diálogos, cuadrícula. |
+| Token            | Uso                                                      |
+| ---------------- | -------------------------------------------------------- |
+| `paper`          | Fondo de página. 宣纸, papel de arroz.                   |
+| `surface`        | Tarjetas, hojas, diálogos, cuadrícula.                   |
 | `surface-sunken` | Pistas de barras, segmentos, selección del menú lateral. |
-| `line` | Separadores decorativos. No vale como borde de control. |
-| `line-strong` | Borde de campos, casillas y botones secundarios (3,4:1). |
-| `ink` | Texto principal. 墨, tinta. |
-| `ink-2` | Texto secundario, ayudas y placeholders. |
+| `line`           | Separadores decorativos. No vale como borde de control.  |
+| `line-strong`    | Borde de campos, casillas y botones secundarios (3,4:1). |
+| `ink`            | Texto principal. 墨, tinta.                              |
+| `ink-2`          | Texto secundario, ayudas y placeholders.                 |
 
 ### Acento y marca
 
@@ -57,12 +57,12 @@ Sistema tradicional: 1.º rojo, 2.º naranja, 3.º verde, 4.º azul y neutro gri
 
 ## Tipografía
 
-| Familia | Fuente | Para qué |
-| --- | --- | --- |
-| `sans` | Inter + Noto Sans SC | Toda la interfaz y el pinyin. |
-| `kai` | LXGW WenKai (楷体) | Caracteres de estudio por defecto: tarjetas, fichas, escritura, lecturas. |
-| `hei` | Noto Sans SC (黑体) | Alternativa elegible en Ajustes de estudio. |
-| `song` | Noto Serif SC (宋体) | Alternativa elegible en Ajustes de estudio. |
+| Familia | Fuente               | Para qué                                                                  |
+| ------- | -------------------- | ------------------------------------------------------------------------- |
+| `sans`  | Inter + Noto Sans SC | Toda la interfaz y el pinyin.                                             |
+| `kai`   | LXGW WenKai (楷体)   | Caracteres de estudio por defecto: tarjetas, fichas, escritura, lecturas. |
+| `hei`   | Noto Sans SC (黑体)  | Alternativa elegible en Ajustes de estudio.                               |
+| `song`  | Noto Serif SC (宋体) | Alternativa elegible en Ajustes de estudio.                               |
 
 - Por defecto, Kai: tiene la forma de la escritura a mano y coincide con la animación de trazos. El usuario puede cambiarla en Ajustes de estudio › Fuente de los caracteres (D-106).
 - Las cuatro tienen licencia SIL OFL 1.1. Inter y Noto se sirven desde Google Fonts. LXGW WenKai se aloja en la app como subconjunto de los caracteres del curso (HSK 1 más el conjunto extra), para que pese poco y funcione sin conexión.

@@ -51,11 +51,11 @@ La Prioridad sale del campo del Project; si está vacío, de la etiqueta `prio:`
 
 ## 3. Agrupar
 
-| Grupo | Cuándo |
-| --- | --- |
-| **En curso** | Status *In Progress* en el Project |
-| **Listas** | No están en curso y no tienen ningún *blocked by* abierto |
-| **Bloqueadas** | No están en curso y tienen algún *blocked by* abierto: di cuáles |
+| Grupo          | Cuándo                                                           |
+| -------------- | ---------------------------------------------------------------- |
+| **En curso**   | Status _In Progress_ en el Project                               |
+| **Listas**     | No están en curso y no tienen ningún _blocked by_ abierto        |
+| **Bloqueadas** | No están en curso y tienen algún _blocked by_ abierto: di cuáles |
 
 - Una sub-issue lleva «parte de #madre».
 - Una madre con sub-issues no va en «Listas»: se trabajan sus partes, así que se anota «partida en N partes».

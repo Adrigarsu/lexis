@@ -1,6 +1,6 @@
 # Definición de hecho
 
-Decidida en D-143. Es la lista que tiene que cumplir toda PR antes del *squash and merge*. La skill `preparar-pr` la recorre antes de abrir la PR y la desarrolladora la revisa antes de fusionar. Si un punto no se cumple, la PR no se fusiona: se arregla en la misma rama.
+Decidida en D-143. Es la lista que tiene que cumplir toda PR antes del _squash and merge_. La skill `preparar-pr` la recorre antes de abrir la PR y la desarrolladora la revisa antes de fusionar. Si un punto no se cumple, la PR no se fusiona: se arregla en la misma rama.
 
 Tiene dos partes: lo **común**, que vale para toda PR, y lo que **se aplica según lo que toque** la PR. La plantilla de PR ([.github/pull_request_template.md](../../.github/pull_request_template.md)) resume estos puntos como casillas.
 

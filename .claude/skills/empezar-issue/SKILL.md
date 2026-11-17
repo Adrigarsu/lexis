@@ -9,7 +9,7 @@ Pasos 2 y 3 del flujo de `docs/proceso/flujo-trabajo.md`: **empezar** y **planif
 
 ## Reglas
 
-- **Sin firmas.** Ni los comentarios, ni las sub-issues, ni los commits llevan `Co-Authored-By`, «Generated with», enlaces de sesión ni menciones de Claude (D-04). Si el hook `guard-git.mjs` bloquea un comando, corrige el texto: no lo rodees. Ojo: un comando que *busca* esas palabras también se bloquea.
+- **Sin firmas.** Ni los comentarios, ni las sub-issues, ni los commits llevan `Co-Authored-By`, «Generated with», enlaces de sesión ni menciones de Claude (D-04). Si el hook `guard-git.mjs` bloquea un comando, corrige el texto: no lo rodees. Ojo: un comando que _busca_ esas palabras también se bloquea.
 - **Nada directo a `main`.** Todo el trabajo va en la rama de la issue.
 - **Huecos con opciones.** Lo que la issue y `docs/` no resuelven se pregunta con 2 o 3 opciones y la recomendada, antes de cerrar el plan.
 - **Nada en GitHub sin plan aprobado:** ni comentarios, ni cambios en el Project, ni sub-issues.
@@ -47,13 +47,13 @@ En este orden:
 2. `git switch main && git pull --ff-only origin main`.
 3. Crea la rama según la plantilla (D-144, `docs/proceso/convenciones.md`):
 
-| Plantilla | Rama | Ejemplo |
-| --- | --- | --- |
-| Historia o funcionalidad | `feat/HU-xx-descripcion` | `feat/HU-12-valorar-tarjeta` |
-| Bug | `fix/<n>-descripcion`, o `fix/HU-xx-descripcion` si es de una historia | `fix/31-sesion-ultima-tarjeta` |
-| Tarea | `chore/<n>-descripcion`, o `ci/` o `build/` si encaja mejor | `chore/6-skill-empezar-issue` |
-| Documentación | `docs/<n>-descripcion` | `docs/4-definicion-de-hecho` |
-| Parte | la rama de la madre con el número de parte | `feat/HU-12-2-botones` |
+| Plantilla                | Rama                                                                   | Ejemplo                        |
+| ------------------------ | ---------------------------------------------------------------------- | ------------------------------ |
+| Historia o funcionalidad | `feat/HU-xx-descripcion`                                               | `feat/HU-12-valorar-tarjeta`   |
+| Bug                      | `fix/<n>-descripcion`, o `fix/HU-xx-descripcion` si es de una historia | `fix/31-sesion-ultima-tarjeta` |
+| Tarea                    | `chore/<n>-descripcion`, o `ci/` o `build/` si encaja mejor            | `chore/6-skill-empezar-issue`  |
+| Documentación            | `docs/<n>-descripcion`                                                 | `docs/4-definicion-de-hecho`   |
+| Parte                    | la rama de la madre con el número de parte                             | `feat/HU-12-2-botones`         |
 
 La descripción, corta, en kebab-case y en español, sin tildes.
 
@@ -97,19 +97,21 @@ Entra en modo plan (`EnterPlanMode`). Pregunta los huecos con opciones **antes**
 
 ## 6. Al aprobarse el plan
 
-1. **Comentario breve en la issue**, o en la madre si se parte. Escríbelo en un archivo del *scratchpad* y mándalo con `gh issue comment N --body-file <archivo>`:
+1. **Comentario breve en la issue**, o en la madre si se parte. Escríbelo en un archivo del _scratchpad_ y mándalo con `gh issue comment N --body-file <archivo>`:
    ```markdown
    ### Plan aprobado
 
    Rama `…`, una sola PR (o N partes).
 
    **Huecos resueltos (D-xx)**
+
    - …
 
    **Archivos**
+
    - …
    ```
-2. **Project:** Status *In Progress* y, si cambia, el Tamaño. Lee los IDs cada vez, no los apuntes:
+2. **Project:** Status _In Progress_ y, si cambia, el Tamaño. Lee los IDs cada vez, no los apuntes:
    ```sh
    PROJECT_ID=$(gh project view 5 --owner Adrigarsu --format json --jq .id)
    ITEM_ID=$(gh project item-list 5 --owner Adrigarsu --format json --jq '.items[] | select(.content.number==N) | .id')
@@ -119,11 +121,11 @@ Entra en modo plan (`EnterPlanMode`). Pregunta los huecos con opciones **antes**
 3. **Si se parte:** crea las sub-issues siguiendo los pasos 4 a 8 de la skill `crear-issue`:
    - plantilla `6-parte.yml` y título `HU-xx · parte n/N: …`;
    - las mismas etiquetas y el mismo milestone que la madre;
-   - *blocked by* la parte anterior si depende de ella;
+   - _blocked by_ la parte anterior si depende de ella;
    - enlace como sub-issue de la madre;
    - Project con Status `Todo` y su Tamaño.
 
-   Enseña los borradores con el plan, para que se aprueben juntos. Después, la sesión sigue solo con la parte 1: renombra la rama si hace falta (`git branch -m feat/HU-xx-1-…`) y pasa la parte 1 a *In Progress*.
+   Enseña los borradores con el plan, para que se aprueben juntos. Después, la sesión sigue solo con la parte 1: renombra la rama si hace falta (`git branch -m feat/HU-xx-1-…`) y pasa la parte 1 a _In Progress_.
 
 ## 7. Siguiente paso
 

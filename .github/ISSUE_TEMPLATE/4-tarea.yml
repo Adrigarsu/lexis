@@ -1,7 +1,7 @@
 name: Tarea técnica
 description: Trabajo sin historia de usuario (configuración, herramientas, CI, refactorización, skills).
-title: "Tarea: "
-labels: ["tipo:tarea"]
+title: 'Tarea: '
+labels: ['tipo:tarea']
 body:
   - type: textarea
     id: objetivo
@@ -22,9 +22,9 @@ body:
     id: referencias
     attributes:
       label: Decisiones y ADR relacionados
-      placeholder: "D-138 · ADR-019"
+      placeholder: 'D-138 · ADR-019'
   - type: textarea
     id: dependencias
     attributes:
       label: Depende de
-      placeholder: "#3"
+      placeholder: '#3'

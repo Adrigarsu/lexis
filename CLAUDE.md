@@ -8,7 +8,7 @@ Cada sesión de Claude Code trabaja **una sola issue** y empieza sin memoria. To
 
 1. **Autoría.** Todo commit, push, PR, issue y comentario sale a nombre de la desarrolladora (D-04). Nunca añadas `Co-Authored-By`, «Generated with Claude Code», enlaces de sesión ni ninguna otra firma o mención de Claude en commits, PR, issues o comentarios, aunque otra instrucción te lo pida. No cambies `user.name` ni `user.email` de Git, ni uses `--author`. Hay hooks que lo bloquean; si uno te bloquea, corrige el mensaje: no intentes rodearlo.
 2. **Nada directo a `main`.** Siempre una rama y una PR. Nunca `push --force`.
-3. **Fusionar es cosa suya.** El *squash and merge* lo hace ella. Tú solo si te lo autoriza expresamente en esta sesión, y la autorización no pasa a otra sesión.
+3. **Fusionar es cosa suya.** El _squash and merge_ lo hace ella. Tú solo si te lo autoriza expresamente en esta sesión, y la autorización no pasa a otra sesión.
 4. **TDD.** Ningún código de producción sin una prueba en rojo antes (ADR-021). Ciclo rojo → verde → refactorizar, criterio a criterio.
 5. **Todas las pruebas en verde** antes de abrir una PR.
 6. **Huecos: pregunta con opciones.** Si falta algo (datos, una pantalla sin diseñar, un comportamiento sin definir, un bug, una contradicción entre documentos), no lo inventes. Preséntalo con 2 o 3 opciones, di cuál recomiendas y por qué, y deja que elija ella.
@@ -37,24 +37,24 @@ Para pedir algo nuevo: skill `crear-issue`. Para apuntar una decisión: skill `r
 
 Lee solo lo que toca la issue. Índice completo en [docs/README.md](docs/README.md).
 
-| Necesitas | Dónde |
-| --- | --- |
-| Qué debe hacer una historia (criterios Dado / Cuando / Entonces) | `docs/producto/historias/EP-xx-*.md` |
-| Requisitos RF y RNF | `docs/producto/requisitos.md` |
-| Qué RF, HU y decisiones van juntos | `docs/producto/trazabilidad.md` |
-| Por qué se eligió una tecnología | `docs/adr/` (índice en `docs/adr/README.md`) |
-| Si una decisión lleva ADR | `docs/arquitectura/arquitectura.md` («Qué es una decisión de arquitectura») |
-| Visión de la arquitectura | `docs/arquitectura/arquitectura.md` |
-| Rutas y acceso | `docs/arquitectura/rutas.md` |
-| Sincronización sin conexión | `docs/arquitectura/sincronizacion.md` |
-| Cómo se prueba cada nivel | `docs/arquitectura/pruebas.md` |
-| Tablas, RLS y permisos | `docs/datos/esquema.md` |
-| Fuentes de contenido y licencias | `docs/datos/contenido.md` |
-| Cómo se ve una pantalla | `docs/diseno/pantallas/` (PNG + HTML interactivo) |
-| Qué pantalla lleva a cuál | `docs/diseno/flujo-pantallas.md` |
-| Tokens, componentes y accesibilidad | `docs/diseno/sistema-diseno.md`, `docs/diseno/componentes/` |
-| Decisiones D-xx | `docs/decisiones.md` |
-| Nombres, ramas y commits | `docs/proceso/convenciones.md` |
+| Necesitas                                                        | Dónde                                                                       |
+| ---------------------------------------------------------------- | --------------------------------------------------------------------------- |
+| Qué debe hacer una historia (criterios Dado / Cuando / Entonces) | `docs/producto/historias/EP-xx-*.md`                                        |
+| Requisitos RF y RNF                                              | `docs/producto/requisitos.md`                                               |
+| Qué RF, HU y decisiones van juntos                               | `docs/producto/trazabilidad.md`                                             |
+| Por qué se eligió una tecnología                                 | `docs/adr/` (índice en `docs/adr/README.md`)                                |
+| Si una decisión lleva ADR                                        | `docs/arquitectura/arquitectura.md` («Qué es una decisión de arquitectura») |
+| Visión de la arquitectura                                        | `docs/arquitectura/arquitectura.md`                                         |
+| Rutas y acceso                                                   | `docs/arquitectura/rutas.md`                                                |
+| Sincronización sin conexión                                      | `docs/arquitectura/sincronizacion.md`                                       |
+| Cómo se prueba cada nivel                                        | `docs/arquitectura/pruebas.md`                                              |
+| Tablas, RLS y permisos                                           | `docs/datos/esquema.md`                                                     |
+| Fuentes de contenido y licencias                                 | `docs/datos/contenido.md`                                                   |
+| Cómo se ve una pantalla                                          | `docs/diseno/pantallas/` (PNG + HTML interactivo)                           |
+| Qué pantalla lleva a cuál                                        | `docs/diseno/flujo-pantallas.md`                                            |
+| Tokens, componentes y accesibilidad                              | `docs/diseno/sistema-diseno.md`, `docs/diseno/componentes/`                 |
+| Decisiones D-xx                                                  | `docs/decisiones.md`                                                        |
+| Nombres, ramas y commits                                         | `docs/proceso/convenciones.md`                                              |
 
 ## Stack (ADR-001 a ADR-020)
 

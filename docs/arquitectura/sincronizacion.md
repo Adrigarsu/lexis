@@ -12,13 +12,13 @@ Cómo funciona la decisión de [ADR-023](../adr/0023-sincronizacion-sin-conexion
 
 ## Reglas de conflicto
 
-| Tipo de dato | Tablas | Regla |
-| --- | --- | --- |
-| Historiales | `review_log`, `reading_attempt`, `tone_attempt` | Solo se añaden filas con UUID único: nunca hay conflicto |
-| Prácticas | `practice` | Id determinista (UUID v5 de usuario + elemento + habilidad). Dos dispositivos que crean la misma práctica sin conexión crean la misma fila; su estado se recalcula del historial |
-| Ajustes y recordatorios | `profile`, `reminder` | Gana el cambio más reciente de la fila (*last write wins*) |
-| Contenido propio | `course`, `course_item`, `word`, `character`, `reading` y sus hijas | Gana el cambio más reciente; un borrado gana siempre a una edición (D-135) |
-| Contenido común | Tablas de contenido sin dueño | Solo se baja: los estudiantes no lo editan |
+| Tipo de dato            | Tablas                                                              | Regla                                                                                                                                                                            |
+| ----------------------- | ------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Historiales             | `review_log`, `reading_attempt`, `tone_attempt`                     | Solo se añaden filas con UUID único: nunca hay conflicto                                                                                                                         |
+| Prácticas               | `practice`                                                          | Id determinista (UUID v5 de usuario + elemento + habilidad). Dos dispositivos que crean la misma práctica sin conexión crean la misma fila; su estado se recalcula del historial |
+| Ajustes y recordatorios | `profile`, `reminder`                                               | Gana el cambio más reciente de la fila (_last write wins_)                                                                                                                       |
+| Contenido propio        | `course`, `course_item`, `word`, `character`, `reading` y sus hijas | Gana el cambio más reciente; un borrado gana siempre a una edición (D-135)                                                                                                       |
+| Contenido común         | Tablas de contenido sin dueño                                       | Solo se baja: los estudiantes no lo editan                                                                                                                                       |
 
 **Dos marcas de tiempo por fila editable.** `client_updated_at` la pone el dispositivo y decide quién gana un conflicto. `updated_at` la pone el servidor con un trigger y sirve de cursor para bajar cambios. Así, un reloj mal puesto en un dispositivo puede decidir mal un conflicto, pero nunca hace que otro dispositivo se salte filas.
 

@@ -3,8 +3,10 @@ packages:
   - packages/*
 
 # lefthook is installed by the root "prepare" script, not by its own postinstall (D-155).
+# The Supabase CLI postinstall downloads its binary for this platform (D-156).
 allowBuilds:
   lefthook: false
+  supabase: true
 
 peerDependencyRules:
   allowedVersions:

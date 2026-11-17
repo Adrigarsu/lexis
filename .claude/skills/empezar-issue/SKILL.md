@@ -104,7 +104,7 @@ Entra en modo plan (`EnterPlanMode`). Pregunta los huecos con opciones **antes**
 
    Rama `…`, una sola PR (o N partes).
 
-   **Paso 4:** skill `tdd` (o seguir el plan: skill, documentación o ajuste).
+   **Paso 4:** skill `tdd` (o seguir el plan: skill, documentación o ajuste). Si se parte, uno por parte.
 
    **Huecos resueltos (D-xx)**
 

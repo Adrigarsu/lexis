@@ -7,3 +7,13 @@ commit-msg:
   scripts:
     check-signature.sh:
       runner: sh
+
+pre-commit:
+  commands:
+    # Prettier fixes the staged files and stages them again; ESLint only checks (D-153).
+    prettier:
+      run: pnpm exec prettier --write --ignore-unknown {staged_files}
+      stage_fixed: true
+    eslint:
+      glob: '*.{js,mjs,cjs,ts,tsx,mts,cts}'
+      run: pnpm exec eslint --no-warn-ignored {staged_files}

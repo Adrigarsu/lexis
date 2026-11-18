@@ -37,11 +37,13 @@ Configuración en D-157 y [ADR-026](../adr/0026-entorno-de-vitest.md).
 
 | Comando                | Qué hace                                                                                       |
 | ---------------------- | ---------------------------------------------------------------------------------------------- |
-| `pnpm test`            | Unitarias, componentes e integración de todos los paquetes con `vitest.config.ts`              |
+| `pnpm test`            | Unitarias, componentes e integración de todos los paquetes con `vitest.config.{ts,js}`         |
 | `pnpm test -t "HU-12"` | Solo las pruebas cuyo nombre contiene `HU-12`                                                  |
 | `pnpm test:coverage`   | Lo mismo, con cobertura v8 y el umbral del 80 % en `lib/`, `db/`, `sync/` y los hooks (`use*`) |
 
 - Cada prueba va junto a su código: `Card.tsx` y `Card.test.tsx`.
 - Las pruebas de `apps/web` corren en jsdom, sin globales: `describe`, `it` y `expect` se importan de `vitest`. El _setup_ (`src/test/setup.ts`) ya carga los _matchers_ de jest-dom (`toBeInTheDocument`…) y una IndexedDB en memoria (`fake-indexeddb`) para Dexie.
 - Accesibilidad en componentes: `await expectNoAxeViolations(container)` de `src/test/axe.ts`. jsdom no calcula estilos, así que axe no mide el contraste; de eso se encargan Playwright + axe y Lighthouse.
+- Textos de la interfaz: el _setup_ también carga i18n (`src/lib/i18n`). Para comprobar que un texto sale de `es.json` y no está escrito en el componente, la prueba cambia la traducción con `i18n.addResource` y la busca en pantalla (D-167).
+- La configuración compartida de ESLint tiene sus propias pruebas en `packages/config/eslint.config.test.js`: pasan fragmentos de código por la API de ESLint y comprueban qué reglas saltan (D-167).
 - La cobertura es de todo el proyecto: un archivo de `lib/` o un hook sin probar hace fallar `pnpm test:coverage` aunque lo demás esté cubierto.

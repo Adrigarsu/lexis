@@ -16,7 +16,7 @@ Fuente de verdad del producto desde el 12 de noviembre de 2026. Los documentos o
 | Archivo                                                          | Contenido                                                   |
 | ---------------------------------------------------------------- | ----------------------------------------------------------- |
 | [arquitectura/arquitectura.md](arquitectura/arquitectura.md)     | Principios, visión general y mapa de decisiones             |
-| [adr/](adr/README.md)                                            | ADR-001 a ADR-027, uno por archivo, formato Nygard          |
+| [adr/](adr/README.md)                                            | ADR-001 a ADR-028, uno por archivo, formato Nygard          |
 | [arquitectura/rutas.md](arquitectura/rutas.md)                   | Rutas de React Router y acceso de cada una                  |
 | [arquitectura/sincronizacion.md](arquitectura/sincronizacion.md) | Cola de salida, subir y bajar, reglas de conflicto, errores |
 | [arquitectura/pruebas.md](arquitectura/pruebas.md)               | TDD y qué se prueba en cada uno de los seis niveles         |

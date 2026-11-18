@@ -18,5 +18,9 @@
     "globals": "^17.14.0",
     "typescript": "~6.0.3",
     "typescript-eslint": "^8.73.0"
+  },
+  "devDependencies": {
+    "eslint-plugin-i18next": "^6.1.5",
+    "vitest": "^5.1.0"
   }
 }

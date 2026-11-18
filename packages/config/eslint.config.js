@@ -3,6 +3,7 @@
 import js from '@eslint/js';
 import eslintReact from '@eslint-react/eslint-plugin';
 import prettier from 'eslint-config-prettier';
+import i18next from 'eslint-plugin-i18next';
 import jsxA11y from 'eslint-plugin-jsx-a11y';
 import reactHooks from 'eslint-plugin-react-hooks';
 import { defineConfig } from 'eslint/config';
@@ -62,6 +63,16 @@ export default defineConfig(
     files: ['apps/*/src/**/*.{ts,tsx}'],
     ignores: ['**/*.test.{ts,tsx}'],
     rules: { 'no-restricted-syntax': hardCodedColorRule },
+  },
+  {
+    // RNF-33: every interface text comes from the translation files (D-169, ADR-028).
+    // jsx-only checks JSX text and the visible attributes (aria-label, title…).
+    files: REACT_FILES,
+    ignores: ['**/*.test.{jsx,tsx}', '**/test/**'],
+    plugins: { i18next },
+    rules: {
+      'i18next/no-literal-string': ['error', { mode: 'jsx-only' }],
+    },
   },
   // Last, so it turns off every rule that would fight with Prettier.
   prettier,

@@ -25,7 +25,7 @@ Cada prueba lleva el ID de su historia en el nombre (`HU-12 rates the card with 
 
 Además, antes de cada versión se revisa a mano con VoiceOver (RNF-21), porque ninguna herramienta automática detecta todos los problemas de accesibilidad.
 
-Las pruebas de base de datos viven en `supabase/tests/` y se ejecutan con `pnpm test:db` sobre la base local (D-158). Para probar una política RLS, la prueba crea usuarios en `auth.users` y se hace pasar por uno con `set local role authenticated` y `set_config('request.jwt.claims', '{"sub": "<uuid>"}', true)`, o por un visitante con `set local role anon`. `01_rls_enabled_test.sql` falla si alguna tabla de `public` no tiene RLS.
+Las pruebas de base de datos viven en `supabase/tests/` y se ejecutan con `pnpm test:db` sobre la base local (D-158). Para probar una política RLS, la prueba crea usuarios en `auth.users` y se hace pasar por uno con `set local role authenticated` y `set_config('request.jwt.claims', '{"sub": "<uuid>"}', true)`, o por un visitante con `set local role anon`. `01_rls_enabled_test.sql` falla si alguna tabla de `public` no tiene RLS. pgTAP no se ejecuta contra la nube: las migraciones llegan allí ya probadas, con el workflow `deploy-db` (D-168).
 
 Las pruebas E2E viven en el paquete `e2e/` (D-156). Playwright compila la app y la sirve con `vite preview`, igual que se publica. Las pruebas de humo llevan la etiqueta `@humo`: `pnpm test:e2e` ejecuta solo esas en Chromium, y `pnpm test:e2e:full`, todas en Chromium y WebKit.
 
@@ -37,11 +37,15 @@ Configuración en D-157 y [ADR-026](../adr/0026-entorno-de-vitest.md).
 
 | Comando                | Qué hace                                                                                       |
 | ---------------------- | ---------------------------------------------------------------------------------------------- |
-| `pnpm test`            | Unitarias, componentes e integración de todos los paquetes con `vitest.config.ts`              |
+| `pnpm test`            | Unitarias, componentes e integración de todos los paquetes con `vitest.config.{ts,js}`         |
 | `pnpm test -t "HU-12"` | Solo las pruebas cuyo nombre contiene `HU-12`                                                  |
 | `pnpm test:coverage`   | Lo mismo, con cobertura v8 y el umbral del 80 % en `lib/`, `db/`, `sync/` y los hooks (`use*`) |
 
 - Cada prueba va junto a su código: `Card.tsx` y `Card.test.tsx`.
 - Las pruebas de `apps/web` corren en jsdom, sin globales: `describe`, `it` y `expect` se importan de `vitest`. El _setup_ (`src/test/setup.ts`) ya carga los _matchers_ de jest-dom (`toBeInTheDocument`…) y una IndexedDB en memoria (`fake-indexeddb`) para Dexie.
+- Pruebas de la base local: abren la base con `openUserDb(userId)` y la borran en `afterEach` con `deleteUserDb(userId)`, para que cada prueba empiece vacía. Cada entrada se crea con una función, no con un objeto compartido: Dexie escribe en el objeto la clave que genera (`seq`). Los hooks con consultas vivas se prueban con `renderHook` dentro de `LocalDbProvider` y `waitFor` (D-170).
+- Commit en rojo: si la prueba importa código que aún no existe, el commit lleva el esqueleto tipado sin lógica, para que pase ESLint y la prueba falle por el comportamiento (D-171).
 - Accesibilidad en componentes: `await expectNoAxeViolations(container)` de `src/test/axe.ts`. jsdom no calcula estilos, así que axe no mide el contraste; de eso se encargan Playwright + axe y Lighthouse.
+- Textos de la interfaz: el _setup_ también carga i18n (`src/lib/i18n`). Para comprobar que un texto sale de `es.json` y no está escrito en el componente, la prueba cambia la traducción con `i18n.addResource` y la busca en pantalla (D-169).
+- La configuración compartida de ESLint tiene sus propias pruebas en `packages/config/eslint.config.test.js`: pasan fragmentos de código por la API de ESLint y comprueban qué reglas saltan (D-169).
 - La cobertura es de todo el proyecto: un archivo de `lib/` o un hook sin probar hace fallar `pnpm test:coverage` aunque lo demás esté cubierto.

@@ -10,6 +10,15 @@ Cómo funciona la decisión de [ADR-023](../adr/0023-sincronizacion-sin-conexion
 4. **Bajar:** para cada tabla se piden las filas con `updated_at` posterior al cursor guardado, y los `tombstone` posteriores al último leído. El cursor retrocede 5 minutos en cada petición para no perder transacciones que terminaron tarde; aplicar una fila dos veces no cambia nada.
 5. **Recalcular:** las prácticas que recibieron repasos de otro dispositivo recalculan su estado FSRS y su nivel desde `review_log` (D-81). Los dos dispositivos llegan al mismo resultado porque parten del mismo historial.
 
+## Base local
+
+Puesta en marcha en HU-80 (D-170). El código vive en `apps/web/src/db/`.
+
+- **Una base por cuenta:** `openUserDb(userId)` abre la base `lexis-<userId>` al iniciar sesión y `deleteUserDb(userId)` la cierra y la borra al cerrar sesión. Así, otra persona en el mismo dispositivo nunca ve los datos de la anterior. La base llega a la app con `<LocalDbProvider db>` y se lee con `useLocalDb()`.
+- **Versiones:** `LexisDb` declara cada versión con `this.version(n).stores({…})`. Cada historia que necesita tablas añade una versión nueva solo con sus cambios y, si hay que transformar filas existentes, su `.upgrade()`. Una versión publicada no se edita.
+- **Versión 1:** solo `outbox`, la cola de salida, con clave `seq` autoincremental (el orden de subida) e índice por `table`. Cada entrada lleva `table`, `rowId` (UUID), `op` (`insert`, `update` o `delete`), `payload`, `attempts` y `createdAt`.
+- **Consultas vivas:** la interfaz lee con `useLiveQuery` (ADR-008). `usePendingChanges()` cuenta las entradas de `outbox`, para el indicador «Guardado en este dispositivo» (D-99).
+
 ## Reglas de conflicto
 
 | Tipo de dato            | Tablas                                                              | Regla                                                                                                                                                                            |

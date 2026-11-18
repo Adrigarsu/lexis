@@ -3,9 +3,6 @@
   "version": "0.0.0",
   "private": true,
   "type": "module",
-  "scripts": {
-    "typecheck": "tsc"
-  },
   "exports": {
     "./tsconfig.base.json": "./tsconfig.base.json",
     "./eslint.config.js": "./eslint.config.js",
@@ -26,7 +23,7 @@
     "typescript-eslint": "^8.73.0"
   },
   "devDependencies": {
-    "@types/node": "^26.6.6",
+    "eslint-plugin-i18next": "^6.1.5",
     "vitest": "^5.1.0"
   }
 }

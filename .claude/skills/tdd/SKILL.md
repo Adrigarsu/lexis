@@ -36,7 +36,7 @@ En el orden del plan. Para cada criterio de aceptación (Dado / Cuando / Entonce
 - Ejecuta **solo esa prueba**: `pnpm test -t "HU-12 rates the card"` o `pnpm test:e2e -g "HU-12"`.
 - Comprueba que falla **por el motivo esperado** (falta el comportamiento), no por un error de sintaxis o de importación.
 - **Si pasa sin tocar código**, no es un rojo válido: o la prueba no prueba lo que dice, o el comportamiento ya existía. Para y pregunta antes de seguir.
-- Commit: `test(<ámbito>): <criterio en pocas palabras>`.
+- Commit: `test(<ámbito>): <criterio en pocas palabras>`. El `pre-commit` pasa ESLint con tipos, así que una prueba que importa un módulo que no existe no se puede guardar. En ese caso, el commit en rojo lleva el **esqueleto tipado** (los tipos y las firmas, sin lógica: `throw new Error('Not implemented')` o un valor vacío), y la prueba falla por el comportamiento (D-171).
 
 ### 2.2 Hacia dentro: la lógica que falta
 

@@ -2,28 +2,30 @@ import { ESLint } from 'eslint';
 import stylelint from 'stylelint';
 import tseslint from 'typescript-eslint';
 import { describe, expect, it } from 'vitest';
-import { hardCodedColorRule } from '../colors.js';
-import stylelintConfig from '../stylelint.config.js';
+import lexis from './eslint.config.js';
+import stylelintConfig from './stylelint.config.js';
 
-async function cssProblems(code: string): Promise<number> {
+// The shared config, without the typed rules: the snippets below belong to no tsconfig.
+const eslint = new ESLint({
+  cwd: import.meta.dirname,
+  overrideConfigFile: true,
+  overrideConfig: [...lexis, tseslint.configs.disableTypeChecked],
+});
+
+/** @param {string} code */
+async function cssProblems(code) {
   const { results } = await stylelint.lint({ code, config: stylelintConfig });
   return results[0]?.warnings.length ?? 0;
 }
 
-async function tsxProblems(code: string): Promise<number> {
-  const eslint = new ESLint({
-    overrideConfigFile: true,
-    overrideConfig: {
-      files: ['**/*.tsx'],
-      languageOptions: {
-        parser: tseslint.parser,
-        parserOptions: { ecmaFeatures: { jsx: true } },
-      },
-      rules: { 'no-restricted-syntax': hardCodedColorRule },
-    },
+/** @param {string} code */
+async function colorProblems(code) {
+  const [result] = await eslint.lintText(code, {
+    filePath: 'apps/web/src/Card.tsx',
   });
-  const [result] = await eslint.lintText(code, { filePath: 'Card.tsx' });
-  return result?.errorCount ?? 0;
+  return (result?.messages ?? []).filter(
+    (message) => message.ruleId === 'no-restricted-syntax',
+  ).length;
 }
 
 describe('hand-written colors', () => {
@@ -39,18 +41,18 @@ describe('hand-written colors', () => {
 
   it('HU-76 flags a hand-written color in TSX', async () => {
     expect(
-      await tsxProblems(
+      await colorProblems(
         'export const A = () => <p className="bg-[#123456]" />;',
       ),
     ).toBe(1);
     expect(
-      await tsxProblems("export const s = { color: 'rgba(0, 0, 0, 0.5)' };"),
+      await colorProblems("export const s = { color: 'rgba(0, 0, 0, 0.5)' };"),
     ).toBe(1);
   });
 
   it('HU-76 accepts colors from the tokens in TSX', async () => {
     expect(
-      await tsxProblems('export const A = () => <p className="bg-jade" />;'),
+      await colorProblems('export const A = () => <p className="bg-jade" />;'),
     ).toBe(0);
   });
 });

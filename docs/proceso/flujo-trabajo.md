@@ -102,3 +102,5 @@ Decidido en D-77 y D-153. [`.github/dependabot.yml`](../../.github/dependabot.ym
 ## Servicios externos
 
 Supabase, Vercel, Sentry y Turnstile se crean cuando llega la issue que los necesita, no antes: un proyecto de Supabase sin uso se pausa a los 7 días. Sus claves viven en los paneles de cada servicio y en los secretos de GitHub, nunca en el repositorio. Vercel ya existe: cómo se despliega está en [despliegue.md](../arquitectura/despliegue.md) (D-167).
+
+El proyecto de Supabase existe desde la #48 (HU-75, D-168). Las migraciones y `supabase/config.toml` llegan a la nube solas al fusionar: el workflow `deploy-db` corre en el push a `main`. Después de fusionar una PR que toca `supabase/`, comprueba que ha salido en verde en la pestaña Actions. Cómo se despliega y qué hacer si falla el ping diario está en el [README](../../README.md#supabase-en-la-nube).

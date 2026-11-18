@@ -19,14 +19,16 @@ Convierte una petición en una issue lista para el backlog. Nada se crea sin que
 
 Lee la plantilla que toca en `.github/ISSUE_TEMPLATE/` antes de escribir nada: de ella salen el prefijo del título, las secciones, las obligatorias y las etiquetas fijas.
 
-| Petición                                                 | Plantilla             | Prefijo               |
-| -------------------------------------------------------- | --------------------- | --------------------- |
-| Una historia que ya está en `docs/producto/historias/`   | `1-historia.yml`      | `HU-xx · `            |
-| Algo que no está en los requisitos ni en las historias   | `2-funcionalidad.yml` | `Nueva: `             |
-| Algo no funciona como dice la documentación              | `3-bug.yml`           | `Bug: `               |
-| Configuración, herramientas, CI, refactorización, skills | `4-tarea.yml`         | `Tarea: `             |
-| Corregir, completar o reorganizar `docs/`                | `5-documentacion.yml` | `Docs: `              |
-| Una parte de una issue grande                            | `6-parte.yml`         | `HU-xx · parte n/N: ` |
+| Petición                                                           | Plantilla             | Prefijo               |
+| ------------------------------------------------------------------ | --------------------- | --------------------- |
+| Una historia que ya está en `docs/producto/historias/`             | `1-historia.yml`      | `HU-xx · `            |
+| Algo que no está en los requisitos ni en las historias             | `2-funcionalidad.yml` | `Nueva: `             |
+| Algo no funciona como dice la documentación                        | `3-bug.yml`           | `Bug: `               |
+| Mantenimiento suelto: ajustes, Dependabot, refactorización, skills | `4-tarea.yml`         | `Tarea: `             |
+| Corregir, completar o reorganizar `docs/`                          | `5-documentacion.yml` | `Docs: `              |
+| Una parte de una issue grande                                      | `6-parte.yml`         | `HU-xx · parte n/N: ` |
+
+El trabajo técnico de un milestone (desplegar, tablas, componentes base, scripts de datos…) no es una tarea: es una historia de la épica EP-12 · Plataforma en `docs/producto/historias/EP-12-plataforma.md`, con la plantilla 1 y la etiqueta `epica:EP-12` (D-165). Si la historia aún no está escrita, se trata como funcionalidad nueva (paso 9) y se añade a EP-12. Si la etiqueta `epica:EP-12` no existe todavía, pregunta antes de crearla.
 
 La plantilla 6 la usa normalmente `empezar-issue` al partir una issue. Si la petición encaja en dos plantillas, pregunta con opciones.
 

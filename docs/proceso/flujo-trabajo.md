@@ -4,9 +4,9 @@ Decidido en D-138, D-139 y D-140. Una sesión de Claude Code por issue, en el or
 
 ## Organización en GitHub
 
-- **Issues:** una por historia de usuario (HU), más las de bugs, tareas técnicas y documentación. Se crean con las plantillas de `.github/ISSUE_TEMPLATE/` y con la cuenta de la desarrolladora.
-- **Milestones:** iteraciones que entregan algo usable. `0 · Organización del repositorio` y `1 · Cimientos técnicos` ya existen; los siguientes se crean en la fase 6, con las historias.
-- **Etiquetas:** `tipo:` (historia, bug, tarea), `prio:` (must, should, could), `area:` (app, db, content, infra, docs) y `epica:EP-01` … `epica:EP-11`.
+- **Issues:** una por historia de usuario (HU), más las de bugs, tareas de mantenimiento y documentación. Desde el milestone 2, el trabajo técnico de un milestone se escribe como historia de la épica EP-12 · Plataforma (D-165). Se crean con las plantillas de `.github/ISSUE_TEMPLATE/` y con la cuenta de la desarrolladora.
+- **Milestones:** iteraciones que entregan algo usable. `0 · Organización del repositorio` y `1 · Cimientos técnicos` ya existen. El orden de los siguientes está en el [roadmap](roadmap.md) (D-166); se crean en GitHub más adelante, con sus historias.
+- **Etiquetas:** `tipo:` (historia, bug, tarea), `prio:` (must, should, could), `area:` (app, db, content, infra, docs) y `epica:EP-01` … `epica:EP-12`. La de EP-12 (Plataforma, las historias técnicas, D-165) se crea con su primera issue.
 - **Dependencias:** con la relación nativa _blocked by_ de GitHub, no con etiquetas.
 - **Project «Lexis»:** vista _Backlog_ (por milestone y prioridad, con bloqueos y progreso de sub-issues) y vista _Tablero_ (por estado).
 - **`main` protegida:** solo por PR, historial lineal, sin force push ni borrado, y solo _squash merge_. Además, el check `ci` del CI tiene que estar en verde (D-159).

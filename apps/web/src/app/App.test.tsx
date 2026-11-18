@@ -1,15 +1,19 @@
 import { render, screen } from '@testing-library/react';
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 import { expectNoAxeViolations } from '../test/axe';
 import { App } from './App';
 
-// Infrastructure smoke test: it belongs to no user story, so it has no HU ID (D-157).
+// The translations are swapped so the test fails if the text is written in the component.
+vi.mock('../lib/i18n/locales/es.json', () => ({
+  default: { app: { name: 'Lexis (test)' } },
+}));
+
 describe('App', () => {
-  it('renders the app shell without axe violations', async () => {
+  it('HU-79 renders the app name from es.json', async () => {
     const { container } = render(<App />);
 
     expect(
-      screen.getByRole('heading', { level: 1, name: 'Lexis' }),
+      screen.getByRole('heading', { level: 1, name: 'Lexis (test)' }),
     ).toBeInTheDocument();
     await expectNoAxeViolations(container);
   });

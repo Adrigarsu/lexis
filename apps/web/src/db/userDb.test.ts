@@ -6,14 +6,17 @@ import { deleteUserDb, localDbName, openUserDb } from './userDb';
 const ALICE = '0195f0a0-0000-7000-8000-00000000000a';
 const BOB = '0195f0a0-0000-7000-8000-00000000000b';
 
-const change: Omit<OutboxEntry, 'seq'> = {
-  table: 'profile',
-  rowId: ALICE,
-  op: 'update',
-  payload: { username: 'alice' },
-  attempts: 0,
-  createdAt: '2026-11-18T10:00:00Z',
-};
+// A new object each time: Dexie writes the generated `seq` into what it adds.
+function change(): Omit<OutboxEntry, 'seq'> {
+  return {
+    table: 'profile',
+    rowId: ALICE,
+    op: 'update',
+    payload: { username: 'alice' },
+    attempts: 0,
+    createdAt: '2026-11-18T10:00:00Z',
+  };
+}
 
 describe('userDb', () => {
   afterEach(async () => {
@@ -25,7 +28,7 @@ describe('userDb', () => {
     const alice = await openUserDb(ALICE);
     const bob = await openUserDb(BOB);
 
-    await alice.outbox.add(change);
+    await alice.outbox.add(change());
 
     expect(alice.name).toBe(localDbName(ALICE));
     expect(bob.name).toBe(localDbName(BOB));
@@ -37,7 +40,7 @@ describe('userDb', () => {
   it('HU-80 deletes the account database on sign out and keeps the others', async () => {
     const alice = await openUserDb(ALICE);
     await openUserDb(BOB);
-    await alice.outbox.add(change);
+    await alice.outbox.add(change());
 
     await deleteUserDb(ALICE);
 
@@ -48,7 +51,7 @@ describe('userDb', () => {
 
   it('HU-80 starts empty when the same account signs in again', async () => {
     const before = await openUserDb(ALICE);
-    await before.outbox.add(change);
+    await before.outbox.add(change());
     await deleteUserDb(ALICE);
 
     const after = await openUserDb(ALICE);

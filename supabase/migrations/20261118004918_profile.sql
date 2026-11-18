@@ -34,3 +34,25 @@ create unique index profile_username_key on public.profile (lower(username));
 create trigger set_updated_at
 before update on public.profile
 for each row execute function public.set_updated_at();
+
+-- Security: two locks (docs/datos/esquema.md). GRANT decides what the API sees;
+-- RLS decides which rows. No delete: the profile goes with the account.
+-- TODO(user_role): add «account not blocked» to the policies with is_blocked().
+alter table public.profile enable row level security;
+
+revoke all on public.profile from anon, authenticated;
+grant select, insert, update on public.profile to authenticated;
+
+-- (select auth.uid()) is evaluated once per query instead of once per row.
+create policy profile_select_own on public.profile
+for select to authenticated
+using (id = (select auth.uid()));
+
+create policy profile_insert_own on public.profile
+for insert to authenticated
+with check (id = (select auth.uid()));
+
+create policy profile_update_own on public.profile
+for update to authenticated
+using (id = (select auth.uid()))
+with check (id = (select auth.uid()));

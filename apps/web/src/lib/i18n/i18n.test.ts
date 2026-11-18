@@ -29,4 +29,34 @@ describe('i18n', () => {
       );
     }
   });
+
+  describe('formatting with Intl', () => {
+    // Test-only texts, so no interface text is invented for this story.
+    const TEST_NS = 'formatTest';
+    const t = i18n.getFixedT(null, TEST_NS);
+    i18n.addResourceBundle('es', TEST_NS, {
+      amount: '{{value, number}}',
+      day: '{{value, datetime(dateStyle: long)}}',
+      cards_one: '{{count}} tarjeta',
+      cards_other: '{{count}} tarjetas',
+    });
+
+    it('HU-79 formats numbers in Spanish', () => {
+      expect(t('amount', { value: 12345.5 })).toBe('12.345,5');
+      // Spanish does not group four-digit numbers.
+      expect(t('amount', { value: 1234 })).toBe('1234');
+    });
+
+    it('HU-79 formats dates in Spanish', () => {
+      expect(t('day', { value: new Date(2026, 10, 18) })).toBe(
+        '18 de noviembre de 2026',
+      );
+    });
+
+    it('HU-79 picks the Spanish plural form', () => {
+      expect(t('cards', { count: 1 })).toBe('1 tarjeta');
+      expect(t('cards', { count: 0 })).toBe('0 tarjetas');
+      expect(t('cards', { count: 5 })).toBe('5 tarjetas');
+    });
+  });
 });

@@ -79,7 +79,7 @@ Cada fila lleva `user_id` y solo la ve su dueño. Los historiales (`review_log`,
 | `audit_log` | Quién cambió qué y cuándo (RNF-14)                     | `id` entero, `at`, `actor_id`, `action`, `table_name`, `row_id`, `old` y `new` jsonb                |
 | `tombstone` | Avisa a los demás dispositivos de lo que se ha borrado | `id` entero, `table_name`, `row_id`, `user_id`, `deleted_at`                                        |
 
-**Auditoría:** la rellenan triggers en las tablas de contenido y en `user_role`, nunca la app. Ningún rol, ni Admin, tiene permiso para editarla o borrarla. Guarda quién tocó el contenido y las cuentas, nunca datos de estudio (RGPD).
+**Auditoría:** la rellenan triggers en las tablas de contenido y en `user_role`, nunca la app. Ningún rol, ni Admin, tiene permiso para editarla o borrarla. Guarda quién tocó el contenido y las cuentas, nunca datos de estudio (RGPD). Es un solo trigger genérico, `audit_row_change()`, que recibe el nombre de la clave primaria (`user_id` en `user_role`, `id` en las de contenido) y apunta la acción, la fila de antes y la de después y quién lo hizo (`auth.uid()`; vacío si el cambio viene del SQL Editor). Las tablas de contenido se añaden con su propio `create trigger` (D-173).
 
 **Borrado inmediato (D-135):** al borrar una lista, un conjunto importado o un texto propio, la fila desaparece al momento, junto con sus elementos y sus prácticas. Un trigger anota el borrado en `tombstone`, para que tus otros dispositivos lo borren al sincronizar aunque estuvieran sin conexión. Las anotaciones de más de 90 días se purgan; un dispositivo que lleve más tiempo sin conectarse descarga todo de nuevo.
 
@@ -91,7 +91,7 @@ Hay dos cerrojos y los dos deben abrirse para que la app lea una fila. En los pr
 
 - **Ningún permiso para `anon`:** la app exige cuenta (D-39), así que sin sesión la API no ve ninguna tabla.
 - **Cada migración que crea una tabla incluye en el mismo archivo** `ENABLE ROW LEVEL SECURITY`, sus políticas y sus `GRANT` para `authenticated`. Una prueba de pgTAP falla si alguna tabla de `public` no tiene RLS.
-- **Las funciones de rol** (`is_editor()`, `is_admin()`, `is_blocked()`) son `SECURITY DEFINER` y leen `user_role`, para que las políticas no dependan de lo que diga el cliente.
+- **Las funciones de rol** (`is_editor()`, `is_admin()`, `is_blocked()`) son `SECURITY DEFINER` y leen `user_role`, para que las políticas no dependan de lo que diga el cliente. Ser admin incluye ser editor. El rol y el bloqueo son independientes: una cuenta bloqueada conserva su rol, y las políticas que exigen cuenta no bloqueada lo comprueban aparte (D-173). El rol es el enum `app_role`; los cambios de rol se hacen a mano según [alta-de-cuentas.md](../operacion/alta-de-cuentas.md) hasta que exista la Edge Function de cuentas.
 
 | Tablas                                                                  | `GRANT` a `authenticated`      | Política RLS                                                                                                        |
 | ----------------------------------------------------------------------- | ------------------------------ | ------------------------------------------------------------------------------------------------------------------- |

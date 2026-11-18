@@ -1,5 +1,7 @@
 # Tarjeta de estudio
 
+> **Por rediseñar (D-162):** la tarjeta de significado ya no gira. Según el nivel, se elige el significado entre 4 o 6 opciones o se escribe, y la app propone una valoración que se puede cambiar. «Mostrar respuesta», el giro y la respuesta descritos abajo valen solo para el diseño anterior hasta que se rediseñe (ver [pantallas por rediseñar](../../pantallas/README.md#pantallas-por-rediseñar)).
+
 El centro de la sesión diaria: una palabra y una pregunta (significado, escritura o pronunciación). Fondo `surface`, borde fino y mucho aire alrededor del carácter (`space-8`).
 
 ## Partes

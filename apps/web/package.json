@@ -10,11 +10,13 @@
     "typecheck": "tsc"
   },
   "dependencies": {
+    "@lexis/design-tokens": "workspace:*",
     "react": "^19.3.1",
     "react-dom": "^19.3.1"
   },
   "devDependencies": {
     "@lexis/config": "workspace:*",
+    "@tailwindcss/vite": "^4.3.5",
     "@testing-library/dom": "^10.4.2",
     "@testing-library/jest-dom": "^7.0.1",
     "@testing-library/react": "^16.3.3",
@@ -25,6 +27,7 @@
     "axe-core": "^4.14.1",
     "fake-indexeddb": "^6.2.8",
     "jsdom": "^31.0.1",
+    "tailwindcss": "^4.3.5",
     "typescript": "^7.0.2",
     "vite": "^8.3.8"
   }

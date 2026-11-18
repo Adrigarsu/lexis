@@ -7,7 +7,7 @@
     "node": ">=26"
   },
   "scripts": {
-    "dev": "pnpm --filter @lexis/web dev",
+    "dev": "pnpm --filter @lexis/design-tokens build && pnpm --filter @lexis/web dev",
     "build": "pnpm -r build",
     "lint": "eslint .",
     "typecheck": "pnpm -r --if-present typecheck",

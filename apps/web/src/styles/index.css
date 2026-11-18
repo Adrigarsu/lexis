@@ -1,0 +1,9 @@
+@import 'tailwindcss';
+@import '@lexis/design-tokens/tokens.css';
+@import '@lexis/design-tokens/theme.css';
+
+@layer base {
+  body {
+    @apply bg-paper font-sans text-ink;
+  }
+}

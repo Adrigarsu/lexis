@@ -430,3 +430,34 @@ enabled = true
 # formatted with uppercase keywords, indent 2, max width 180, trailing commas,
 # and column/key alignment. Set to "null" to emit raw, unformatted SQL.
 # format_options = "{\"keywordCase\":\"upper\",\"indent\":2,\"maxWidth\":180,\"commaStyle\":\"trailing\"}"
+
+# Cloud project (HU-75, D-167). The settings above are tuned for local
+# development; these overrides keep the cloud values, so `supabase config push`
+# only changes what is meant to reach the cloud (for now, closed sign-up).
+# The project ref is not a secret: it is part of the public API URL.
+[remotes.production]
+project_id = "afsoqzglbdaddndhvyey"
+
+[remotes.production.auth]
+site_url = "http://localhost:3000"
+additional_redirect_urls = []
+
+[remotes.production.auth.email]
+enable_confirmations = true
+max_frequency = "1m0s"
+otp_length = 8
+
+[remotes.production.auth.sms]
+enable_confirmations = true
+
+[remotes.production.auth.mfa.totp]
+enroll_enabled = true
+verify_enabled = true
+
+[remotes.production.db.pooler]
+default_pool_size = 15
+max_client_conn = 200
+
+# Vector buckets need the Pro plan.
+[remotes.production.storage.vector]
+enabled = false

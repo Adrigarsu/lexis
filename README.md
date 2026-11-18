@@ -62,6 +62,7 @@ El proyecto de Supabase está en el plan gratuito, en la región de Irlanda (`eu
   pnpm exec supabase config diff --remote=<referencia>
   ```
 
+- **Configuración de la nube.** `supabase/config.toml` está pensado para local; el bloque `[remotes.production]` del final fija para la nube sus propios valores (confirmación del email, MFA, OTP, pooler…). Si cambias un ajuste de Auth, decide si va arriba, en el bloque de la nube o en los dos, y compruébalo con `config diff`.
 - **Registro cerrado.** `enable_signup = false` en `supabase/config.toml` (D-163), también en local: las cuentas se dan de alta a mano en el panel.
 - **Que no se pause.** El plan gratuito pausa el proyecto tras 7 días sin uso. El workflow [`keepalive`](.github/workflows/keepalive.yml) hace cada día un `select 1` (D-71). Si falla, GitHub manda un email: comprueba en el panel que el proyecto no está pausado (si lo está, se reactiva con «Restore») y que `SUPABASE_DB_URL` sigue siendo válida, y relánzalo con `gh workflow run keepalive.yml`. GitHub desactiva los workflows programados tras 60 días sin actividad en el repositorio; si pasa, se reactiva en la pestaña Actions.
 

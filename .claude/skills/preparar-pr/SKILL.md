@@ -32,15 +32,16 @@ Si `main` tiene commits nuevos, fusiónalos en la rama con `git merge origin/mai
 
 ## 3. Pruebas
 
-Si hay un `package.json` con scripts (desde el milestone 1), ejecútalos en el orden del CI de `docs/arquitectura/pruebas.md`:
+En toda PR, también en las de documentación, ejecuta los mismos pasos que el CI, en su orden (`docs/arquitectura/pruebas.md`, D-159):
 
 ```sh
-pnpm lint && pnpm typecheck && pnpm test && pnpm build && pnpm test:e2e
+pnpm lint && pnpm format:check && pnpm typecheck && pnpm test:coverage && pnpm build && pnpm test:e2e
 ```
 
-- `pnpm test` incluye la cobertura (80 % en `lib/`, `db/`, `sync/` y los hooks). Si toca `supabase/`, también las pruebas pgTAP.
-- **Si alguna falla, para.** No abras la PR: vuelve al paso 4 del flujo (skill `tdd`) con el error. Si el fallo no tiene que ver con la issue, es un hueco: pregunta con opciones.
-- **Sin código** (milestone 0): las pruebas son «No aplica». En las skills, comprueba que la prueba en seco de los casos del plan está hecha (D-142).
+- `pnpm test:coverage` es `pnpm test` con la cobertura y su umbral del 80 % en `lib/`, `db/`, `sync/` y los hooks (D-157). `pnpm test` solo no la mide.
+- **Si la rama toca `supabase/`**, añade `pnpm test:db`. Necesita Docker Desktop y la base local (`pnpm exec supabase start`). Si Docker no está en marcha, el fallo no es de la issue: pregunta con opciones (arrancarlo y repetir, o seguir y que lo compruebe el CI).
+- **Si alguna falla, para.** No abras la PR: vuelve al paso 4 del flujo (skill `tdd`, o el plan en un ajuste) con el error. Si el fallo no tiene que ver con la issue, es un hueco: pregunta con opciones.
+- **En las skills**, comprueba además que la prueba en seco de los casos del plan está hecha (D-142).
 
 ## 4. Definición de hecho
 
@@ -48,10 +49,14 @@ Lee `docs/proceso/definicion-de-hecho.md` cada vez: es la fuente de verdad y cam
 
 - **Lo común**, punto por punto.
 - **Los bloques que aplican**, según los archivos que cambia la rama:
+
   ```sh
   git diff --name-only origin/main...HEAD
   ```
-  Por ejemplo: `docs/` → solo documentación; `.claude/skills/` → skills; `.claude/settings.json`, `.claude/hooks/`, `lefthook.yml` o `.lefthook/` → ajustes y hooks; `.github/` → plantillas.
+
+  Por ejemplo: `docs/` → solo documentación; `apps/`, `packages/`, `supabase/` o `e2e/` → código; pantallas o componentes de `apps/web` → también interfaz; `.claude/skills/` → skills; `.claude/settings.json`, `.claude/hooks/`, `lefthook.yml` o `.lefthook/` → ajustes y hooks; `.github/` → plantillas.
+
+  Los bloques que no aplican se marcan «No aplica» en la PR, con el motivo si no es evidente.
 
 Lo que no se cumpla se arregla **en la rama**, con su commit convencional, antes de seguir. Puede ser documentación sin actualizar, una decisión sin registrar, un criterio sin prueba o un enlace roto. Si arreglarlo cambia código, vuelve al paso 3.
 
@@ -90,7 +95,7 @@ Comprueba también que todos los commits son de la desarrolladora (`git log --fo
 
 Enseña en el chat, junto:
 
-- el resultado de las pruebas (o «No aplica» y por qué);
+- el resultado de las pruebas en local;
 - la definición de hecho recorrida y lo que se arregló;
 - las firmas revisadas;
 - el título y la descripción de la PR.
@@ -107,6 +112,14 @@ gh pr view --json state,closingIssuesReferences,commits --jq '{state, closes: [.
 
 Comprueba que la PR enlaza la issue (en una parte, la parte). Después, mira cómo se ve la descripción: con las casillas de la plantilla, ese es el bloque «Plantillas de `.github/`» de la definición de hecho. Si la sesión se corta a medias, `empezar-issue` la retoma: mira si la rama está subida y si la PR existe antes de repetir nada.
 
+Por último, espera al CI:
+
+```sh
+gh pr checks <pr> --watch --fail-fast
+```
+
+Si el check `ci` sale en rojo, la PR no está lista: di qué paso falla (`gh run view <id> --log-failed`) y vuelve al paso 4 con el error. No hace falta otra PR: los commits nuevos de la rama la actualizan.
+
 ## 9. Siguiente paso
 
-Da el enlace de la PR. El _squash and merge_ lo hace ella (regla 3 de `CLAUDE.md`); tú solo si te lo autoriza expresamente en esta sesión. Cuando esté fusionada, toca la skill `cerrar-issue`.
+Con el check `ci` en verde, da el enlace de la PR. El _squash and merge_ lo hace ella (regla 3 de `CLAUDE.md`); tú solo si te lo autoriza expresamente en esta sesión. Cuando esté fusionada, toca la skill `cerrar-issue`.

@@ -1,6 +1,6 @@
 # Definición de hecho
 
-Decidida en D-143. Es la lista que tiene que cumplir toda PR antes del _squash and merge_. La skill `preparar-pr` la recorre antes de abrir la PR y la desarrolladora la revisa antes de fusionar. Si un punto no se cumple, la PR no se fusiona: se arregla en la misma rama.
+Decidida en D-143 y ampliada con los puntos de código en D-160. Es la lista que tiene que cumplir toda PR antes del _squash and merge_. La skill `preparar-pr` la recorre antes de abrir la PR y la desarrolladora la revisa antes de fusionar. Si un punto no se cumple, la PR no se fusiona: se arregla en la misma rama.
 
 Las PR de Dependabot son la excepción: no usan la plantilla ni enlazan issue, y se revisan como explica [flujo-trabajo.md](flujo-trabajo.md#actualizaciones-de-dependencias-dependabot) (D-153).
 
@@ -25,6 +25,11 @@ Tiene dos partes: lo **común**, que vale para toda PR, y lo que **se aplica seg
 - [ ] Los huecos que han salido se han resuelto con la desarrolladora y figuran en «Decisiones tomadas por el camino».
 - [ ] Las decisiones nuevas están arriba de la tabla de [decisiones.md](../decisiones.md), con el siguiente ID y el recuento de la cabecera actualizado. Si son de arquitectura, además hay un ADR nuevo en [adr/](../adr/README.md) con su fila en el índice. Un ADR aceptado no se edita: se sustituye.
 
+### Pruebas y CI
+
+- [ ] Todas las pruebas pasan en local, en el orden del CI ([pruebas.md](../arquitectura/pruebas.md)): `pnpm lint`, `pnpm format:check`, `pnpm typecheck`, `pnpm test:coverage`, `pnpm build` y `pnpm test:e2e`, más `pnpm test:db` si la PR toca `supabase/`.
+- [ ] El check `ci` de la PR está en verde (D-159). Sin él, el _ruleset_ «main» no deja fusionar.
+
 ### Documentación y repositorio
 
 - [ ] Todo lo documentado que cambia la PR está actualizado en la misma PR, incluidos índices como [docs/README.md](../README.md), `CLAUDE.md` y [flujo-trabajo.md](flujo-trabajo.md).
@@ -39,6 +44,23 @@ Tiene dos partes: lo **común**, que vale para toda PR, y lo que **se aplica seg
 - [ ] Los enlaces relativos apuntan a archivos que existen.
 - [ ] Los IDs nuevos (RF, HU, D, ADR) son los siguientes libres y no están repetidos.
 - [ ] Si se añade o cambia un RF o una HU, la [matriz de trazabilidad](../producto/trazabilidad.md) está al día.
+
+### Código (`apps/`, `packages/`, `supabase/`, `e2e/`)
+
+Decidido en ADR-021 y [pruebas.md](../arquitectura/pruebas.md).
+
+- [ ] Hecho con TDD: cada criterio de aceptación tiene antes una prueba en rojo, y el código de producción llega después (skill `tdd`). Los ajustes sin lógica nueva (D-148, D-151) se comprueban con comandos y un rojo provocado, y lo cuentan en «Cómo se ha probado».
+- [ ] Cada prueba de una historia lleva su ID en el nombre (`HU-12 rates the card with keys 1-4`). Las de humo de infraestructura no llevan ID (D-157).
+- [ ] La cobertura no baja del 80 % en `lib/`, `db/`, `sync/` y los hooks (`use*`): `pnpm test:coverage` en verde (D-75, D-157).
+- [ ] Si toca `supabase/`: cada tabla y política RLS nueva tiene su prueba pgTAP.
+
+### Interfaz (pantallas y componentes)
+
+Accesibilidad WCAG 2.2 AA, como requisito.
+
+- [ ] Sin errores de axe: en los componentes, `expectNoAxeViolations`; en la pantalla, la prueba E2E con `@axe-core/playwright`.
+- [ ] Se usa entera con teclado, en un orden lógico, y el foco se ve siempre.
+- [ ] Cuando Lighthouse CI esté en el CI: en verde, con 90 o más (RNF-01 a RNF-04).
 
 ### Skills de proyecto (`.claude/skills/`)
 
@@ -56,4 +78,5 @@ Tiene dos partes: lo **común**, que vale para toda PR, y lo que **se aplica seg
 
 ## Lo que falta
 
-Esta definición solo recoge lo que se puede comprobar hoy, en el milestone 0, cuando todavía no hay código, `pnpm` ni CI. Cuando el milestone 1 traiga el monorepo y el CI, se ampliará con los puntos de código según [pruebas.md](../arquitectura/pruebas.md) y ADR-021: TDD, todas las pruebas en verde, cobertura, accesibilidad y rendimiento. Mientras tanto, la plantilla de PR conserva esas casillas marcadas «Si hay código».
+- **Lighthouse CI:** todavía no está en el CI. Su casilla del bloque «Interfaz» se cumple cuando llegue.
+- **Revisión manual con VoiceOver** (RNF-21): no es de cada PR, sino de antes de cada versión. Irá en la lista de publicación de versiones, cuando exista.

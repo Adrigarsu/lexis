@@ -17,7 +17,7 @@ Closes #
 
 ## Comprobaciones
 
-<!-- Resumen de la definición de hecho: docs/proceso/definicion-de-hecho.md. Marca lo que aplica y escribe «No aplica» en lo demás. -->
+<!-- Resumen de la definición de hecho: docs/proceso/definicion-de-hecho.md. Marca lo que se cumple y escribe «No aplica» en lo que no toca a esta PR. -->
 
 - [ ] Rama `tipo/…` desde `main` actualizada; enlaza su issue (`Closes`, `Part of` o `Refs`).
 - [ ] Commits y título en Conventional Commits, a nombre de la desarrolladora.
@@ -25,10 +25,12 @@ Closes #
 - [ ] Cada criterio de la issue está en «Cómo se ha probado».
 - [ ] Documentación actualizada en esta PR (historia, requisitos, decisiones, ADR, pantallas, índices), o no hacía falta.
 - [ ] Sin secretos ni datos personales.
+- [ ] Todas las pruebas pasan en local (lint, formato, tipos, Vitest con cobertura, build, E2E de humo y pgTAP si toca `supabase/`) y el check `ci` está en verde.
+- [ ] Código hecho con TDD: cada criterio tiene una prueba con el ID de la historia, escrita en rojo antes que el código (o es un ajuste o una prueba de humo, D-148, D-151, D-157).
+- [ ] Cobertura del 80 % en `lib/`, `db/`, `sync/` y los hooks.
+- [ ] Interfaz: sin errores de axe, se usa con teclado y el foco se ve.
+- [ ] Lighthouse CI en verde (cuando esté en el CI).
 - [ ] Skills: prueba en seco con los casos escritos antes (D-142).
-- [ ] Si hay código: todas las pruebas pasan en local (lint, tipos, unitarias, componentes, integración, pgTAP si toca `supabase/`, build y E2E de humo).
-- [ ] Si hay código: cada criterio de aceptación tiene al menos una prueba con el ID de la historia.
-- [ ] Si hay interfaz: sin errores de axe, se usa con teclado y el foco se ve.
 
 ## Capturas
 

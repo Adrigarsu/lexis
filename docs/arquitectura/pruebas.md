@@ -43,6 +43,8 @@ Configuración en D-157 y [ADR-026](../adr/0026-entorno-de-vitest.md).
 
 - Cada prueba va junto a su código: `Card.tsx` y `Card.test.tsx`.
 - Las pruebas de `apps/web` corren en jsdom, sin globales: `describe`, `it` y `expect` se importan de `vitest`. El _setup_ (`src/test/setup.ts`) ya carga los _matchers_ de jest-dom (`toBeInTheDocument`…) y una IndexedDB en memoria (`fake-indexeddb`) para Dexie.
+- Pruebas de la base local: abren la base con `openUserDb(userId)` y la borran en `afterEach` con `deleteUserDb(userId)`, para que cada prueba empiece vacía. Cada entrada se crea con una función, no con un objeto compartido: Dexie escribe en el objeto la clave que genera (`seq`). Los hooks con consultas vivas se prueban con `renderHook` dentro de `LocalDbProvider` y `waitFor` (D-170).
+- Commit en rojo: si la prueba importa código que aún no existe, el commit lleva el esqueleto tipado sin lógica, para que pase ESLint y la prueba falle por el comportamiento (D-171).
 - Accesibilidad en componentes: `await expectNoAxeViolations(container)` de `src/test/axe.ts`. jsdom no calcula estilos, así que axe no mide el contraste; de eso se encargan Playwright + axe y Lighthouse.
 - Textos de la interfaz: el _setup_ también carga i18n (`src/lib/i18n`). Para comprobar que un texto sale de `es.json` y no está escrito en el componente, la prueba cambia la traducción con `i18n.addResource` y la busca en pantalla (D-169).
 - La configuración compartida de ESLint tiene sus propias pruebas en `packages/config/eslint.config.test.js`: pasan fragmentos de código por la API de ESLint y comprueban qué reglas saltan (D-169).

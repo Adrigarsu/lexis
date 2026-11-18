@@ -25,7 +25,7 @@ Cada prueba lleva el ID de su historia en el nombre (`HU-12 rates the card with 
 
 Además, antes de cada versión se revisa a mano con VoiceOver (RNF-21), porque ninguna herramienta automática detecta todos los problemas de accesibilidad.
 
-Las pruebas de base de datos viven en `supabase/tests/` y se ejecutan con `pnpm test:db` sobre la base local (D-158). Para probar una política RLS, la prueba crea usuarios en `auth.users` y se hace pasar por uno con `set local role authenticated` y `set_config('request.jwt.claims', '{"sub": "<uuid>"}', true)`, o por un visitante con `set local role anon`. `01_rls_enabled_test.sql` falla si alguna tabla de `public` no tiene RLS. pgTAP no se ejecuta contra la nube: las migraciones llegan allí ya probadas, con el workflow `deploy-db` (D-167).
+Las pruebas de base de datos viven en `supabase/tests/` y se ejecutan con `pnpm test:db` sobre la base local (D-158). Para probar una política RLS, la prueba crea usuarios en `auth.users` y se hace pasar por uno con `set local role authenticated` y `set_config('request.jwt.claims', '{"sub": "<uuid>"}', true)`, o por un visitante con `set local role anon`. `01_rls_enabled_test.sql` falla si alguna tabla de `public` no tiene RLS. pgTAP no se ejecuta contra la nube: las migraciones llegan allí ya probadas, con el workflow `deploy-db` (D-168).
 
 Las pruebas E2E viven en el paquete `e2e/` (D-156). Playwright compila la app y la sirve con `vite preview`, igual que se publica. Las pruebas de humo llevan la etiqueta `@humo`: `pnpm test:e2e` ejecuta solo esas en Chromium, y `pnpm test:e2e:full`, todas en Chromium y WebKit.
 

@@ -1,5 +1,5 @@
 # Daily minimal query that keeps the free Supabase project from pausing after
-# 7 days without activity (HU-75, D-71, D-167). If it fails, GitHub emails the
+# 7 days without activity (HU-75, D-71, D-168). If it fails, GitHub emails the
 # person who last changed the schedule, which is the alert RNF-07 asks for.
 # GitHub disables scheduled workflows after 60 days without repository activity.
 name: Keep Supabase active

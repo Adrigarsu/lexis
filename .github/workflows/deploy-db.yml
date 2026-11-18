@@ -1,4 +1,4 @@
-# Deploys the database to the Supabase cloud project (HU-75, D-167): applies the
+# Deploys the database to the Supabase cloud project (HU-75, D-168): applies the
 # new migrations and pushes supabase/config.toml (for example, closed sign-up,
 # D-163). Runs on every push to main that changes them, or by hand.
 # Secrets live in the GitHub environment "production", never in the repository.

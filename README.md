@@ -46,7 +46,7 @@ Las variables de entorno van en un `.env.local` en la raíz, copiado de [`.env.e
 
 ### Supabase en la nube
 
-El proyecto de Supabase está en el plan gratuito, en la región de Irlanda (`eu-west-1`) (D-17, RNF-16). Sus claves no están en el repositorio: viven en el panel de Supabase y en el _environment_ `production` de GitHub, que solo puede usar la rama `main` (D-167):
+El proyecto de Supabase está en el plan gratuito, en la región de Irlanda (`eu-west-1`) (D-17, RNF-16). Sus claves no están en el repositorio: viven en el panel de Supabase y en el _environment_ `production` de GitHub, que solo puede usar la rama `main` (D-168):
 
 | Secreto                 | Qué es                                                     | Lo usa      |
 | ----------------------- | ---------------------------------------------------------- | ----------- |

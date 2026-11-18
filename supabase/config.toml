@@ -179,7 +179,8 @@ enable_refresh_token_rotation = true
 # Requires enable_refresh_token_rotation = true.
 refresh_token_reuse_interval = 10
 # Allow/disallow new user signups to your project. Existing users can still sign in.
-enable_signup = true
+# Closed until open registration in milestone 5 (D-163); `supabase config push` applies it to the cloud (D-167).
+enable_signup = false
 # Allow/disallow anonymous sign-ins to your project.
 enable_anonymous_sign_ins = false
 # Allow/disallow testing manual linking of accounts

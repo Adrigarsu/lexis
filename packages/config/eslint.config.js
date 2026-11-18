@@ -57,7 +57,7 @@ export default defineConfig(
     rules: duplicatedHookRules,
   },
   {
-    // RNF-33: every interface text comes from the translation files (D-167, ADR-028).
+    // RNF-33: every interface text comes from the translation files (D-168, ADR-028).
     // jsx-only checks JSX text and the visible attributes (aria-label, title…).
     files: REACT_FILES,
     ignores: ['**/*.test.{jsx,tsx}', '**/test/**'],

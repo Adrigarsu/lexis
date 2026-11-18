@@ -10,6 +10,8 @@
     "typecheck": "tsc"
   },
   "dependencies": {
+    "dexie": "^4.4.7",
+    "dexie-react-hooks": "^4.4.0",
     "i18next": "^27.1.5",
     "react": "^19.3.1",
     "react-dom": "^19.3.1",

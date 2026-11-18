@@ -1,6 +1,6 @@
 # Alta de cuentas y roles
 
-Mientras el registro esté cerrado (D-163, ADR-027), las cuentas las da de alta la desarrolladora a mano en Supabase. Esta guía cubre el alta, los roles, el bloqueo y lo que queda auditado (HU-81, D-172).
+Mientras el registro esté cerrado (D-163, ADR-027), las cuentas las da de alta la desarrolladora a mano en Supabase. Esta guía cubre el alta, los roles, el bloqueo y lo que queda auditado (HU-81, D-173).
 
 Todo se hace en el panel del proyecto de Supabase en la nube. En local funciona igual, desde Studio (`pnpm exec supabase start`, y Studio en el puerto que indica `supabase status`).
 

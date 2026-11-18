@@ -32,3 +32,4 @@ Formato de Michael Nygard: **contexto**, **decisión** y **consecuencias**. Un A
 | [ADR-026](0026-entorno-de-vitest.md)                         | Entorno de Vitest para el monorepo                            | Calidad     | Aceptado | D-156            |
 | [ADR-027](0027-registro-cerrado-al-principio.md)             | Registro cerrado al principio                                 | Backend     | Aceptado | D-163            |
 | [ADR-028](0028-textos-de-la-interfaz-en-es-json-con-lint.md) | Textos de la interfaz en es.json con lint contra textos fijos | Calidad     | Aceptado | D-169            |
+| [ADR-029](0029-tokens-tema-y-fuentes-en-el-codigo.md)        | Tokens, tema y fuentes en el código                           | Frontend    | Aceptado | D-172            |

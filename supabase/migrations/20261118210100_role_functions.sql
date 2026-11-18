@@ -1,7 +1,7 @@
 -- Role functions (#71, HU-81, D-67, docs/datos/esquema.md «Seguridad: permisos y RLS»).
 -- SECURITY DEFINER so policies read user_role with the owner's rights and never
 -- trust the client; the empty search_path stops a caller from shadowing objects.
--- Role and block are independent: blocking does not take the role away (D-172).
+-- Role and block are independent: blocking does not take the role away (D-173).
 
 create function public.is_admin()
 returns boolean

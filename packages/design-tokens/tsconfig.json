@@ -1,0 +1,9 @@
+{
+  "extends": "@lexis/config/tsconfig.base.json",
+  "compilerOptions": {
+    "allowImportingTsExtensions": true,
+    "resolveJsonModule": true,
+    "types": ["node"]
+  },
+  "include": ["src", "vitest.config.ts"]
+}

@@ -99,7 +99,7 @@ Los 92 requisitos funcionales están cubiertos por al menos una historia de usua
 | RF-89     | HU-73                                    | D-83, D-127                   |
 | RF-90     | HU-12                                    | D-110, D-162                  |
 | RF-91     | HU-12                                    | D-162                         |
-| RF-92     | HU-81                                    | D-163, D-172                  |
+| RF-92     | HU-81                                    | D-163, D-173                  |
 
 ## 6.2 Requisitos no funcionales
 
@@ -129,18 +129,18 @@ Los 92 requisitos funcionales están cubiertos por al menos una historia de usua
 
 Las historias técnicas de la épica EP-12 (D-165) no salen de un requisito funcional: salen de los ADR, de las decisiones y de los requisitos no funcionales que hacen posibles las demás historias.
 
-| Historia | Requisitos             | ADR y decisiones                      |
-| -------- | ---------------------- | ------------------------------------- |
-| HU-74    | —                      | ADR-006, D-113                        |
-| HU-75    | RNF-07, RNF-16         | ADR-002, ADR-022, D-17, D-71          |
-| HU-76    | RNF-23                 | ADR-010, D-100, D-104, D-106, D-107   |
-| HU-77    | RNF-21, RNF-22, RNF-24 | ADR-011, D-32                         |
-| HU-78    | RNF-26                 | ADR-007, D-86, D-129                  |
-| HU-79    | RNF-33                 | ADR-012, D-14                         |
-| HU-80    | RNF-05                 | ADR-003, ADR-008, ADR-023             |
-| HU-81    | RF-92                  | ADR-027, D-163, D-172                 |
-| HU-82    | RNF-17                 | ADR-016, D-123                        |
-| HU-83    | RNF-09, RNF-14         | ADR-022, D-126, D-134, D-162, D-164   |
-| HU-84    | RF-75                  | D-79, D-80, D-84, D-125, D-127, D-162 |
-| HU-85    | RF-27                  | D-50, D-125                           |
-| HU-86    | RNF-05                 | ADR-009, D-116                        |
+| Historia | Requisitos             | ADR y decisiones                                    |
+| -------- | ---------------------- | --------------------------------------------------- |
+| HU-74    | —                      | ADR-006, D-113                                      |
+| HU-75    | RNF-07, RNF-16         | ADR-002, ADR-022, D-17, D-71                        |
+| HU-76    | RNF-23                 | ADR-010, ADR-029, D-100, D-104, D-106, D-107, D-172 |
+| HU-77    | RNF-21, RNF-22, RNF-24 | ADR-011, D-32                                       |
+| HU-78    | RNF-26                 | ADR-007, D-86, D-129                                |
+| HU-79    | RNF-33                 | ADR-012, D-14                                       |
+| HU-80    | RNF-05                 | ADR-003, ADR-008, ADR-023                           |
+| HU-81    | RF-92                  | ADR-027, D-163, D-173                               |
+| HU-82    | RNF-17                 | ADR-016, D-123                                      |
+| HU-83    | RNF-09, RNF-14         | ADR-022, D-126, D-134, D-162, D-164                 |
+| HU-84    | RF-75                  | D-79, D-80, D-84, D-125, D-127, D-162               |
+| HU-85    | RF-27                  | D-50, D-125                                         |
+| HU-86    | RNF-05                 | ADR-009, D-116                                      |

@@ -77,7 +77,7 @@ Como desarrolladora, quiero la base de datos local en IndexedDB con Dexie, para 
 
 ## HU-81 · Registro cerrado
 
-Must · RF-92, ADR-027, D-163, D-172
+Must · RF-92, ADR-027, D-163, D-173
 
 Como desarrolladora, quiero que solo puedan entrar las cuentas que yo cree, para usar la app con cuentas reales antes de tener todo lo que exige el registro abierto.
 
@@ -85,7 +85,7 @@ Como desarrolladora, quiero que solo puedan entrar las cuentas que yo cree, para
 - Dada una persona a la que he dado de alta desde el panel de Supabase, cuando inicia sesión con su email y su contraseña, entonces entra.
 - La forma de dar de alta una cuenta y de asignarle el rol está documentada en `docs/`: [operacion/alta-de-cuentas.md](../../operacion/alta-de-cuentas.md), con la tabla `user_role` y su auditoría.
 
-La pantalla de iniciar sesión sin «Crear cuenta» se comprueba en HU-03, donde se construye (D-172).
+La pantalla de iniciar sesión sin «Crear cuenta» se comprueba en HU-03, donde se construye (D-173).
 
 ## HU-82 · Errores con Sentry sin datos personales
 

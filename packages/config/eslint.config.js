@@ -9,6 +9,7 @@ import reactHooks from 'eslint-plugin-react-hooks';
 import { defineConfig } from 'eslint/config';
 import globals from 'globals';
 import tseslint from 'typescript-eslint';
+import { hardCodedColorRule } from './colors.js';
 
 const TS_FILES = ['**/*.{ts,tsx,mts,cts}'];
 const JS_FILES = ['**/*.{js,mjs,cjs}'];
@@ -55,6 +56,13 @@ export default defineConfig(
     files: REACT_FILES,
     extends: [eslintReactRecommended, jsxA11y.flatConfigs.recommended],
     rules: duplicatedHookRules,
+  },
+  {
+    // App code takes colors only from the tokens (ADR-010). Tests may name
+    // the colors they expect.
+    files: ['apps/*/src/**/*.{ts,tsx}'],
+    ignores: ['**/*.test.{ts,tsx}'],
+    rules: { 'no-restricted-syntax': hardCodedColorRule },
   },
   {
     // RNF-33: every interface text comes from the translation files (D-169, ADR-028).

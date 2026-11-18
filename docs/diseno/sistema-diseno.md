@@ -65,7 +65,7 @@ Sistema tradicional: 1.º rojo, 2.º naranja, 3.º verde, 4.º azul y neutro gri
 | `song`  | Noto Serif SC (宋体) | Alternativa elegible en Ajustes de estudio.                               |
 
 - Por defecto, Kai: tiene la forma de la escritura a mano y coincide con la animación de trazos. El usuario puede cambiarla en Ajustes de estudio › Fuente de los caracteres (D-106).
-- Las cuatro tienen licencia SIL OFL 1.1. Inter y Noto se sirven desde Google Fonts. LXGW WenKai se aloja en la app como subconjunto de los caracteres del curso (HSK 1 más el conjunto extra), para que pese poco y funcione sin conexión.
+- Las cuatro tienen licencia SIL OFL 1.1 y se sirven desde la propia app, nunca desde un tercero (D-172). Inter sale de Fontsource. LXGW WenKai se aloja como subconjunto de los caracteres del curso (HSK 1 más el conjunto extra), y Noto Sans SC y Noto Serif SC como subconjuntos con esos mismos caracteres, generados con `pnpm fonts:subset`. Así pesan poco y funcionan sin conexión cuando el service worker las precachea (HU-86).
 - Escala: `title-1` 28, `title-2` 22, `title-3` 18, `body` 16, `body-sm` 14, `label` 14, `button` 16 y `caption` 12. No hay texto por debajo de 12px, y los campos van a 16px para que iOS no haga zoom.
 - Caracteres: `hanzi-hero` 96 (tarjeta), `hanzi-xl` 64 (ficha y escritura), `hanzi-lg` 32, `hanzi-read` 22 con interlineado 2,1 (deja sitio al pinyin) y `hanzi-sm` 18.
 - El pinyin siempre en ruby bajo cada carácter (D-85): `pinyin-lg`, `pinyin-md` y `pinyin-ruby`. La opacidad la elige el usuario.
@@ -105,6 +105,15 @@ Iconos de trazo de 2px en rejilla de 24px, con esquinas redondeadas y siempre en
 ## Accesibilidad
 
 WCAG 2.2 AA en los dos temas. Texto 4,5:1. Controles, bordes de campo, iconos y anillo de foco 3:1. Foco visible con `focus-ring` en todo elemento interactivo. Objetivos de 44px. Nada se comunica solo con color.
+
+## En el código
+
+Decidido en ADR-010 y ADR-029.
+
+- `packages/design-tokens` genera, a partir de `tokens.json`, las variables `--lx-*` de los dos temas (`tokens.css`) y el tema de Tailwind CSS v4 (`theme.css`). Si cambia `tokens.json`, basta con volver a compilar.
+- En `apps/web` se usan las clases de Tailwind con los nombres de los tokens: `bg-paper`, `text-ink`, `border-line`, `rounded-md`, `font-kai`, `text-title-1`, `shadow-focus-ring`, `h-touch-min`. En CSS, `var(--lx-jade)`. La paleta por defecto de Tailwind no existe.
+- El tema sigue al sistema. Si el usuario elige uno, `useTheme` lo guarda y lo aplica como `data-theme` en `<html>`.
+- Un color escrito a mano (`#…`, `rgb()`, `black`, `bg-[#…]`) hace fallar `pnpm lint`: Stylelint lo detecta en CSS y ESLint en TS/TSX.
 
 ## Componentes
 

@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react';
 import type { LexisDb } from './LexisDb';
+import { LocalDbContext } from './localDbContext';
 
 interface LocalDbProviderProps {
   db: LexisDb;
@@ -7,6 +8,6 @@ interface LocalDbProviderProps {
 }
 
 /** Gives the local database of the signed-in account to the app. */
-export function LocalDbProvider({ children }: LocalDbProviderProps) {
-  return children;
+export function LocalDbProvider({ db, children }: LocalDbProviderProps) {
+  return <LocalDbContext value={db}>{children}</LocalDbContext>;
 }

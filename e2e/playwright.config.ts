@@ -21,7 +21,7 @@ export default defineConfig({
     { name: 'webkit', use: { ...devices['Desktop Safari'] } },
   ],
   webServer: {
-    command: `pnpm --filter @lexis/web build && pnpm --filter @lexis/web preview --port ${String(PORT)} --strictPort`,
+    command: `pnpm --filter "@lexis/web..." build && pnpm --filter @lexis/web preview --port ${String(PORT)} --strictPort`,
     url: `http://localhost:${String(PORT)}`,
     reuseExistingServer: !isCI,
   },

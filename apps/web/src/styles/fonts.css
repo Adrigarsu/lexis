@@ -1,0 +1,43 @@
+/*
+ * Every font is served by the app itself, never by a third party, so it can
+ * work offline once the service worker precaches it (HU-86). All are SIL OFL 1.1.
+ * Inter comes from Fontsource. The Chinese fonts are subsets with the course
+ * characters (D-106), built by `pnpm fonts:subset` from the WenKai subset.
+ */
+@import '@fontsource/inter/400.css';
+@import '@fontsource/inter/500.css';
+@import '@fontsource/inter/600.css';
+@import '@fontsource/inter/700.css';
+
+@font-face {
+  font-family: 'Noto Sans SC';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('../assets/fonts/noto-sans-sc-400.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Noto Sans SC';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('../assets/fonts/noto-sans-sc-700.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Noto Serif SC';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('../assets/fonts/noto-serif-sc-400.woff2') format('woff2');
+}
+
+/* Regenerated with the HSK 1 characters when that data arrives (HU-84). */
+@font-face {
+  font-family: 'LXGW WenKai';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('../assets/fonts/lxgw-wenkai-lexis.woff2') format('woff2');
+}

@@ -10,10 +10,13 @@ commit-msg:
 
 pre-commit:
   commands:
-    # Prettier fixes the staged files and stages them again; ESLint only checks (D-155).
+    # Prettier fixes the staged files and stages them again; ESLint and Stylelint only check (D-155).
     prettier:
       run: pnpm exec prettier --write --ignore-unknown {staged_files}
       stage_fixed: true
     eslint:
       glob: '*.{js,mjs,cjs,ts,tsx,mts,cts}'
       run: pnpm exec eslint --no-warn-ignored {staged_files}
+    stylelint:
+      glob: '*.css'
+      run: pnpm exec stylelint --allow-empty-input {staged_files}

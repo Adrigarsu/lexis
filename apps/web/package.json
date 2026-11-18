@@ -10,8 +10,10 @@
     "typecheck": "tsc"
   },
   "dependencies": {
+    "i18next": "^27.1.5",
     "react": "^19.3.1",
-    "react-dom": "^19.3.1"
+    "react-dom": "^19.3.1",
+    "react-i18next": "^18.0.2"
   },
   "devDependencies": {
     "@lexis/config": "workspace:*",

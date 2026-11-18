@@ -27,12 +27,9 @@ test(
     await page.emulateMedia({ colorScheme: 'light' });
     await page.goto('/');
 
-    await page.evaluate(
-      ([key]) => {
-        localStorage.setItem(key, 'dark');
-      },
-      [THEME_KEY],
-    );
+    await page.evaluate((key) => {
+      localStorage.setItem(key, 'dark');
+    }, THEME_KEY);
     await page.reload();
 
     await expect(page.locator('html')).toHaveAttribute('data-theme', 'dark');

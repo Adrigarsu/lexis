@@ -28,7 +28,7 @@ Como nuevo usuario, quiero verificar mi email, para poder empezar a estudiar.
 
 ## HU-03 · Iniciar y cerrar sesión
 
-Must · RF-04, RNF-10
+Must · RF-04, RNF-10, D-172
 
 Como estudiante, quiero iniciar y cerrar sesión, para usar mi cuenta en varios dispositivos.
 
@@ -36,6 +36,7 @@ Como estudiante, quiero iniciar y cerrar sesión, para usar mi cuenta en varios 
 - Dadas unas credenciales incorrectas, cuando inicio sesión, entonces veo un mensaje genérico que no revela si el email existe.
 - Dados 5 intentos fallidos seguidos, cuando lo intento de nuevo, entonces se me pide un CAPTCHA (milestone 5, D-163).
 - Dado que cierro sesión, cuando otra persona abre la app en ese dispositivo, entonces no ve ninguno de mis datos.
+- Dado que el registro está cerrado, cuando abro la pantalla de iniciar sesión, entonces no ofrece crear una cuenta (viene de HU-81, D-172).
 
 ## HU-04 · Recuperar mi contraseña
 

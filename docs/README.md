@@ -29,6 +29,12 @@ Fuente de verdad del producto desde el 12 de noviembre de 2026. Los documentos o
 | [datos/esquema.md](datos/esquema.md)     | Las 24 tablas, convenciones, RLS, permisos, límites e índices               |
 | [datos/contenido.md](datos/contenido.md) | Vocabulario y gramática del HSK 1, fuentes, licencias y tareas de contenido |
 
+## Operación
+
+| Archivo                                                      | Contenido                                                                                     |
+| ------------------------------------------------------------ | --------------------------------------------------------------------------------------------- |
+| [operacion/alta-de-cuentas.md](operacion/alta-de-cuentas.md) | Dar de alta cuentas con el registro cerrado, asignar roles, bloquear y consultar la auditoría |
+
 ## Diseño
 
 | Archivo                                                | Contenido                                                                   |

@@ -4,19 +4,19 @@ Decididas en [ADR-019](../adr/0019-convenciones-de-codigo-y-de-git.md).
 
 ## Nombres y archivos
 
-| Qué                       | Convención                                              | Ejemplo                                |
-| ------------------------- | ------------------------------------------------------- | -------------------------------------- |
-| Componentes               | PascalCase, un componente por archivo `.tsx`            | `RatingButtons.tsx`                    |
-| Hooks                     | camelCase con `use`                                     | `useDueCards.ts`                       |
-| Otros archivos y carpetas | kebab-case                                              | `fsrs-scheduler.ts`                    |
-| Variables y funciones     | camelCase                                               | `nextReviewAt`                         |
-| Constantes globales       | UPPER_SNAKE_CASE                                        | `MAX_NEW_PER_DAY`                      |
-| Tipos e interfaces        | PascalCase, sin prefijo `I`                             | `ReviewLog`                            |
-| Tablas y columnas         | snake_case en inglés (fase 3)                           | `review_log.reviewed_at`               |
-| Claves de traducción      | por módulo con puntos                                   | `session.rate.again`                   |
-| Pruebas                   | junto al código, `*.test.ts(x)`; E2E en `e2e/*.spec.ts` | `rating-buttons.test.tsx`              |
-| Ramas                     | `tipo/HU-xx-descripcion` desde `main`                   | `feat/HU-12-valorar-tarjeta`           |
-| Commits                   | Conventional Commits con el módulo como ámbito          | `feat(sesion): valorar con teclas 1-4` |
+| Qué                       | Convención                                                                                                                                                             | Ejemplo                                |
+| ------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------- |
+| Componentes               | PascalCase, un componente por archivo `.tsx`                                                                                                                           | `RatingButtons.tsx`                    |
+| Hooks                     | camelCase con `use`                                                                                                                                                    | `useDueCards.ts`                       |
+| Otros archivos y carpetas | kebab-case                                                                                                                                                             | `fsrs-scheduler.ts`                    |
+| Variables y funciones     | camelCase                                                                                                                                                              | `nextReviewAt`                         |
+| Constantes globales       | UPPER_SNAKE_CASE                                                                                                                                                       | `MAX_NEW_PER_DAY`                      |
+| Tipos e interfaces        | PascalCase, sin prefijo `I`                                                                                                                                            | `ReviewLog`                            |
+| Tablas y columnas         | snake_case en inglés (fase 3)                                                                                                                                          | `review_log.reviewed_at`               |
+| Claves de traducción      | por módulo con puntos, en camelCase, en `apps/web/src/lib/i18n/locales/es.json`; plurales con `_one` y `_other`; con tipos: una clave que no existe no compila (D-169) | `session.rate.again`                   |
+| Pruebas                   | junto al código, `*.test.ts(x)`; E2E en `e2e/*.spec.ts`                                                                                                                | `rating-buttons.test.tsx`              |
+| Ramas                     | `tipo/HU-xx-descripcion` desde `main`                                                                                                                                  | `feat/HU-12-valorar-tarjeta`           |
+| Commits                   | Conventional Commits con el módulo como ámbito                                                                                                                         | `feat(sesion): valorar con teclas 1-4` |
 
 Flujo de Git: GitHub Flow. `main` está protegida y solo recibe cambios por PR con el CI en verde, fusionados con _squash_. Cada PR enlaza su historia de usuario y cierra su issue. Lefthook (`lefthook.yml`, D-155) instala dos hooks con `pnpm install`: `pre-commit`, en el que Prettier formatea los archivos preparados y ESLint los comprueba, y `commit-msg`, en el que commitlint exige Conventional Commits con los tipos de la tabla de [Commits](#commits) y `.lefthook/commit-msg/check-signature.sh` rechaza las firmas de Claude. Las versiones siguen SemVer con etiquetas y un changelog generado de los commits. Todo commit, push y PR se hace desde la cuenta de la desarrolladora, sin coautorías (D-04).
 
@@ -32,7 +32,7 @@ Se lanzan desde la raíz del repositorio. La configuración de TypeScript, ESLin
 | `pnpm typecheck`     | Ejecuta `tsc` en cada paquete que tiene script `typecheck`, con el tsconfig estricto de `@lexis/config`. No genera archivos                                       | Antes de cada commit y en el CI         |
 | `pnpm format`        | Formatea con Prettier todos los archivos, salvo lo de `.prettierignore`                                                                                           | Cuando `format:check` falla             |
 | `pnpm format:check`  | Comprueba el formato sin cambiar nada. Falla si algún archivo no sigue Prettier                                                                                   | En el CI                                |
-| `pnpm test`          | Ejecuta con Vitest las pruebas unitarias, de componentes y de integración de todos los paquetes que tienen `vitest.config.ts`                                     | Antes de cada commit y en el CI         |
+| `pnpm test`          | Ejecuta con Vitest las pruebas unitarias, de componentes y de integración de todos los paquetes que tienen `vitest.config.{ts,js}`                                | Antes de cada commit y en el CI         |
 | `pnpm test:coverage` | Lo mismo, midiendo la cobertura con v8. Falla si `lib/`, `db/`, `sync/` o los hooks bajan del 80 % (D-75, D-157)                                                  | Antes de abrir una PR y en el CI        |
 | `pnpm test:e2e`      | Prueba de humo (`@humo`) con Playwright + axe en Chromium. Compila la app y la sirve con `vite preview` (D-156). Los navegadores se instalan antes: ver el README | Antes de abrir una PR y en el CI        |
 | `pnpm test:e2e:full` | Todas las pruebas E2E en Chromium y WebKit                                                                                                                        | Cada noche y antes de cada versión      |

@@ -16,8 +16,9 @@ const CORE_LOGIC = [
 
 export default defineConfig({
   test: {
-    // A package joins the test run when it has its own vitest.config.ts.
-    projects: ['apps/*/vitest.config.ts', 'packages/*/vitest.config.ts'],
+    // A package joins the test run when it has its own vitest.config (.js in
+    // packages/config, which has no tsconfig).
+    projects: ['apps/*/vitest.config.ts', 'packages/*/vitest.config.{ts,js}'],
     coverage: {
       provider: 'v8',
       include: CORE_LOGIC,

@@ -9,7 +9,7 @@ Decidido en D-138, D-139 y D-140. Una sesión de Claude Code por issue, en el or
 - **Etiquetas:** `tipo:` (historia, bug, tarea), `prio:` (must, should, could), `area:` (app, db, content, infra, docs) y `epica:EP-01` … `epica:EP-11`.
 - **Dependencias:** con la relación nativa _blocked by_ de GitHub, no con etiquetas.
 - **Project «Lexis»:** vista _Backlog_ (por milestone y prioridad, con bloqueos y progreso de sub-issues) y vista _Tablero_ (por estado).
-- **`main` protegida:** solo por PR, historial lineal, sin force push ni borrado, y solo _squash merge_. El check `ci` del CI (D-159) pasa a ser obligatorio cuando la desarrolladora lo añade al _ruleset_.
+- **`main` protegida:** solo por PR, historial lineal, sin force push ni borrado, y solo _squash merge_. Además, el check `ci` del CI tiene que estar en verde (D-159).
   - Lo aplica el _ruleset_ «main» del repositorio (Settings → Rules), sin excepciones: tampoco la administradora puede saltárselo.
   - El repositorio, además, solo permite _squash merge_ y borra la rama al fusionar.
   - Para comprobarlo: `gh api repos/Adrigarsu/lexis/rules/branches/main`. La API de protección clásica (`branches/main/protection`) responde «Branch not protected» aunque `main` esté protegida, porque no ve los rulesets.

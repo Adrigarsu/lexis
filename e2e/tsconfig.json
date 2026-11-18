@@ -1,6 +1,8 @@
 {
   "extends": "@lexis/config/tsconfig.base.json",
   "compilerOptions": {
+    // DOM types for the code that runs in the page (page.evaluate).
+    "lib": ["ES2023", "DOM"],
     "types": ["node"]
   },
   "include": ["*.ts"]

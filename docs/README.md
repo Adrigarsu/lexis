@@ -7,8 +7,8 @@ Fuente de verdad del producto desde el 12 de noviembre de 2026. Los documentos o
 | Archivo                                              | Contenido                                                                                                             |
 | ---------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
 | [producto/vision.md](producto/vision.md)             | Problema, usuario, objetivos y las cinco áreas del producto                                                           |
-| [producto/requisitos.md](producto/requisitos.md)     | SRS: introducción, descripción general, 89 requisitos funcionales (RF) y 35 no funcionales (RNF) con prioridad MoSCoW |
-| [producto/historias/](producto/historias/README.md)  | 73 historias de usuario en 11 épicas, con criterios Dado / Cuando / Entonces                                          |
+| [producto/requisitos.md](producto/requisitos.md)     | SRS: introducción, descripción general, 92 requisitos funcionales (RF) y 35 no funcionales (RNF) con prioridad MoSCoW |
+| [producto/historias/](producto/historias/README.md)  | 86 historias de usuario en 12 épicas, con criterios Dado / Cuando / Entonces                                          |
 | [producto/trazabilidad.md](producto/trazabilidad.md) | Qué historias y decisiones cubren cada requisito                                                                      |
 
 ## Arquitectura
@@ -16,7 +16,7 @@ Fuente de verdad del producto desde el 12 de noviembre de 2026. Los documentos o
 | Archivo                                                          | Contenido                                                   |
 | ---------------------------------------------------------------- | ----------------------------------------------------------- |
 | [arquitectura/arquitectura.md](arquitectura/arquitectura.md)     | Principios, visión general y mapa de decisiones             |
-| [adr/](adr/README.md)                                            | ADR-001 a ADR-026, uno por archivo, formato Nygard          |
+| [adr/](adr/README.md)                                            | ADR-001 a ADR-027, uno por archivo, formato Nygard          |
 | [arquitectura/rutas.md](arquitectura/rutas.md)                   | Rutas de React Router y acceso de cada una                  |
 | [arquitectura/sincronizacion.md](arquitectura/sincronizacion.md) | Cola de salida, subir y bajar, reglas de conflicto, errores |
 | [arquitectura/pruebas.md](arquitectura/pruebas.md)               | TDD y qué se prueba en cada uno de los seis niveles         |
@@ -44,5 +44,6 @@ Fuente de verdad del producto desde el 12 de noviembre de 2026. Los documentos o
 | ---------------------------------------------------------------- | ------------------------------------------------------ |
 | [decisiones.md](decisiones.md)                                   | Registro D-01 a D-139 y siguientes                     |
 | [proceso/flujo-trabajo.md](proceso/flujo-trabajo.md)             | Cómo se trabaja cada issue, varias PR, huecos, autoría |
+| [proceso/roadmap.md](proceso/roadmap.md)                         | Orden de los milestones y qué entra en cada uno        |
 | [proceso/convenciones.md](proceso/convenciones.md)               | Nombres, archivos, commits, ramas e idiomas            |
 | [proceso/definicion-de-hecho.md](proceso/definicion-de-hecho.md) | Qué tiene que cumplir una PR para fusionarse           |

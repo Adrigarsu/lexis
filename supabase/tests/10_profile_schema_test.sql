@@ -34,7 +34,7 @@ select col_hasnt_default('public', 'profile', 'new_per_day', 'new_per_day has no
 
 select col_default_is('public', 'profile', 'rest_days_per_week', '2', 'two rest days per week by default (D-36)');
 select col_type_is('public', 'profile', 'study_settings', 'jsonb', 'study_settings is jsonb');
-select col_default_is('public', 'profile', 'study_settings', '''{}''::jsonb', 'study_settings is empty by default');
+select col_default_is('public', 'profile', 'study_settings', '{}'::jsonb,'study_settings is empty by default');
 
 select col_type_is('public', 'profile', 'created_at', 'timestamp with time zone', 'created_at is a timestamptz');
 select col_type_is('public', 'profile', 'updated_at', 'timestamp with time zone', 'updated_at is a timestamptz');

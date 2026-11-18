@@ -1,5 +1,19 @@
 {
   "name": "@lexis/design-tokens",
   "version": "0.0.0",
-  "private": true
+  "private": true,
+  "type": "module",
+  "exports": {
+    "./tokens.css": "./dist/tokens.css",
+    "./theme.css": "./dist/theme.css"
+  },
+  "scripts": {
+    "build": "node src/cli.ts",
+    "typecheck": "tsc"
+  },
+  "devDependencies": {
+    "@lexis/config": "workspace:*",
+    "@types/node": "^26.6.6",
+    "typescript": "^7.0.2"
+  }
 }

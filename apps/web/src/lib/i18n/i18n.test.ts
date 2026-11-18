@@ -33,7 +33,11 @@ describe('i18n', () => {
   describe('formatting with Intl', () => {
     // Test-only texts, so no interface text is invented for this story.
     const TEST_NS = 'formatTest';
-    const t = i18n.getFixedT(null, TEST_NS);
+    // These keys are not in es.json, so they opt out of the typed keys on purpose.
+    const t = i18n.getFixedT(null, TEST_NS as never) as unknown as (
+      key: string,
+      options: object,
+    ) => string;
     i18n.addResourceBundle('es', TEST_NS, {
       amount: '{{value, number}}',
       day: '{{value, datetime(dateStyle: long)}}',

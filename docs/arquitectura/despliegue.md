@@ -45,7 +45,11 @@ El `ignoreCommand` compara el commit con el anterior. Si no cambia nada de esto,
 - `packages/`
 - `package.json`, `pnpm-lock.yaml` y `pnpm-workspace.yaml` de la raíz
 
-Así, una PR que solo toca `docs/`, `.claude/`, `supabase/`, `e2e/` o `.github/` no gasta compilaciones y no tiene vista previa. Si un día la web empieza a depender de otra carpeta, hay que añadirla al `ignoreCommand`.
+Así, una PR que solo toca `docs/`, `.claude/`, `supabase/`, `e2e/` o `.github/` no gasta compilaciones y no tiene vista previa.
+
+Solo cuenta el **último commit** que se sube (`HEAD^` frente a `HEAD`), no la PR entera. Si el último commit de una PR no toca la web, esa subida no tiene vista previa, aunque los commits anteriores sí la cambien. La vista previa de un commit anterior sigue en el panel de Vercel. Producción no se ve afectada, porque el _squash and merge_ deja en `main` un solo commit con todos los cambios. Se aceptó así en #47.
+
+Si un día la web empieza a depender de otra carpeta, hay que añadirla al `ignoreCommand`.
 
 ## Quién puede ver cada despliegue
 

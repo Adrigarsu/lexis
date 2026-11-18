@@ -9,7 +9,7 @@ Decidido en D-138, D-139 y D-140. Una sesión de Claude Code por issue, en el or
 - **Etiquetas:** `tipo:` (historia, bug, tarea), `prio:` (must, should, could), `area:` (app, db, content, infra, docs) y `epica:EP-01` … `epica:EP-11`.
 - **Dependencias:** con la relación nativa _blocked by_ de GitHub, no con etiquetas.
 - **Project «Lexis»:** vista _Backlog_ (por milestone y prioridad, con bloqueos y progreso de sub-issues) y vista _Tablero_ (por estado).
-- **`main` protegida:** solo por PR, historial lineal, sin force push ni borrado, y solo _squash merge_. Los checks del CI pasan a ser obligatorios cuando existen.
+- **`main` protegida:** solo por PR, historial lineal, sin force push ni borrado, y solo _squash merge_. El check `ci` del CI (D-159) pasa a ser obligatorio cuando la desarrolladora lo añade al _ruleset_.
   - Lo aplica el _ruleset_ «main» del repositorio (Settings → Rules), sin excepciones: tampoco la administradora puede saltárselo.
   - El repositorio, además, solo permite _squash merge_ y borra la rama al fusionar.
   - Para comprobarlo: `gh api repos/Adrigarsu/lexis/rules/branches/main`. La API de protección clásica (`branches/main/protection`) responde «Branch not protected» aunque `main` esté protegida, porque no ve los rulesets.
@@ -93,7 +93,7 @@ Decidido en D-77 y D-153. [`.github/dependabot.yml`](../../.github/dependabot.ym
 - **Qué propone:** una PR por ecosistema con todas las versiones menores y de parche juntas, y una PR suelta por cada versión mayor, que puede romper cosas. Como mucho tiene 5 PR abiertas por ecosistema.
 - **Cómo se ven:** títulos en Conventional Commits (`build(deps): …`, `build(deps-dev): …` y `ci(deps): …`), en inglés, con las etiquetas `tipo:tarea` y `area:infra`.
 - **Cómo se revisan:**
-  1. Hasta que exista el CI (#27), en local: `gh pr checkout <n>`, y después `pnpm install`, `pnpm build`, `pnpm lint`, `pnpm typecheck` y `pnpm format:check`. Cuando exista el CI, basta con que esté en verde.
+  1. Basta con que el CI esté en verde (D-159). Si falla y no se ve por qué, en local: `gh pr checkout <n>`, `pnpm install` y el paso que falló.
   2. En las versiones mayores, además, se lee el changelog de la dependencia antes de fusionar.
   3. Si algo falla, no se fusiona: se cierra la PR o se abre una issue para adaptar el código.
 - **Cómo se fusionan:** _squash and merge_, como cualquier PR, y lo hace la desarrolladora.

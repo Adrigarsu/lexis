@@ -42,7 +42,29 @@ pnpm exec supabase stop               # para los contenedores
 
 Lexis usa los puertos 553xx (API en 55321, Postgres en 55322 y Studio en 55323) en lugar de los 543xx de Supabase, para poder convivir con otros proyectos de Supabase locales. Si otro proyecto ocupa un puerto, `supabase start` falla con «port is already allocated»: páralo con `pnpm exec supabase stop --project-id <nombre>`.
 
-Las variables de entorno van en un `.env.local` en la raíz, copiado de [`.env.example`](.env.example). En local, sus valores salen de `supabase status`. Los archivos `.env` nunca se suben al repositorio. El proyecto de Supabase en la nube todavía no existe: se creará con la issue que conecte la app.
+Las variables de entorno van en un `.env.local` en la raíz, copiado de [`.env.example`](.env.example). En local, sus valores salen de `supabase status`. Los archivos `.env` nunca se suben al repositorio.
+
+### Supabase en la nube
+
+El proyecto de Supabase está en el plan gratuito, en la región de Irlanda (`eu-west-1`) (D-17, RNF-16). Sus claves no están en el repositorio: viven en el panel de Supabase y en el _environment_ `production` de GitHub, que solo puede usar la rama `main` (D-168):
+
+| Secreto                 | Qué es                                                     | Lo usa      |
+| ----------------------- | ---------------------------------------------------------- | ----------- |
+| `SUPABASE_ACCESS_TOKEN` | _Access token_ personal de Supabase                        | `deploy-db` |
+| `SUPABASE_PROJECT_ID`   | Referencia del proyecto (los 20 caracteres de su URL)      | `deploy-db` |
+| `SUPABASE_DB_URL`       | Cadena de conexión del _session pooler_, con la contraseña | `keepalive` |
+
+- **Desplegar migraciones.** No se hace a mano: al fusionar en `main` una PR que cambia `supabase/migrations/` o `supabase/config.toml`, el workflow [`deploy-db`](.github/workflows/deploy-db.yml) ejecuta `supabase db push` y `supabase config push` contra el proyecto. También se lanza desde la pestaña Actions o con `gh workflow run deploy-db.yml`. Para ver antes qué cambiaría, con `pnpm exec supabase login` hecho una vez:
+
+  ```bash
+  pnpm exec supabase migration list --remote=<referencia>   # migraciones en local y en la nube
+  pnpm exec supabase db push --remote=<referencia> --dry-run
+  pnpm exec supabase config diff --remote=<referencia>
+  ```
+
+- **Configuración de la nube.** `supabase/config.toml` está pensado para local; el bloque `[remotes.production]` del final fija para la nube sus propios valores (confirmación del email, MFA, OTP, pooler…). Si cambias un ajuste de Auth, decide si va arriba, en el bloque de la nube o en los dos, y compruébalo con `config diff`.
+- **Registro cerrado.** `enable_signup = false` en `supabase/config.toml` (D-163), también en local: las cuentas se dan de alta a mano en el panel.
+- **Que no se pause.** El plan gratuito pausa el proyecto tras 7 días sin uso. El workflow [`keepalive`](.github/workflows/keepalive.yml) hace cada día un `select 1` (D-71). Si falla, GitHub manda un email: comprueba en el panel que el proyecto no está pausado (si lo está, se reactiva con «Restore») y que `SUPABASE_DB_URL` sigue siendo válida, y relánzalo con `gh workflow run keepalive.yml`. GitHub desactiva los workflows programados tras 60 días sin actividad en el repositorio; si pasa, se reactiva en la pestaña Actions.
 
 `pnpm install` instala también los hooks de Git con Lefthook: en cada commit, commitlint revisa el mensaje, se rechaza cualquier firma de Claude, Prettier formatea los archivos preparados y ESLint los comprueba. Los demás comandos (`pnpm lint`, `pnpm typecheck`, `pnpm format`…) están en [convenciones.md](docs/proceso/convenciones.md#comandos).
 

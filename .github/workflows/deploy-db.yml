@@ -1,0 +1,57 @@
+# Deploys the database to the Supabase cloud project (HU-75, D-167): applies the
+# new migrations and pushes supabase/config.toml (for example, closed sign-up,
+# D-163). Runs on every push to main that changes them, or by hand.
+# Secrets live in the GitHub environment "production", never in the repository.
+# The CLI targets the project with --remote, so no `supabase link` is needed,
+# and the access token is enough without the database password.
+name: Deploy database
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - supabase/migrations/**
+      - supabase/config.toml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+# Never cancel a deploy halfway; queue the next one instead.
+concurrency:
+  group: deploy-db
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    environment: production
+    env:
+      SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
+      SUPABASE_PROJECT_ID: ${{ secrets.SUPABASE_PROJECT_ID }}
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      # No version here: it reads packageManager from package.json (ADR-024).
+      - name: Set up pnpm
+        uses: pnpm/action-setup@73e46992e05b19abd31f2f3c20e0e7370d762115 # v6.1.1
+
+      - name: Set up Node.js
+        uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version-file: .nvmrc
+          cache: pnpm
+
+      # The Supabase CLI is a root devDependency with an exact version (D-158).
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Apply new migrations
+        run: pnpm exec supabase db push --remote="$SUPABASE_PROJECT_ID" --yes
+
+      - name: Push the project configuration
+        run: pnpm exec supabase config push --remote="$SUPABASE_PROJECT_ID" --yes

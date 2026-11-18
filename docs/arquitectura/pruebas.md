@@ -25,6 +25,8 @@ Cada prueba lleva el ID de su historia en el nombre (`HU-12 rates the card with 
 
 Además, antes de cada versión se revisa a mano con VoiceOver (RNF-21), porque ninguna herramienta automática detecta todos los problemas de accesibilidad.
 
+Las pruebas de base de datos viven en `supabase/tests/` y se ejecutan con `pnpm test:db` sobre la base local (D-158). Para probar una política RLS, la prueba crea usuarios en `auth.users` y se hace pasar por uno con `set local role authenticated` y `set_config('request.jwt.claims', '{"sub": "<uuid>"}', true)`, o por un visitante con `set local role anon`. `01_rls_enabled_test.sql` falla si alguna tabla de `public` no tiene RLS.
+
 Las pruebas E2E viven en el paquete `e2e/` (D-156). Playwright compila la app y la sirve con `vite preview`, igual que se publica. Las pruebas de humo llevan la etiqueta `@humo`: `pnpm test:e2e` ejecuta solo esas en Chromium, y `pnpm test:e2e:full`, todas en Chromium y WebKit.
 
 Orden en el CI: lint y tipos → unitarias, componentes e integración → base de datos → build → E2E de humo y Lighthouse. Si un paso falla, los siguientes no corren. El CI es [`.github/workflows/ci.yml`](../../.github/workflows/ci.yml) (D-159): un solo job `ci` en cada PR y en cada push a `main`, que ejecuta `pnpm lint`, `pnpm format:check`, `pnpm typecheck`, `pnpm test:coverage`, `pnpm test:db` (solo con Postgres, `supabase db start`), `pnpm build` y `pnpm test:e2e`, en menos de 10 minutos (D-77). Lighthouse CI se añadirá con su issue. La cobertura se mide con Vitest y se exige el 80 % solo en `lib/`, `db/`, `sync/` y los hooks de cada funcionalidad.

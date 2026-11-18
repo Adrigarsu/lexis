@@ -10,7 +10,7 @@ Convenciones: rutas en español porque las ve el usuario, en minúsculas con gui
 | --------------------------------------------- | ----------------------------------------------------------------------------------------- | ------------------------------------ |
 | `/`                                           | Redirige a `/hoy` o a `/entrar`                                                           | Pública                              |
 | `/entrar`                                     | Iniciar sesión                                                                            | Solo sin sesión                      |
-| `/registro`                                   | Crear cuenta                                                                              | Solo sin sesión                      |
+| `/registro`                                   | Crear cuenta (no se ofrece hasta el milestone 5, D-163)                                   | Solo sin sesión                      |
 | `/verificar`                                  | Verificar email                                                                           | Sesión sin verificar                 |
 | `/recuperar`                                  | Recuperar la contraseña                                                                   | Solo sin sesión                      |
 | `/nueva-clave`                                | Contraseña nueva                                                                          | Enlace de un solo uso                |

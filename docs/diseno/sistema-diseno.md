@@ -85,7 +85,7 @@ Sistema tradicional: 1.º rojo, 2.º naranja, 3.º verde, 4.º azul y neutro gri
 Corto y funcional. Se respeta `prefers-reduced-motion`: en ese caso, sin desplazamientos, solo cambios de opacidad.
 
 - Rápido, 120 ms: estados de botón, interruptores.
-- Base, 200 ms: girar la tarjeta, abrir una hoja inferior.
+- Base, 200 ms: mostrar la corrección de una tarjeta, abrir una hoja inferior. La tarjeta de significado ya no gira (D-162).
 - Lento, 320 ms: aparición de diálogos y del aviso de desbloqueo.
 - Curva estándar: `cubic-bezier(0.2, 0, 0, 1)`.
 - La animación del orden de trazos la marca Hanzi Writer y se puede repetir o pausar.

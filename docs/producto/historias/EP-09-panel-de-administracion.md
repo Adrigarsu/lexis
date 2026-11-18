@@ -1,5 +1,7 @@
 # EP-09 · Panel de administración
 
+Primero llega un panel sencillo, en el milestone 3 y antes que el estudio (D-164): HU-51, HU-53, HU-57 y la parte de publicar de HU-58, solo para palabras y caracteres y usado solo por la desarrolladora con rol Admin. De HU-61, al principio solo se guarda el registro con triggers (HU-83), sin pantalla ni «Deshacer». El rol Editor, la gramática, las lecturas y el resto de historias llegan más tarde ([roadmap](../../proceso/roadmap.md)).
+
 ## HU-51 · Entrar al panel como administrador
 
 Must · RF-69
@@ -24,6 +26,8 @@ Must · RF-71
 Como administrador, quiero crear y editar palabras y caracteres, para mantener el contenido correcto.
 
 - Dado que edito una palabra (caracteres, pinyin, significado, ejemplo, radical, componentes), cuando la guardo, entonces los estudiantes ven el cambio en su siguiente sincronización y su progreso no se pierde.
+- Dado que edito una acepción, cuando le añado sinónimos, entonces la práctica de significado los acepta como respuesta (D-162).
+- Dado que edito un carácter, cuando elijo su categoría gramatical, entonces la práctica de significado la usa para elegir los distractores (D-162).
 
 ## HU-54 · Gestionar la gramática
 

@@ -74,6 +74,10 @@ pnpm test:e2e:full   # todas las pruebas en Chromium y WebKit
 
 Los informes quedan en `e2e/playwright-report/` (se abren con `pnpm --filter @lexis/e2e exec playwright show-report`).
 
+### Integración continua
+
+Cada PR y cada push a `main` pasan por el CI de GitHub Actions ([`.github/workflows/ci.yml`](.github/workflows/ci.yml)): lint, formato y tipos, pruebas con cobertura, pgTAP, build y E2E de humo en Chromium, en ese orden. Si un paso falla, el resto no corre y, si falla el E2E, el informe de Playwright se descarga desde la ejecución (artefacto `playwright-report`).
+
 ## Licencia
 
 Código bajo licencia [MIT](LICENSE). Los datos de terceros (vocabulario, trazos, audio) tendrán su propia licencia y atribución en `NOTICE`; el contenido propio (significados, frases, lecturas y gramática), CC BY-SA 4.0.

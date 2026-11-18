@@ -18,6 +18,21 @@ export interface OutboxEntry {
   createdAt: string;
 }
 
+/**
+ * The local database of one account (ADR-003). Each story that needs new
+ * tables adds a new `this.version(n)` below with only its changes, plus an
+ * `.upgrade()` when existing rows have to be migrated. Never edit a version
+ * that has shipped.
+ */
 export class LexisDb extends Dexie {
   declare outbox: EntityTable<OutboxEntry, 'seq'>;
+
+  constructor(name: string) {
+    super(name);
+
+    // v1 (HU-80): the outbox of the sync queue, indexed by table.
+    this.version(1).stores({
+      outbox: '++seq, table',
+    });
+  }
 }

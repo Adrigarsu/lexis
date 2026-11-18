@@ -3,10 +3,15 @@
   "version": "0.0.0",
   "private": true,
   "type": "module",
+  "scripts": {
+    "typecheck": "tsc"
+  },
   "exports": {
     "./tsconfig.base.json": "./tsconfig.base.json",
     "./eslint.config.js": "./eslint.config.js",
-    "./prettier.config.js": "./prettier.config.js"
+    "./prettier.config.js": "./prettier.config.js",
+    "./stylelint.config.js": "./stylelint.config.js",
+    "./colors.js": "./colors.js"
   },
   "dependencies": {
     "@eslint-react/eslint-plugin": "^5.30.2",

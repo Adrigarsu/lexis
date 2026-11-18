@@ -9,7 +9,7 @@
   "scripts": {
     "dev": "pnpm --filter @lexis/design-tokens build && pnpm --filter @lexis/web dev",
     "build": "pnpm -r build",
-    "lint": "eslint .",
+    "lint": "eslint . && stylelint \"**/*.css\"",
     "typecheck": "pnpm -r --if-present typecheck",
     "format": "prettier --write .",
     "format:check": "prettier --check .",

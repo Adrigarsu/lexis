@@ -1,6 +1,7 @@
 @import 'tailwindcss';
 @import '@lexis/design-tokens/tokens.css';
 @import '@lexis/design-tokens/theme.css';
+@import './fonts.css';
 
 @layer base {
   body {

@@ -101,4 +101,4 @@ Decidido en D-77 y D-153. [`.github/dependabot.yml`](../../.github/dependabot.ym
 
 ## Servicios externos
 
-Supabase, Vercel, Sentry y Turnstile se crean cuando llega la issue que los necesita, no antes: un proyecto de Supabase sin uso se pausa a los 7 días. Sus claves viven en los paneles de cada servicio y en los secretos de GitHub, nunca en el repositorio.
+Supabase, Vercel, Sentry y Turnstile se crean cuando llega la issue que los necesita, no antes: un proyecto de Supabase sin uso se pausa a los 7 días. Sus claves viven en los paneles de cada servicio y en los secretos de GitHub, nunca en el repositorio. Vercel ya existe: cómo se despliega está en [despliegue.md](../arquitectura/despliegue.md) (D-167).

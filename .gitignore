@@ -148,6 +148,9 @@ vite.config.ts.timestamp-*
 # Turbo Repo
 .turbo
 
+# Vercel CLI project link (D-167)
+.vercel
+
 # Playwright (e2e/)
 e2e/test-results/
 e2e/playwright-report/

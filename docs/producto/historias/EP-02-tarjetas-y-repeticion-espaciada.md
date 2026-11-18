@@ -20,16 +20,24 @@ Como estudiante, quiero pulsar un solo botón para hacer mi sesión del día, pa
 - Dado que tengo activado el calentamiento de tonos, cuando empieza la sesión, entonces hago 1 o 2 minutos de ejercicios de tonos antes de las tarjetas.
 - Dado que alcanzo mis minutos objetivo o no quedan tarjetas, cuando termino la tarjeta en curso, entonces veo un resumen de la sesión y puedo seguir si quiero.
 
-## HU-12 · Repasar el significado
+## HU-12 · Practicar el significado
 
-Must · RF-14, RF-15
+Must · RF-14, RF-15, RF-77, RF-84, RF-90, RF-91
 
-Como estudiante, quiero valorar cuánto me acordaba de una palabra, para que el siguiente repaso llegue en el momento justo.
+Como estudiante, quiero responder qué significa una palabra, eligiéndolo o escribiéndolo según lo bien que la sé, para que el siguiente repaso llegue en el momento justo.
 
-- Dado que veo los caracteres de una palabra, cuando giro la tarjeta, entonces veo el significado y los botones Otra vez, Difícil, Bien y Fácil, cada uno con el tiempo hasta el próximo repaso.
-- Dado que pulso un botón, cuando se guarda, entonces FSRS programa el siguiente repaso y la tarjeta desaparece de la sesión (salvo "Otra vez", que vuelve en la misma sesión).
-- Dado que uso teclado, cuando pulso las teclas 1 a 4, entonces valoro igual que con los botones.
-- Dado un carácter que cambia de significado al combinarse (打 dǎ: pegar; 打电话: llamar por teléfono), cuando giro su tarjeta, entonces veo solo su significado suelto; 打电话 tiene su propia tarjeta (RF-77).
+- Dada una palabra en el nivel 1, cuando aparece su tarjeta, entonces elijo el significado entre 4 opciones; las otras 3 son palabras del HSK 1 de la misma categoría gramatical y ninguna es sinónimo de la correcta. En el nivel 2, elijo entre 6.
+- Dada una palabra en el nivel 3 o 4, cuando aparece su tarjeta, entonces escribo el significado; en el nivel 3 puedo pedir una pista que me muestra la primera letra.
+- Dado que escribo cualquier acepción o sinónimo guardado, aunque sea sin tildes, en mayúsculas o con artículo («El té» para 茶), cuando compruebo, entonces la respuesta es exacta y la app propone Bien.
+- Dado que escribo una respuesta con erratas dentro del margen (ninguna hasta 3 letras, 1 de 4 a 7 letras y 2 desde 8) o he usado la pista, cuando compruebo, entonces la app propone Difícil.
+- Dado que escribo una respuesta que coincide con el significado de otra palabra del HSK 1 («tú» para 我), cuando compruebo, entonces es un fallo.
+- Dado que elijo entre opciones, cuando acierto, entonces la app propone Bien; y cuando fallo, Otra vez.
+- Dado que fallo, cuando se corrige, entonces veo todas las acepciones correctas y la propuesta Otra vez.
+- Dada la propuesta, cuando pulso otro de los botones Otra vez, Difícil, Bien o Fácil (teclas 1 a 4 en escritorio), entonces se guarda la que yo elijo; cada botón muestra el tiempo hasta el próximo repaso.
+- Dada la valoración final, cuando se guarda, entonces FSRS programa el siguiente repaso y la tarjeta desaparece de la sesión (salvo «Otra vez», que vuelve en la misma sesión).
+- Dados 3 aciertos seguidos con Bien o Fácil, cuando se guarda el último, entonces la palabra sube un nivel; Difícil ni suma ni baja, y Otra vez la baja un nivel (RF-84).
+- Dado que estoy sin conexión, cuando respondo, entonces la respuesta se corrige igual en el dispositivo.
+- Dado un carácter que cambia de significado al combinarse (打 dǎ: pegar; 打电话: llamar por teléfono), cuando respondo su tarjeta, entonces solo cuenta su significado suelto; 打电话 tiene su propia tarjeta (RF-77).
 
 ## HU-13 · Desbloquear escritura y pronunciación
 

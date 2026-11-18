@@ -49,6 +49,8 @@ El contenido de Lexis lo editan Editor y Admin y lo leen todos los usuarios cuan
 
 **Una palabra de un carácter (好)** tiene su fila en `word` y otra en `character`. La app las muestra como una sola ficha y solo crea prácticas para el carácter, así el progreso no se duplica.
 
+**Pendiente (D-162):** la práctica de significado necesita que cada acepción guarde sus sinónimos por idioma y que `character` tenga su propia categoría gramatical. Las columnas se deciden con un ADR nuevo en la historia de las tablas de contenido (HU-83).
+
 ## Datos de cada estudiante (9 tablas)
 
 Cada fila lleva `user_id` y solo la ve su dueño. Los historiales (`review_log`, `reading_attempt`, `tone_attempt`) solo crecen: nunca se editan ni se borran, salvo al borrar la cuenta. Sincronizarlos es juntar filas, sin conflictos (D-72).

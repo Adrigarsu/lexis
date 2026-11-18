@@ -2,7 +2,7 @@
 
 > Origen: «Lexis · Especificación de requisitos (SRS), sección 5» en claude.ai, exportado el 12 de noviembre de 2026. Desde ahora la fuente de verdad es este archivo.
 
-El comportamiento se describe con historias de usuario agrupadas en épicas, una por módulo. Cada historia sigue el formato "Como …, quiero …, para …", indica los requisitos de los que sale y tiene criterios de aceptación en formato Dado / Cuando / Entonces, que después se convierten en tests. Cada historia será una issue de GitHub.
+El comportamiento se describe con historias de usuario agrupadas en épicas, una por módulo. Cada historia sigue el formato "Como …, quiero …, para …", indica los requisitos de los que sale y tiene criterios de aceptación en formato Dado / Cuando / Entonces, que después se convierten en tests. Cada historia será una issue de GitHub. Las historias de EP-12 son técnicas, desde el punto de vista de la desarrolladora (D-165).
 
 | Épica | Módulo                            |
 | ----- | --------------------------------- |
@@ -17,6 +17,7 @@ El comportamiento se describe con historias de usuario agrupadas en épicas, una
 | EP-09 | Panel de administración           |
 | EP-10 | Sincronización y uso sin conexión |
 | EP-11 | Progresión y motivación           |
+| EP-12 | Plataforma                        |
 
 | Épica                                     | Archivo                                                                                  | Historias                                                                                 |
 | ----------------------------------------- | ---------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
@@ -31,3 +32,4 @@ El comportamiento se describe con historias de usuario agrupadas en épicas, una
 | EP-09 · Panel de administración           | [EP-09-panel-de-administracion.md](EP-09-panel-de-administracion.md)                     | HU-51, HU-52, HU-53, HU-54, HU-55, HU-56, HU-57, HU-58, HU-59, HU-60, HU-61, HU-62, HU-63 |
 | EP-10 · Sincronización y uso sin conexión | [EP-10-sincronizacion-y-uso-sin-conexion.md](EP-10-sincronizacion-y-uso-sin-conexion.md) | HU-64, HU-65, HU-66, HU-67                                                                |
 | EP-11 · Progresión y motivación           | [EP-11-progresion-y-motivacion.md](EP-11-progresion-y-motivacion.md)                     | HU-68, HU-69                                                                              |
+| EP-12 · Plataforma                        | [EP-12-plataforma.md](EP-12-plataforma.md)                                               | HU-74, HU-75, HU-76, HU-77, HU-78, HU-79, HU-80, HU-81, HU-82, HU-83, HU-84, HU-85, HU-86 |

@@ -1,5 +1,11 @@
 # EP-01 · Cuenta y primer uso
 
+Al principio el registro está cerrado (D-163, ADR-027): las cuentas las da de alta la desarrolladora en Supabase (HU-81). Por eso el orden de los milestones ([roadmap](../../proceso/roadmap.md)) es:
+
+- **Milestone 2:** HU-03, sin el criterio del CAPTCHA.
+- **Milestone 4:** HU-05 y HU-06, con la primera sesión de estudio.
+- **Milestone 5, con el registro abierto:** HU-01, HU-02, HU-04, HU-07, HU-08, HU-09 y el CAPTCHA de HU-03.
+
 ## HU-01 · Registrarme
 
 Must · RF-01, RF-02, RNF-10, RNF-11
@@ -28,7 +34,7 @@ Como estudiante, quiero iniciar y cerrar sesión, para usar mi cuenta en varios 
 
 - Dadas unas credenciales correctas, cuando inicio sesión, entonces veo el panel de inicio con mi progreso.
 - Dadas unas credenciales incorrectas, cuando inicio sesión, entonces veo un mensaje genérico que no revela si el email existe.
-- Dados 5 intentos fallidos seguidos, cuando lo intento de nuevo, entonces se me pide un CAPTCHA.
+- Dados 5 intentos fallidos seguidos, cuando lo intento de nuevo, entonces se me pide un CAPTCHA (milestone 5, D-163).
 - Dado que cierro sesión, cuando otra persona abre la app en ese dispositivo, entonces no ve ninguno de mis datos.
 
 ## HU-04 · Recuperar mi contraseña

@@ -3,7 +3,7 @@
 | Archivo              | Qué es                                                                                                                                                                                    | Quién lo usa                                                 |
 | -------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------ |
 | `tsconfig.base.json` | TypeScript estricto: `strict`, `noUncheckedIndexedAccess` e `isolatedModules`                                                                                                             | El `tsconfig.json` de cada paquete con código, con `extends` |
-| `eslint.config.js`   | ESLint 10 _flat_: typescript-eslint con tipos, `@eslint-react`, `react-hooks`, `jsx-a11y`, `i18next/no-literal-string` (textos fijos en JSX como error, D-168) y `eslint-config-prettier` | `eslint.config.js` de la raíz                                |
+| `eslint.config.js`   | ESLint 10 _flat_: typescript-eslint con tipos, `@eslint-react`, `react-hooks`, `jsx-a11y`, `i18next/no-literal-string` (textos fijos en JSX como error, D-169) y `eslint-config-prettier` | `eslint.config.js` de la raíz                                |
 | `prettier.config.js` | Prettier por defecto con comillas simples                                                                                                                                                 | `prettier.config.js` de la raíz                              |
 
 Un paquete nuevo con código:

@@ -2,7 +2,7 @@
 
 - **Estado:** Aceptado
 - **Fecha:** 2026-11-18
-- **Registro:** D-168
+- **Registro:** D-169
 
 - **Contexto:** [ADR-012](0012-i18next.md) elige i18next, y RNF-33 prohíbe escribir textos de la interfaz en el código. Pero nada impedía escribir uno a mano, y una clave mal escrita solo se descubría al verla en pantalla.
 - **Decisión:**
